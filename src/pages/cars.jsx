@@ -162,8 +162,8 @@ export default function Cars() {
 						<p className="text-white">Navigation</p>
 						<Link to="/" className="block">Home</Link>
 						<Link to="/cars" className="block">Our Cars</Link>
-						<p>Warranty</p>
-						<p>Finance</p>
+						<Link to="/warranty" className="block">Warranty</Link>
+						<Link to="/finance" className="block">Finance</Link>
 						<p>About</p>
 					</div>
 
