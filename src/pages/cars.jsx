@@ -76,7 +76,7 @@ export default function Cars() {
 
 			<main className="mx-auto max-w-[1240px] px-5 py-10 md:px-8 md:py-14">
 				<section className="space-y-8">
-					<h1 className="text-center text-4xl font-semibold text-white md:text-6xl">Quality Used Cars for Sale</h1>
+					<h1 className="text-center text-3xl font-semibold text-white sm:text-4xl md:text-6xl">Quality Used Cars for Sale</h1>
 
 					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
 						{filterItems.map((item) => (
@@ -93,9 +93,9 @@ export default function Cars() {
 				</section>
 
 				<section className="mt-14">
-					<div className="mb-8 flex items-center justify-between">
+					<div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
 						<div>
-							<h2 className="text-3xl font-semibold text-white md:text-5xl">Explore Our Collection</h2>
+							<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Explore Our Collection</h2>
 							<p className="mt-2 text-sm text-zinc-400">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
@@ -109,7 +109,7 @@ export default function Cars() {
 								<img src={car.image} alt={car.name} className="h-52 w-full object-cover" />
 								<div className="space-y-3 p-4">
 									<div className="flex items-start justify-between gap-3">
-										<h3 className="text-3xl font-medium text-white md:text-2xl">{car.name}</h3>
+										<h3 className="text-xl font-medium text-white sm:text-2xl">{car.name}</h3>
 										<button className="pt-1 text-xs text-zinc-300">View Details ›</button>
 									</div>
 									<p className="text-xs text-zinc-400">{car.details}</p>
@@ -120,7 +120,7 @@ export default function Cars() {
 											</span>
 										))}
 									</div>
-									<p className="pt-1 text-4xl font-medium text-white md:text-3xl">{car.price}</p>
+									<p className="pt-1 text-2xl font-medium text-white md:text-3xl">{car.price}</p>
 								</div>
 							</article>
 						))}
@@ -143,7 +143,7 @@ export default function Cars() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
-					<h2 className="text-3xl font-semibold text-white md:text-5xl">Find Your Next Car Today</h2>
+					<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
 					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
 				</div>
 			</section>

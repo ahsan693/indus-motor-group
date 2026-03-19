@@ -10,8 +10,8 @@ export default function Details() {
         <div className="space-y-4">
           <Link to="/" className="text-sm text-zinc-400 hover:text-white">← Back to Home</Link>
           <p className="text-sm text-zinc-500">Home › Cars › Volkswagen Golf</p>
-          <h1 className="text-4xl font-semibold text-white md:text-6xl">Volkswagen Golf</h1>
-          <p className="text-3xl font-semibold text-white">€11,950</p>
+          <h1 className="text-3xl font-semibold text-white sm:text-4xl md:text-6xl">Volkswagen Golf</h1>
+          <p className="text-2xl font-semibold text-white md:text-3xl">€11,950</p>
           <p className="max-w-3xl text-zinc-400">
             Well-maintained and reliable hatchback with excellent comfort, efficiency, and everyday practicality.
           </p>
@@ -21,11 +21,11 @@ export default function Details() {
           <img
             src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=1800&q=80"
             alt="Volkswagen Golf"
-            className="h-[420px] w-full rounded-2xl border border-zinc-800 object-cover"
+            className="h-64 w-full rounded-2xl border border-zinc-800 object-cover sm:h-80 md:h-[420px]"
           />
 
           <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-            <h2 className="mb-4 text-2xl font-semibold text-white">Vehicle Specifications</h2>
+            <h2 className="mb-4 text-xl font-semibold text-white md:text-2xl">Vehicle Specifications</h2>
             <div className="space-y-3 text-sm">
               <div className="flex items-center justify-between border-b border-zinc-800 pb-2"><span className="text-zinc-500">Year</span><span className="text-white">2014</span></div>
               <div className="flex items-center justify-between border-b border-zinc-800 pb-2"><span className="text-zinc-500">Mileage</span><span className="text-white">124,000 km</span></div>

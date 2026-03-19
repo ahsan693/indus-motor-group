@@ -82,8 +82,8 @@ const whyChooseCards = [
 export function Navbar({ overlay = false }) {
   return (
     <header className={overlay ? 'absolute inset-x-0 top-0 z-20 border-b border-white/10' : 'border-b border-zinc-800'}>
-      <div className="mx-auto flex max-w-[1240px] items-center justify-between px-5 py-5 md:px-8">
-        <Link to="/" className="text-sm font-semibold leading-tight text-white">
+      <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-3 px-4 py-4 sm:px-5 md:flex-nowrap md:px-8 md:py-5">
+        <Link to="/" className="shrink-0 text-xs font-semibold leading-tight text-white sm:text-sm">
           INDUS MOTOR GROUP
         </Link>
 
@@ -98,12 +98,21 @@ export function Navbar({ overlay = false }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Link to="/details" className="rounded-full border border-zinc-500 px-4 py-2 text-xs font-medium text-white">
+        <div className="ml-auto flex items-center gap-2">
+          <Link to="/details" className="rounded-full border border-zinc-500 px-3 py-1.5 text-[11px] font-medium text-white sm:px-4 sm:py-2 sm:text-xs">
             Details
           </Link>
-          <button className="rounded-full bg-white px-5 py-2 text-xs font-medium text-black">Contact Us</button>
+          <button className="rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
         </div>
+
+        <nav className="flex w-full items-center gap-2 overflow-x-auto pb-1 text-[11px] text-zinc-300 md:hidden">
+          <Link to="/" className="rounded-full border border-zinc-700 px-3 py-1.5 whitespace-nowrap">Home</Link>
+          {navItems.map((item) => (
+            <Link key={item.label} to={item.to} className="rounded-full border border-zinc-700 px-3 py-1.5 whitespace-nowrap">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   )
@@ -116,17 +125,17 @@ export default function Home() {
         <img
           src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=2200"
           alt="Luxury SUV"
-          className="h-[620px] w-full object-cover"
+          className="h-[560px] w-full object-cover sm:h-[620px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black"></div>
 
         <Navbar overlay />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-[1240px] flex-col px-5 pb-12 md:px-8 md:pb-16">
+        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-[1240px] flex-col px-5 pb-10 sm:pb-12 md:px-8 md:pb-16">
           <span className="mb-5 w-fit rounded-full border border-zinc-500/60 bg-black/35 px-4 py-2 text-xs text-zinc-100">
             Drive Away with Confidence
           </span>
-          <h1 className="max-w-[560px] text-4xl font-semibold leading-tight text-white md:text-6xl">
+          <h1 className="max-w-[560px] text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl">
             Quality Used Cars in Ireland
           </h1>
           <p className="mt-4 max-w-[540px] text-sm leading-6 text-zinc-300">
@@ -138,10 +147,10 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-[1240px] space-y-24 px-5 py-14 md:px-8 md:py-20">
+      <main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-24 md:px-8 md:py-20">
         <section>
-          <div className="mb-7 flex items-center justify-between">
-            <h2 className="text-3xl font-semibold text-white md:text-5xl">Featured Cars</h2>
+          <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Featured Cars</h2>
             <button className="rounded-full border border-zinc-700 px-5 py-2 text-xs text-zinc-100">View All Cars</button>
           </div>
 
@@ -170,11 +179,11 @@ export default function Home() {
         <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 md:p-10">
           <div className="mx-auto max-w-4xl text-center">
             <span className="rounded-full border border-zinc-700 px-3 py-1 text-[10px] text-zinc-300">Peace of Mind Included</span>
-            <h2 className="mt-4 text-3xl font-semibold text-white md:text-5xl">Warranty & Aftercare Protection</h2>
+            <h2 className="mt-4 text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Warranty & Aftercare Protection</h2>
           </div>
 
-          <div className="mt-8 grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
-            <div className="grid gap-7 md:grid-cols-[130px_1fr]">
+          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[1.2fr_1fr]">
+            <div className="grid gap-7 sm:grid-cols-[130px_1fr]">
               <div className="flex h-28 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900 text-center text-white">
                 <p className="text-lg font-semibold leading-tight">2 year<br />warranty</p>
               </div>
@@ -201,10 +210,10 @@ export default function Home() {
 
         <section className="text-center">
           <span className="rounded-full border border-zinc-700 px-3 py-1 text-[10px] text-zinc-300">Trusted by Drivers Across Ireland</span>
-          <h2 className="mt-4 text-3xl font-semibold text-white md:text-5xl">What Our Customers Say</h2>
+          <h2 className="mt-4 text-2xl font-semibold text-white sm:text-3xl md:text-5xl">What Our Customers Say</h2>
           <p className="mt-2 text-sm text-zinc-400">Real feedback from customers who purchased their vehicles from us.</p>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((item) => (
               <article key={item.name} className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5 text-left">
                 <p className="text-sm text-white">★★★★★</p>
@@ -222,7 +231,7 @@ export default function Home() {
         </section>
 
         <section>
-          <h2 className="mb-7 text-center text-3xl font-semibold text-white md:text-5xl">Why Choose Indus Motor Group</h2>
+          <h2 className="mb-7 text-center text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Why Choose Indus Motor Group</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {whyChooseCards.map((card) => (
               <article key={card.title} className="relative overflow-hidden rounded-2xl border border-zinc-800">
@@ -246,7 +255,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
-          <h2 className="text-3xl font-semibold text-white md:text-5xl">Find Your Next Car Today</h2>
+          <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
           <button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
         </div>
       </section>
