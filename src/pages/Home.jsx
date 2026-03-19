@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 
 const navItems = [
   { label: 'Our Cars', to: '/cars' },
-  { label: 'Warranty', to: '/cookie-policy' },
-  { label: 'Finance', to: '#' },
+  { label: 'Warranty', to: '/warranty' },
+  { label: 'Finance', to: '/finance' },
   { label: 'About', to: '#' },
 ]
 
@@ -274,9 +274,9 @@ export default function Home() {
             <p className="text-white">Navigation</p>
             <Link to="/" className="block">Home</Link>
             <Link to="/details" className="block">Details</Link>
-            <p>Our Cars</p>
-            <p>Warranty</p>
-            <p>Finance</p>
+            <Link to="/cars" className="block">Our Cars</Link>
+            <Link to="/warranty" className="block">Warranty</Link>
+            <Link to="/finance" className="block">Finance</Link>
             <p>About</p>
           </div>
 
