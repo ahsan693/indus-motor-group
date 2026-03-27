@@ -1,41 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useCars } from '../hooks/useCars'
+import { urlFor } from '../lib/sanity'
 
 const navItems = [
   { label: 'Our Cars', to: '/cars' },
   { label: 'Warranty', to: '/warranty' },
   { label: 'Finance', to: '/finance' },
   { label: 'About', to: '#' },
-]
-
-const featuredCars = [
-  {
-    name: 'Toyota Crown Hybrid',
-    details: '2020 · 68,000 km · Automatic · Hybrid',
-    tags: ['Automatic', 'Hybrid', '7 Seater', 'Low Mileage'],
-    price: '€24,950',
-    image: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  },
-  {
-    name: 'Toyota Crown Hybrid',
-    details: '2020 · 89,000 km · Automatic · Hybrid',
-    tags: ['Automatic', 'Hybrid', '7 Seater', 'Low Mileage'],
-    price: '€24,950',
-    image: 'https://images.pexels.com/photos/3752169/pexels-photo-3752169.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  },
-  {
-    name: 'Toyota Crown Hybrid',
-    details: '2020 · 58,000 km · Automatic · Hybrid',
-    tags: ['Automatic', 'Hybrid', '7 Seater', 'Low Mileage'],
-    price: '€24,950',
-    image: 'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  },
-  {
-    name: 'Toyota Crown Hybrid',
-    details: '2020 · 98,000 km · Automatic · Hybrid',
-    tags: ['Automatic', 'Hybrid', '7 Seater', 'Low Mileage'],
-    price: '€24,950',
-    image: 'https://images.pexels.com/photos/13220993/pexels-photo-13220993.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  },
 ]
 
 const testimonials = [
@@ -119,6 +90,8 @@ export function Navbar({ overlay = false }) {
 }
 
 export default function Home() {
+  const { cars: featuredCars, loading: carsLoading } = useCars({ featured: true })
+
   return (
     <div className="min-h-screen bg-black text-zinc-300">
       <section className="relative overflow-hidden border border-zinc-800">
@@ -151,29 +124,77 @@ export default function Home() {
         <section>
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Featured Cars</h2>
-            <button className="rounded-full border border-zinc-700 px-5 py-2 text-xs text-zinc-100">View All Cars</button>
+            <Link to="/cars" className="rounded-full border border-zinc-700 px-5 py-2 text-xs text-zinc-100">View All Cars</Link>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {featuredCars.map((car, index) => (
-              <article key={`${car.name}-${index}`} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
-                <img src={car.image} alt={car.name} className="h-40 w-full object-cover" />
-                <div className="space-y-3 p-4">
-                  <h3 className="text-sm font-medium text-white">{car.name}</h3>
-                  <p className="text-xs text-zinc-400">{car.details}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {car.tags.map((tag) => (
-                      <span key={`${index}-${tag}`} className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
-                        {tag}
-                      </span>
-                    ))}
+          {carsLoading ? (
+            <div className="flex items-center justify-center py-12">
+              <div className="space-y-4 text-center">
+                <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
+                <p className="text-sm text-zinc-400">Loading featured cars...</p>
+              </div>
+            </div>
+          ) : featuredCars.length === 0 ? (
+            <p className="text-sm text-zinc-400">No featured cars available at the moment.</p>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {featuredCars.map((car) => {
+                // Handle both Sanity image objects and direct URLs
+                let imageUrl = null
+                if (car.images?.[0]) {
+                  const img = car.images[0]
+                  // Check if it's a proper Sanity image object with _type
+                  if (img._type === 'image' || img.asset) {
+                    imageUrl = urlFor(img).width(600).url()
+                  } 
+                  // Check if it's a URL string directly
+                  else if (typeof img === 'string') {
+                    imageUrl = img
+                  }
+                  // Check if it has a url property
+                  else if (img.url) {
+                    imageUrl = img.url
+                  }
+                }
+
+                return (
+                <article key={car._id} className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                  {imageUrl ? (
+                    <img 
+                      src={imageUrl} 
+                      alt={`${car.make} ${car.model}`} 
+                      className="h-40 w-full object-cover" 
+                    />
+                  ) : (
+                    <div className="h-40 w-full bg-zinc-800 flex items-center justify-center text-zinc-400 text-xs">
+                      No image
+                    </div>
+                  )}
+                  <div className="space-y-3 p-4">
+                    <h3 className="text-sm font-medium text-white">{car.make} {car.model}</h3>
+                    <p className="text-xs text-zinc-400">
+                      {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {car.transmission && (
+                        <span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+                          {car.transmission}
+                        </span>
+                      )}
+                      {car.fuelType && (
+                        <span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+                          {car.fuelType}
+                        </span>
+                      )}
+                    </div>
+                    <p className="pt-1 text-2xl font-medium text-white">€{car.price?.toLocaleString() || 0}</p>
+                    <Link to={`/details?id=${car._id}`} className="text-xs text-zinc-300 hover:text-white transition-colors">View Details ›</Link>
                   </div>
-                  <p className="pt-1 text-2xl font-medium text-white">{car.price}</p>
-                  <button className="text-xs text-zinc-300">View Details ›</button>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+                )
+              })}
+            </div>
+          )}
         </section>
 
         <section className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 md:p-10">
