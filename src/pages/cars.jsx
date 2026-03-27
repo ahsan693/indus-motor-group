@@ -1,75 +1,99 @@
 import { Link } from 'react-router-dom'
+import { useState, useMemo } from 'react'
 import { Navbar } from './Home'
-
-const filterItems = ['Brand', 'Models', 'Price Range', 'Year', 'Fuel Type', 'Body Type', 'Transmission']
-
-const cars = [
-	{
-		name: 'BMW i8',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/193991/pexels-photo-193991.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Audi E-Tron GT',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Bentley Flying Spur',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'BMW ALPINA B8 Coupe',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Bugatti Chiron Sport',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/3752169/pexels-photo-3752169.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Toyota Crown Hybrid',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'BYD Seal',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Chevy Camaro ZL1',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-	{
-		name: 'Ferrari GT20 Spider',
-		details: '2020 · 58,000 km · Automatic · Hybrid',
-		tags: ['Automatic', 'Hybrid', '7 Seats'],
-		price: '€24,950',
-		image: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1400',
-	},
-]
+import { useCars } from '../hooks/useCars'
+import { urlFor } from '../lib/sanity'
 
 export default function Cars() {
+	const { cars, loading, error } = useCars({ status: 'available' })
+	const [activeFilters, setActiveFilters] = useState({})
+	const [sortBy, setSortBy] = useState('newest')
+	const [showFilters, setShowFilters] = useState({})
+
+	// Get unique filter values from cars
+	const brands = [...new Set(cars.map(car => car.make))].sort()
+	const models = [...new Set(cars.map(car => car.model))].sort()
+	const years = [...new Set(cars.map(car => car.year))].sort((a, b) => b - a)
+	const fuelTypes = [...new Set(cars.map(car => car.fuelType))].sort()
+	const bodyTypes = [...new Set(cars.map(car => car.bodyType))].sort()
+	const transmissions = [...new Set(cars.map(car => car.transmission))].sort()
+
+	const filterOptions = {
+		Brand: brands,
+		Models: models,
+		Year: years,
+		'Fuel Type': fuelTypes,
+		'Body Type': bodyTypes,
+		Transmission: transmissions,
+		'Price Range': ['Under €10,000', '€10,000 - €20,000', '€20,000 - €30,000', 'Over €30,000']
+	}
+
+	// Filter and sort cars
+	const filteredCars = useMemo(() => {
+		let filtered = cars.filter(car => {
+			if (activeFilters.Brand && car.make !== activeFilters.Brand) return false
+			if (activeFilters.Models && car.model !== activeFilters.Models) return false
+			if (activeFilters.Year && car.year !== activeFilters.Year) return false
+			if (activeFilters['Fuel Type'] && car.fuelType !== activeFilters['Fuel Type']) return false
+			if (activeFilters['Body Type'] && car.bodyType !== activeFilters['Body Type']) return false
+			if (activeFilters.Transmission && car.transmission !== activeFilters.Transmission) return false
+			
+			if (activeFilters['Price Range']) {
+				const price = car.price
+				const range = activeFilters['Price Range']
+				if (range === 'Under €10,000' && price >= 10000) return false
+				if (range === '€10,000 - €20,000' && (price < 10000 || price > 20000)) return false
+				if (range === '€20,000 - €30,000' && (price < 20000 || price > 30000)) return false
+				if (range === 'Over €30,000' && price <= 30000) return false
+			}
+			
+			return true
+		})
+
+		// Sort
+		filtered.sort((a, b) => {
+			switch (sortBy) {
+				case 'price-low':
+					return a.price - b.price
+				case 'price-high':
+					return b.price - a.price
+				case 'year-new':
+					return b.year - a.year
+				case 'year-old':
+					return a.year - b.year
+				case 'newest':
+				default:
+					return 0
+			}
+		})
+
+		return filtered
+	}, [cars, activeFilters, sortBy])
+
+	const toggleFilter = (filterName, value) => {
+		setActiveFilters(prev => ({
+			...prev,
+			[filterName]: prev[filterName] === value ? null : value
+		}))
+	}
+
+	const clearFilters = () => {
+		setActiveFilters({})
+	}
+
+	if (error) {
+		return (
+			<div className="min-h-screen bg-black text-zinc-300">
+				<Navbar />
+				<main className="mx-auto max-w-[1240px] px-5 py-10 md:px-8 md:py-14">
+					<div className="rounded-lg border border-red-900 bg-red-950 p-4 text-center text-red-200">
+						Unable to load cars at this time. Please try again later.
+					</div>
+				</main>
+			</div>
+		)
+	}
+
 	return (
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
@@ -79,17 +103,69 @@ export default function Cars() {
 					<h1 className="text-center text-3xl font-semibold text-white sm:text-4xl md:text-6xl">Quality Used Cars for Sale</h1>
 
 					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-						{filterItems.map((item) => (
-							<button
-								key={item}
-								className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2.5 text-xs text-zinc-200"
-							>
-								{item} ⌄
-							</button>
+						{Object.keys(filterOptions).map((filterName) => (
+							<div key={filterName} className="relative group">
+								<button
+									onClick={() => setShowFilters(prev => ({...prev, [filterName]: !prev[filterName]}))}
+									className={`rounded-full px-4 py-2.5 text-xs font-medium transition-all ${
+										activeFilters[filterName]
+											? 'bg-white text-black border border-white'
+											: 'border border-zinc-600 bg-zinc-900 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800'
+									}`}
+								>
+									{filterName} {activeFilters[filterName] ? '✓' : '⌄'}
+								</button>
+								
+								{showFilters[filterName] && (
+									<div className="absolute z-50 left-0 mt-2 bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-3 min-w-[200px]">
+										<div className="max-h-[300px] overflow-y-auto space-y-2">
+											{filterOptions[filterName].map((option) => (
+												<button
+													key={option}
+													onClick={(e) => {
+														e.preventDefault()
+														toggleFilter(filterName, option)
+													}}
+													className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
+														activeFilters[filterName] === option
+															? 'bg-white text-black font-medium'
+															: 'text-zinc-300 hover:bg-zinc-800'
+													}`}
+												>
+													{option}
+												</button>
+											))}
+										</div>
+									</div>
+								)}
+							</div>
 						))}
-						<button className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2.5 text-xs text-zinc-200">⚙</button>
-						<button className="rounded-full border border-zinc-800 bg-zinc-900 px-6 py-2.5 text-xs text-zinc-500">Search</button>
+
+						<button 
+							onClick={clearFilters}
+							className="rounded-full border border-zinc-600 bg-zinc-900 px-4 py-2.5 text-xs text-zinc-300 hover:bg-zinc-800 transition-colors"
+							title="Clear all filters"
+						>
+							⟲ Reset
+						</button>
 					</div>
+
+					{/* Active filters display */}
+					{Object.keys(activeFilters).length > 0 && (
+						<div className="flex flex-wrap items-center gap-2 justify-center">
+							<span className="text-xs text-zinc-400">Active filters:</span>
+							{Object.entries(activeFilters).map(([key, value]) => (
+								<button
+									key={key}
+									onClick={() => toggleFilter(key, value)}
+									className="inline-flex items-center gap-2 rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-200 hover:bg-zinc-700"
+								>
+									{key}: {value}
+									<span>×</span>
+								</button>
+							))}
+						</div>
+					)}
 				</section>
 
 				<section className="mt-14">
@@ -97,34 +173,149 @@ export default function Cars() {
 						<div>
 							<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Explore Our Collection</h2>
 							<p className="mt-2 text-sm text-zinc-400">
-								Carefully selected used cars chosen for quality, reliability, and value.
+								{filteredCars.length} car{filteredCars.length !== 1 ? 's' : ''} found
 							</p>
 						</div>
-						<button className="rounded-full border border-zinc-700 bg-zinc-900 px-6 py-3 text-xs text-zinc-100">Sort By ⌄</button>
+						
+						<div className="relative">
+							<button 
+								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
+								className="rounded-full border border-zinc-600 bg-zinc-900 px-6 py-3 text-xs font-medium text-zinc-100 hover:border-zinc-500 hover:bg-zinc-800 transition-colors"
+							>
+								Sort By ⌄
+							</button>
+							
+							{showFilters.sortMenu && (
+								<div className="absolute right-0 z-50 mt-2 bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-2 min-w-[180px]">
+									<button
+										onClick={() => {
+											setSortBy('newest')
+											setShowFilters(prev => ({...prev, sortMenu: false}))
+										}}
+										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'newest' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+									>
+										Newest
+									</button>
+									<button
+										onClick={() => {
+											setSortBy('price-low')
+											setShowFilters(prev => ({...prev, sortMenu: false}))
+										}}
+										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'price-low' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+									>
+										Price: Low to High
+									</button>
+									<button
+										onClick={() => {
+											setSortBy('price-high')
+											setShowFilters(prev => ({...prev, sortMenu: false}))
+										}}
+										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'price-high' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+									>
+										Price: High to Low
+									</button>
+									<button
+										onClick={() => {
+											setSortBy('year-new')
+											setShowFilters(prev => ({...prev, sortMenu: false}))
+										}}
+										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'year-new' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+									>
+										Year: Newest First
+									</button>
+									<button
+										onClick={() => {
+											setSortBy('year-old')
+											setShowFilters(prev => ({...prev, sortMenu: false}))
+										}}
+										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'year-old' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+									>
+										Year: Oldest First
+									</button>
+								</div>
+							)}
+						</div>
 					</div>
 
-					<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-						{cars.map((car, index) => (
-							<article key={`${car.name}-${index}`} className="overflow-hidden rounded-xl border border-zinc-800 bg-black">
-								<img src={car.image} alt={car.name} className="h-52 w-full object-cover" />
-								<div className="space-y-3 p-4">
-									<div className="flex items-start justify-between gap-3">
-										<h3 className="text-xl font-medium text-white sm:text-2xl">{car.name}</h3>
-										<button className="pt-1 text-xs text-zinc-300">View Details ›</button>
-									</div>
-									<p className="text-xs text-zinc-400">{car.details}</p>
-									<div className="flex flex-wrap gap-1.5">
-										{car.tags.map((tag) => (
-											<span key={`${index}-${tag}`} className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
-												{tag}
-											</span>
-										))}
-									</div>
-									<p className="pt-1 text-2xl font-medium text-white md:text-3xl">{car.price}</p>
-								</div>
-							</article>
-						))}
-					</div>
+					{loading ? (
+						<div className="flex items-center justify-center py-20">
+							<div className="space-y-4 text-center">
+								<div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
+								<p className="text-sm text-zinc-400">Loading cars...</p>
+							</div>
+						</div>
+					) : filteredCars.length === 0 ? (
+						<div className="rounded-lg border border-yellow-900 bg-yellow-950 p-6 text-center text-yellow-200">
+							{cars.length === 0 ? 'No cars available at the moment. Please check back soon.' : 'No cars match your filters. Try adjusting your search.'}
+						</div>
+					) : (
+						<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+							{filteredCars.map((car) => {
+								// Handle both Sanity image objects and direct URLs
+								let imageUrl = null
+								if (car.images?.[0]) {
+									const img = car.images[0]
+									// Check if it's a proper Sanity image object with _type
+									if (img._type === 'image' || img.asset) {
+										imageUrl = urlFor(img).width(800).url()
+									} 
+									// Check if it's a URL string directly
+									else if (typeof img === 'string') {
+										imageUrl = img
+									}
+									// Check if it has a url property
+									else if (img.url) {
+										imageUrl = img.url
+									}
+								}
+
+								return (
+								<Link key={car._id} to={`/details?id=${car._id}`} className="block">
+									<article className="overflow-hidden rounded-xl border border-zinc-800 bg-black hover:border-zinc-700 transition-colors cursor-pointer h-full">
+										{imageUrl ? (
+											<img 
+												src={imageUrl} 
+												alt={`${car.make} ${car.model}`} 
+												className="h-52 w-full object-cover" 
+											/>
+										) : (
+											<div className="h-52 w-full bg-zinc-800 flex items-center justify-center text-zinc-400">
+												No image
+											</div>
+										)}
+										<div className="space-y-3 p-4">
+											<div className="flex items-start justify-between gap-3">
+												<h3 className="text-xl font-medium text-white sm:text-2xl">{car.make} {car.model}</h3>
+												<span className="pt-1 text-xs text-zinc-300">View Details ›</span>
+											</div>
+											<p className="text-xs text-zinc-400">
+												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
+											</p>
+											<div className="flex flex-wrap gap-1.5">
+												{car.transmission && (
+													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+														{car.transmission}
+													</span>
+												)}
+												{car.fuelType && (
+													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+														{car.fuelType}
+													</span>
+												)}
+												{car.bodyType && (
+													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+														{car.bodyType}
+													</span>
+												)}
+											</div>
+											<p className="pt-1 text-2xl font-medium text-white md:text-3xl">€{car.price?.toLocaleString() || 0}</p>
+										</div>
+									</article>
+								</Link>
+								)
+							})}
+						</div>
+					)}
 
 					<div className="mx-auto mt-14 max-w-[520px] border-t border-zinc-800 pt-10">
 						<div className="flex justify-center gap-2">
