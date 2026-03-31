@@ -161,14 +161,14 @@ export default function Finance() {
 				</div>
 			</section>
 
-			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-24 md:px-8 md:py-20">
-				<section className="grid items-center gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
+				<main className="mx-auto max-w-[1240px] space-y-12 px-4 py-10 sm:space-y-16 sm:px-5 sm:py-12 md:space-y-24 md:px-8 md:py-20">
+				<section className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 					<div className="space-y-6">
-						<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Finance Your Next Car</h2>
-						<p className="max-w-[430px] text-sm leading-7 text-zinc-400">
+						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Your Next Car</h2>
+						<p className="max-w-[430px] text-xs leading-7 text-zinc-400 sm:text-sm">
 							We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
 						</p>
-						<p className="max-w-[430px] text-[10px] leading-5 text-zinc-500">
+						<p className="max-w-[430px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
 							Finance is provided by third party lenders. Indus Motor Group does not act as a lender or provide financial advice.
 						</p>
 						<div className="flex flex-wrap items-center gap-4">
@@ -188,10 +188,10 @@ export default function Finance() {
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5">
 							<p className="text-xs text-zinc-500">• Finance Benefits</p>
-							<h2 className="max-w-[280px] text-4xl font-semibold leading-tight text-white sm:text-5xl">Finance Options Available</h2>
+							<h2 className="max-w-[280px] text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Options Available</h2>
 						</div>
 
-						<div className="grid gap-3 sm:grid-cols-2">
+						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{benefits.map((item) => (
 								<article key={item.title} className="rounded-lg bg-zinc-950 p-5">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
@@ -207,7 +207,7 @@ export default function Finance() {
 
 				<section>
 					<p className="text-xs text-zinc-500">• Process</p>
-					<h2 className="mt-2 text-2xl font-semibold text-white sm:text-4xl md:text-5xl">How Finance Works</h2>
+<h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl md:text-5xl">How Finance Works</h2>
 
 					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
 						{processSteps.map((item) => (
@@ -223,7 +223,7 @@ export default function Finance() {
 
 				<section className="space-y-7 pt-10 md:pt-12">
 					<p className="text-center text-xs text-zinc-500">• Finance Application</p>
-					<h2 className="text-center text-4xl font-semibold text-white sm:text-5xl">Apply for Finance</h2>
+					<h2 className="text-center text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Apply for Finance</h2>
 					<p className="text-center text-sm text-zinc-400">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
 					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4">
@@ -293,7 +293,7 @@ export default function Finance() {
 				</section>
 
 			<section className="grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
-				<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Finance FAQS</h2>
+				<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance FAQS</h2>
 				<div className="border-y border-zinc-700">
 						{faq.map((item, index) => {
 							const isExpanded = Boolean(expandedFaqItems[index])

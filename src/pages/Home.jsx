@@ -118,10 +118,10 @@ export default function Home() {
           <span className="mb-5 w-fit rounded-full bg-black/35 px-4 py-2 text-xs text-zinc-100">
             Drive Away with Confidence
           </span>
-          <h1 className="max-w-[560px] text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl">
+          <h1 className="max-w-[560px] text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-6xl">
             Quality Used Cars in Ireland
           </h1>
-          <p className="mt-4 max-w-[540px] text-sm leading-6 text-zinc-300">
+          <p className="mt-4 max-w-[540px] text-xs leading-6 text-zinc-300 sm:text-sm">
             Carefully selected vehicles, transparent pricing, and trusted warranty options for added peace of mind.
           </p>
           <button className="mt-7 w-fit rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">
@@ -130,10 +130,10 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto w-full space-y-20 px-5 py-20 md:space-y-[150px] md:px-8 md:py-[150px]">
+      <main className="mx-auto w-full space-y-12 px-4 py-12 sm:space-y-16 sm:px-5 sm:py-16 md:space-y-[150px] md:px-8 md:py-[150px]">
         <section>
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Featured Cars</h2>
+            <h2 className="text-xl font-semibold text-white sm:text-2xl md:text-5xl">Featured Cars</h2>
             <Link to="/cars" className="rounded-full px-5 py-2 text-xs text-zinc-100">View All Cars</Link>
           </div>
 
@@ -147,7 +147,7 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-sm text-zinc-400">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
@@ -176,13 +176,13 @@ export default function Home() {
                       className="h-24 w-full object-cover" 
                     />
                   ) : (
-                    <div className="flex h-24 w-full items-center justify-center bg-zinc-800 text-[10px] text-zinc-400">
+                    <div className="flex h-20 w-full items-center justify-center bg-zinc-800 text-[9px] text-zinc-400 sm:h-24">
                       No image
                     </div>
                   )}
                   <div className="space-y-1.5 p-2.5">
-                    <h3 className="truncate text-[11px] font-medium text-white">{car.make} {car.model}</h3>
-                    <p className="truncate text-[9px] text-zinc-400">
+                    <h3 className="truncate text-[10px] font-medium text-white sm:text-[11px]">{car.make} {car.model}</h3>
+                    <p className="truncate text-[8px] text-zinc-400 sm:text-[9px]">
                       {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -221,8 +221,8 @@ export default function Home() {
                   <polyline points="21 3 21 9 15 9" />
                 </svg>
               </div>
-              <h3 className="text-[11px] font-medium text-zinc-100">Trade-In</h3>
-              <p className="mt-1.5 max-w-[300px] text-[11px] leading-5 text-zinc-500">
+              <h3 className="text-[10px] font-medium text-zinc-100 sm:text-[11px]">Trade-In</h3>
+              <p className="mt-1.5 max-w-[300px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
               <button className="mt-2.5 text-[11px] font-medium text-zinc-100 transition-colors hover:text-white">
@@ -237,8 +237,8 @@ export default function Home() {
                   <line x1="2" y1="10" x2="22" y2="10" />
                 </svg>
               </div>
-              <h3 className="text-[11px] font-medium text-zinc-100">Finance Assistance</h3>
-              <p className="mt-1.5 max-w-[320px] text-[11px] leading-5 text-zinc-500">
+              <h3 className="text-[10px] font-medium text-zinc-100 sm:text-[11px]">Finance Assistance</h3>
+              <p className="mt-1.5 max-w-[320px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
                 Finance options available through trusted third party lenders.
               </p>
               <button className="mt-2.5 text-[11px] font-medium text-zinc-100 transition-colors hover:text-white">
@@ -268,8 +268,8 @@ export default function Home() {
             <h2 className="mt-4 text-[34px] font-semibold leading-tight text-zinc-100 md:text-[50px]">Warranty & Aftercare Protection</h2>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-[980px] items-center gap-8 md:grid-cols-[1fr_auto] md:gap-16">
-            <div className="max-w-[360px] text-sm leading-7 text-zinc-400">
+          <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16">
+            <div className="max-w-[360px] text-xs leading-7 text-zinc-400 sm:text-sm">
               <p>
                 Warranty cover available on all vehicles
                 <br />
@@ -296,12 +296,12 @@ export default function Home() {
 
         <section>
           <h2 className="mb-16 text-center text-3xl font-semibold leading-tight text-white md:mb-20 md:text-5xl">Why Choose Indus Motor Group</h2>
-          <div className="grid gap-x-4 gap-y-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
               <article key={card.title}>
                 <img src={card.image} alt={card.title} className="h-[240px] w-full rounded-[14px] object-cover md:h-[280px]" />
-                <h3 className="mt-2.5 text-[11px] font-medium leading-tight text-zinc-100">{card.title}</h3>
-                <p className="mt-1 text-[10px] leading-4 text-zinc-500">{card.body}</p>
+                <h3 className="mt-2.5 text-xs font-medium leading-tight text-zinc-100 sm:text-[11px]">{card.title}</h3>
+                <p className="mt-1 text-[9px] leading-4 text-zinc-500 sm:text-[10px]">{card.body}</p>
               </article>
             ))}
           </div>
@@ -314,8 +314,8 @@ export default function Home() {
             </svg>
             Trusted by Drivers Across Ireland
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl">What Our Customers Say</h2>
-          <p className="mt-2 text-xs text-zinc-500 md:text-sm">Real feedback from customers who purchased their vehicles from us.</p>
+          <h2 className="mt-4 text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">What Our Customers Say</h2>
+          <p className="mt-2 text-[11px] text-zinc-500 sm:text-xs md:text-sm">Real feedback from customers who purchased their vehicles from us.</p>
 
           <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((item, idx) => (

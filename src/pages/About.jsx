@@ -236,11 +236,11 @@ export default function About() {
 				</div>
 			</section>
 
-			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-20 md:px-8 md:py-20">
+			<main className="mx-auto max-w-[1240px] space-y-12 px-4 py-10 sm:space-y-16 sm:px-5 sm:py-12 md:space-y-20 md:px-8 md:py-20">
 				<section className="py-12 md:py-14">
-					<div className="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
+					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 						<div className="space-y-6">
-							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Who We Are</h2>
+							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Who We Are</h2>
 							<p className="max-w-[520px] text-sm leading-8 text-zinc-400">
 								Indus Motor Group was founded by car enthusiasts who believe buying a car should be straightforward, transparent, and enjoyable. After experiencing the challenges many buyers face when searching for a reliable used car, we saw an opportunity to do things differently.
 							</p>
@@ -261,15 +261,15 @@ export default function About() {
 				</section>
 
 				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
-					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
+					<div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 						<div className="space-y-4">
-							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Our Approach to Selling Cars</h2>
+							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Our Approach to Selling Cars</h2>
 							<p className="max-w-[320px] text-sm leading-7 text-zinc-400">
 								We help you find the right car through a simple, transparent, and reliable buying experience.
 							</p>
 						</div>
 
-						<div className="grid gap-3 sm:grid-cols-2">
+						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{APPROACH_CARDS.map((item) => (
 								<article key={item.title} className="rounded-lg bg-black/40 p-4">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
@@ -284,7 +284,7 @@ export default function About() {
 				</section>
 
 				<section>
-					<h2 className="mb-8 text-center text-4xl font-semibold leading-tight text-white sm:text-5xl">Latest Arrivals</h2>
+					<h2 className="mb-8 text-center text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Latest Arrivals</h2>
 
 					{arrivalsLoading && latestArrivals === FALLBACK_ARRIVALS ? (
 						<div className="flex items-center justify-center py-10">
@@ -309,12 +309,12 @@ export default function About() {
 													className="h-44 w-full object-cover"
 												/>
 											) : (
-												<div className="flex h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">No image available</div>
+												<div className="flex h-40 items-center justify-center bg-zinc-900 text-xs text-zinc-500 sm:h-48 md:h-64">No image available</div>
 											)}
 
 											<div className="space-y-3 p-4">
 												<div className="flex items-start justify-between gap-3">
-													<h3 className="text-2xl font-medium leading-tight text-white">{car.make} {car.model}</h3>
+													<h3 className="text-xl font-medium leading-tight text-white sm:text-2xl">{car.make} {car.model}</h3>
 													<span className="pt-1 text-[10px] text-zinc-300">View Details ›</span>
 												</div>
 
@@ -341,10 +341,10 @@ export default function About() {
 				</section>
 
 				<section>
-					<h2 className="mb-6 text-4xl font-semibold leading-tight text-white sm:text-5xl">Buy With Confidence</h2>
+					<h2 className="mb-6 text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Buy With Confidence</h2>
 					<div className="border-y border-zinc-800">
 						{CONFIDENCE_POINTS.map((point) => (
-							<article key={point.title} className="grid gap-4 border-b border-zinc-800 py-5 last:border-b-0 md:grid-cols-[1fr_1fr] md:gap-8">
+							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8">
 								<h3 className="text-lg font-medium text-white">{point.title}</h3>
 								<p className="text-sm leading-7 text-zinc-400">{point.body}</p>
 							</article>
@@ -352,8 +352,8 @@ export default function About() {
 					</div>
 				</section>
 
-				<section className="grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
-					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Frequently Asked Questions</h2>
+				<section className="grid gap-6 md:gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
+					<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Frequently Asked Questions</h2>
 					<div className="border-y border-zinc-800">
 						{FAQ_ITEMS.map((item, index) => {
 							const isExpanded = Boolean(expandedFaqItems[index])
