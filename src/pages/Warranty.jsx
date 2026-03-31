@@ -1,22 +1,31 @@
 import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
+import warrantyHeroImg from '../images/warrantypage-images/QO39bC2hbcBpcVKCuwubY36DU.webp'
+import vehicleWarrantyImg from '../images/warrantypage-images/image 25.png'
+import stepOneImg from '../images/warrantypage-images/IL8Bx4obJa2x3WwpottYhJS6K8.webp'
+import stepTwoImg from '../images/warrantypage-images/w2mNaZnIbEJtakXLPOnkYEfJmts.webp'
+import stepThreeImg from '../images/warrantypage-images/MoRXSXu7z7dxC2bPV8u4yu8VF3Y.webp'
 
 const keyFeatures = [
 	{
 		title: 'Nationwide Cover',
 		body: 'Access a nationwide repair network.',
+		icon: 'nationwide',
 	},
 	{
 		title: 'Parts & Labour Cover',
 		body: 'Includes key mechanical and electrical components.',
+		icon: 'parts',
 	},
 	{
 		title: 'Up to 24 Months Cover',
 		body: 'Warranty available for up to two years.',
+		icon: 'duration',
 	},
 	{
-		title: 'Warranty available for up to two years.',
+		title: 'Roadside Assistance',
 		body: '24/7 assistance available with selected plans.',
+		icon: 'assistance',
 	},
 ]
 
@@ -25,19 +34,19 @@ const steps = [
 		step: 'Step 01',
 		title: 'Choose Your Car',
 		body: 'Browse our available cars and select the one that suits you.',
-		image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1400',
+		image: stepOneImg,
 	},
 	{
 		step: 'Step 02',
 		title: 'Select Your Warranty Option',
 		body: 'Our team will explain the available warranty plans.',
-		image: 'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1400',
+		image: stepTwoImg,
 	},
 	{
 		step: 'Step 03',
 		title: 'Drive Away With Confidence',
 		body: 'Your warranty begins from the point of purchase.',
-		image: 'https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=1400',
+		image: stepThreeImg,
 	},
 ]
 
@@ -48,12 +57,52 @@ const faq = [
 	['Is warranty included in the vehicle price?', 'Warranty is optional and can be added at the point of sale.'],
 ]
 
+function KeyFeatureIcon({ type }) {
+	if (type === 'nationwide') {
+		return (
+			<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+				<circle cx="12" cy="12" r="8" />
+				<path d="M4 12h16" />
+				<path d="M12 4a14 14 0 0 1 0 16" />
+				<path d="M12 4a14 14 0 0 0 0 16" />
+			</svg>
+		)
+	}
+
+	if (type === 'parts') {
+		return (
+			<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+				<path d="M9 11a3 3 0 1 0 4 4l6-6a2.5 2.5 0 0 0-4-3l-1 1" />
+				<path d="m14 7 3 3" />
+				<path d="M3 21l6-6" />
+			</svg>
+		)
+	}
+
+	if (type === 'duration') {
+		return (
+			<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+				<path d="M7 3h10" />
+				<path d="M12 8v5l3 2" />
+				<circle cx="12" cy="13" r="8" />
+			</svg>
+		)
+	}
+
+	return (
+		<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+			<path d="M12 21s7-5 7-11a7 7 0 1 0-14 0c0 6 7 11 7 11Z" />
+			<path d="m9.5 12 1.8 1.8 3.2-3.2" />
+		</svg>
+	)
+}
+
 export default function Warranty() {
 	return (
 		<div className="min-h-screen bg-black text-zinc-300">
 			<section className="relative overflow-hidden border border-zinc-800">
 				<img
-					src="https://images.pexels.com/photos/193991/pexels-photo-193991.jpeg?auto=compress&cs=tinysrgb&w=2200"
+					src={warrantyHeroImg}
 					alt="Warranty hero"
 					className="h-[360px] w-full object-cover sm:h-[430px] md:h-[500px]"
 				/>
@@ -65,100 +114,58 @@ export default function Warranty() {
 				</div>
 			</section>
 
-			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-24 md:px-8 md:py-20">
-				<section className="grid items-center gap-8 lg:grid-cols-[420px_1fr]">
-					<img
-						src="https://images.pexels.com/photos/3752169/pexels-photo-3752169.jpeg?auto=compress&cs=tinysrgb&w=1600"
-						alt="Warranty intro"
-						className="h-72 w-full rounded-xl border border-zinc-800 object-cover"
-					/>
-
+			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-20 md:px-8 md:py-20">
+				<section className="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 					<div className="space-y-5">
-						<h2 className="text-2xl font-semibold text-white sm:text-4xl md:text-5xl">Vehicle Warranty for Added Peace of Mind</h2>
-						<p className="text-sm leading-7 text-zinc-300">
-							All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted
-							third party providers to offer warranty protection at the point of sale.
+						<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Vehicle Warranty for Added Peace of Mind</h2>
+						<p className="max-w-[500px] text-sm leading-7 text-zinc-300">
+							All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
 						</p>
-						<p className="text-sm leading-7 text-zinc-300">
-							Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months,
-							depending on the vehicle and selected plan.
+						<p className="max-w-[500px] text-sm leading-7 text-zinc-300">
+							Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months, depending on the vehicle and selected plan.
 						</p>
-						<button className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black">Ask About Warranty</button>
+						<button className="rounded-full bg-white px-5 py-2.5 text-xs font-medium text-black transition-colors hover:bg-zinc-200">Ask About Warranty</button>
 					</div>
+
+					<img
+						src={vehicleWarrantyImg}
+						alt="Vehicle warranty"
+						className="h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px]"
+					/>
 				</section>
 
-				<section className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-					<div className="space-y-6">
-						<h2 className="text-2xl font-semibold text-white sm:text-4xl">Key Features</h2>
-						<div className="grid gap-4 sm:grid-cols-2">
+				<section className="rounded-[22px] border border-zinc-800 bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
+						<div className="space-y-4">
+							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Key Features</h2>
+							<p className="max-w-[310px] text-sm leading-7 text-zinc-400">
+								Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
+							</p>
+						</div>
+
+						<div className="grid gap-3 sm:grid-cols-2">
 							{keyFeatures.map((item) => (
-								<article key={item.title} className="space-y-2 rounded-xl border border-zinc-800 bg-zinc-950 p-4">
-									<p className="text-sm font-medium text-white">{item.title}</p>
-									<p className="text-xs leading-6 text-zinc-400">{item.body}</p>
+								<article key={item.title} className="rounded-lg border border-zinc-800 bg-black/40 p-4">
+									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
+										<KeyFeatureIcon type={item.icon} />
+									</span>
+									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
+									<p className="mt-2 text-xs leading-6 text-zinc-400">{item.body}</p>
 								</article>
 							))}
 						</div>
 					</div>
-
-					<img
-						src="https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1600"
-						alt="Key features"
-						className="h-72 w-full rounded-xl border border-zinc-800 object-cover sm:h-[360px]"
-					/>
-				</section>
-
-				<section className="grid items-center gap-8 lg:grid-cols-[420px_1fr]">
-					<img
-						src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1600"
-						alt="Warranty options"
-						className="h-72 w-full rounded-xl border border-zinc-800 object-cover"
-					/>
-
-					<div className="space-y-4">
-						<h2 className="text-2xl font-semibold text-white sm:text-4xl md:text-5xl">Warranty Options Available</h2>
-						<p className="text-sm leading-7 text-zinc-300">
-							Warranty options are available through trusted third party providers, with different levels of cover to suit your needs.
-						</p>
-						<p className="text-sm leading-7 text-zinc-300">
-							Plans may include parts and labour cover, nationwide repair access, and additional benefits depending on the selected option.
-						</p>
-						<p className="text-sm leading-7 text-zinc-300">
-							Warranty can be arranged at the point of purchase, with options available for up to 24 months.
-						</p>
-						<p className="text-xs text-zinc-500">Warranty details and providers vary by vehicle and selected plan. Subject to terms and conditions.</p>
-					</div>
-				</section>
-
-				<section className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-					<div className="space-y-5">
-						<h2 className="text-2xl font-semibold text-white sm:text-4xl">Important Information</h2>
-						<p className="text-sm leading-7 text-zinc-300">
-							When purchasing a vehicle from Indus Motor Group, customers can choose to add warranty protection provided by trusted third-party warranty providers.
-						</p>
-						<p className="text-sm leading-7 text-zinc-300">
-							Warranty coverage may be available for up to two years, depending on the vehicle and selected plan.
-						</p>
-						<p className="text-sm leading-7 text-zinc-300">
-							These warranty options are designed to help cover certain mechanical and electrical components, providing additional reassurance after purchase.
-						</p>
-					</div>
-
-					<img
-						src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1600"
-						alt="Important information"
-						className="h-72 w-full rounded-xl border border-zinc-800 object-cover sm:h-[360px]"
-					/>
 				</section>
 
 				<section className="space-y-6">
-					<h2 className="text-2xl font-semibold text-white sm:text-4xl">How It Works</h2>
+					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">How It Works</h2>
 					<div className="grid gap-4 md:grid-cols-3">
 						{steps.map((item) => (
 							<article key={item.title} className="space-y-3">
-								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-800 object-cover" />
+								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-800 object-cover sm:h-64" />
 								<p className="text-xs text-zinc-500">({item.step})</p>
-								<h3 className="text-lg font-medium text-white">{item.title}</h3>
-								<p className="text-sm text-zinc-400">{item.body}</p>
+								<h3 className="text-2xl font-medium leading-tight text-white">{item.title}</h3>
+								<p className="text-sm leading-6 text-zinc-400">{item.body}</p>
 							</article>
 						))}
 					</div>
@@ -188,43 +195,89 @@ export default function Warranty() {
 				</section>
 			</main>
 
-			<footer className="mx-auto max-w-[1240px] px-5 py-12 text-sm md:px-8 md:py-16">
-				<div className="grid gap-10 border-b border-zinc-800 pb-10 md:grid-cols-4">
-					<div>
-						<p className="font-semibold text-white">INDUS MOTOR GROUP</p>
-						<p className="mt-4 max-w-xs text-xs leading-6 text-zinc-400">
-							Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
-						</p>
-						<p className="mt-6 text-xs text-zinc-500">© 2026 Indus Motors Limited. All rights reserved.</p>
-					</div>
+			<footer className="mt-10 border-b border-zinc-800 bg-black">
+				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
+					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
+						<div>
+							<p className="text-[24px] font-semibold tracking-tight text-white">INDUS MOTOR GROUP</p>
+							<p className="mt-3 max-w-[360px] text-[13px] leading-7 text-zinc-500">
+								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
+							</p>
 
-					<div className="space-y-2">
-						<p className="text-white">Navigation</p>
-						<Link to="/" className="block">Home</Link>
-						<Link to="/cars" className="block">Our Cars</Link>
-						<Link to="/warranty" className="block">Warranty</Link>
-						<Link to="/finance" className="block">Finance</Link>
-						<p>About</p>
-					</div>
+							<div className="mt-4 flex items-center gap-3 text-zinc-400">
+								<a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
+									<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+										<rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+										<circle cx="12" cy="12" r="4" />
+										<circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+									</svg>
+								</a>
+								<a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
+									<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+										<rect x="2.5" y="6" width="19" height="12" rx="3" />
+										<path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+									</svg>
+								</a>
+								<a href="#" aria-label="Facebook" className="transition-colors hover:text-white">
+									<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+										<path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
+									</svg>
+								</a>
+								<a href="#" aria-label="TikTok" className="transition-colors hover:text-white">
+									<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+										<path d="M14 4v8.5a3.5 3.5 0 1 1-2.6-3.4" />
+										<path d="M14 4c1.1 1.6 2.5 2.4 4.5 2.4" />
+									</svg>
+								</a>
+							</div>
+						</div>
 
-					<div className="space-y-2">
-						<p className="text-white">Company</p>
-						<p>Privacy Policy</p>
-						<Link to="/cookie-policy" className="block">Cookie Policy</Link>
-						<p>Terms & Conditions</p>
-					</div>
+						<div>
+							<p className="text-[12px] text-zinc-500">Company</p>
+							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
+								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
+								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
+								<Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
+							</div>
+						</div>
 
-					<div className="space-y-2">
-						<p className="text-white">Get in Touch</p>
-						<p>hello@indusmotorgroup.com</p>
-						<p>+353 89 967 5410</p>
-						<p className="text-zinc-500">Serving customers across Ireland</p>
+						<div>
+							<p className="text-[12px] text-zinc-500">Opening Hours</p>
+							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+								<p>Mon - Fri: 9:00am - 6:00pm</p>
+								<p>Sat: 10:00am - 4:00pm</p>
+								<p>Sun: Closed</p>
+							</div>
+						</div>
+
+						<div>
+							<p className="text-[12px] text-zinc-500">Get in Touch</p>
+							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+								<p>hello@indusmotorgroup.com</p>
+								<p>+353 89 967 5410</p>
+								<p className="text-zinc-500">Serving customers across Ireland</p>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<p className="pt-6 text-xs text-zinc-600">
-					Indus Motor Group is a trading name of Indus Motors Limited. Company No. 790570.
-				</p>
+				<div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
+					<p className="mx-auto max-w-[1180px] text-[10px] leading-5 text-zinc-600">
+						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
+					</p>
+					<p className="mt-2 text-[11px] text-zinc-500">
+						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
+						{' '}|{' '}
+						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
+						{' '}|{' '}
+						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
+					</p>
+					<p className="mt-2 text-[11px] text-zinc-600">© 2026 Indus Motors Limited. All rights reserved.</p>
+					<p className="mt-2 text-[11px] text-zinc-600">
+						Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+					</p>
+				</div>
 			</footer>
 		</div>
 	)

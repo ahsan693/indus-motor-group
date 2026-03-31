@@ -5,6 +5,7 @@ import Cars from './pages/cars'
 import CookiePolicy from './pages/cookie-policy'
 import Finance from './pages/finance'
 import Warranty from './pages/Warranty'
+import About from './pages/About'
 import StudioEmbedPage from './pages/StudioEmbedPage'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/cookie-policy" element={<CookiePolicy />} />
       <Route path="/finance" element={<Finance />} />
       <Route path="/warranty" element={<Warranty />} />
+      <Route path="/about" element={<About />} />
       <Route path="*" element={<Home />} />
     </Routes>
   )
