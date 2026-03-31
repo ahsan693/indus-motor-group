@@ -82,6 +82,19 @@ export default function Cars() {
 		setActiveFilters({})
 	}
 
+	const toggleFilterDropdown = (filterName) => {
+		setShowFilters(prev => {
+			const isCurrentOpen = prev[filterName]
+			// Close all filters, then toggle the current one
+			const newFilters = {}
+			Object.keys(filterOptions).forEach(key => {
+				newFilters[key] = false
+			})
+			newFilters[filterName] = !isCurrentOpen
+			return newFilters
+		})
+	}
+
 	if (error) {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
@@ -107,7 +120,7 @@ export default function Cars() {
 						{Object.keys(filterOptions).map((filterName) => (
 							<div key={filterName} className="relative group">
 								<button
-									onClick={() => setShowFilters(prev => ({...prev, [filterName]: !prev[filterName]}))}
+									onClick={() => toggleFilterDropdown(filterName)}
 									className={`rounded-full px-4 py-2.5 text-xs font-medium transition-all ${
 										activeFilters[filterName]
 											? 'bg-white text-black border border-white'
@@ -126,6 +139,7 @@ export default function Cars() {
 													onClick={(e) => {
 														e.preventDefault()
 														toggleFilter(filterName, option)
+														setShowFilters(prev => ({...prev, [filterName]: false}))
 													}}
 													className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
 														activeFilters[filterName] === option
