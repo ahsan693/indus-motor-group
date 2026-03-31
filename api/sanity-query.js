@@ -1,11 +1,11 @@
 import { createClient } from '@sanity/client'
 
 const client = createClient({
-  projectId: process.env.VITE_SANITY_PROJECT_ID,
-  dataset: process.env.VITE_SANITY_DATASET || 'production',
+  projectId: process.env.SANITY_PROJECT_ID || process.env.VITE_SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET || process.env.VITE_SANITY_DATASET || 'production',
   useCdn: true,
   apiVersion: '2024-01-01',
-  token: process.env.VITE_SANITY_READ_TOKEN,
+  token: process.env.SANITY_READ_TOKEN || process.env.VITE_SANITY_READ_TOKEN,
 })
 
 export default async function handler(req, res) {
