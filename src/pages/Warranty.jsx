@@ -114,10 +114,10 @@ export default function Warranty() {
 				</div>
 			</section>
 
-			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-20 md:px-8 md:py-20">
-				<section className="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
+			<main className="mx-auto max-w-[1240px] space-y-12 px-4 py-10 sm:space-y-16 sm:px-5 sm:py-12 md:space-y-20 md:px-8 md:py-20">
+				<section className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 					<div className="space-y-5">
-						<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Vehicle Warranty for Added Peace of Mind</h2>
+						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Vehicle Warranty for Added Peace of Mind</h2>
 						<p className="max-w-[500px] text-sm leading-7 text-zinc-300">
 							All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
 						</p>
@@ -137,13 +137,13 @@ export default function Warranty() {
 				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-4">
-							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Key Features</h2>
+							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Key Features</h2>
 							<p className="max-w-[310px] text-sm leading-7 text-zinc-400">
 								Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
 							</p>
 						</div>
 
-						<div className="grid gap-3 sm:grid-cols-2">
+						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{keyFeatures.map((item) => (
 								<article key={item.title} className="rounded-lg bg-black/40 p-4">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
@@ -158,7 +158,7 @@ export default function Warranty() {
 				</section>
 
 				<section className="space-y-6">
-					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">How It Works</h2>
+					<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">How It Works</h2>
 					<div className="grid gap-4 md:grid-cols-3">
 						{steps.map((item) => (
 							<article key={item.title} className="space-y-3">
@@ -171,8 +171,8 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				<section className="grid gap-8 border-b border-zinc-800 pb-6 lg:grid-cols-[360px_1fr]">
-					<h2 className="text-3xl font-semibold text-white sm:text-4xl">Warranty FAQS</h2>
+				<section className="grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8">
+					<h2 className="text-xl font-semibold text-white sm:text-2xl md:text-4xl">Warranty FAQS</h2>
 					<div className="space-y-4">
 						{faq.map(([question, answer]) => (
 							<div key={question} className="border-b border-zinc-800 pb-4">
@@ -187,7 +187,7 @@ export default function Warranty() {
 				</section>
 
 				<section className="rounded-2xl bg-zinc-950 py-14 text-center">
-					<h2 className="text-3xl font-semibold text-white sm:text-5xl">Drive Away With Confidence</h2>
+					<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Drive Away With Confidence</h2>
 					<p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-zinc-400">
 						Warranty options are available on all vehicles to help protect your purchase.
 					</p>
