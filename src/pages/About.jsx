@@ -221,7 +221,7 @@ export default function About() {
 
 	return (
 		<div className="min-h-screen bg-black text-zinc-300">
-			<section className="relative overflow-hidden border border-zinc-800">
+			<section className="relative overflow-hidden">
 				<img
 					src={heroImage}
 					alt="Our story"
@@ -237,7 +237,7 @@ export default function About() {
 			</section>
 
 			<main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-20 md:px-8 md:py-20">
-				<section className="border-y border-zinc-800 py-12 md:py-14">
+				<section className="py-12 md:py-14">
 					<div className="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 						<div className="space-y-6">
 							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Who We Are</h2>
@@ -255,12 +255,12 @@ export default function About() {
 						<img
 							src={buildingImage}
 							alt="Indus Motor Group building"
-							className="h-[320px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[380px] md:h-[430px]"
+							className="h-[320px] w-full rounded-lg object-cover sm:h-[380px] md:h-[430px]"
 						/>
 					</div>
 				</section>
 
-				<section className="rounded-[22px] border border-zinc-800 bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-4">
 							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Our Approach to Selling Cars</h2>
@@ -271,8 +271,8 @@ export default function About() {
 
 						<div className="grid gap-3 sm:grid-cols-2">
 							{APPROACH_CARDS.map((item) => (
-								<article key={item.title} className="rounded-lg border border-zinc-800 bg-black/40 p-4">
-									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
+								<article key={item.title} className="rounded-lg bg-black/40 p-4">
+									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<ApproachIcon type={item.icon} />
 									</span>
 									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
@@ -384,7 +384,7 @@ export default function About() {
 				</section>
 			</main>
 
-			<section className="relative mt-6 overflow-hidden border-y border-zinc-800">
+			<section className="relative mt-6 overflow-hidden">
 				<img
 					src={ctaImage}
 					alt="Start your search"
@@ -399,7 +399,7 @@ export default function About() {
 				</div>
 			</section>
 
-			<footer className="mt-10 border-b border-zinc-800 bg-black">
+			<footer className="mt-10 bg-black">
 				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
 					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
 						<div>

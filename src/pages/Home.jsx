@@ -59,13 +59,13 @@ const whyChooseCards = [
 
 export function Navbar({ overlay = false }) {
   return (
-    <header className={overlay ? 'absolute inset-x-0 top-0 z-20 border-b border-white/10' : 'border-b border-zinc-800'}>
-      <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-3 px-4 py-4 sm:px-5 md:flex-nowrap md:px-8 md:py-5">
+    <header className={overlay ? 'absolute inset-x-0 top-0 z-20' : ''}>
+      <div className="mx-auto flex w-full flex-wrap items-center gap-3 px-4 py-4 sm:px-5 md:flex-nowrap md:px-8 md:py-5">
         <Link to="/" className="shrink-0 text-xs font-semibold leading-tight text-white sm:text-sm">
           INDUS MOTOR GROUP
         </Link>
 
-        <nav className="hidden items-center gap-7 text-xs text-zinc-300 md:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-7 text-xs text-zinc-300 md:flex">
           <Link to="/" className="transition-colors hover:text-white">
             Home
           </Link>
@@ -76,17 +76,14 @@ export function Navbar({ overlay = false }) {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
-          <Link to="/details" className="rounded-full border border-zinc-500 px-3 py-1.5 text-[11px] font-medium text-white sm:px-4 sm:py-2 sm:text-xs">
-            Details
-          </Link>
+        <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-3">
           <button className="rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
         </div>
 
         <nav className="flex w-full items-center gap-2 overflow-x-auto pb-1 text-[11px] text-zinc-300 md:hidden">
-          <Link to="/" className="rounded-full border border-zinc-700 px-3 py-1.5 whitespace-nowrap">Home</Link>
+          <Link to="/" className="rounded-full px-3 py-1.5 whitespace-nowrap">Home</Link>
           {navItems.map((item) => (
-            <Link key={item.label} to={item.to} className="rounded-full border border-zinc-700 px-3 py-1.5 whitespace-nowrap">
+            <Link key={item.label} to={item.to} className="rounded-full px-3 py-1.5 whitespace-nowrap">
               {item.label}
             </Link>
           ))}
@@ -108,7 +105,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-300">
-      <section className="relative overflow-hidden border border-zinc-800">
+      <section className="relative overflow-hidden">
         <img
           src={navbarBg}
           className="h-[560px] w-full object-cover sm:h-[620px]"
@@ -117,8 +114,8 @@ export default function Home() {
 
         <Navbar overlay />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-[1240px] flex-col px-5 pb-10 sm:pb-12 md:px-8 md:pb-16">
-          <span className="mb-5 w-fit rounded-full border border-zinc-500/60 bg-black/35 px-4 py-2 text-xs text-zinc-100">
+        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex w-full flex-col px-5 pb-10 sm:pb-12 md:px-8 md:pb-16">
+          <span className="mb-5 w-fit rounded-full bg-black/35 px-4 py-2 text-xs text-zinc-100">
             Drive Away with Confidence
           </span>
           <h1 className="max-w-[560px] text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-6xl">
@@ -133,17 +130,17 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto max-w-[1240px] space-y-16 px-5 py-12 md:space-y-24 md:px-8 md:py-20">
+      <main className="mx-auto w-full space-y-20 px-5 py-20 md:space-y-[150px] md:px-8 md:py-[150px]">
         <section>
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Featured Cars</h2>
-            <Link to="/cars" className="rounded-full border border-zinc-700 px-5 py-2 text-xs text-zinc-100">View All Cars</Link>
+            <Link to="/cars" className="rounded-full px-5 py-2 text-xs text-zinc-100">View All Cars</Link>
           </div>
 
           {carsLoading ? (
             <div className="flex items-center justify-center py-12">
               <div className="space-y-4 text-center">
-                <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
+                <div className="mx-auto h-10 w-10 animate-pulse rounded-full bg-zinc-700"></div>
                 <p className="text-sm text-zinc-400">Loading featured cars...</p>
               </div>
             </div>
@@ -171,7 +168,7 @@ export default function Home() {
                 }
 
                 return (
-                <article key={car._id} className="overflow-hidden rounded-md border border-zinc-800 bg-zinc-950">
+                <article key={car._id} className="overflow-hidden rounded-md bg-zinc-950">
                   {imageUrl ? (
                     <img 
                       src={imageUrl} 
@@ -190,12 +187,12 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {car.transmission && (
-                        <span className="rounded-full border border-zinc-700 px-1.5 py-0.5 text-[8px] text-zinc-300">
+                        <span className="rounded-full px-1.5 py-0.5 text-[8px] text-zinc-300">
                           {car.transmission}
                         </span>
                       )}
                       {car.fuelType && (
-                        <span className="rounded-full border border-zinc-700 px-1.5 py-0.5 text-[8px] text-zinc-300">
+                        <span className="rounded-full px-1.5 py-0.5 text-[8px] text-zinc-300">
                           {car.fuelType}
                         </span>
                       )}
@@ -211,14 +208,14 @@ export default function Home() {
         </section>
 
         {/* Trade-In & Financing Options Section */}
-        <section className="overflow-hidden border border-zinc-800 bg-black">
-          <div className="border-b border-zinc-800 px-4 py-4 md:px-5 md:py-5">
+        <section className="overflow-hidden bg-black">
+          <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12">
             <h2 className="text-3xl font-semibold leading-none text-white md:text-[46px]">Trade-In&FinancingOptions</h2>
           </div>
 
-          <div className="grid grid-cols-1 border-b border-zinc-800 bg-black md:grid-cols-2">
-            <article className="border-b border-zinc-800 px-4 py-4 md:min-h-[160px] md:border-b-0 md:px-5 md:py-5">
-              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm border border-zinc-700 bg-zinc-900">
+          <div className="grid grid-cols-1 bg-black md:grid-cols-2">
+            <article className="px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-zinc-100" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 12a9 9 0 1 1-2.64-6.36" />
                   <polyline points="21 3 21 9 15 9" />
@@ -233,8 +230,8 @@ export default function Home() {
               </button>
             </article>
 
-            <article className="px-4 py-4 md:min-h-[160px] md:border-l md:border-zinc-800 md:px-5 md:py-5">
-              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm border border-zinc-700 bg-zinc-900">
+            <article className="px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-amber-300" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="6" width="20" height="12" rx="2" ry="2" />
                   <line x1="2" y1="10" x2="22" y2="10" />
@@ -258,8 +255,8 @@ export default function Home() {
         </section>
 
         <section
-          className="rounded-2xl border border-zinc-800 bg-[#0a0807] px-4 py-7 md:px-10 md:py-11"
-          style={{ backgroundImage: 'linear-gradient(135deg, #18120d 0%, #0d0b09 48%, #060606 100%)' }}
+          className="rounded-2xl px-4 py-7 md:px-10 md:py-11"
+          style={{ backgroundColor: '#0d0d0d' }}
         >
           <div className="text-center">
             <span className="inline-flex items-center gap-1 text-[10px] text-zinc-500">
@@ -297,12 +294,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="pt-8 md:pt-10">
-          <h2 className="mb-8 text-center text-3xl font-semibold leading-tight text-white md:text-5xl">Why Choose Indus Motor Group</h2>
+        <section>
+          <h2 className="mb-16 text-center text-3xl font-semibold leading-tight text-white md:mb-20 md:text-5xl">Why Choose Indus Motor Group</h2>
           <div className="grid gap-x-4 gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
               <article key={card.title}>
-                <img src={card.image} alt={card.title} className="h-[160px] w-full rounded-[14px] object-cover md:h-[170px]" />
+                <img src={card.image} alt={card.title} className="h-[240px] w-full rounded-[14px] object-cover md:h-[280px]" />
                 <h3 className="mt-2.5 text-[11px] font-medium leading-tight text-zinc-100">{card.title}</h3>
                 <p className="mt-1 text-[10px] leading-4 text-zinc-500">{card.body}</p>
               </article>
@@ -310,8 +307,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="pt-6 text-center md:pt-8">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-[10px] text-zinc-300">
+        <section className="text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1 text-[10px] text-zinc-300">
             <svg viewBox="0 0 16 16" className="h-2 w-2 text-zinc-400" fill="currentColor" aria-hidden="true">
               <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
             </svg>
@@ -320,9 +317,9 @@ export default function Home() {
           <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl">What Our Customers Say</h2>
           <p className="mt-2 text-xs text-zinc-500 md:text-sm">Real feedback from customers who purchased their vehicles from us.</p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((item, idx) => (
-              <article key={item.name} className="rounded-2xl border border-zinc-800 bg-[#101010] p-4 text-left md:p-5">
+              <article key={item.name} className="rounded-2xl bg-[#101010] p-4 text-left md:p-5">
                 <p className="text-xs tracking-[0.16em] text-white">★★★★★</p>
                 <p className="mt-3 min-h-[92px] text-[13px] leading-6 text-zinc-300">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-2.5">
@@ -349,21 +346,21 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mt-6 overflow-hidden border-y border-zinc-800">
+      <section className="relative mt-20 overflow-hidden md:mt-[150px]">
         <img
           src={findYourCarImg}
           alt="Find your next car"
           className="h-[360px] w-full object-cover md:h-[430px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
+        <div className="absolute inset-x-0 top-0 mx-auto w-full px-5 pt-8 md:px-8 md:pt-10">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
           <button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
         </div>
       </section>
 
       <footer className="bg-black px-4 py-10 md:px-8 md:py-12">
-        <div className="mx-auto max-w-[1320px] text-zinc-300">
+        <div className="mx-auto w-full text-zinc-300">
           <div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
             <div>
               <p className="text-[18px] font-semibold tracking-tight text-white">INDUS MOTOR GROUP</p>
