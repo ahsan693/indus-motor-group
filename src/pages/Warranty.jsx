@@ -100,7 +100,7 @@ function KeyFeatureIcon({ type }) {
 export default function Warranty() {
 	return (
 		<div className="min-h-screen bg-black text-zinc-300">
-			<section className="relative overflow-hidden border border-zinc-800">
+			<section className="relative overflow-hidden">
 				<img
 					src={warrantyHeroImg}
 					alt="Warranty hero"
@@ -130,11 +130,11 @@ export default function Warranty() {
 					<img
 						src={vehicleWarrantyImg}
 						alt="Vehicle warranty"
-						className="h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px]"
+						className="h-[300px] w-full rounded-lg object-cover sm:h-[360px] md:h-[430px]"
 					/>
 				</section>
 
-				<section className="rounded-[22px] border border-zinc-800 bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-4">
 							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Key Features</h2>
@@ -145,8 +145,8 @@ export default function Warranty() {
 
 						<div className="grid gap-3 sm:grid-cols-2">
 							{keyFeatures.map((item) => (
-								<article key={item.title} className="rounded-lg border border-zinc-800 bg-black/40 p-4">
-									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
+								<article key={item.title} className="rounded-lg bg-black/40 p-4">
+									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<KeyFeatureIcon type={item.icon} />
 									</span>
 									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
@@ -162,7 +162,7 @@ export default function Warranty() {
 					<div className="grid gap-4 md:grid-cols-3">
 						{steps.map((item) => (
 							<article key={item.title} className="space-y-3">
-								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-800 object-cover sm:h-64" />
+								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl object-cover sm:h-64" />
 								<p className="text-xs text-zinc-500">({item.step})</p>
 								<h3 className="text-2xl font-medium leading-tight text-white">{item.title}</h3>
 								<p className="text-sm leading-6 text-zinc-400">{item.body}</p>
@@ -171,7 +171,7 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				<section className="grid gap-8 lg:grid-cols-[360px_1fr]">
+				<section className="grid gap-8 border-b border-zinc-800 pb-6 lg:grid-cols-[360px_1fr]">
 					<h2 className="text-3xl font-semibold text-white sm:text-4xl">Warranty FAQS</h2>
 					<div className="space-y-4">
 						{faq.map(([question, answer]) => (
@@ -186,7 +186,7 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				<section className="rounded-2xl border border-zinc-800 bg-zinc-950 py-14 text-center">
+				<section className="rounded-2xl bg-zinc-950 py-14 text-center">
 					<h2 className="text-3xl font-semibold text-white sm:text-5xl">Drive Away With Confidence</h2>
 					<p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-zinc-400">
 						Warranty options are available on all vehicles to help protect your purchase.
@@ -195,7 +195,7 @@ export default function Warranty() {
 				</section>
 			</main>
 
-			<footer className="mt-10 border-b border-zinc-800 bg-black">
+			<footer className="mt-10 bg-black">
 				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
 					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
 						<div>

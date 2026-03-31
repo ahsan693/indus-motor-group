@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
-import financeHeroImg from '../images/financepage-images/zdeFGO4V3SOecuPMT96XzMwA.jpg'
+import financeHeroImg from '../images/financepage-images/financenavbar.jpg'
 import financeIntroImg from '../images/financepage-images/3Yuvf0VLIgEYOhSCU7AHILehDQc.webp'
 import processStepOneImg from '../images/financepage-images/oZ0YADXVT2nLdzXhQvexvGQwXmQ.webp'
 import processStepTwoImg from '../images/financepage-images/4abMWxRVBapqeSe6NJzMoudyNyU.webp'
@@ -147,7 +147,7 @@ export default function Finance() {
 
 	return (
 		<div className="min-h-screen bg-black text-zinc-300">
-			<section className="relative overflow-hidden border border-zinc-800">
+			<section className="relative overflow-hidden">
 				<img
 					src={financeHeroImg}
 					alt="Finance hero"
@@ -184,7 +184,7 @@ export default function Finance() {
 					/>
 				</section>
 
-				<section className="border-y border-zinc-800 py-10 md:py-12">
+			<section className="py-10 md:py-12">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5">
 							<p className="text-xs text-zinc-500">• Finance Benefits</p>
@@ -193,7 +193,7 @@ export default function Finance() {
 
 						<div className="grid gap-3 sm:grid-cols-2">
 							{benefits.map((item) => (
-								<article key={item.title} className="rounded-lg border border-zinc-800 bg-zinc-950 p-5">
+								<article key={item.title} className="rounded-lg bg-zinc-950 p-5">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<BenefitIcon type={item.icon} />
 									</span>
@@ -205,14 +205,14 @@ export default function Finance() {
 					</div>
 				</section>
 
-				<section className="space-y-6">
+				<section>
 					<p className="text-xs text-zinc-500">• Process</p>
-					<h2 className="text-2xl font-semibold text-white sm:text-4xl md:text-5xl">How Finance Works</h2>
+					<h2 className="mt-2 text-2xl font-semibold text-white sm:text-4xl md:text-5xl">How Finance Works</h2>
 
-					<div className="grid gap-4 md:grid-cols-3">
+					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
 						{processSteps.map((item) => (
 							<article key={item.title} className="space-y-3">
-								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-800 object-cover" />
+								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-700 object-cover" />
 								<p className="text-xs text-zinc-500">({item.step})</p>
 								<h3 className="text-lg font-medium text-white">{item.title}</h3>
 								<p className="text-sm text-zinc-400">{item.body}</p>
@@ -221,7 +221,7 @@ export default function Finance() {
 					</div>
 				</section>
 
-				<section className="space-y-7 border-t border-zinc-800 pt-10 md:pt-12">
+				<section className="space-y-7 pt-10 md:pt-12">
 					<p className="text-center text-xs text-zinc-500">• Finance Application</p>
 					<h2 className="text-center text-4xl font-semibold text-white sm:text-5xl">Apply for Finance</h2>
 					<p className="text-center text-sm text-zinc-400">Complete the short form below and a finance provider will contact you to discuss your application.</p>
@@ -287,19 +287,19 @@ export default function Finance() {
 						<img
 							src={applyFinanceImg}
 							alt="Apply for finance"
-							className="h-full min-h-[520px] w-full rounded-lg border border-zinc-800 object-cover"
+							className="h-full min-h-[520px] w-full rounded-lg object-cover"
 						/>
 					</div>
 				</section>
 
-				<section className="grid gap-8 border-t border-zinc-800 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
-					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Finance FAQS</h2>
-					<div className="border-y border-zinc-800">
+			<section className="grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
+				<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Finance FAQS</h2>
+				<div className="border-y border-zinc-700">
 						{faq.map((item, index) => {
 							const isExpanded = Boolean(expandedFaqItems[index])
 
 							return (
-								<article key={item.question} className="border-b border-zinc-800 last:border-b-0">
+						<article key={item.question} className="border-b border-zinc-700 last:border-b-0">
 									<button
 										type="button"
 										onClick={() => toggleFaqItem(index)}
@@ -324,7 +324,7 @@ export default function Finance() {
 				</section>
 			</main>
 
-			<section className="relative mt-6 overflow-hidden border-y border-zinc-800">
+			<section className="relative mt-6 overflow-hidden">
 				<img
 					src={financeCtaImg}
 					alt="Finance CTA"
@@ -337,7 +337,7 @@ export default function Finance() {
 				</div>
 			</section>
 
-			<footer className="mt-10 border-b border-zinc-800 bg-black">
+			<footer className="mt-10 border-b border-zinc-700 bg-black">
 				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
 					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
 						<div>
@@ -404,7 +404,7 @@ export default function Finance() {
 					</div>
 				</div>
 
-				<div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
+				<div className="border-t border-zinc-700 px-5 py-6 text-center md:px-8 md:py-8">
 					<p className="mx-auto max-w-[1180px] text-[10px] leading-5 text-zinc-600">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
