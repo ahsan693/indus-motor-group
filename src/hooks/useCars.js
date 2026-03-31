@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { client } from '../lib/sanity'
 
 export function useCars(filter = {}) {
   const [cars, setCars] = useState([])
@@ -12,21 +13,14 @@ export function useCars(filter = {}) {
     query += `] | order(_createdAt desc) {
       _id, make, model, year, price, mileage,
       fuelType, transmission, color, bodyType,
+      seats,
       description, status, featured, nctExpiry, owners,
-      "images": images[]{
-        "url": asset->url,
-        "alt": alt
-      }
+      images
     }`
 
-    fetch('/api/sanity-query', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query })
-    })
-      .then(res => res.json())
+    client.fetch(query)
       .then(data => { setCars(data); setLoading(false) })
-      .catch(err => { setError(err); setLoading(false) })
+      .catch(err => { setError(err); setLoading(false); console.error('Sanity fetch error:', err) })
   }, [filter.status, filter.featured])
 
   return { cars, loading, error }

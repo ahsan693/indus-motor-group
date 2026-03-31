@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
+import ourCarsHeroImg from '../images/ourcarspage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (3).webp'
 
 export default function Cars() {
 	const { cars, loading, error } = useCars({ status: 'available' })
@@ -328,7 +329,7 @@ export default function Cars() {
 
 			<section className="relative mt-8 overflow-hidden border-y border-zinc-800">
 				<img
-					src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=80"
+					src={ourCarsHeroImg}
 					alt="Find your next car"
 					className="h-[360px] w-full object-cover md:h-[430px]"
 				/>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { client } from '../lib/sanity'
 
 export function useCar(id) {
   const [car, setCar] = useState(null)
@@ -7,17 +8,12 @@ export function useCar(id) {
 
   useEffect(() => {
     if (!id) return
-    fetch('/api/sanity-query', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        query: `*[_type == "car" && _id == $id][0]`,
-        params: { id }
-      })
-    })
-      .then(res => res.json())
+    
+    const query = `*[_type == "car" && _id == $id][0]`
+    
+    client.fetch(query, { id })
       .then(data => { setCar(data); setLoading(false) })
-      .catch(err => { setError(err); setLoading(false) })
+      .catch(err => { setError(err); setLoading(false); console.error('Sanity fetch error:', err) })
   }, [id])
 
   return { car, loading, error }
