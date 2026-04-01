@@ -15,9 +15,22 @@ export function useCar(id) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query, params: { id } })
     })
-      .then(res => res.json())
-      .then(data => { setCar(data); setLoading(false) })
-      .catch(err => { setError(err); setLoading(false); console.error('Fetch error:', err) })
+      .then(async (res) => {
+        const data = await res.json()
+        if (!res.ok) {
+          throw new Error(data?.error || data?.message || 'Failed to fetch car')
+        }
+        return data
+      })
+      .then((data) => {
+        setCar(data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err)
+        setLoading(false)
+        console.error('Fetch error:', err)
+      })
   }, [id])
 
   return { car, loading, error }

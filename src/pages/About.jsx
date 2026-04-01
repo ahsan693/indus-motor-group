@@ -230,13 +230,13 @@ export default function About() {
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="absolute inset-x-0 bottom-0 mx-auto max-w-[1240px] px-5 pb-8 md:px-8 md:pb-10">
+				<div className="absolute inset-x-0 bottom-0 hero-shell pb-8 md:pb-10">
 					<h1 className="text-5xl font-semibold leading-tight text-white sm:text-6xl">Our Story</h1>
 					<p className="mt-2 text-sm text-zinc-300">About Indus Motor Group</p>
 				</div>
 			</section>
 
-			<main className="mx-auto max-w-[1240px] space-y-12 px-4 py-10 sm:space-y-16 sm:px-5 sm:py-12 md:space-y-20 md:px-8 md:py-20">
+			<main className="layout-shell layout-stack">
 				<section className="py-12 md:py-14">
 					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 						<div className="space-y-6">
@@ -315,7 +315,7 @@ export default function About() {
 											<div className="space-y-3 p-4">
 												<div className="flex items-start justify-between gap-3">
 													<h3 className="text-xl font-medium leading-tight text-white sm:text-2xl">{car.make} {car.model}</h3>
-													<span className="pt-1 text-[10px] text-zinc-300">View Details ›</span>
+													<span className="pt-1 text-[11px] text-zinc-300">View Details ›</span>
 												</div>
 
 												<p className="text-[11px] text-zinc-500">
@@ -324,7 +324,7 @@ export default function About() {
 
 												<div className="flex flex-wrap gap-1.5">
 													{getCarTags(car).map((tag) => (
-														<span key={`${car.make}-${car.model}-${tag}`} className="rounded-full border border-zinc-700 bg-zinc-950 px-2 py-1 text-[10px] text-zinc-300">
+														<span key={`${car.make}-${car.model}-${tag}`} className="rounded-full border border-zinc-700 bg-zinc-950 px-2 py-1 text-[11px] text-zinc-300">
 															{tag}
 														</span>
 													))}
@@ -391,7 +391,7 @@ export default function About() {
 					className="h-[360px] w-full object-cover md:h-[430px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40"></div>
-				<div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
+				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
 					<h2 className="max-w-[460px] text-4xl font-semibold leading-tight text-white sm:text-5xl">Start Your Car Search Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-xs font-medium text-black">
 						Browse Available Cars
@@ -400,11 +400,11 @@ export default function About() {
 			</section>
 
 			<footer className="mt-10 bg-black">
-				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
-					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
+				<div className="site-footer-shell">
+					<div className="site-footer-grid">
 						<div>
-							<p className="text-[24px] font-semibold tracking-tight text-white">INDUS MOTOR GROUP</p>
-							<p className="mt-3 max-w-[360px] text-[13px] leading-7 text-zinc-500">
+							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
+							<p className="site-footer-copy">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
@@ -437,8 +437,8 @@ export default function About() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Company</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Company</p>
+							<div className="site-footer-links">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
 								<Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
@@ -447,8 +447,8 @@ export default function About() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Opening Hours</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Opening Hours</p>
+							<div className="site-footer-links">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
@@ -456,8 +456,8 @@ export default function About() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Get in Touch</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Get in Touch</p>
+							<div className="site-footer-links">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-zinc-500">Serving customers across Ireland</p>
@@ -467,7 +467,7 @@ export default function About() {
 				</div>
 
 				<div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
-					<p className="mx-auto max-w-[1180px] text-[10px] leading-5 text-zinc-600">
+					<p className="site-footer-legal">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
 					<p className="mt-2 text-[11px] text-zinc-500">
