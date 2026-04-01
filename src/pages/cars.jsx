@@ -116,7 +116,7 @@ export default function Cars() {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
 				<Navbar />
-				<main className="mx-auto max-w-[1240px] px-5 py-10 md:px-8 md:py-14">
+				<main className="layout-shell py-10 md:py-14">
 					<div className="rounded-lg border border-red-900 bg-red-950 p-4 text-center text-red-200">
 						Unable to load cars at this time. Please try again later.
 					</div>
@@ -129,7 +129,7 @@ export default function Cars() {
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
 
-			<main className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 md:px-8 md:py-14">
+			<main className="layout-shell py-10 md:py-14">
 				<section className="space-y-7">
 					<h1 className="text-center text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-[58px]">Quality Used Cars for Sale</h1>
 
@@ -145,7 +145,7 @@ export default function Cars() {
 									}`}
 								>
 									<span>{filterName}</span>
-									<span className="text-[9px]">⌄</span>
+										<span className="text-[11px]">⌄</span>
 								</button>
 								
 								{showFilters[filterName] && (
@@ -323,24 +323,24 @@ export default function Cars() {
 										<div className="space-y-2.5 p-3">
 											<div className="flex items-start justify-between gap-3">
 												<h3 className="truncate text-lg font-medium text-white sm:text-xl">{car.make} {car.model}</h3>
-												<span className="pt-1 text-[10px] text-zinc-300">View Details ›</span>
+												<span className="pt-1 text-[11px] text-zinc-300">View Details ›</span>
 											</div>
 											<p className="text-[11px] text-zinc-400">
 												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
 											</p>
 											<div className="flex flex-wrap gap-1.5">
 												{car.transmission && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
 														{car.transmission}
 													</span>
 												)}
 												{car.fuelType && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
 														{car.fuelType}
 													</span>
 												)}
 												{car.seats && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
 														{car.seats} Seats
 													</span>
 												)}
@@ -376,43 +376,51 @@ export default function Cars() {
 				</div>
 			</section>
 
-			<footer className="mx-auto max-w-[1240px] px-5 py-12 text-sm md:px-8 md:py-16">
-				<div className="grid gap-10 border-b border-zinc-800 pb-10 md:grid-cols-4">
-					<div>
-						<p className="font-semibold text-white">INDUS MOTOR GROUP</p>
-						<p className="mt-4 max-w-xs text-xs leading-6 text-zinc-400">
-							Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
-						</p>
-						<p className="mt-6 text-xs text-zinc-500">© 2026 Indus Motors Limited. All rights reserved.</p>
+			<footer className="mt-10 bg-black">
+				<div className="site-footer-shell text-zinc-300">
+					<div className="site-footer-grid border-b border-zinc-800 pb-10">
+						<div>
+							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
+							<p className="site-footer-copy">
+								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
+							</p>
+							<p className="mt-6 text-[11px] text-zinc-500">© 2026 Indus Motors Limited. All rights reserved.</p>
+						</div>
+
+						<div>
+							<p className="site-footer-label">Navigation</p>
+							<div className="site-footer-links">
+								<Link to="/" className="block">Home</Link>
+								<Link to="/cars" className="block">Our Cars</Link>
+								<Link to="/warranty" className="block">Warranty</Link>
+								<Link to="/finance" className="block">Finance</Link>
+								<p>About</p>
+							</div>
+						</div>
+
+						<div>
+							<p className="site-footer-label">Company</p>
+							<div className="site-footer-links">
+								<p>Privacy Policy</p>
+								<p>Cookie Policy</p>
+								<p>Terms & Conditions</p>
+							</div>
+						</div>
+
+						<div>
+							<p className="site-footer-label">Get in Touch</p>
+							<div className="site-footer-links">
+								<p>hello@indusmotorgroup.com</p>
+								<p>+353 89 967 5410</p>
+								<p className="text-zinc-500">Serving customers across Ireland</p>
+							</div>
+						</div>
 					</div>
 
-					<div className="space-y-2">
-						<p className="text-white">Navigation</p>
-						<Link to="/" className="block">Home</Link>
-						<Link to="/cars" className="block">Our Cars</Link>
-						<Link to="/warranty" className="block">Warranty</Link>
-						<Link to="/finance" className="block">Finance</Link>
-						<p>About</p>
-					</div>
-
-					<div className="space-y-2">
-						<p className="text-white">Company</p>
-						<p>Privacy Policy</p>
-						<p>Cookie Policy</p>
-						<p>Terms & Conditions</p>
-					</div>
-
-					<div className="space-y-2">
-						<p className="text-white">Get in Touch</p>
-						<p>hello@indusmotorgroup.com</p>
-						<p>+353 89 967 5410</p>
-						<p className="text-zinc-500">Serving customers across Ireland</p>
-					</div>
+					<p className="pt-6 text-[11px] text-zinc-600">
+						Indus Motor Group is a trading name of Indus Motors Limited. Company No. 790570.
+					</p>
 				</div>
-
-				<p className="pt-6 text-xs text-zinc-600">
-					Indus Motor Group is a trading name of Indus Motors Limited. Company No. 790570.
-				</p>
 			</footer>
 		</div>
 	)

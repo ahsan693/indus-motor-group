@@ -6,7 +6,7 @@ export default function CookiePolicy() {
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
 
-			<main className="mx-auto max-w-[760px] px-5 py-10 md:py-16">
+			<main className="mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16">
 				<section className="space-y-6">
 					<h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl">Cookie Policy</h1>
 					<p className="text-sm text-zinc-400">

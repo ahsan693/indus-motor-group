@@ -156,19 +156,19 @@ export default function Finance() {
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="absolute inset-x-0 bottom-0 mx-auto max-w-[1240px] px-5 pb-3 md:px-8 md:pb-4">
+				<div className="absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
 					<h1 className="text-3xl font-semibold text-white sm:text-5xl md:text-6xl">Car Finance Made Simple</h1>
 				</div>
 			</section>
 
-				<main className="mx-auto max-w-[1240px] space-y-12 px-4 py-10 sm:space-y-16 sm:px-5 sm:py-12 md:space-y-24 md:px-8 md:py-20">
+			<main className="layout-shell layout-stack">
 				<section className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 					<div className="space-y-6">
 						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Your Next Car</h2>
 						<p className="max-w-[430px] text-xs leading-7 text-zinc-400 sm:text-sm">
 							We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
 						</p>
-						<p className="max-w-[430px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
+						<p className="max-w-[430px] text-[11px] leading-5 text-zinc-500 sm:text-[12px]">
 							Finance is provided by third party lenders. Indus Motor Group does not act as a lender or provide financial advice.
 						</p>
 						<div className="flex flex-wrap items-center gap-4">
@@ -207,7 +207,7 @@ export default function Finance() {
 
 				<section>
 					<p className="text-xs text-zinc-500">• Process</p>
-<h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl md:text-5xl">How Finance Works</h2>
+					<h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl md:text-5xl">How Finance Works</h2>
 
 					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
 						{processSteps.map((item) => (
@@ -281,7 +281,7 @@ export default function Finance() {
 								<span>I would like to receive updates and marketing communications from Indus Motor Group.</span>
 							</label>
 
-							<p className="pt-1 text-[10px] italic text-zinc-500">By submitting this form you agree to our Privacy Policy.</p>
+							<p className="pt-1 text-[11px] italic text-zinc-500">By submitting this form you agree to our Privacy Policy.</p>
 						</form>
 
 						<img
@@ -331,18 +331,18 @@ export default function Finance() {
 					className="h-[360px] w-full object-cover md:h-[430px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
+				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
 					<h2 className="max-w-[420px] text-3xl font-semibold text-white sm:text-4xl md:text-5xl">Ready to Get Started With Finance?</h2>
 					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Start Application</button>
 				</div>
 			</section>
 
 			<footer className="mt-10 border-b border-zinc-700 bg-black">
-				<div className="mx-auto max-w-[1240px] px-5 py-12 md:px-8 md:py-14">
-					<div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
+				<div className="site-footer-shell">
+					<div className="site-footer-grid">
 						<div>
-							<p className="text-[24px] font-semibold tracking-tight text-white">INDUS MOTOR GROUP</p>
-							<p className="mt-3 max-w-[360px] text-[13px] leading-7 text-zinc-500">
+							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
+							<p className="site-footer-copy">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
@@ -375,8 +375,8 @@ export default function Finance() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Company</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Company</p>
+							<div className="site-footer-links">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -385,8 +385,8 @@ export default function Finance() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Opening Hours</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Opening Hours</p>
+							<div className="site-footer-links">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
@@ -394,8 +394,8 @@ export default function Finance() {
 						</div>
 
 						<div>
-							<p className="text-[12px] text-zinc-500">Get in Touch</p>
-							<div className="mt-3 space-y-2.5 text-[15px] text-white">
+							<p className="site-footer-label">Get in Touch</p>
+							<div className="site-footer-links">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-zinc-500">Serving customers across Ireland</p>
@@ -405,7 +405,7 @@ export default function Finance() {
 				</div>
 
 				<div className="border-t border-zinc-700 px-5 py-6 text-center md:px-8 md:py-8">
-					<p className="mx-auto max-w-[1180px] text-[10px] leading-5 text-zinc-600">
+					<p className="site-footer-legal">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
 					<p className="mt-2 text-[11px] text-zinc-500">

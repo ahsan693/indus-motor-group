@@ -60,7 +60,7 @@ const whyChooseCards = [
 export function Navbar({ overlay = false }) {
   return (
     <header className={overlay ? 'absolute inset-x-0 top-0 z-20' : ''}>
-      <div className="mx-auto flex w-full flex-wrap items-center gap-3 px-4 py-4 sm:px-5 md:flex-nowrap md:px-8 md:py-5">
+      <div className="layout-shell flex w-full flex-wrap items-center gap-3 py-4 md:flex-nowrap md:py-5">
         <Link to="/" className="shrink-0 text-xs font-semibold leading-tight text-white sm:text-sm">
           INDUS MOTOR GROUP
         </Link>
@@ -114,7 +114,7 @@ export default function Home() {
 
         <Navbar overlay />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex w-full flex-col px-5 pb-10 sm:pb-12 md:px-8 md:pb-16">
+        <div className="absolute inset-x-0 bottom-0 z-10 hero-shell flex w-full flex-col pb-10 sm:pb-12 md:pb-16">
           <span className="mb-5 w-fit rounded-full bg-black/35 px-4 py-2 text-xs text-zinc-100">
             Drive Away with Confidence
           </span>
@@ -130,11 +130,11 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto w-full max-w-[1240px] space-y-12 px-6 py-12 sm:space-y-16 sm:px-8 sm:py-16 md:space-y-[150px] md:py-[110px]">
-        <section className="space-y-8">
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-4xl font-semibold leading-none text-white sm:text-5xl md:text-[54px]">Featured Cars</h2>
-            <Link to="/cars" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-zinc-100">View All Cars</Link>
+      <main className="layout-shell layout-stack">
+        <section>
+          <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl md:text-[44px]">Featured Cars</h2>
+            <Link to="/cars" className="rounded-full px-5 py-2 text-sm text-zinc-100">View All Cars</Link>
           </div>
 
           {carsLoading ? (
@@ -147,7 +147,7 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-sm text-zinc-400">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
@@ -173,38 +173,38 @@ export default function Home() {
                     <img 
                       src={imageUrl} 
                       alt={`${car.make} ${car.model}`} 
-                      className="h-40 w-full object-cover sm:h-44" 
+                      className="h-48 w-full object-cover sm:h-40 lg:h-28" 
                     />
                   ) : (
-                    <div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-xs text-zinc-400 sm:h-44">
+                    <div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-sm text-zinc-400 sm:h-32 lg:h-28 lg:text-xs">
                       No image
                     </div>
                   )}
-                  <div className="flex flex-1 flex-col space-y-2.5 p-3.5">
-                    <h3 className="truncate text-base font-medium text-white">{car.make} {car.model}</h3>
-                    <p className="truncate text-xs text-zinc-400">
+                  <div className="flex flex-1 flex-col space-y-2 p-4 sm:p-3 lg:space-y-1.5 lg:p-2.5">
+                    <h3 className="truncate text-xl font-medium text-white sm:text-lg lg:text-base">{car.make} {car.model}</h3>
+                    <p className="truncate text-sm text-zinc-400 sm:text-xs lg:text-[11px]">
                       {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {car.transmission && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-xs text-zinc-300 lg:text-[9px]">
                           {car.transmission}
                         </span>
                       )}
                       {car.fuelType && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-xs text-zinc-300 lg:text-[9px]">
                           {car.fuelType}
                         </span>
                       )}
                       {car.seats && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-xs text-zinc-300 lg:text-[9px]">
                           {car.seats} Seats
                         </span>
                       )}
                     </div>
-                    <p className="pt-1 text-2xl font-medium leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
-                    <p className="text-xs text-zinc-400">Finance Available</p>
-                    <Link to={`/details?id=${car._id}`} className="mt-auto text-xs text-zinc-300 transition-colors hover:text-white">View Details ›</Link>
+                    <p className="pt-0.5 text-3xl font-medium leading-none text-white lg:text-2xl">€{car.price?.toLocaleString() || 0}</p>
+                    <p className="text-sm text-zinc-400 lg:text-xs">Finance Available</p>
+                    <Link to={`/details?id=${car._id}`} className="mt-auto text-sm text-zinc-300 transition-colors hover:text-white lg:text-xs">View Details ›</Link>
                   </div>
                 </article>
                 )
@@ -227,11 +227,11 @@ export default function Home() {
                   <polyline points="21 3 21 9 15 9" />
                 </svg>
               </div>
-              <h3 className="text-[10px] font-medium text-zinc-100 sm:text-[11px]">Trade-In</h3>
-              <p className="mt-1.5 max-w-[300px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
+              <h3 className="text-[12px] font-medium text-zinc-100">Trade-In</h3>
+              <p className="mt-1.5 max-w-[300px] text-[12px] leading-5 text-zinc-500">
                 Trade in your current vehicle as part of your purchase.
               </p>
-              <button className="mt-2.5 text-[11px] font-medium text-zinc-100 transition-colors hover:text-white">
+              <button className="mt-2.5 text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
                 Enquire Now →
               </button>
             </article>
@@ -243,11 +243,11 @@ export default function Home() {
                   <line x1="2" y1="10" x2="22" y2="10" />
                 </svg>
               </div>
-              <h3 className="text-[10px] font-medium text-zinc-100 sm:text-[11px]">Finance Assistance</h3>
-              <p className="mt-1.5 max-w-[320px] text-[10px] leading-5 text-zinc-500 sm:text-[11px]">
+              <h3 className="text-[12px] font-medium text-zinc-100">Finance Assistance</h3>
+              <p className="mt-1.5 max-w-[320px] text-[12px] leading-5 text-zinc-500">
                 Finance options available through trusted third party lenders.
               </p>
-              <button className="mt-2.5 text-[11px] font-medium text-zinc-100 transition-colors hover:text-white">
+              <button className="mt-2.5 text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
                 Learn More →
               </button>
             </article>
@@ -306,8 +306,8 @@ export default function Home() {
             {whyChooseCards.map((card) => (
               <article key={card.title}>
                 <img src={card.image} alt={card.title} className="h-[240px] w-full rounded-[14px] object-cover md:h-[280px]" />
-                <h3 className="mt-2.5 text-xs font-medium leading-tight text-zinc-100 sm:text-[11px]">{card.title}</h3>
-                <p className="mt-1 text-[9px] leading-4 text-zinc-500 sm:text-[10px]">{card.body}</p>
+                <h3 className="mt-2.5 text-sm font-medium leading-tight text-zinc-100">{card.title}</h3>
+                <p className="mt-1 text-[11px] leading-5 text-zinc-500 sm:text-[12px]">{card.body}</p>
               </article>
             ))}
           </div>
@@ -352,31 +352,31 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mt-20 overflow-hidden md:mt-[150px]">
+      <section className="relative mt-12 overflow-hidden md:mt-16">
         <img
           src={findYourCarImg}
           alt="Find your next car"
           className="h-[360px] w-full object-cover md:h-[430px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="absolute inset-x-0 top-0 mx-auto w-full px-5 pt-8 md:px-8 md:pt-10">
+        <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
           <button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
         </div>
       </section>
 
-      <footer className="bg-black px-4 py-10 md:px-8 md:py-12">
-        <div className="mx-auto w-full text-zinc-300">
-          <div className="grid gap-10 md:grid-cols-[1.7fr_1fr_1fr_1fr] md:gap-8">
+      <footer className="mt-10 bg-black">
+        <div className="site-footer-shell text-zinc-300">
+          <div className="site-footer-grid">
             <div>
-              <p className="text-[18px] font-semibold tracking-tight text-white">INDUS MOTOR GROUP</p>
-              <p className="mt-4 max-w-[360px] text-[12px] leading-7 text-zinc-500">
+              <p className="site-footer-brand">INDUS MOTOR GROUP</p>
+              <p className="site-footer-copy">
                 Quality used cars with transparent pricing, trusted warranty
                 <br />
                 options, and a straightforward buying experience.
               </p>
 
-              <div className="mt-4 flex items-center gap-2.5 text-zinc-400">
+              <div className="mt-4 flex items-center gap-3 text-zinc-400">
                 <a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
                   <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -408,8 +408,8 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="text-[11px] text-zinc-500">Company</p>
-              <div className="mt-3 space-y-2.5 text-[13px] leading-[1.35] text-white md:text-[14px]">
+              <p className="site-footer-label">Company</p>
+              <div className="site-footer-links">
                 <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
                 <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
                 <Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
@@ -418,8 +418,8 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="text-[11px] text-zinc-500">Opening Hours</p>
-              <div className="mt-3 space-y-2.5 text-[13px] leading-[1.35] text-white md:text-[14px]">
+              <p className="site-footer-label">Opening Hours</p>
+              <div className="site-footer-links">
                 <p>Mon - Fri: 9:00am - 6:00pm</p>
                 <p>Sat: 10:00am - 4:00pm</p>
                 <p>Sun: Closed</p>
@@ -427,8 +427,8 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="text-[11px] text-zinc-500">Get in Touch</p>
-              <div className="mt-3 space-y-2.5 text-[13px] leading-[1.35] text-white md:text-[14px]">
+              <p className="site-footer-label">Get in Touch</p>
+              <div className="site-footer-links">
                 <p>hello@indusmotorgroup.com</p>
                 <p>+353 89 967 5410</p>
                 <p className="text-zinc-500">Serving customers across Ireland</p>
@@ -437,19 +437,19 @@ export default function Home() {
           </div>
 
           <div className="mt-10 border-t border-zinc-800 pt-5 text-center">
-            <p className="mx-auto max-w-[1200px] text-[10px] leading-5 text-zinc-600">
+            <p className="site-footer-legal">
               Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570.
               Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
             </p>
-            <p className="mt-2 text-[10px] text-zinc-500">
+            <p className="mt-2 text-[11px] text-zinc-500">
               <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
               {' '}|{' '}
               <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
               {' '}|{' '}
               <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
             </p>
-            <p className="mt-2 text-[10px] text-zinc-600">© 2026 Indus Motors Limited. All rights reserved.</p>
-            <p className="mt-2 text-[10px] text-zinc-600">
+            <p className="mt-2 text-[11px] text-zinc-600">© 2026 Indus Motors Limited. All rights reserved.</p>
+            <p className="mt-2 text-[11px] text-zinc-600">
               Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
             </p>
           </div>

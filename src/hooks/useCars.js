@@ -22,9 +22,22 @@ export function useCars(filter = {}) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query })
     })
-      .then(res => res.json())
-      .then(data => { setCars(data); setLoading(false) })
-      .catch(err => { setError(err); setLoading(false); console.error('Fetch error:', err) })
+      .then(async (res) => {
+        const data = await res.json()
+        if (!res.ok) {
+          throw new Error(data?.error || data?.message || 'Failed to fetch cars')
+        }
+        return data
+      })
+      .then((data) => {
+        setCars(Array.isArray(data) ? data : [])
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err)
+        setLoading(false)
+        console.error('Fetch error:', err)
+      })
   }, [filter.status, filter.featured])
 
   return { cars, loading, error }

@@ -15,14 +15,14 @@ export default function StudioEmbedPage() {
   return (
     <div className="min-h-screen bg-black text-zinc-300">
       <header className="border-b border-zinc-800">
-        <div className="mx-auto flex max-w-[1240px] items-center gap-3 px-4 py-4 sm:px-5 md:px-8 md:py-5">
+        <div className="layout-shell flex items-center gap-3 py-4 md:py-5">
           <Link to="/" className="shrink-0 text-xs font-semibold leading-tight text-white sm:text-sm">
             INDUS MOTOR GROUP
           </Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1240px] px-5 py-10 md:px-8 md:py-14">
+      <main className="layout-shell py-10 md:py-14">
         <div className="space-y-6 text-center">
           <h1 className="text-3xl font-semibold text-white sm:text-4xl md:text-5xl">Sanity Studio</h1>
           
