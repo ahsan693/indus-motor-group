@@ -10,6 +10,7 @@ export default function Cars() {
 	const [activeFilters, setActiveFilters] = useState({})
 	const [sortBy, setSortBy] = useState('newest')
 	const [showFilters, setShowFilters] = useState({})
+	const [searchTerm, setSearchTerm] = useState('')
 
 	// Get unique filter values from cars
 	const brands = [...new Set(cars.map(car => car.make))].sort()
@@ -29,9 +30,25 @@ export default function Cars() {
 		'Price Range': ['Under €10,000', '€10,000 - €20,000', '€20,000 - €30,000', 'Over €30,000']
 	}
 
+	const filterOrder = ['Brand', 'Models', 'Price Range', 'Year', 'Fuel Type', 'Body Type', 'Transmission']
+
 	// Filter and sort cars
 	const filteredCars = useMemo(() => {
 		let filtered = cars.filter(car => {
+			if (searchTerm.trim()) {
+				const term = searchTerm.toLowerCase().trim()
+				const searchableText = [
+					car.make,
+					car.model,
+					car.year?.toString(),
+					car.fuelType,
+					car.transmission,
+					car.bodyType,
+				].filter(Boolean).join(' ').toLowerCase()
+
+				if (!searchableText.includes(term)) return false
+			}
+
 			if (activeFilters.Brand && car.make !== activeFilters.Brand) return false
 			if (activeFilters.Models && car.model !== activeFilters.Models) return false
 			if (activeFilters.Year && car.year !== activeFilters.Year) return false
@@ -69,7 +86,7 @@ export default function Cars() {
 		})
 
 		return filtered
-	}, [cars, activeFilters, sortBy])
+	}, [cars, activeFilters, sortBy, searchTerm])
 
 	const toggleFilter = (filterName, value) => {
 		setActiveFilters(prev => ({
@@ -112,27 +129,28 @@ export default function Cars() {
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
 
-			<main className="mx-auto max-w-[1240px] px-5 py-10 md:px-8 md:py-14">
-				<section className="space-y-8">
-					<h1 className="text-center text-3xl font-semibold text-white sm:text-4xl md:text-6xl">Quality Used Cars for Sale</h1>
+			<main className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 md:px-8 md:py-14">
+				<section className="space-y-7">
+					<h1 className="text-center text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-[58px]">Quality Used Cars for Sale</h1>
 
-					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-						{Object.keys(filterOptions).map((filterName) => (
+					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5">
+						{filterOrder.map((filterName) => (
 							<div key={filterName} className="relative group">
 								<button
 									onClick={() => toggleFilterDropdown(filterName)}
-									className={`rounded-full px-4 py-2.5 text-xs font-medium transition-all ${
+									className={`inline-flex items-center gap-1 rounded-full border px-3.5 py-2 text-[11px] font-medium leading-none transition-colors ${
 										activeFilters[filterName]
-											? 'bg-white text-black border border-white'
-											: 'border border-zinc-600 bg-zinc-900 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800'
+											? 'border-white bg-white text-black'
+											: 'border-zinc-700 bg-zinc-900 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800'
 									}`}
 								>
-									{filterName} {activeFilters[filterName] ? '✓' : '⌄'}
+									<span>{filterName}</span>
+									<span className="text-[9px]">⌄</span>
 								</button>
 								
 								{showFilters[filterName] && (
-									<div className="absolute z-50 left-0 mt-2 bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-3 min-w-[200px]">
-										<div className="max-h-[300px] overflow-y-auto space-y-2">
+									<div className="absolute left-0 z-50 mt-2 min-w-[190px] rounded-lg border border-zinc-700 bg-zinc-900 p-2 shadow-lg">
+										<div className="max-h-[280px] space-y-1.5 overflow-y-auto">
 											{filterOptions[filterName].map((option) => (
 												<button
 													key={option}
@@ -141,7 +159,7 @@ export default function Cars() {
 														toggleFilter(filterName, option)
 														setShowFilters(prev => ({...prev, [filterName]: false}))
 													}}
-													className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
+													className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${
 														activeFilters[filterName] === option
 															? 'bg-white text-black font-medium'
 															: 'text-zinc-300 hover:bg-zinc-800'
@@ -156,58 +174,62 @@ export default function Cars() {
 							</div>
 						))}
 
-						<button 
+						<button
 							onClick={clearFilters}
-							className="rounded-full border border-zinc-600 bg-zinc-900 px-4 py-2.5 text-xs text-zinc-300 hover:bg-zinc-800 transition-colors"
-							title="Clear all filters"
+							className="grid h-8 w-8 place-items-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
+							title="Reset filters"
 						>
-							⟲ Reset
+							<svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+								<line x1="3" y1="5" x2="17" y2="5" />
+								<circle cx="8" cy="5" r="1.8" fill="currentColor" stroke="none" />
+								<line x1="3" y1="10" x2="17" y2="10" />
+								<circle cx="12" cy="10" r="1.8" fill="currentColor" stroke="none" />
+								<line x1="3" y1="15" x2="17" y2="15" />
+								<circle cx="6" cy="15" r="1.8" fill="currentColor" stroke="none" />
+							</svg>
 						</button>
-					</div>
 
-					{/* Active filters display */}
-					{Object.keys(activeFilters).length > 0 && (
-						<div className="flex flex-wrap items-center gap-2 justify-center">
-							<span className="text-xs text-zinc-400">Active filters:</span>
-							{Object.entries(activeFilters).map(([key, value]) => (
-								<button
-									key={key}
-									onClick={() => toggleFilter(key, value)}
-									className="inline-flex items-center gap-2 rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-200 hover:bg-zinc-700"
-								>
-									{key}: {value}
-									<span>×</span>
-								</button>
-							))}
+						<div className="relative">
+							<svg viewBox="0 0 24 24" className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-500" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+								<circle cx="11" cy="11" r="7" />
+								<line x1="16.65" y1="16.65" x2="21" y2="21" />
+							</svg>
+							<input
+								type="text"
+								value={searchTerm}
+								onChange={(e) => setSearchTerm(e.target.value)}
+								placeholder="Search"
+								className="h-8 w-[92px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-[11px] text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500"
+							/>
 						</div>
-					)}
+					</div>
 				</section>
 
-				<section className="mt-14">
+				<section className="mt-16">
 					<div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
 						<div>
-							<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Explore Our Collection</h2>
-							<p className="mt-2 text-sm text-zinc-400">
-								{filteredCars.length} car{filteredCars.length !== 1 ? 's' : ''} found
+							<h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-[54px]">Explore Our Collection</h2>
+							<p className="mt-1 text-xs text-zinc-400">
+								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
 						</div>
 						
 						<div className="relative">
 							<button 
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
-								className="rounded-full border border-zinc-600 bg-zinc-900 px-6 py-3 text-xs font-medium text-zinc-100 hover:border-zinc-500 hover:bg-zinc-800 transition-colors"
+								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[11px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
 							>
 								Sort By ⌄
 							</button>
 							
 							{showFilters.sortMenu && (
-								<div className="absolute right-0 z-50 mt-2 bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-2 min-w-[180px]">
+								<div className="absolute right-0 z-50 mt-2 min-w-[170px] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg">
 									<button
 										onClick={() => {
 											setSortBy('newest')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'newest' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'newest' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Newest
 									</button>
@@ -216,7 +238,7 @@ export default function Cars() {
 											setSortBy('price-low')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'price-low' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'price-low' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Price: Low to High
 									</button>
@@ -225,7 +247,7 @@ export default function Cars() {
 											setSortBy('price-high')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'price-high' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'price-high' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Price: High to Low
 									</button>
@@ -234,7 +256,7 @@ export default function Cars() {
 											setSortBy('year-new')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'year-new' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'year-new' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Year: Newest First
 									</button>
@@ -243,7 +265,7 @@ export default function Cars() {
 											setSortBy('year-old')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full text-left px-4 py-2 rounded text-sm transition-colors ${sortBy === 'year-old' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'year-old' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Year: Oldest First
 									</button>
@@ -286,44 +308,44 @@ export default function Cars() {
 
 								return (
 								<Link key={car._id} to={`/details?id=${car._id}`} className="block">
-									<article className="overflow-hidden rounded-xl border border-zinc-800 bg-black hover:border-zinc-700 transition-colors cursor-pointer h-full">
+									<article className="h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
 										{imageUrl ? (
 											<img 
 												src={imageUrl} 
 												alt={`${car.make} ${car.model}`} 
-												className="h-52 w-full object-cover" 
+												className="h-40 w-full object-cover sm:h-44" 
 											/>
 										) : (
-											<div className="h-52 w-full bg-zinc-800 flex items-center justify-center text-zinc-400">
+											<div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-xs text-zinc-400 sm:h-44">
 												No image
 											</div>
 										)}
-										<div className="space-y-3 p-4">
+										<div className="space-y-2.5 p-3">
 											<div className="flex items-start justify-between gap-3">
-												<h3 className="text-xl font-medium text-white sm:text-2xl">{car.make} {car.model}</h3>
-												<span className="pt-1 text-xs text-zinc-300">View Details ›</span>
+												<h3 className="truncate text-lg font-medium text-white sm:text-xl">{car.make} {car.model}</h3>
+												<span className="pt-1 text-[10px] text-zinc-300">View Details ›</span>
 											</div>
-											<p className="text-xs text-zinc-400">
+											<p className="text-[11px] text-zinc-400">
 												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
 											</p>
 											<div className="flex flex-wrap gap-1.5">
 												{car.transmission && (
-													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
 														{car.transmission}
 													</span>
 												)}
 												{car.fuelType && (
-													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
 														{car.fuelType}
 													</span>
 												)}
-												{car.bodyType && (
-													<span className="rounded-full border border-zinc-700 px-2 py-1 text-[10px] text-zinc-300">
-														{car.bodyType}
+												{car.seats && (
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[9px] text-zinc-300">
+														{car.seats} Seats
 													</span>
 												)}
 											</div>
-											<p className="pt-1 text-2xl font-medium text-white md:text-3xl">€{car.price?.toLocaleString() || 0}</p>
+											<p className="pt-0.5 text-3xl font-medium leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
 										</div>
 									</article>
 								</Link>
