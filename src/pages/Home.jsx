@@ -130,11 +130,11 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="mx-auto w-full space-y-12 px-4 py-12 sm:space-y-16 sm:px-5 sm:py-16 md:space-y-[150px] md:px-8 md:py-[150px]">
-        <section>
-          <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-xl font-semibold text-white sm:text-2xl md:text-5xl">Featured Cars</h2>
-            <Link to="/cars" className="rounded-full px-5 py-2 text-xs text-zinc-100">View All Cars</Link>
+      <main className="mx-auto w-full max-w-[1240px] space-y-12 px-6 py-12 sm:space-y-16 sm:px-8 sm:py-16 md:space-y-[150px] md:py-[110px]">
+        <section className="space-y-8">
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-4xl font-semibold leading-none text-white sm:text-5xl md:text-[54px]">Featured Cars</h2>
+            <Link to="/cars" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-zinc-100">View All Cars</Link>
           </div>
 
           {carsLoading ? (
@@ -147,7 +147,7 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-sm text-zinc-400">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
@@ -168,37 +168,43 @@ export default function Home() {
                 }
 
                 return (
-                <article key={car._id} className="overflow-hidden rounded-md bg-zinc-950">
+                <article key={car._id} className="flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black">
                   {imageUrl ? (
                     <img 
                       src={imageUrl} 
                       alt={`${car.make} ${car.model}`} 
-                      className="h-24 w-full object-cover" 
+                      className="h-40 w-full object-cover sm:h-44" 
                     />
                   ) : (
-                    <div className="flex h-20 w-full items-center justify-center bg-zinc-800 text-[9px] text-zinc-400 sm:h-24">
+                    <div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-xs text-zinc-400 sm:h-44">
                       No image
                     </div>
                   )}
-                  <div className="space-y-1.5 p-2.5">
-                    <h3 className="truncate text-[10px] font-medium text-white sm:text-[11px]">{car.make} {car.model}</h3>
-                    <p className="truncate text-[8px] text-zinc-400 sm:text-[9px]">
+                  <div className="flex flex-1 flex-col space-y-2.5 p-3.5">
+                    <h3 className="truncate text-base font-medium text-white">{car.make} {car.model}</h3>
+                    <p className="truncate text-xs text-zinc-400">
                       {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {car.transmission && (
-                        <span className="rounded-full px-1.5 py-0.5 text-[8px] text-zinc-300">
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
                           {car.transmission}
                         </span>
                       )}
                       {car.fuelType && (
-                        <span className="rounded-full px-1.5 py-0.5 text-[8px] text-zinc-300">
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
                           {car.fuelType}
                         </span>
                       )}
+                      {car.seats && (
+                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[10px] text-zinc-300">
+                          {car.seats} Seats
+                        </span>
+                      )}
                     </div>
-                    <p className="pt-0.5 text-sm font-medium text-white">€{car.price?.toLocaleString() || 0}</p>
-                    <Link to={`/details?id=${car._id}`} className="text-[9px] text-zinc-300 transition-colors hover:text-white">View Details ›</Link>
+                    <p className="pt-1 text-2xl font-medium leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
+                    <p className="text-xs text-zinc-400">Finance Available</p>
+                    <Link to={`/details?id=${car._id}`} className="mt-auto text-xs text-zinc-300 transition-colors hover:text-white">View Details ›</Link>
                   </div>
                 </article>
                 )
