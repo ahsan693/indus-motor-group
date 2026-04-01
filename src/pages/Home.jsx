@@ -147,7 +147,7 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-sm text-zinc-400">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
               {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
