@@ -182,29 +182,41 @@ export default function Home() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="hero-zoom-settle h-[560px] w-full object-cover [will-change:transform] sm:h-[620px]"
+          className="hero-zoom-settle absolute inset-0 h-full w-full object-cover object-[center_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] [will-change:transform] md:object-[center_34%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/6 to-black/22"></div>
+        <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-b from-transparent via-black/56 to-black"></div>
 
         <Navbar overlay />
 
-        <div className="hero-content-rise absolute inset-x-0 bottom-0 z-10 hero-shell flex w-full flex-col pb-10 sm:pb-12 md:pb-16">
-          <span className="mb-5 w-fit rounded-full bg-black/35 px-4 py-2 text-xs text-zinc-100">
-            Drive Away with Confidence
-          </span>
-          <h1 className="max-w-[560px] text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-6xl">
-            Quality Used Cars in Ireland
-          </h1>
-          <p className="mt-4 max-w-[540px] text-xs leading-6 text-zinc-300 sm:text-sm">
-            Carefully selected vehicles, transparent pricing, and trusted warranty options for added peace of mind.
-          </p>
-          <button className="ui-btn mt-7 w-fit rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">
-            Browse Available Cars
-          </button>
+        <div className="relative z-10 grid min-h-[600px] grid-rows-[1fr_auto] sm:min-h-[660px] md:min-h-[680px]">
+          <div className="hero-shell flex items-end pb-0">
+            <span className="relative z-20 inline-flex w-fit translate-y-1/2 items-center gap-1.5 rounded-full border border-white/10 bg-black/72 px-3.5 py-1.5 text-[10px] text-zinc-100 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] sm:text-[11px]">
+              <svg viewBox="0 0 16 16" className="h-2.5 w-2.5 text-zinc-200" fill="currentColor" aria-hidden="true">
+                <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
+              </svg>
+              Drive Away with Confidence
+            </span>
+          </div>
+
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
+            <div className="hero-content-rise hero-shell relative pb-10 pt-9 sm:pb-11 sm:pt-10 md:pb-12 md:pt-11">
+              <h1 className="max-w-[620px] text-2xl font-semibold leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] sm:text-3xl md:text-6xl">
+                Quality Used Cars in Ireland
+              </h1>
+              <p className="mt-3 max-w-[560px] text-xs leading-6 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-sm">
+                Carefully selected vehicles, transparent pricing, and trusted warranty options for added peace of mind.
+              </p>
+              <button className="ui-btn mt-6 w-fit rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">
+                Browse Available Cars
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <main className="layout-shell layout-stack">
+      <main className="layout-shell layout-stack pt-0 sm:pt-1 md:pt-2">
         <section>
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-3xl font-semibold text-white sm:text-4xl md:text-[44px]">Featured Cars</h2>
@@ -384,12 +396,22 @@ export default function Home() {
           <h2 className="mb-16 text-center text-3xl font-semibold leading-tight text-white md:mb-20 md:text-5xl">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
-              <article key={card.title} className="group transition-transform duration-500 ease-out hover:-translate-y-1">
-                <div className="overflow-hidden rounded-[14px]">
-                  <img src={card.image} alt={card.title} loading="lazy" decoding="async" className="h-[240px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px]" />
+              <article
+                key={card.title}
+                className="group relative overflow-hidden rounded-[14px] border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600"
+              >
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[240px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
+                  <h3 className="text-sm font-medium leading-tight text-white">{card.title}</h3>
+                  <p className="mt-1 max-w-[300px] text-[11px] leading-5 text-zinc-200 sm:text-[12px]">{card.body}</p>
                 </div>
-                <h3 className="mt-2.5 text-sm font-medium leading-tight text-zinc-100 transition-transform duration-300 group-hover:translate-x-1">{card.title}</h3>
-                <p className="mt-1 text-[11px] leading-5 text-zinc-500 sm:text-[12px]">{card.body}</p>
               </article>
             ))}
           </div>
