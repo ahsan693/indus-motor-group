@@ -151,18 +151,21 @@ export default function Finance() {
 				<img
 					src={financeHeroImg}
 					alt="Finance hero"
-					className="h-[560px] w-full object-cover object-[center_90%] sm:h-[620px] md:h-[680px]"
+					loading="eager"
+					fetchPriority="high"
+					decoding="async"
+					className="hero-zoom-settle h-[560px] w-full object-cover object-[center_90%] sm:h-[620px] md:h-[680px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
 					<h1 className="text-3xl font-semibold text-white sm:text-5xl md:text-6xl">Car Finance Made Simple</h1>
 				</div>
 			</section>
 
 			<main className="layout-shell layout-stack">
-				<section className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
+				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 					<div className="space-y-6">
 						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Your Next Car</h2>
 						<p className="max-w-[430px] text-xs leading-7 text-zinc-400 sm:text-sm">
@@ -180,11 +183,13 @@ export default function Finance() {
 					<img
 						src={financeIntroImg}
 						alt="Luxury car in a tunnel"
-						className="h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px]"
+						loading="lazy"
+						decoding="async"
+						className="motion-card h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px]"
 					/>
 				</section>
 
-			<section className="py-10 md:py-12">
+			<section className="motion-rise motion-rise-delay-1 py-10 md:py-12">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5">
 							<p className="text-xs text-zinc-500">• Finance Benefits</p>
@@ -193,11 +198,11 @@ export default function Finance() {
 
 						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{benefits.map((item) => (
-								<article key={item.title} className="rounded-lg bg-zinc-950 p-5">
+								<article key={item.title} className="group motion-card rounded-lg bg-zinc-950 p-5">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<BenefitIcon type={item.icon} />
 									</span>
-									<h3 className="text-sm font-medium text-white">{item.title}</h3>
+									<h3 className="motion-link-slide text-sm font-medium text-white">{item.title}</h3>
 									<p className="mt-2 text-xs leading-6 text-zinc-400">{item.body}</p>
 								</article>
 							))}
@@ -205,23 +210,25 @@ export default function Finance() {
 					</div>
 				</section>
 
-				<section>
+				<section className="motion-rise motion-rise-delay-2">
 					<p className="text-xs text-zinc-500">• Process</p>
 					<h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl md:text-5xl">How Finance Works</h2>
 
 					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
 						{processSteps.map((item) => (
-							<article key={item.title} className="space-y-3">
-								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl border border-zinc-700 object-cover" />
+							<article key={item.title} className="group motion-card space-y-3">
+								<div className="overflow-hidden rounded-xl border border-zinc-700">
+									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover" />
+								</div>
 								<p className="text-xs text-zinc-500">({item.step})</p>
-								<h3 className="text-lg font-medium text-white">{item.title}</h3>
+								<h3 className="motion-link-slide text-lg font-medium text-white">{item.title}</h3>
 								<p className="text-sm text-zinc-400">{item.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
-				<section className="space-y-7 pt-10 md:pt-12">
+				<section className="motion-rise space-y-7 pt-10 md:pt-12">
 					<p className="text-center text-xs text-zinc-500">• Finance Application</p>
 					<h2 className="text-center text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Apply for Finance</h2>
 					<p className="text-center text-sm text-zinc-400">Complete the short form below and a finance provider will contact you to discuss your application.</p>
@@ -287,12 +294,14 @@ export default function Finance() {
 						<img
 							src={applyFinanceImg}
 							alt="Apply for finance"
-							className="h-full min-h-[520px] w-full rounded-lg object-cover"
+							loading="lazy"
+							decoding="async"
+							className="motion-card h-full min-h-[520px] w-full rounded-lg object-cover"
 						/>
 					</div>
 				</section>
 
-			<section className="grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
+			<section className="motion-rise grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
 				<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance FAQS</h2>
 				<div className="border-y border-zinc-700">
 						{faq.map((item, index) => {
@@ -328,10 +337,12 @@ export default function Finance() {
 				<img
 					src={financeCtaImg}
 					alt="Finance CTA"
-					className="h-[360px] w-full object-cover md:h-[430px]"
+					loading="lazy"
+					decoding="async"
+					className="hero-zoom-settle h-[360px] w-full object-cover md:h-[430px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
+				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
 					<h2 className="max-w-[420px] text-3xl font-semibold text-white sm:text-4xl md:text-5xl">Ready to Get Started With Finance?</h2>
 					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Start Application</button>
 				</div>

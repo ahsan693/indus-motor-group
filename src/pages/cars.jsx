@@ -130,7 +130,7 @@ export default function Cars() {
 			<Navbar />
 
 			<main className="layout-shell py-10 md:py-14">
-				<section className="space-y-7">
+				<section className="motion-rise space-y-7">
 					<h1 className="text-center text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-[58px]">Quality Used Cars for Sale</h1>
 
 					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5">
@@ -205,7 +205,7 @@ export default function Cars() {
 					</div>
 				</section>
 
-				<section className="mt-16">
+				<section className="motion-rise motion-rise-delay-1 mt-16">
 					<div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
 						<div>
 							<h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-[54px]">Explore Our Collection</h2>
@@ -307,13 +307,15 @@ export default function Cars() {
 								}
 
 								return (
-								<Link key={car._id} to={`/details?id=${car._id}`} className="block">
-									<article className="h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
+								<Link key={car._id} to={`/details?id=${car._id}`} className="group block">
+									<article className="motion-card h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
 										{imageUrl ? (
 											<img 
 												src={imageUrl} 
 												alt={`${car.make} ${car.model}`} 
-												className="h-40 w-full object-cover sm:h-44" 
+												loading="lazy"
+												decoding="async"
+												className="motion-media h-40 w-full object-cover sm:h-44" 
 											/>
 										) : (
 											<div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-xs text-zinc-400 sm:h-44">
@@ -323,7 +325,7 @@ export default function Cars() {
 										<div className="space-y-2.5 p-3">
 											<div className="flex items-start justify-between gap-3">
 												<h3 className="truncate text-lg font-medium text-white sm:text-xl">{car.make} {car.model}</h3>
-												<span className="pt-1 text-[11px] text-zinc-300">View Details ›</span>
+												<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details ›</span>
 											</div>
 											<p className="text-[11px] text-zinc-400">
 												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
@@ -367,10 +369,12 @@ export default function Cars() {
 				<img
 					src={ourCarsHeroImg}
 					alt="Find your next car"
-					className="h-[360px] w-full object-cover md:h-[430px]"
+					loading="lazy"
+					decoding="async"
+					className="hero-zoom-settle h-[360px] w-full object-cover md:h-[430px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
+				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
 					<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
 					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
 				</div>

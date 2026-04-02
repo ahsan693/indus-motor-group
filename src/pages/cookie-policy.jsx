@@ -6,8 +6,8 @@ export default function CookiePolicy() {
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
 
-			<main className="mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16">
-				<section className="space-y-6">
+			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16">
+				<section className="motion-rise space-y-6">
 					<h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl">Cookie Policy</h1>
 					<p className="text-sm text-zinc-400">
 						Last updated: <span className="font-medium text-zinc-200">March 2025</span>
@@ -29,7 +29,7 @@ export default function CookiePolicy() {
 					</div>
 				</section>
 
-				<section className="mt-12 space-y-10 md:mt-14">
+				<section className="motion-rise motion-rise-delay-1 mt-12 space-y-10 md:mt-14">
 					<div className="space-y-4">
 						<h2 className="text-2xl font-semibold text-white sm:text-3xl">How We Use Cookies</h2>
 						<p className="text-sm text-zinc-400">We use cookies for the following purposes.</p>

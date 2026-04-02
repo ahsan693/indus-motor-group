@@ -104,18 +104,21 @@ export default function Warranty() {
 				<img
 					src={warrantyHeroImg}
 					alt="Warranty hero"
-					className="h-[360px] w-full object-cover sm:h-[430px] md:h-[500px]"
+					loading="eager"
+					fetchPriority="high"
+					decoding="async"
+					className="hero-zoom-settle h-[360px] w-full object-cover sm:h-[430px] md:h-[500px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black"></div>
 				<Navbar overlay />
 
-				<div className="absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
 					<h1 className="text-3xl font-semibold text-white sm:text-5xl md:text-6xl">Warranty & Aftercare</h1>
 				</div>
 			</section>
 
 			<main className="layout-shell layout-stack">
-				<section className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
+				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 					<div className="space-y-5">
 						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Vehicle Warranty for Added Peace of Mind</h2>
 						<p className="max-w-[500px] text-sm leading-7 text-zinc-300">
@@ -130,11 +133,13 @@ export default function Warranty() {
 					<img
 						src={vehicleWarrantyImg}
 						alt="Vehicle warranty"
-						className="h-[300px] w-full rounded-lg object-cover sm:h-[360px] md:h-[430px]"
+						loading="lazy"
+						decoding="async"
+						className="motion-card h-[300px] w-full rounded-lg object-cover sm:h-[360px] md:h-[430px]"
 					/>
 				</section>
 
-				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-4">
 							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Key Features</h2>
@@ -145,11 +150,11 @@ export default function Warranty() {
 
 						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{keyFeatures.map((item) => (
-								<article key={item.title} className="rounded-lg bg-black/40 p-4">
+								<article key={item.title} className="group motion-card rounded-lg bg-black/40 p-4">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<KeyFeatureIcon type={item.icon} />
 									</span>
-									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
+									<h3 className="motion-link-slide text-sm font-medium text-zinc-100">{item.title}</h3>
 									<p className="mt-2 text-xs leading-6 text-zinc-400">{item.body}</p>
 								</article>
 							))}
@@ -157,25 +162,27 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				<section className="space-y-6">
+				<section className="motion-rise motion-rise-delay-2 space-y-6">
 					<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">How It Works</h2>
 					<div className="grid gap-4 md:grid-cols-3">
 						{steps.map((item) => (
-							<article key={item.title} className="space-y-3">
-								<img src={item.image} alt={item.title} className="h-56 w-full rounded-xl object-cover sm:h-64" />
+							<article key={item.title} className="group motion-card space-y-3">
+								<div className="overflow-hidden rounded-xl">
+									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover sm:h-64" />
+								</div>
 								<p className="text-xs text-zinc-500">({item.step})</p>
-								<h3 className="text-2xl font-medium leading-tight text-white">{item.title}</h3>
+								<h3 className="motion-link-slide text-2xl font-medium leading-tight text-white">{item.title}</h3>
 								<p className="text-sm leading-6 text-zinc-400">{item.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
-				<section className="grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8">
+				<section className="motion-rise grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8">
 					<h2 className="text-xl font-semibold text-white sm:text-2xl md:text-4xl">Warranty FAQS</h2>
 					<div className="space-y-4">
 						{faq.map(([question, answer]) => (
-							<div key={question} className="border-b border-zinc-800 pb-4">
+							<div key={question} className="border-b border-zinc-800 pb-4 transition-colors hover:bg-zinc-950/40">
 								<div className="flex items-start justify-between gap-4">
 									<h3 className="text-sm font-medium text-white sm:text-base">{question}</h3>
 									<span className="text-lg text-zinc-300">+</span>
@@ -186,7 +193,7 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				<section className="rounded-2xl bg-zinc-950 py-14 text-center">
+				<section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center">
 					<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Drive Away With Confidence</h2>
 					<p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-zinc-400">
 						Warranty options are available on all vehicles to help protect your purchase.

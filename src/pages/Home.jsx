@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
 import navbarBg from '../images/homepage-images/navbar-backgorund.jpg'
@@ -80,18 +80,18 @@ export function Navbar({ overlay = false }) {
           </Link>
 
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-xs text-zinc-300 lg:flex">
-            <Link to="/" className="transition-colors hover:text-white">
+            <Link to="/" className="ui-nav-link transition-colors hover:text-white">
               Home
             </Link>
             {navItems.map((item) => (
-              <Link key={item.label} to={item.to} className="transition-colors hover:text-white">
+              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white">
                 {item.label}
               </Link>
             ))}
           </nav>
 
           <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-            <button className="rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
+            <button className="ui-btn rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
           </div>
 
           <button
@@ -114,20 +114,20 @@ export function Navbar({ overlay = false }) {
           className={`overflow-hidden transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
         >
           <nav className="rounded-xl border border-white/15 bg-black/80 p-3 text-sm text-zinc-200 backdrop-blur">
-            <Link to="/" className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
               Home
             </Link>
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+                className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <button className="mt-2 w-full rounded-full bg-white px-4 py-2 text-xs font-medium text-black">
+            <button className="ui-btn mt-2 w-full rounded-full bg-white px-4 py-2 text-xs font-medium text-black">
               Contact Us
             </button>
           </nav>
@@ -139,26 +139,56 @@ export function Navbar({ overlay = false }) {
 
 export default function Home() {
   const { cars: featuredCars, loading: carsLoading } = useCars({ featured: true })
-  const recentCars = [...featuredCars]
-    .sort((a, b) => {
-      const aCreated = new Date(a._createdAt || a.createdAt || 0).getTime()
-      const bCreated = new Date(b._createdAt || b.createdAt || 0).getTime()
-      return bCreated - aCreated
+  const recentCars = useMemo(
+    () =>
+      [...featuredCars]
+        .sort((a, b) => {
+          const aCreated = new Date(a._createdAt || a.createdAt || 0).getTime()
+          const bCreated = new Date(b._createdAt || b.createdAt || 0).getTime()
+          return bCreated - aCreated
+        })
+        .slice(0, 4),
+    [featuredCars],
+  )
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const testimonialsCarouselRef = useRef(null)
+
+  const handleTestimonialScroll = (event) => {
+    const { scrollLeft, clientWidth } = event.currentTarget
+    if (!clientWidth) return
+
+    const index = Math.round(scrollLeft / clientWidth)
+    const boundedIndex = Math.max(0, Math.min(testimonials.length - 1, index))
+    setActiveTestimonial((prev) => (prev === boundedIndex ? prev : boundedIndex))
+  }
+
+  const scrollToTestimonial = (index) => {
+    const node = testimonialsCarouselRef.current
+    if (!node) return
+
+    node.scrollTo({
+      left: node.clientWidth * index,
+      behavior: 'smooth',
     })
-    .slice(0, 4)
+    setActiveTestimonial(index)
+  }
 
   return (
     <div className="min-h-screen bg-black text-zinc-300">
       <section className="relative overflow-hidden">
         <img
           src={navbarBg}
-          className="h-[560px] w-full object-cover sm:h-[620px]"
+          alt="Luxury vehicle background"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="hero-zoom-settle h-[560px] w-full object-cover [will-change:transform] sm:h-[620px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black"></div>
 
         <Navbar overlay />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 hero-shell flex w-full flex-col pb-10 sm:pb-12 md:pb-16">
+        <div className="hero-content-rise absolute inset-x-0 bottom-0 z-10 hero-shell flex w-full flex-col pb-10 sm:pb-12 md:pb-16">
           <span className="mb-5 w-fit rounded-full bg-black/35 px-4 py-2 text-xs text-zinc-100">
             Drive Away with Confidence
           </span>
@@ -168,7 +198,7 @@ export default function Home() {
           <p className="mt-4 max-w-[540px] text-xs leading-6 text-zinc-300 sm:text-sm">
             Carefully selected vehicles, transparent pricing, and trusted warranty options for added peace of mind.
           </p>
-          <button className="mt-7 w-fit rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">
+          <button className="ui-btn mt-7 w-fit rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">
             Browse Available Cars
           </button>
         </div>
@@ -178,7 +208,7 @@ export default function Home() {
         <section>
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-3xl font-semibold text-white sm:text-4xl md:text-[44px]">Featured Cars</h2>
-            <Link to="/cars" className="rounded-full px-5 py-2 text-sm text-zinc-100">View All Cars</Link>
+            <Link to="/cars" className="ui-btn inline-flex rounded-full px-5 py-2 text-sm text-zinc-100">View All Cars</Link>
           </div>
 
           {carsLoading ? (
@@ -212,12 +242,14 @@ export default function Home() {
                 }
 
                 return (
-                <article key={car._id} className="flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black">
+                <article key={car._id} className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600">
                   {imageUrl ? (
                     <img 
                       src={imageUrl} 
                       alt={`${car.make} ${car.model}`} 
-                      className="h-48 w-full object-cover sm:h-40 lg:h-28" 
+                      loading="lazy"
+                      decoding="async"
+                      className="h-48 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-40 lg:h-28" 
                     />
                   ) : (
                     <div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-sm text-zinc-400 sm:h-32 lg:h-28 lg:text-xs">
@@ -248,7 +280,7 @@ export default function Home() {
                     </div>
                     <p className="pt-0.5 text-3xl font-medium leading-none text-white lg:text-2xl">€{car.price?.toLocaleString() || 0}</p>
                     <p className="text-sm text-zinc-400 lg:text-xs">Finance Available</p>
-                    <Link to={`/details?id=${car._id}`} className="mt-auto text-sm text-zinc-300 transition-colors hover:text-white lg:text-xs">View Details ›</Link>
+                    <Link to={`/details?id=${car._id}`} className="mt-auto inline-flex items-center text-sm text-zinc-300 transition-all duration-300 hover:text-white group-hover:translate-x-1 lg:text-xs">View Details ›</Link>
                   </div>
                 </article>
                 )
@@ -264,7 +296,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 bg-black md:grid-cols-2">
-            <article className="px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
               <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-zinc-100" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 12a9 9 0 1 1-2.64-6.36" />
@@ -275,12 +307,13 @@ export default function Home() {
               <p className="mt-1.5 max-w-[300px] text-[12px] leading-5 text-zinc-500">
                 Trade in your current vehicle as part of your purchase.
               </p>
-              <button className="mt-2.5 text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
-                Enquire Now →
+              <button className="ui-btn mt-2.5 inline-flex items-center text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
+                <span className="transition-transform duration-300 group-hover:translate-x-1">Enquire Now</span>
+                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
             </article>
 
-            <article className="px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
               <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-amber-300" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="6" width="20" height="12" rx="2" ry="2" />
@@ -291,8 +324,9 @@ export default function Home() {
               <p className="mt-1.5 max-w-[320px] text-[12px] leading-5 text-zinc-500">
                 Finance options available through trusted third party lenders.
               </p>
-              <button className="mt-2.5 text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
-                Learn More →
+              <button className="ui-btn mt-2.5 inline-flex items-center text-[12px] font-medium text-zinc-100 transition-colors hover:text-white">
+                <span className="transition-transform duration-300 group-hover:translate-x-1">Learn More</span>
+                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
             </article>
           </div>
@@ -300,6 +334,8 @@ export default function Home() {
           <img
             src={luxuryCarImage}
             alt="Luxury car interior"
+            loading="lazy"
+            decoding="async"
             className="h-[290px] w-full object-cover md:h-[500px]"
           />
         </section>
@@ -336,6 +372,8 @@ export default function Home() {
               <img
                 src={warrantyBadgeImg}
                 alt="2 year warranty badge"
+                loading="lazy"
+                decoding="async"
                 className="h-[180px] w-[156px] object-contain md:h-[210px] md:w-[182px]"
               />
             </div>
@@ -346,9 +384,11 @@ export default function Home() {
           <h2 className="mb-16 text-center text-3xl font-semibold leading-tight text-white md:mb-20 md:text-5xl">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
-              <article key={card.title}>
-                <img src={card.image} alt={card.title} className="h-[240px] w-full rounded-[14px] object-cover md:h-[280px]" />
-                <h3 className="mt-2.5 text-sm font-medium leading-tight text-zinc-100">{card.title}</h3>
+              <article key={card.title} className="group transition-transform duration-500 ease-out hover:-translate-y-1">
+                <div className="overflow-hidden rounded-[14px]">
+                  <img src={card.image} alt={card.title} loading="lazy" decoding="async" className="h-[240px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px]" />
+                </div>
+                <h3 className="mt-2.5 text-sm font-medium leading-tight text-zinc-100 transition-transform duration-300 group-hover:translate-x-1">{card.title}</h3>
                 <p className="mt-1 text-[11px] leading-5 text-zinc-500 sm:text-[12px]">{card.body}</p>
               </article>
             ))}
@@ -365,9 +405,55 @@ export default function Home() {
           <h2 className="mt-4 text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">What Our Customers Say</h2>
           <p className="mt-2 text-[11px] text-zinc-500 sm:text-xs md:text-sm">Real feedback from customers who purchased their vehicles from us.</p>
 
-          <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((item, idx) => (
-              <article key={item.name} className="rounded-2xl bg-[#101010] p-4 text-left md:p-5">
+          <div className="mt-12 md:hidden">
+            <div
+              ref={testimonialsCarouselRef}
+              onScroll={handleTestimonialScroll}
+              className="flex snap-x snap-mandatory overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              aria-label="Customer reviews carousel"
+            >
+              {testimonials.map((item) => (
+                <div key={item.name} className="w-full shrink-0 snap-center px-1">
+                  <article className="rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out">
+                    <p className="text-xs tracking-[0.16em] text-white">★★★★★</p>
+                    <p className="mt-3 min-h-[92px] text-[13px] leading-7 text-zinc-300">{item.quote}</p>
+                    <div className="mt-4 flex items-center gap-2.5">
+                      <img
+                        src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
+                        alt="Google"
+                        className="h-6 w-6 rounded-full bg-white p-0.5"
+                      />
+                      <div>
+                        <p className="text-xs font-medium text-white">{item.name}</p>
+                        <p className="text-[11px] text-zinc-500">Dublin</p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-3 flex items-center justify-center gap-1.5">
+              {testimonials.map((item, idx) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  className="p-1"
+                  aria-label={`Show review ${idx + 1}`}
+                  aria-current={activeTestimonial === idx}
+                  onClick={() => scrollToTestimonial(idx)}
+                >
+                  <span
+                    className={`block h-1.5 w-1.5 rounded-full transition-colors ${activeTestimonial === idx ? 'bg-white' : 'bg-zinc-500'}`}
+                  ></span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((item) => (
+              <article key={item.name} className="group rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out hover:-translate-y-1 md:p-5">
                 <p className="text-xs tracking-[0.16em] text-white">★★★★★</p>
                 <p className="mt-3 min-h-[92px] text-[13px] leading-6 text-zinc-300">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-2.5">
@@ -381,13 +467,6 @@ export default function Home() {
                     <p className="text-[11px] text-zinc-500">Dublin</p>
                   </div>
                 </div>
-                {idx === 1 && (
-                  <div className="mt-3 flex items-center justify-center gap-1.5 lg:mt-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-500"></span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-500"></span>
-                  </div>
-                )}
               </article>
             ))}
           </div>
@@ -398,12 +477,14 @@ export default function Home() {
         <img
           src={findYourCarImg}
           alt="Find your next car"
+          loading="lazy"
+          decoding="async"
           className="h-[360px] w-full object-cover md:h-[430px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
-          <button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
+          <button className="ui-btn mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
         </div>
       </section>
 
