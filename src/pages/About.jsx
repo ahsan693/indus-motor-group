@@ -225,19 +225,22 @@ export default function About() {
 				<img
 					src={heroImage}
 					alt="Our story"
-					className="h-[420px] w-full object-cover sm:h-[520px] md:h-[620px]"
+					loading="eager"
+					fetchPriority="high"
+					decoding="async"
+					className="hero-zoom-settle h-[420px] w-full object-cover sm:h-[520px] md:h-[620px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="absolute inset-x-0 bottom-0 hero-shell pb-8 md:pb-10">
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-8 md:pb-10">
 					<h1 className="text-5xl font-semibold leading-tight text-white sm:text-6xl">Our Story</h1>
 					<p className="mt-2 text-sm text-zinc-300">About Indus Motor Group</p>
 				</div>
 			</section>
 
 			<main className="layout-shell layout-stack">
-				<section className="py-12 md:py-14">
+				<section className="motion-rise py-12 md:py-14">
 					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 						<div className="space-y-6">
 							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Who We Are</h2>
@@ -255,12 +258,14 @@ export default function About() {
 						<img
 							src={buildingImage}
 							alt="Indus Motor Group building"
-							className="h-[320px] w-full rounded-lg object-cover sm:h-[380px] md:h-[430px]"
+							loading="lazy"
+							decoding="async"
+							className="motion-card h-[320px] w-full rounded-lg object-cover sm:h-[380px] md:h-[430px]"
 						/>
 					</div>
 				</section>
 
-				<section className="rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
 					<div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 						<div className="space-y-4">
 							<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Our Approach to Selling Cars</h2>
@@ -271,11 +276,11 @@ export default function About() {
 
 						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
 							{APPROACH_CARDS.map((item) => (
-								<article key={item.title} className="rounded-lg bg-black/40 p-4">
+								<article key={item.title} className="group motion-card rounded-lg bg-black/40 p-4">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<ApproachIcon type={item.icon} />
 									</span>
-									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
+									<h3 className="motion-link-slide text-sm font-medium text-zinc-100">{item.title}</h3>
 									<p className="mt-2 text-xs leading-6 text-zinc-400">{item.body}</p>
 								</article>
 							))}
@@ -283,7 +288,7 @@ export default function About() {
 					</div>
 				</section>
 
-				<section>
+				<section className="motion-rise motion-rise-delay-2">
 					<h2 className="mb-8 text-center text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Latest Arrivals</h2>
 
 					{arrivalsLoading && latestArrivals === FALLBACK_ARRIVALS ? (
@@ -300,13 +305,15 @@ export default function About() {
 								const targetPath = car._id ? `/details?id=${car._id}` : '/cars'
 
 								return (
-									<Link key={car._id || `fallback-${index}`} to={targetPath} className="block">
-										<article className="h-full overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
+									<Link key={car._id || `fallback-${index}`} to={targetPath} className="group block">
+										<article className="motion-card h-full overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
 											{imageUrl ? (
 												<img
 													src={imageUrl}
 													alt={`${car.make} ${car.model}`}
-													className="h-44 w-full object-cover"
+													loading="lazy"
+													decoding="async"
+													className="motion-media h-44 w-full object-cover"
 												/>
 											) : (
 												<div className="flex h-40 items-center justify-center bg-zinc-900 text-xs text-zinc-500 sm:h-48 md:h-64">No image available</div>
@@ -315,7 +322,7 @@ export default function About() {
 											<div className="space-y-3 p-4">
 												<div className="flex items-start justify-between gap-3">
 													<h3 className="text-xl font-medium leading-tight text-white sm:text-2xl">{car.make} {car.model}</h3>
-													<span className="pt-1 text-[11px] text-zinc-300">View Details ›</span>
+													<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details ›</span>
 												</div>
 
 												<p className="text-[11px] text-zinc-500">
@@ -340,11 +347,11 @@ export default function About() {
 					)}
 				</section>
 
-				<section>
+				<section className="motion-rise">
 					<h2 className="mb-6 text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Buy With Confidence</h2>
 					<div className="border-y border-zinc-800">
 						{CONFIDENCE_POINTS.map((point) => (
-							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8">
+							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 transition-colors hover:bg-zinc-950/40 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8">
 								<h3 className="text-lg font-medium text-white">{point.title}</h3>
 								<p className="text-sm leading-7 text-zinc-400">{point.body}</p>
 							</article>
@@ -352,7 +359,7 @@ export default function About() {
 					</div>
 				</section>
 
-				<section className="grid gap-6 md:gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
+				<section className="motion-rise grid gap-6 md:gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
 					<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Frequently Asked Questions</h2>
 					<div className="border-y border-zinc-800">
 						{FAQ_ITEMS.map((item, index) => {
@@ -388,10 +395,12 @@ export default function About() {
 				<img
 					src={ctaImage}
 					alt="Start your search"
-					className="h-[360px] w-full object-cover md:h-[430px]"
+					loading="lazy"
+					decoding="async"
+					className="hero-zoom-settle h-[360px] w-full object-cover md:h-[430px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40"></div>
-				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
+				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
 					<h2 className="max-w-[460px] text-4xl font-semibold leading-tight text-white sm:text-5xl">Start Your Car Search Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-xs font-medium text-black">
 						Browse Available Cars

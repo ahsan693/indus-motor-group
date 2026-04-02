@@ -22,15 +22,15 @@ export default function StudioEmbedPage() {
         </div>
       </header>
 
-      <main className="layout-shell py-10 md:py-14">
-        <div className="space-y-6 text-center">
+      <main className="motion-rise layout-shell py-10 md:py-14">
+        <div className="motion-rise space-y-6 text-center">
           <h1 className="text-3xl font-semibold text-white sm:text-4xl md:text-5xl">Sanity Studio</h1>
           
           <p className="text-zinc-400">
             Redirecting to Sanity Studio...
           </p>
 
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-8">
+          <div className="motion-card rounded-lg border border-zinc-800 bg-zinc-950 p-8">
             <p className="mb-4 text-sm text-zinc-400">
               If you are not redirected automatically, you can access Sanity Studio here:
             </p>

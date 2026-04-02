@@ -388,7 +388,7 @@ export default function Details() {
 					<span className="text-zinc-300">{car.make} {car.model}</span>
 				</p>
 
-				<section className="mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
+				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
 					<div className="space-y-6">
 						<Link to="/cars" className="inline-flex items-center text-sm text-zinc-400 transition-colors hover:text-white">
 							← Back to Cars
@@ -417,17 +417,18 @@ export default function Details() {
 							<p className="text-sm text-zinc-400">{heroSummary.join(' · ')}</p>
 						)}
 
-						<a href={enquiryMail} className="inline-flex items-center text-sm font-medium text-white transition-colors hover:text-zinc-300">
+						<a href={enquiryMail} className="group inline-flex items-center text-sm font-medium text-white transition-colors hover:text-zinc-300">
 							Enquire Now <span className="ml-2">→</span>
 						</a>
 					</div>
 
-					<div className="relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950">
+					<div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950">
 						{activeImageUrl ? (
 							<img
 								src={activeImageUrl}
 								alt={`${car.make} ${car.model}`}
-								className="h-[300px] w-full object-cover sm:h-[360px] md:h-[430px]"
+								decoding="async"
+								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px]"
 							/>
 						) : (
 							<div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px]">
@@ -470,7 +471,7 @@ export default function Details() {
 					</div>
 				</section>
 
-				<section className="mt-12 pb-4 md:mt-14">
+				<section className="motion-rise motion-rise-delay-1 mt-12 pb-4 md:mt-14">
 					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Vehicle Specifications</h2>
 					<div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2">
 						<div>
@@ -492,7 +493,7 @@ export default function Details() {
 					</div>
 				</section>
 
-				<section className="mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10">
+				<section className="motion-rise mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10">
 					<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">Features</h2>
 
 					{selectedFeatureGroups.length === 0 ? (
@@ -519,7 +520,7 @@ export default function Details() {
 					)}
 				</section>
 
-				<section className="mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10">
+				<section className="motion-rise mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
 						<div className="space-y-4">
 							<h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">Enquire About This Vehicle</h2>
@@ -533,11 +534,11 @@ export default function Details() {
 
 						<div className="grid gap-4 sm:grid-cols-2">
 							{ENQUIRY_HIGHLIGHTS.map((item) => (
-								<article key={item.title} className="rounded-xl border border-zinc-800 bg-black/35 p-4">
+								<article key={item.title} className="group motion-card rounded-xl border border-zinc-800 bg-black/35 p-4">
 									<span className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<HighlightIcon type={item.icon} />
 									</span>
-									<h3 className="text-sm font-medium text-zinc-100">{item.title}</h3>
+									<h3 className="motion-link-slide text-sm font-medium text-zinc-100">{item.title}</h3>
 									<p className="mt-2 text-xs leading-5 text-zinc-400">{item.description}</p>
 								</article>
 							))}
@@ -545,7 +546,7 @@ export default function Details() {
 					</div>
 				</section>
 
-				<section className="mt-14 md:mt-16">
+				<section className="motion-rise motion-rise-delay-2 mt-14 md:mt-16">
 					<div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
 						<div>
 							<h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">You May Also Like</h2>
@@ -586,13 +587,15 @@ export default function Details() {
 								].filter(Boolean)
 
 								return (
-									<Link key={relatedCar._id} to={`/details?id=${relatedCar._id}`} className="block">
-										<article className="h-full overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
+									<Link key={relatedCar._id} to={`/details?id=${relatedCar._id}`} className="group block">
+										<article className="motion-card h-full overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
 											{relatedImageUrl ? (
 												<img
 													src={relatedImageUrl}
 													alt={`${relatedCar.make} ${relatedCar.model}`}
-													className="h-44 w-full object-cover"
+													loading="lazy"
+													decoding="async"
+													className="motion-media h-44 w-full object-cover"
 												/>
 											) : (
 												<div className="flex h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">
@@ -603,7 +606,7 @@ export default function Details() {
 											<div className="space-y-3 p-4">
 												<div className="flex items-start justify-between gap-3">
 													<h3 className="text-2xl font-medium leading-tight text-white">{relatedCar.make} {relatedCar.model}</h3>
-													<span className="pt-1 text-[11px] text-zinc-300">View Details ›</span>
+													<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details ›</span>
 												</div>
 
 												<p className="text-[11px] text-zinc-500">{relatedSummary.join(' · ')}</p>
@@ -630,7 +633,7 @@ export default function Details() {
 					)}
 				</section>
 
-				<section className="mt-16 border-t border-zinc-800 pt-10 md:mt-20 md:pt-12">
+				<section className="motion-rise mt-16 border-t border-zinc-800 pt-10 md:mt-20 md:pt-12">
 					<div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
 						<div>
 							<h2 className="max-w-[240px] text-4xl font-semibold leading-tight text-white sm:text-5xl">
@@ -671,7 +674,7 @@ export default function Details() {
 				</section>
 			</main>
 
-			<section className="hero-shell mt-14 md:mt-16">
+			<section className="motion-rise hero-shell mt-14 md:mt-16">
 				<div className="rounded-2xl border border-zinc-800 bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 text-center sm:px-10 md:py-16">
 					<h2 className="mx-auto max-w-[520px] text-4xl font-semibold leading-tight text-white sm:text-5xl">
 						Choose Your Next Car and Have It Delivered Anywhere in Ireland
