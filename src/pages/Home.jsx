@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
 import navbarBg from '../images/homepage-images/navbar-backgorund.jpg'
@@ -6,6 +7,7 @@ import luxuryCarImage from '../images/homepage-images/image 9.png'
 import carefullySelectedImg from '../images/homepage-images/lhKhWi6mDCQjU2k2CXrFgqm9AA.jpg'
 import nationwideDeliveryImg from '../images/homepage-images/NaXiqyCuHV5HfwzSgAX8DPnjY6o.jpg'
 import warrantyImg from '../images/homepage-images/7wP4pWwqqXr5Bc6QUsmemBnVi98.jpg'
+import warrantyBadgeImg from '../images/homepage-images/Frame 1321319011.png'
 import financeImg from '../images/homepage-images/my26-jx-1084_16-9.webp'
 import findYourCarImg from '../images/homepage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 
@@ -58,36 +60,78 @@ const whyChooseCards = [
 ]
 
 export function Navbar({ overlay = false }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return (
     <header className={overlay ? 'absolute inset-x-0 top-0 z-20' : ''}>
-      <div className="layout-shell flex w-full flex-wrap items-center gap-3 py-4 md:flex-nowrap md:py-5">
-        <Link to="/" className="shrink-0 text-xs font-semibold leading-tight text-white sm:text-sm">
-          INDUS MOTOR GROUP
-        </Link>
-
-        <nav className="hidden flex-1 items-center justify-center gap-7 text-xs text-zinc-300 md:flex">
-          <Link to="/" className="transition-colors hover:text-white">
-            Home
+      <div className="layout-shell py-4 md:py-5">
+        <div className="flex w-full items-center gap-3">
+          <Link to="/" className="inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
+            <span className="flex flex-col gap-0.5" aria-hidden="true">
+              <span className="h-[2px] w-3 -rotate-[22deg] rounded-full bg-white"></span>
+              <span className="h-[2px] w-2.5 -rotate-[22deg] rounded-full bg-white"></span>
+              <span className="h-[2px] w-2 -rotate-[22deg] rounded-full bg-white"></span>
+            </span>
+            <span className="text-[9px] font-semibold leading-[0.95] tracking-[0.14em] sm:text-[10px]">
+              <span className="block">INDUS</span>
+              <span className="block">MOTOR</span>
+              <span className="block">GROUP</span>
+            </span>
           </Link>
-          {navItems.map((item) => (
-            <Link key={item.label} to={item.to} className="transition-colors hover:text-white">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-3">
-          <button className="rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
+          <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-xs text-zinc-300 lg:flex">
+            <Link to="/" className="transition-colors hover:text-white">
+              Home
+            </Link>
+            {navItems.map((item) => (
+              <Link key={item.label} to={item.to} className="transition-colors hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
+            <button className="rounded-full bg-white px-4 py-1.5 text-[11px] font-medium text-black sm:px-5 sm:py-2 sm:text-xs">Contact Us</button>
+          </div>
+
+          <button
+            type="button"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center text-white lg:hidden"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-controls="mobile-nav"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          >
+            <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
+              <span className={`h-0.5 w-full rounded-full bg-white transition-transform duration-200 ${isMobileMenuOpen ? 'translate-y-1 rotate-45' : ''}`}></span>
+              <span className={`h-0.5 w-full rounded-full bg-white transition-transform duration-200 ${isMobileMenuOpen ? '-translate-y-1 -rotate-45' : ''}`}></span>
+            </span>
+          </button>
         </div>
 
-        <nav className="flex w-full items-center gap-2 overflow-x-auto pb-1 text-[11px] text-zinc-300 md:hidden">
-          <Link to="/" className="rounded-full px-3 py-1.5 whitespace-nowrap">Home</Link>
-          {navItems.map((item) => (
-            <Link key={item.label} to={item.to} className="rounded-full px-3 py-1.5 whitespace-nowrap">
-              {item.label}
+        <div
+          id="mobile-nav"
+          className={`overflow-hidden transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+        >
+          <nav className="rounded-xl border border-white/15 bg-black/80 p-3 text-sm text-zinc-200 backdrop-blur">
+            <Link to="/" className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+              Home
             </Link>
-          ))}
-        </nav>
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                className="block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <button className="mt-2 w-full rounded-full bg-white px-4 py-2 text-xs font-medium text-black">
+              Contact Us
+            </button>
+          </nav>
+        </div>
       </div>
     </header>
   )
@@ -289,13 +333,11 @@ export default function Home() {
             </div>
 
             <div className="mx-auto">
-              <svg viewBox="0 0 260 300" className="h-[180px] w-[156px] md:h-[210px] md:w-[182px]" aria-label="2 year warranty badge">
-                <path d="M130 12C92 12 58 22 36 36V112c0 84 58 132 94 147 36-15 94-63 94-147V36c-22-14-56-24-94-24Z" fill="#d9d9d9" />
-                <path d="M130 30c-31 0-58 8-76 19v61c0 66 45 104 76 118 31-14 76-52 76-118V49c-18-11-45-19-76-19Z" fill="#0a0a0a" />
-                <text x="130" y="104" textAnchor="middle" fill="#ffffff" fontSize="46" fontWeight="700" fontFamily="Arial, sans-serif">2year</text>
-                <text x="130" y="146" textAnchor="middle" fill="#ffffff" fontSize="58" fontWeight="700" fontFamily="Arial, sans-serif">warranty</text>
-                <text x="130" y="176" textAnchor="middle" fill="#ffffff" fontSize="18" fontWeight="600" letterSpacing="4" fontFamily="Arial, sans-serif">★★★★★</text>
-              </svg>
+              <img
+                src={warrantyBadgeImg}
+                alt="2 year warranty badge"
+                className="h-[180px] w-[156px] object-contain md:h-[210px] md:w-[182px]"
+              />
             </div>
           </div>
         </section>
