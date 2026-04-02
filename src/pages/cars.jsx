@@ -130,27 +130,32 @@ export default function Cars() {
 			<Navbar />
 
 			<main className="layout-shell py-10 md:py-14">
-				<section className="motion-rise space-y-7">
+				<section className="motion-rise relative z-40 space-y-7">
 					<h1 className="text-center text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-[58px]">Quality Used Cars for Sale</h1>
 
-					<div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5">
+					<div className="relative z-[80] flex flex-wrap items-center justify-center gap-2.5 md:gap-3">
 						{filterOrder.map((filterName) => (
-							<div key={filterName} className="relative group">
+							<div key={filterName} className="relative">
 								<button
 									onClick={() => toggleFilterDropdown(filterName)}
-									className={`inline-flex items-center gap-1 rounded-full border px-3.5 py-2 text-[11px] font-medium leading-none transition-colors ${
+									className={`inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-[13px] font-medium leading-none transition-all ${
 										activeFilters[filterName]
-											? 'border-white bg-white text-black'
-											: 'border-zinc-700 bg-zinc-900 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-800'
-									}`}
-								>
-									<span>{filterName}</span>
-										<span className="text-[11px]">⌄</span>
-								</button>
-								
-								{showFilters[filterName] && (
-									<div className="absolute left-0 z-50 mt-2 min-w-[190px] rounded-lg border border-zinc-700 bg-zinc-900 p-2 shadow-lg">
-										<div className="max-h-[280px] space-y-1.5 overflow-y-auto">
+											? 'border-zinc-500 bg-zinc-800 text-white'
+											: 'border-zinc-700 bg-zinc-900 text-white hover:border-zinc-500 hover:bg-zinc-800'
+								}`}
+							>
+								<svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+									<path d="M4.5 5h11m-10 5h8m-6 5h4" strokeLinecap="round" strokeLinejoin="round" />
+								</svg>
+								<span>{filterName}</span>
+								<svg viewBox="0 0 20 20" className={`h-3 w-3 transition-transform ${showFilters[filterName] ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+									<path d="M5 7.5 10 12.5l5-5" strokeLinecap="round" strokeLinejoin="round" />
+								</svg>
+							</button>
+							
+							{showFilters[filterName] && (
+								<div className="absolute left-0 top-full z-[120] mt-2 min-w-[210px] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg">
+										<div className="max-h-[272px] space-y-1 overflow-y-auto pr-1 [scrollbar-color:#3f3f46_#18181b] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-700">
 											{filterOptions[filterName].map((option) => (
 												<button
 													key={option}
@@ -176,7 +181,7 @@ export default function Cars() {
 
 						<button
 							onClick={clearFilters}
-							className="grid h-8 w-8 place-items-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
+							className="grid h-10 w-10 place-items-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
 							title="Reset filters"
 						>
 							<svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -199,17 +204,17 @@ export default function Cars() {
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
 								placeholder="Search"
-								className="h-8 w-[92px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-[11px] text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500"
+								className="h-10 w-[126px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-xs text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500"
 							/>
 						</div>
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-1 mt-16">
+				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-16">
 					<div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-						<div>
-							<h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-[54px]">Explore Our Collection</h2>
-							<p className="mt-1 text-xs text-zinc-400">
+						<div className="max-w-[760px]">
+							<h2 className="text-3xl font-semibold leading-[1.08] text-white sm:text-4xl md:text-[54px]">Explore Our Collection</h2>
+							<p className="mt-2 text-xs leading-6 text-zinc-400 sm:text-sm">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
 						</div>
