@@ -107,12 +107,12 @@ export default function Warranty() {
 					loading="eager"
 					fetchPriority="high"
 					decoding="async"
-					className="hero-zoom-settle h-[460px] w-full object-cover sm:h-[560px] md:h-[640px]"
+					className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover sm:h-[560px] md:mb-0 md:h-[640px]"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black"></div>
+				<div className="absolute -inset-px bg-gradient-to-b from-black/20 via-black/30 to-black md:inset-0"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-15 md:pb-20">
 					<h1 className="mb-15 text-[36px] font-semibold text-white md:text-[56px]">Warranty & Aftercare</h1>
 				</div>
 			</section>

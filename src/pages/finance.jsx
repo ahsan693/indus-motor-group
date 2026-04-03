@@ -159,7 +159,7 @@ export default function Finance() {
 				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-20 md:pb-25">
 					<h1 className="text-[36px] font-semibold text-white md:text-[56px]">Car Finance Made Simple</h1>
 				</div>
 			</section>

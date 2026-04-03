@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
@@ -7,6 +7,10 @@ import ourCarsHeroImg from '../images/ourcarspage-images/7fshAqoL1O3dFQK0x0MXpNn
 
 export default function Cars() {
 	const { cars, loading, error } = useCars({ status: 'available' })
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 	const [activeFilters, setActiveFilters] = useState({})
 	const [sortBy, setSortBy] = useState('newest')
 	const [showFilters, setShowFilters] = useState({})
@@ -315,12 +319,12 @@ export default function Cars() {
 					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
 						<div className="max-w-[760px]">
 							<h2 className="text-[30px] font-semibold leading-[1.08] text-white md:text-[44px]">Explore Our Collection</h2>
-							<p className="mt-2 mb-28 text-[16px] leading-6 text-zinc-400 md:mb-0 md:text-[18px]">
+							<p className="mt-2 mb-28 text-[16px] leading-6 text-zinc-400 md:mb-22 md:text-[18px]">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
 						</div>
 						
-						<div className="relative mt-2 sm:mt-0">
+						<div className="relative mt-2 sm:mt-0 md:self-start">
 							<button 
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
 								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[14px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
@@ -484,7 +488,7 @@ export default function Cars() {
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
 					<h2 className="text-[30px] font-semibold text-white md:text-[44px]">Find Your Next Car Today</h2>
-					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Browse Available Cars</button>
+					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Browse Available Cars</Link>
 				</div>
 			</section>
 
