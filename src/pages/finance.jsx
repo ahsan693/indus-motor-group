@@ -160,23 +160,23 @@ export default function Finance() {
 				<Navbar overlay />
 
 				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 md:pb-10">
-					<h1 className="text-3xl font-semibold text-white sm:text-5xl md:text-6xl">Car Finance Made Simple</h1>
+					<h1 className="text-[36px] font-semibold text-white md:text-[56px]">Car Finance Made Simple</h1>
 				</div>
 			</section>
 
 			<main className="layout-shell layout-stack">
 				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 					<div className="space-y-6">
-						<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Your Next Car</h2>
-						<p className="max-w-[430px] text-xs leading-7 text-zinc-400 sm:text-sm">
+						<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance Your Next Car</h2>
+						<p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
 						</p>
-						<p className="max-w-[430px] text-[11px] leading-5 text-zinc-500 sm:text-[12px]">
+						<p className="max-w-[430px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
 							Finance is provided by third party lenders. Indus Motor Group does not act as a lender or provide financial advice.
 						</p>
 						<div className="flex flex-wrap items-center gap-4">
-							<button className="rounded-full bg-white px-6 py-2.5 text-xs font-medium text-black transition-colors hover:bg-zinc-200">Apply for Finance</button>
-							<Link to="/cars" className="text-sm text-zinc-200 transition-colors hover:text-white">Browse Cars →</Link>
+							<button className="rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Apply for Finance</button>
+							<Link to="/cars" className="text-[16px] text-zinc-200 transition-colors hover:text-white md:text-[18px]">Browse Cars →</Link>
 						</div>
 					</div>
 
@@ -192,8 +192,8 @@ export default function Finance() {
 			<section className="motion-rise motion-rise-delay-1 py-10 md:py-12">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5">
-							<p className="text-xs text-zinc-500">• Finance Benefits</p>
-							<h2 className="max-w-[280px] text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance Options Available</h2>
+							<p className="text-[12px] text-zinc-500 md:text-[14px]">• Finance Benefits</p>
+							<h2 className="max-w-[280px] text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance Options Available</h2>
 						</div>
 
 						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
@@ -202,8 +202,8 @@ export default function Finance() {
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<BenefitIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-sm font-medium text-white">{item.title}</h3>
-									<p className="mt-2 text-xs leading-6 text-zinc-400">{item.body}</p>
+									<h3 className="motion-link-slide text-[18px] font-medium text-white md:text-[22px]">{item.title}</h3>
+									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.body}</p>
 								</article>
 							))}
 						</div>
@@ -211,8 +211,8 @@ export default function Finance() {
 				</section>
 
 				<section className="motion-rise motion-rise-delay-2">
-					<p className="text-xs text-zinc-500">• Process</p>
-					<h2 className="mt-2 text-xl font-semibold text-white sm:text-2xl md:text-5xl">How Finance Works</h2>
+					<p className="text-[12px] text-zinc-500 md:text-[14px]">• Process</p>
+					<h2 className="mt-2 text-[30px] font-semibold text-white md:text-[44px]">How Finance Works</h2>
 
 					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
 						{processSteps.map((item) => (
@@ -220,36 +220,36 @@ export default function Finance() {
 								<div className="overflow-hidden rounded-xl border border-zinc-700">
 									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover" />
 								</div>
-								<p className="text-xs text-zinc-500">({item.step})</p>
-								<h3 className="motion-link-slide text-lg font-medium text-white">{item.title}</h3>
-								<p className="text-sm text-zinc-400">{item.body}</p>
+								<p className="text-[12px] text-zinc-500 md:text-[14px]">({item.step})</p>
+								<h3 className="motion-link-slide text-[20px] font-medium text-white md:text-[24px]">{item.title}</h3>
+								<p className="text-[16px] text-zinc-400 md:text-[18px]">{item.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
 				<section className="motion-rise space-y-7 pt-10 md:pt-12">
-					<p className="text-center text-xs text-zinc-500">• Finance Application</p>
-					<h2 className="text-center text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Apply for Finance</h2>
-					<p className="text-center text-sm text-zinc-400">Complete the short form below and a finance provider will contact you to discuss your application.</p>
+					<p className="text-center text-[12px] text-zinc-500 md:text-[14px]">• Finance Application</p>
+					<h2 className="text-center text-[30px] font-semibold text-white md:text-[44px]">Apply for Finance</h2>
+					<p className="text-center text-[16px] text-zinc-400 md:text-[18px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
 					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4">
 						<form className="space-y-3 rounded-lg border border-zinc-700 bg-black p-3 sm:p-4 md:p-5">
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Vehicle Make</label>
-								<input type="text" placeholder="e.g. Volkswagen" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Vehicle Make</label>
+								<input type="text" placeholder="e.g. Volkswagen" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Model</label>
-								<input type="text" placeholder="e.g. Golf" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Model</label>
+								<input type="text" placeholder="e.g. Golf" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Year</label>
-								<input type="text" placeholder="e.g. 2019" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Year</label>
+								<input type="text" placeholder="e.g. 2019" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Monthly Budget</label>
-								<select defaultValue="" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none">
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Monthly Budget</label>
+								<select defaultValue="" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none">
 									<option value="" disabled>Select your budget</option>
 									{MONTHLY_BUDGET_OPTIONS.map((option) => (
 										<option key={option} value={option}>{option}</option>
@@ -257,38 +257,38 @@ export default function Finance() {
 								</select>
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Sale Price<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="e.g. €18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Sale Price<span className="text-red-500">*</span></label>
+								<input type="text" placeholder="e.g. €18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Your First Name<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="e.g. John" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Your First Name<span className="text-red-500">*</span></label>
+								<input type="text" placeholder="e.g. John" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Last Name<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="Murphy" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Last Name<span className="text-red-500">*</span></label>
+								<input type="text" placeholder="Murphy" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Email<span className="text-red-500">*</span></label>
-								<input type="email" placeholder="e.g. yourname@email.com" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Email<span className="text-red-500">*</span></label>
+								<input type="email" placeholder="e.g. yourname@email.com" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-xs text-zinc-300">Phone Number</label>
-								<input type="tel" placeholder="e.g. +353 87 123 4567" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px]">Phone Number</label>
+								<input type="tel" placeholder="e.g. +353 87 123 4567" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 
-							<button type="button" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-sm font-medium text-black transition-colors hover:bg-white">Apply Now</button>
+							<button type="button" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-white">Apply Now</button>
 
-							<label className="flex items-start gap-2 pt-1 text-xs leading-5 text-zinc-400">
+							<label className="flex items-start gap-2 pt-1 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
 								<input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I agree to my details being shared with a third party finance provider.</span>
 							</label>
-							<label className="flex items-start gap-2 text-xs leading-5 text-zinc-400">
+							<label className="flex items-start gap-2 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
 								<input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I would like to receive updates and marketing communications from Indus Motor Group.</span>
 							</label>
 
-							<p className="pt-1 text-[11px] italic text-zinc-500">By submitting this form you agree to our Privacy Policy.</p>
+							<p className="pt-1 text-[13px] italic text-zinc-500 md:text-[14px]">By submitting this form you agree to our Privacy Policy.</p>
 						</form>
 
 						<img
@@ -302,7 +302,7 @@ export default function Finance() {
 				</section>
 
 			<section className="motion-rise grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
-				<h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-5xl">Finance FAQS</h2>
+				<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance FAQS</h2>
 				<div className="border-y border-zinc-700">
 						{faq.map((item, index) => {
 							const isExpanded = Boolean(expandedFaqItems[index])
@@ -315,15 +315,15 @@ export default function Finance() {
 										className="flex w-full items-start justify-between gap-3 py-4 text-left"
 										aria-expanded={isExpanded}
 									>
-										<span className="text-[15px] font-medium leading-6 text-zinc-100">{item.question}</span>
+										<span className="text-[16px] font-medium leading-6 text-zinc-100 md:text-[18px]">{item.question}</span>
 										<span className="mt-0.5 text-2xl leading-none text-zinc-300">{isExpanded ? '−' : '+'}</span>
 									</button>
 
-									<p className="pb-4 pr-8 text-sm leading-6 text-zinc-400">{item.answer}</p>
+									<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.answer}</p>
 
 									<div className={`grid transition-all duration-300 ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
 										<div className="overflow-hidden">
-											<p className="pb-4 pr-8 text-sm leading-6 text-zinc-500">{item.details}</p>
+											<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-500 md:text-[18px]">{item.details}</p>
 										</div>
 									</div>
 								</article>
@@ -343,8 +343,8 @@ export default function Finance() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-					<h2 className="max-w-[420px] text-3xl font-semibold text-white sm:text-4xl md:text-5xl">Ready to Get Started With Finance?</h2>
-					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Start Application</button>
+					<h2 className="max-w-[420px] text-[30px] font-semibold text-white md:text-[44px]">Ready to Get Started With Finance?</h2>
+					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Start Application</button>
 				</div>
 			</section>
 
@@ -419,15 +419,15 @@ export default function Finance() {
 					<p className="site-footer-legal">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
-					<p className="mt-2 text-[11px] text-zinc-500">
+					<p className="mt-2 text-[13px] text-zinc-500 md:text-[14px]">
 						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
 						{' '}|{' '}
 						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
 						{' '}|{' '}
 						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
 					</p>
-					<p className="mt-2 text-[11px] text-zinc-600">© 2026 Indus Motors Limited. All rights reserved.</p>
-					<p className="mt-2 text-[11px] text-zinc-600">
+					<p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+					<p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">
 						Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
 					</p>
 				</div>

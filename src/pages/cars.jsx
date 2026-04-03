@@ -11,6 +11,7 @@ export default function Cars() {
 	const [sortBy, setSortBy] = useState('newest')
 	const [showFilters, setShowFilters] = useState({})
 	const [searchTerm, setSearchTerm] = useState('')
+	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
 
 	// Get unique filter values from cars
 	const brands = [...new Set(cars.map(car => car.make))].sort()
@@ -131,14 +132,27 @@ export default function Cars() {
 
 			<main className="layout-shell py-10 md:py-14">
 				<section className="motion-rise relative z-40 space-y-7">
-					<h1 className="text-center text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-[58px]">Quality Used Cars for Sale</h1>
+					<h1 className="text-center text-[36px] font-semibold leading-tight text-white md:text-[56px]">Quality Used Cars for Sale</h1>
 
-					<div className="relative z-[80] flex flex-wrap items-center justify-center gap-2.5 md:gap-3">
+					<div className="flex justify-center md:hidden">
+						<button
+							type="button"
+							onClick={() => setIsFilterModalOpen(true)}
+							className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black"
+						>
+							Refine
+							<svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+								<path d="M4 5h12M6.5 10h7M9 15h2" strokeLinecap="round" />
+							</svg>
+						</button>
+					</div>
+
+					<div className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3">
 						{filterOrder.map((filterName) => (
 							<div key={filterName} className="relative">
 								<button
 									onClick={() => toggleFilterDropdown(filterName)}
-									className={`inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-[13px] font-medium leading-none transition-all ${
+									className={`inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-[14px] font-medium leading-none transition-all md:text-[16px] ${
 										activeFilters[filterName]
 											? 'border-zinc-500 bg-zinc-800 text-white'
 											: 'border-zinc-700 bg-zinc-900 text-white hover:border-zinc-500 hover:bg-zinc-800'
@@ -164,7 +178,7 @@ export default function Cars() {
 														toggleFilter(filterName, option)
 														setShowFilters(prev => ({...prev, [filterName]: false}))
 													}}
-													className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${
+													className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${
 														activeFilters[filterName] === option
 															? 'bg-white text-black font-medium'
 															: 'text-zinc-300 hover:bg-zinc-800'
@@ -204,37 +218,124 @@ export default function Cars() {
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
 								placeholder="Search"
-								className="h-10 w-[126px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-xs text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500"
+								className="h-10 w-[126px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-[14px] text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500 md:text-[16px]"
 							/>
 						</div>
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-16">
-					<div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+				{isFilterModalOpen && (
+					<div className="fixed inset-0 z-[200] md:hidden">
+						<button
+							type="button"
+							className="absolute inset-0 bg-black/70"
+							aria-label="Close filters"
+							onClick={() => setIsFilterModalOpen(false)}
+						></button>
+						<div className="absolute inset-x-0 top-0 h-full overflow-y-auto bg-black px-6 pb-10 pt-8">
+							<div className="flex items-center justify-between">
+								<h2 className="text-[30px] font-semibold text-white">Search</h2>
+								<button
+									type="button"
+									className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-300"
+									aria-label="Close"
+									onClick={() => setIsFilterModalOpen(false)}
+								>
+									<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+										<path d="M6 6l12 12M18 6l-12 12" strokeLinecap="round" />
+									</svg>
+								</button>
+							</div>
+
+							<div className="mt-6 space-y-3">
+								{filterOrder.map((filterName) => (
+									<div key={filterName} className="relative">
+										<button
+											type="button"
+											onClick={() => toggleFilterDropdown(filterName)}
+											className="flex w-full items-center justify-between rounded-full border border-zinc-800 bg-zinc-900 px-4 py-3 text-[16px] text-zinc-100"
+										>
+											<span>{filterName}</span>
+											<svg viewBox="0 0 20 20" className={`h-4 w-4 transition-transform ${showFilters[filterName] ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+												<path d="M5 7.5 10 12.5l5-5" strokeLinecap="round" strokeLinejoin="round" />
+											</svg>
+										</button>
+
+										{showFilters[filterName] && (
+											<div className="mt-2 rounded-2xl border border-zinc-800 bg-zinc-950 p-2">
+												<div className="max-h-[220px] space-y-1 overflow-y-auto pr-1 [scrollbar-color:#3f3f46_#18181b] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-700">
+													{filterOptions[filterName].map((option) => (
+														<button
+															key={option}
+															onClick={(e) => {
+																e.preventDefault()
+																toggleFilter(filterName, option)
+																setShowFilters(prev => ({...prev, [filterName]: false}))
+															}}
+															className={`w-full rounded px-3 py-2 text-left text-[16px] transition-colors ${
+																activeFilters[filterName] === option
+																	? 'bg-white text-black font-medium'
+																	: 'text-zinc-300 hover:bg-zinc-800'
+															}`}
+														>
+															{option}
+														</button>
+													))}
+												</div>
+											</div>
+										)}
+									</div>
+								))}
+							</div>
+
+							<div className="mt-8 space-y-3">
+								<button
+									type="button"
+									className="w-full rounded-full bg-white px-6 py-3 text-[16px] font-medium text-black"
+									onClick={() => setIsFilterModalOpen(false)}
+								>
+									Search
+								</button>
+								<button
+									type="button"
+									className="w-full text-[14px] text-zinc-400"
+									onClick={() => {
+										clearFilters()
+										setShowFilters({})
+									}}
+								>
+									Reset
+								</button>
+							</div>
+						</div>
+					</div>
+				)}
+
+				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-20 md:mt-24">
+					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
 						<div className="max-w-[760px]">
-							<h2 className="text-3xl font-semibold leading-[1.08] text-white sm:text-4xl md:text-[54px]">Explore Our Collection</h2>
-							<p className="mt-2 text-xs leading-6 text-zinc-400 sm:text-sm">
+							<h2 className="text-[30px] font-semibold leading-[1.08] text-white md:text-[44px]">Explore Our Collection</h2>
+							<p className="mt-2 mb-28 text-[16px] leading-6 text-zinc-400 md:mb-0 md:text-[18px]">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
 						</div>
 						
-						<div className="relative">
+						<div className="relative mt-2 sm:mt-0">
 							<button 
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
-								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[11px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
+								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[14px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
 							>
 								Sort By ⌄
 							</button>
 							
 							{showFilters.sortMenu && (
-								<div className="absolute right-0 z-50 mt-2 min-w-[170px] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg">
+								<div className="absolute left-0 z-50 mt-2 w-56 max-w-[calc(100vw-2rem)] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg sm:left-auto sm:right-0 sm:w-auto sm:min-w-[170px]">
 									<button
 										onClick={() => {
 											setSortBy('newest')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'newest' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${sortBy === 'newest' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Newest
 									</button>
@@ -243,7 +344,7 @@ export default function Cars() {
 											setSortBy('price-low')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'price-low' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${sortBy === 'price-low' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Price: Low to High
 									</button>
@@ -252,7 +353,7 @@ export default function Cars() {
 											setSortBy('price-high')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'price-high' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${sortBy === 'price-high' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Price: High to Low
 									</button>
@@ -261,7 +362,7 @@ export default function Cars() {
 											setSortBy('year-new')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'year-new' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${sortBy === 'year-new' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Year: Newest First
 									</button>
@@ -270,7 +371,7 @@ export default function Cars() {
 											setSortBy('year-old')
 											setShowFilters(prev => ({...prev, sortMenu: false}))
 										}}
-										className={`w-full rounded px-3 py-2 text-left text-xs transition-colors ${sortBy === 'year-old' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
+										className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${sortBy === 'year-old' ? 'bg-white text-black font-medium' : 'text-zinc-300 hover:bg-zinc-800'}`}
 									>
 										Year: Oldest First
 									</button>
@@ -279,20 +380,21 @@ export default function Cars() {
 						</div>
 					</div>
 
-					{loading ? (
-						<div className="flex items-center justify-center py-20">
-							<div className="space-y-4 text-center">
-								<div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
-								<p className="text-sm text-zinc-400">Loading cars...</p>
+					<div className="mt-[44px]">
+						{loading ? (
+							<div className="flex items-center justify-center py-20">
+								<div className="space-y-4 text-center">
+									<div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
+									<p className="text-[16px] text-zinc-400 md:text-[18px]">Loading cars...</p>
+								</div>
 							</div>
-						</div>
-					) : filteredCars.length === 0 ? (
-						<div className="rounded-lg border border-yellow-900 bg-yellow-950 p-6 text-center text-yellow-200">
-							{cars.length === 0 ? 'No cars available at the moment. Please check back soon.' : 'No cars match your filters. Try adjusting your search.'}
-						</div>
-					) : (
-						<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-							{filteredCars.map((car) => {
+						) : filteredCars.length === 0 ? (
+							<div className="rounded-lg border border-yellow-900 bg-yellow-950 p-6 text-center text-yellow-200">
+								{cars.length === 0 ? 'No cars available at the moment. Please check back soon.' : 'No cars match your filters. Try adjusting your search.'}
+							</div>
+						) : (
+							<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+								{filteredCars.map((car) => {
 								// Handle both Sanity image objects and direct URLs
 								let imageUrl = null
 								if (car.images?.[0]) {
@@ -323,48 +425,49 @@ export default function Cars() {
 												className="motion-media h-40 w-full object-cover sm:h-44" 
 											/>
 										) : (
-											<div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-xs text-zinc-400 sm:h-44">
+											<div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 sm:h-44 md:text-[16px]">
 												No image
 											</div>
 										)}
 										<div className="space-y-2.5 p-3">
 											<div className="flex items-start justify-between gap-3">
-												<h3 className="truncate text-lg font-medium text-white sm:text-xl">{car.make} {car.model}</h3>
-												<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details ›</span>
+												<h3 className="truncate text-[20px] font-medium text-white md:text-[24px]">{car.make} {car.model}</h3>
+												<span className="motion-link-slide pt-1 text-[14px] text-zinc-300 md:text-[16px]">View Details ›</span>
 											</div>
-											<p className="text-[11px] text-zinc-400">
+											<p className="text-[14px] text-zinc-400 md:text-[16px]">
 												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
 											</p>
 											<div className="flex flex-wrap gap-1.5">
 												{car.transmission && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
 														{car.transmission}
 													</span>
 												)}
 												{car.fuelType && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
 														{car.fuelType}
 													</span>
 												)}
 												{car.seats && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300">
+													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
 														{car.seats} Seats
 													</span>
 												)}
 											</div>
-											<p className="pt-0.5 text-3xl font-medium leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
+											<p className="pt-0.5 text-[32px] font-medium leading-none text-white md:text-[40px]">€{car.price?.toLocaleString() || 0}</p>
 										</div>
 									</article>
 								</Link>
 								)
-							})}
-						</div>
-					)}
+								})}
+							</div>
+						)}
+					</div>
 
 					<div className="mx-auto mt-14 max-w-[520px] border-t border-zinc-800 pt-10">
 						<div className="flex justify-center gap-2">
-							<button className="size-8 rounded-lg bg-white text-xs font-semibold text-black">1</button>
-							<button className="size-8 rounded-lg bg-zinc-900 text-xs font-semibold text-zinc-300">2</button>
+							<button className="size-8 rounded-lg bg-white text-[14px] font-semibold text-black md:text-[16px]">1</button>
+							<button className="size-8 rounded-lg bg-zinc-900 text-[14px] font-semibold text-zinc-300 md:text-[16px]">2</button>
 						</div>
 					</div>
 				</section>
@@ -380,8 +483,8 @@ export default function Cars() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
-					<h2 className="text-2xl font-semibold text-white sm:text-3xl md:text-5xl">Find Your Next Car Today</h2>
-					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black">Browse Available Cars</button>
+					<h2 className="text-[30px] font-semibold text-white md:text-[44px]">Find Your Next Car Today</h2>
+					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Browse Available Cars</button>
 				</div>
 			</section>
 
@@ -393,7 +496,7 @@ export default function Cars() {
 							<p className="site-footer-copy">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
-							<p className="mt-6 text-[11px] text-zinc-500">© 2026 Indus Motors Limited. All rights reserved.</p>
+							<p className="mt-6 text-[13px] text-zinc-500 md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
 						</div>
 
 						<div>
@@ -426,7 +529,7 @@ export default function Cars() {
 						</div>
 					</div>
 
-					<p className="pt-6 text-[11px] text-zinc-600">
+					<p className="pt-6 text-[13px] text-zinc-600 md:text-[14px]">
 						Indus Motor Group is a trading name of Indus Motors Limited. Company No. 790570.
 					</p>
 				</div>
