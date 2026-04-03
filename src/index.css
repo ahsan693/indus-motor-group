@@ -100,7 +100,7 @@
   .site-footer-copy {
     margin-top: 0.75rem;
     max-width: 360px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.75;
     color: rgb(113 113 122);
   }
@@ -123,7 +123,7 @@
   .site-footer-legal {
     margin-inline: auto;
     max-width: 1180px;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
     color: rgb(82 82 91);
   }
