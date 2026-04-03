@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState, useEffect } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
 import navbarBg from '../images/homepage-images/navbar-backgorund.jpg'
@@ -139,6 +139,11 @@ export function Navbar({ overlay = false }) {
 
 export default function Home() {
   const { cars: featuredCars, loading: carsLoading } = useCars({ featured: true })
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const recentCars = useMemo(
     () =>
       [...featuredCars]
@@ -404,7 +409,7 @@ export default function Home() {
             {whyChooseCards.map((card) => (
               <article
                 key={card.title}
-                className="group relative overflow-hidden rounded-[14px] border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600"
+                className="group relative overflow-hidden rounded-[14px] bg-black transition-transform duration-500 ease-out hover:-translate-y-1"
               >
                 <img
                   src={card.image}
@@ -512,7 +517,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
           <h2 className="text-[30px] font-semibold text-white md:text-[44px]">Find Your Next Car Today</h2>
-          <button className="ui-btn mt-5 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">Browse Available Cars</button>
+          <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">Browse Available Cars</Link>
         </div>
       </section>
 

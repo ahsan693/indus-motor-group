@@ -243,7 +243,7 @@ export default function About() {
 				<section className="motion-rise py-12 md:py-14">
 					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
 						<div className="space-y-6">
-							<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Who We Are</h2>
+						<h2 className="mb-4 text-[30px] font-semibold leading-tight text-white md:mb-0 md:text-[44px]">Who We Are</h2>
 							<p className="max-w-[520px] text-[16px] leading-8 text-zinc-400 md:text-[18px]">
 								Indus Motor Group was founded by car enthusiasts who believe buying a car should be straightforward, transparent, and enjoyable. After experiencing the challenges many buyers face when searching for a reliable used car, we saw an opportunity to do things differently.
 							</p>
