@@ -144,17 +144,7 @@ export default function Home() {
     window.scrollTo(0, 0)
   }, [])
 
-  const recentCars = useMemo(
-    () =>
-      [...featuredCars]
-        .sort((a, b) => {
-          const aCreated = new Date(a._createdAt || a.createdAt || 0).getTime()
-          const bCreated = new Date(b._createdAt || b.createdAt || 0).getTime()
-          return bCreated - aCreated
-        })
-        .slice(0, 4),
-    [featuredCars],
-  )
+  const featuredCarsForHome = useMemo(() => featuredCars.slice(0, 4), [featuredCars])
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const testimonialsCarouselRef = useRef(null)
 
@@ -238,11 +228,11 @@ export default function Home() {
                 <p className="text-[16px] text-zinc-400 md:text-[18px]">Loading featured cars...</p>
               </div>
             </div>
-          ) : recentCars.length === 0 ? (
+          ) : featuredCarsForHome.length === 0 ? (
             <p className="text-[16px] text-zinc-400 md:text-[18px]">No featured cars available at the moment.</p>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {recentCars.map((car) => {
+              {featuredCarsForHome.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
                 if (car.images?.[0]) {
