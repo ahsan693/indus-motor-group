@@ -426,39 +426,40 @@ export default function Cars() {
 												alt={`${car.make} ${car.model}`} 
 												loading="lazy"
 												decoding="async"
-												className="motion-media h-40 w-full object-cover sm:h-44" 
+												className="motion-media h-[210px] w-full object-cover" 
 											/>
 										) : (
-											<div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 sm:h-44 md:text-[16px]">
+												<div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px]">
 												No image
 											</div>
 										)}
-										<div className="space-y-2.5 p-3">
+												<div className="space-y-[15px] p-[10px]">
 											<div className="flex items-start justify-between gap-3">
-												<h3 className="truncate text-[20px] font-medium text-white md:text-[24px]">{car.make} {car.model}</h3>
-												<span className="motion-link-slide pt-1 text-[14px] text-zinc-300 md:text-[16px]">View Details ›</span>
+												<h3 className="truncate text-[18px] font-medium text-white">{car.make} {car.model}</h3>
+												<span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details ›</span>
 											</div>
-											<p className="text-[14px] text-zinc-400 md:text-[16px]">
+												<p className="text-[16px] font-normal text-[#BABABA]">
 												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
 											</p>
-											<div className="flex flex-wrap gap-1.5">
+												<div className="flex flex-wrap gap-[10px]">
 												{car.transmission && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
 														{car.transmission}
 													</span>
 												)}
 												{car.fuelType && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
 														{car.fuelType}
 													</span>
 												)}
 												{car.seats && (
-													<span className="rounded-full bg-zinc-900 px-2 py-1 text-[12px] text-zinc-300 md:text-[13px]">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
 														{car.seats} Seats
 													</span>
 												)}
 											</div>
-											<p className="pt-0.5 text-[32px] font-medium leading-none text-white md:text-[40px]">€{car.price?.toLocaleString() || 0}</p>
+												<p className="text-[24px] font-normal leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
+												<p className="text-[16px] font-normal text-[#BABABA]">Finance Available</p>
 										</div>
 									</article>
 								</Link>
