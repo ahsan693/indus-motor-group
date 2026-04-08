@@ -215,7 +215,7 @@ export default function Home() {
       <main className="layout-shell layout-stack pt-16 sm:pt-20 md:pt-24">
         <section>
           <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3">
-            <h2 className="text-[30px] font-semibold text-white md:text-[44px]">Featured Cars</h2>
+            <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px]">
               View All Cars
             </Link>
@@ -302,7 +302,7 @@ export default function Home() {
         {/* Trade-In & Financing Options Section */}
         <section className="overflow-hidden bg-black">
           <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12">
-            <h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">
+            <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
             </h2>
@@ -364,7 +364,7 @@ export default function Home() {
               </svg>
               Peace of Mind Included
             </span>
-            <h2 className="mt-4 text-[30px] font-semibold leading-tight text-zinc-100 md:text-[44px]">Warranty & Aftercare Protection</h2>
+            <h2 className="mt-4 text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Warranty & Aftercare Protection</h2>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16">
@@ -394,7 +394,7 @@ export default function Home() {
         </section>
 
         <section>
-          <h2 className="mb-16 text-center text-[30px] font-semibold leading-tight text-white md:mb-20 md:text-[44px]">Why Choose Indus Motor Group</h2>
+          <h2 className="mb-16 text-center text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
               <article
@@ -425,8 +425,8 @@ export default function Home() {
             </svg>
             Trusted by Drivers Across Ireland
           </span>
-          <h2 className="mt-4 text-[30px] font-semibold leading-tight text-white md:text-[44px]">What Our Customers Say</h2>
-          <p className="mt-2 text-[16px] text-zinc-500 md:text-[18px]">Real feedback from customers who purchased their vehicles from us.</p>
+          <h2 className="mt-4 text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">What Our Customers Say</h2>
+          <p className="mt-2 text-[16px] text-[#BABABA] md:text-[18px] leading-[1.6] tracking-[-0.16px]">Real feedback from customers who purchased their vehicles from us.</p>
 
           <div className="mt-12 md:hidden">
             <div
@@ -506,7 +506,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-          <h2 className="text-[30px] font-semibold text-white md:text-[44px]">Find Your Next Car Today</h2>
+          <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Find Your Next Car Today</h2>
           <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">Browse Available Cars</Link>
         </div>
       </section>

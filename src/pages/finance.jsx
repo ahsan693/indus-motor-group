@@ -94,6 +94,20 @@ const faq = [
 
 const MONTHLY_BUDGET_OPTIONS = ['Under €200', '€200 - €300', '€300 - €400', '€400 - €500', 'Over €500']
 
+const INITIAL_FORM_STATE = {
+	vehicleMake: '',
+	model: '',
+	year: '',
+	monthlyBudget: '',
+	salePrice: '',
+	firstName: '',
+	lastName: '',
+	email: '',
+	phoneNumber: '',
+	consentShareWithProvider: false,
+	consentMarketing: false,
+}
+
 function BenefitIcon({ type }) {
 	if (type === 'flexible') {
 		return (
@@ -137,12 +151,61 @@ function BenefitIcon({ type }) {
 
 export default function Finance() {
 	const [expandedFaqItems, setExpandedFaqItems] = useState({})
+	const [formValues, setFormValues] = useState(INITIAL_FORM_STATE)
+	const [submitState, setSubmitState] = useState({ submitting: false, error: '', success: '' })
 
 	const toggleFaqItem = (index) => {
 		setExpandedFaqItems((previous) => ({
 			...previous,
 			[index]: !previous[index],
 		}))
+	}
+
+	const handleFormChange = (event) => {
+		const { name, value, type, checked } = event.target
+		setFormValues((previous) => ({
+			...previous,
+			[name]: type === 'checkbox' ? checked : value,
+		}))
+	}
+
+	const handleFinanceSubmit = async (event) => {
+		event.preventDefault()
+		setSubmitState({ submitting: true, error: '', success: '' })
+
+		try {
+			if (!formValues.salePrice || !formValues.firstName || !formValues.lastName || !formValues.email) {
+				throw new Error('Please fill in all required fields marked with *.')
+			}
+
+			if (!formValues.consentShareWithProvider) {
+				throw new Error('Please agree to share your details with a finance provider before applying.')
+			}
+
+			const response = await fetch('/api/finance-application', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formValues),
+			})
+
+			const payload = await response.json()
+			if (!response.ok) {
+				throw new Error(payload?.error || payload?.message || 'Failed to submit application')
+			}
+
+			setFormValues(INITIAL_FORM_STATE)
+			setSubmitState({
+				submitting: false,
+				error: '',
+				success: 'Application submitted. A finance provider will contact you soon.',
+			})
+		} catch (error) {
+			setSubmitState({
+				submitting: false,
+				error: error.message || 'Could not submit your application. Please try again.',
+				success: '',
+			})
+		}
 	}
 
 	return (
@@ -234,22 +297,22 @@ export default function Finance() {
 					<p className="text-center text-[16px] text-zinc-400 md:text-[18px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
 					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4">
-						<form className="space-y-3 rounded-lg border border-zinc-700 bg-black p-3 sm:p-4 md:p-5">
+						<form onSubmit={handleFinanceSubmit} className="space-y-3 rounded-lg border border-zinc-700 bg-black p-3 sm:p-4 md:p-5">
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Vehicle Make</label>
-								<input type="text" placeholder="e.g. Volkswagen" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="vehicleMake" value={formValues.vehicleMake} onChange={handleFormChange} type="text" placeholder="e.g. Volkswagen" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Model</label>
-								<input type="text" placeholder="e.g. Golf" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="model" value={formValues.model} onChange={handleFormChange} type="text" placeholder="e.g. Golf" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Year</label>
-								<input type="text" placeholder="e.g. 2019" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="year" value={formValues.year} onChange={handleFormChange} type="text" placeholder="e.g. 2019" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Monthly Budget</label>
-								<select defaultValue="" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none">
+								<select name="monthlyBudget" value={formValues.monthlyBudget} onChange={handleFormChange} className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none">
 									<option value="" disabled>Select your budget</option>
 									{MONTHLY_BUDGET_OPTIONS.map((option) => (
 										<option key={option} value={option}>{option}</option>
@@ -258,33 +321,40 @@ export default function Finance() {
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Sale Price<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="e.g. €18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="salePrice" value={formValues.salePrice} onChange={handleFormChange} type="text" required placeholder="e.g. €18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Your First Name<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="e.g. John" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="firstName" value={formValues.firstName} onChange={handleFormChange} type="text" required placeholder="e.g. John" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Last Name<span className="text-red-500">*</span></label>
-								<input type="text" placeholder="Murphy" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="lastName" value={formValues.lastName} onChange={handleFormChange} type="text" required placeholder="Murphy" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Email<span className="text-red-500">*</span></label>
-								<input type="email" placeholder="e.g. yourname@email.com" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="email" value={formValues.email} onChange={handleFormChange} type="email" required placeholder="e.g. yourname@email.com" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
 								<label className="text-[14px] text-zinc-300 md:text-[16px]">Phone Number</label>
-								<input type="tel" placeholder="e.g. +353 87 123 4567" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<input name="phoneNumber" value={formValues.phoneNumber} onChange={handleFormChange} type="tel" placeholder="e.g. +353 87 123 4567" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 
-							<button type="button" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-white">Apply Now</button>
+							<button disabled={submitState.submitting} type="submit" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60">{submitState.submitting ? 'Submitting...' : 'Apply Now'}</button>
+
+							{submitState.error && (
+								<p className="text-[14px] text-red-400 md:text-[15px]">{submitState.error}</p>
+							)}
+							{submitState.success && (
+								<p className="text-[14px] text-emerald-400 md:text-[15px]">{submitState.success}</p>
+							)}
 
 							<label className="flex items-start gap-2 pt-1 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
-								<input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
+								<input name="consentShareWithProvider" checked={formValues.consentShareWithProvider} onChange={handleFormChange} required type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I agree to my details being shared with a third party finance provider.</span>
 							</label>
 							<label className="flex items-start gap-2 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
-								<input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
+								<input name="consentMarketing" checked={formValues.consentMarketing} onChange={handleFormChange} type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I would like to receive updates and marketing communications from Indus Motor Group.</span>
 							</label>
 
