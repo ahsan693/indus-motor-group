@@ -269,38 +269,38 @@ export default function Home() {
                       alt={`${car.make} ${car.model}`} 
                       loading="lazy"
                       decoding="async"
-                      className="h-48 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-40 lg:h-28" 
+                      className="h-[210px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                     />
                   ) : (
-                    <div className="flex h-40 w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 sm:h-32 lg:h-28 md:text-[16px]">
+                    <div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px]">
                       No image
                     </div>
                   )}
-                  <div className="flex flex-1 flex-col space-y-2 p-4 sm:p-3 lg:space-y-1.5 lg:p-2.5">
-                    <h3 className="truncate text-[20px] font-medium text-white md:text-[24px]">{car.make} {car.model}</h3>
-                    <p className="truncate text-[14px] text-zinc-400 md:text-[16px]">
+                  <div className="flex flex-1 flex-col space-y-[15px] p-[10px]">
+                    <h3 className="truncate text-[18px] font-medium text-white">{car.make} {car.model}</h3>
+                    <p className="truncate text-[16px] font-normal text-[#BABABA]">
                       {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-[10px]">
                       {car.transmission && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[12px] text-zinc-300 md:text-[13px]">
+                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
                           {car.transmission}
                         </span>
                       )}
                       {car.fuelType && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[12px] text-zinc-300 md:text-[13px]">
+                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
                           {car.fuelType}
                         </span>
                       )}
                       {car.seats && (
-                        <span className="rounded-full border border-zinc-700 px-2 py-0.5 text-[12px] text-zinc-300 md:text-[13px]">
+                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
                           {car.seats} Seats
                         </span>
                       )}
                     </div>
-                    <p className="pt-0.5 text-[32px] font-medium leading-none text-white md:text-[40px]">€{car.price?.toLocaleString() || 0}</p>
-                    <p className="text-[14px] text-zinc-400 md:text-[16px]">Finance Available</p>
-                    <Link to={`/details?id=${car._id}`} className="mt-auto inline-flex items-center text-[14px] text-zinc-300 transition-all duration-300 hover:text-white group-hover:translate-x-1 md:text-[16px]">View Details ›</Link>
+                    <p className="text-[24px] font-normal leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
+                    <p className="text-[16px] font-normal text-[#BABABA]">Finance Available</p>
+                    <Link to={`/details?id=${car._id}`} className="mt-auto inline-flex items-center text-[13px] font-normal text-[#BABABA] transition-all duration-300 hover:text-white group-hover:translate-x-1">View Details ›</Link>
                   </div>
                 </article>
                 )
