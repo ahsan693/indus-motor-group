@@ -247,13 +247,13 @@
     max-width: 360px;
     font-size: 14px;
     line-height: 1.75;
-    color: rgb(113 113 122);
+    color: rgb(255 255 255);
   }
 
   .site-footer-label {
     font-size: 12px;
     line-height: 1.4;
-    color: rgb(113 113 122);
+    color: rgb(255 255 255);
   }
 
   .site-footer-links {
@@ -265,12 +265,38 @@
     color: rgb(255 255 255);
   }
 
+  .site-footer-shell a,
+  .site-footer-shell a:visited,
+  .site-footer-shell a:active {
+    color: rgb(255 255 255);
+  }
+
+  .site-footer-shell a:hover {
+    color: rgb(255 255 255);
+  }
+
+  .site-footer-links a,
+  .site-footer-links a:visited,
+  .site-footer-links p {
+    color: rgb(255 255 255);
+  }
+
+  .site-footer-links .text-zinc-500,
+  .site-footer-shell .text-zinc-500 {
+    color: rgb(255 255 255);
+  }
+
+  .site-footer-shell .text-zinc-400,
+  .site-footer-shell .text-zinc-600 {
+    color: rgb(255 255 255);
+  }
+
   .site-footer-legal {
     margin-inline: auto;
     max-width: 1180px;
     font-size: 12px;
     line-height: 1.5;
-    color: rgb(82 82 91);
+    color: rgb(255 255 255);
   }
 
   @media (min-width: 640px) {

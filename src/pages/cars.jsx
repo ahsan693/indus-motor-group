@@ -518,7 +518,7 @@ export default function Cars() {
 						<div>
 							<p className="site-footer-label">Company</p>
 							<div className="site-footer-links">
-								<p>Privacy Policy</p>
+								<Link to="/privacy-policy" className="block">Privacy Policy</Link>
 								<p>Cookie Policy</p>
 								<p>Terms & Conditions</p>
 							</div>

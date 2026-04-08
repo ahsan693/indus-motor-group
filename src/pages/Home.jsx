@@ -207,16 +207,18 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-            <div className="hero-content-rise hero-shell relative pb-16 pt-12 sm:pb-16 sm:pt-12 md:pb-20 md:pt-14">
+            <div className="hero-content-rise hero-shell relative z-10 pb-16 pt-14 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
               <h1 className="max-w-[620px] text-[36px] font-medium leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[70px]">
                 Quality Used Cars in Ireland
               </h1>
-              <p className="mt-3 max-w-[560px] text-[16px] leading-6 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px]">
-                Transparent pricing. Nationwide delivery.
-              </p>
-              <button className="ui-btn mt-6 w-fit rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">
-                Browse Available Cars
-              </button>
+              <div className="mt-4 flex flex-col items-start gap-4 sm:gap-5">
+                <p className="max-w-[560px] text-[16px] leading-7 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px]">
+                  Transparent pricing. Nationwide delivery.
+                </p>
+                <Link to="/cars" className="ui-btn w-fit rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">
+                  Browse Available Cars
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -262,7 +264,7 @@ export default function Home() {
                 }
 
                 return (
-                <article key={car._id} className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600">
+                <Link key={car._id} to={`/details?id=${car._id}`} className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600">
                   {imageUrl ? (
                     <img 
                       src={imageUrl} 
@@ -302,7 +304,7 @@ export default function Home() {
                     <p className="text-[16px] font-normal text-[#BABABA]">Finance Available</p>
                     <Link to={`/details?id=${car._id}`} className="mt-auto inline-flex items-center text-[13px] font-normal text-[#BABABA] transition-all duration-300 hover:text-white group-hover:translate-x-1">View Details ›</Link>
                   </div>
-                </article>
+                </Link>
                 )
               })}
             </div>
@@ -598,7 +600,7 @@ export default function Home() {
               Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
             </p>
             <p className="mt-2 text-[13px] text-zinc-500 md:text-[14px]">
-              <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
+              <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
               {' '}|{' '}
               <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
               {' '}|{' '}
