@@ -144,7 +144,17 @@ export default function Home() {
     window.scrollTo(0, 0)
   }, [])
 
-  const featuredCarsForHome = useMemo(() => featuredCars.slice(0, 4), [featuredCars])
+  const recentCars = useMemo(
+    () =>
+      [...featuredCars]
+        .sort((a, b) => {
+          const aCreated = new Date(a._createdAt || a.createdAt || 0).getTime()
+          const bCreated = new Date(b._createdAt || b.createdAt || 0).getTime()
+          return bCreated - aCreated
+        })
+        .slice(0, 4),
+    [featuredCars],
+  )
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const testimonialsCarouselRef = useRef(null)
 
@@ -198,7 +208,7 @@ export default function Home() {
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
             <div className="hero-content-rise hero-shell relative pb-16 pt-12 sm:pb-16 sm:pt-12 md:pb-20 md:pt-14">
-              <h1 className="max-w-[620px] text-[36px] font-semibold leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[56px]">
+              <h1 className="max-w-[620px] text-[36px] font-medium leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[70px]">
                 Quality Used Cars in Ireland
               </h1>
               <p className="mt-3 max-w-[560px] text-[16px] leading-6 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px]">
@@ -213,9 +223,9 @@ export default function Home() {
       </section>
 
       <main className="layout-shell layout-stack pt-16 sm:pt-20 md:pt-24">
-        <section>
+        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px]">
           <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3">
-            <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Featured Cars</h2>
+            <h2 className="text-[30px] font-medium text-white md:text-[44px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px]">
               View All Cars
             </Link>
@@ -228,11 +238,11 @@ export default function Home() {
                 <p className="text-[16px] text-zinc-400 md:text-[18px]">Loading featured cars...</p>
               </div>
             </div>
-          ) : featuredCarsForHome.length === 0 ? (
+          ) : recentCars.length === 0 ? (
             <p className="text-[16px] text-zinc-400 md:text-[18px]">No featured cars available at the moment.</p>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {featuredCarsForHome.map((car) => {
+              {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
                 if (car.images?.[0]) {
@@ -300,9 +310,9 @@ export default function Home() {
         </section>
 
         {/* Trade-In & Financing Options Section */}
-        <section className="overflow-hidden bg-black">
+        <section className="mt-[80px] overflow-hidden bg-black sm:mt-[100px] md:mt-[150px]">
           <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12">
-            <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">
+            <h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
             </h2>
@@ -354,7 +364,7 @@ export default function Home() {
         </section>
 
         <section
-          className="rounded-2xl px-4 py-7 md:px-10 md:py-11"
+          className="mt-[80px] rounded-2xl px-4 py-7 sm:mt-[100px] md:mt-[150px] md:px-10 md:py-11"
           style={{ backgroundColor: '#0d0d0d' }}
         >
           <div className="text-center">
@@ -364,7 +374,7 @@ export default function Home() {
               </svg>
               Peace of Mind Included
             </span>
-            <h2 className="mt-4 text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Warranty & Aftercare Protection</h2>
+            <h2 className="mt-4 text-[30px] font-medium leading-tight text-zinc-100 md:text-[44px]">Warranty & Aftercare Protection</h2>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16">
@@ -393,8 +403,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-          <h2 className="mb-16 text-center text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Why Choose Indus Motor Group</h2>
+        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px]">
+          <h2 className="mb-16 text-center text-[30px] font-medium leading-tight text-white md:mb-20 md:text-[44px]">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
             {whyChooseCards.map((card) => (
               <article
@@ -418,15 +428,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="text-center">
+        <section className="mt-[80px] text-center sm:mt-[100px] md:mt-[150px]">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1 text-[14px] text-zinc-300 md:text-[16px]">
             <svg viewBox="0 0 16 16" className="h-2 w-2 text-zinc-400" fill="currentColor" aria-hidden="true">
               <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
             </svg>
             Trusted by Drivers Across Ireland
           </span>
-          <h2 className="mt-4 text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">What Our Customers Say</h2>
-          <p className="mt-2 text-[16px] text-[#BABABA] md:text-[18px] leading-[1.6] tracking-[-0.16px]">Real feedback from customers who purchased their vehicles from us.</p>
+          <h2 className="mt-4 text-[30px] font-medium leading-tight text-white md:text-[44px]">What Our Customers Say</h2>
+          <p className="mt-2 text-[16px] text-zinc-500 md:text-[18px]">Real feedback from customers who purchased their vehicles from us.</p>
 
           <div className="mt-12 md:hidden">
             <div
@@ -496,7 +506,7 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mt-12 overflow-hidden md:mt-16">
+      <section className="relative mt-[80px] overflow-hidden sm:mt-[100px] md:mt-[150px]">
         <img
           src={findYourCarImg}
           alt="Find your next car"
@@ -506,7 +516,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-          <h2 className="text-[50px] font-semibold leading-[60px] text-white tracking-[-1px]">Find Your Next Car Today</h2>
+          <h2 className="text-[30px] font-medium text-white md:text-[44px]">Find Your Next Car Today</h2>
           <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">Browse Available Cars</Link>
         </div>
       </section>
