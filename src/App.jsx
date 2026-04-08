@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Details from './pages/Details'
 import Cars from './pages/cars'
 import CookiePolicy from './pages/cookie-policy'
+import PrivacyPolicy from './pages/privacypolicy'
 import Finance from './pages/finance'
 import Warranty from './pages/Warranty'
 import About from './pages/About'
@@ -16,6 +17,7 @@ function App() {
       <Route path="/details" element={<Details />} />
       <Route path="/studio" element={<StudioEmbedPage />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/finance" element={<Finance />} />
       <Route path="/warranty" element={<Warranty />} />
       <Route path="/about" element={<About />} />

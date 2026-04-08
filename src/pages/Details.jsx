@@ -390,8 +390,8 @@ export default function Details() {
 
 				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
 					<div className="space-y-6">
-						<Link to="/cars" className="inline-flex items-center text-sm text-zinc-400 transition-colors hover:text-white">
-							← Back to Cars
+<Link to="/cars" className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">
+						← Back
 						</Link>
 
 						<div className="space-y-2">
@@ -773,7 +773,7 @@ export default function Details() {
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
 					<p className="mt-2 text-[11px] text-zinc-500">
-						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
+						<Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
 						{' '}|{' '}
 						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
 						{' '}|{' '}

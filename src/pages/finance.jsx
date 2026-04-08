@@ -238,8 +238,8 @@ export default function Finance() {
 							Finance is provided by third party lenders. Indus Motor Group does not act as a lender or provide financial advice.
 						</p>
 						<div className="flex flex-wrap items-center gap-4">
-							<button className="rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Apply for Finance</button>
-							<Link to="/cars" className="text-[16px] text-zinc-200 transition-colors hover:text-white md:text-[18px]">Browse Cars →</Link>
+							<a href="#finance-application-form" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Apply for Finance</a>
+							<Link to="/cars" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Browse Cars →</Link>
 						</div>
 					</div>
 
@@ -291,7 +291,7 @@ export default function Finance() {
 					</div>
 				</section>
 
-				<section className="motion-rise space-y-7 pt-10 md:pt-12">
+				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 pt-10 md:scroll-mt-28 md:pt-12">
 					<p className="text-center text-[12px] text-zinc-500 md:text-[14px]">• Finance Application</p>
 					<h2 className="text-center text-[30px] font-semibold text-white md:text-[44px]">Apply for Finance</h2>
 					<p className="text-center text-[16px] text-zinc-400 md:text-[18px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
@@ -414,12 +414,12 @@ export default function Finance() {
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
 					<h2 className="max-w-[420px] text-[30px] font-semibold text-white md:text-[44px]">Ready to Get Started With Finance?</h2>
-					<button className="mt-5 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Start Application</button>
+					<a href="#finance-application-form" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Start Application</a>
 				</div>
 			</section>
 
 			<footer className="mt-10 border-b border-zinc-700 bg-black">
-				<div className="site-footer-shell">
+				<div className="site-footer-shell text-white">
 					<div className="site-footer-grid">
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
@@ -427,7 +427,7 @@ export default function Finance() {
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
-							<div className="mt-4 flex items-center gap-3 text-zinc-400">
+							<div className="mt-4 flex items-center gap-3 text-white">
 								<a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
 									<svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
 										<rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -479,7 +479,7 @@ export default function Finance() {
 							<div className="site-footer-links">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
-								<p className="text-zinc-500">Serving customers across Ireland</p>
+								<p className="text-white">Serving customers across Ireland</p>
 							</div>
 						</div>
 					</div>
@@ -489,15 +489,15 @@ export default function Finance() {
 					<p className="site-footer-legal">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
-					<p className="mt-2 text-[13px] text-zinc-500 md:text-[14px]">
-						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</a>
+					<p className="mt-2 text-[13px] text-white md:text-[14px]">
+						<Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
 						{' '}|{' '}
 						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
 						{' '}|{' '}
 						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
 					</p>
-					<p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
-					<p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">
+					<p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+					<p className="mt-2 text-[13px] text-white md:text-[14px]">
 						Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
 					</p>
 				</div>
