@@ -777,7 +777,7 @@ export default function Details() {
 						{' '}|{' '}
 						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
 						{' '}|{' '}
-						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
+						<Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
 					</p>
 					<p className="mt-2 text-[11px] text-zinc-600">© 2026 Indus Motors Limited. All rights reserved.</p>
 					<p className="mt-2 text-[11px] text-zinc-600">

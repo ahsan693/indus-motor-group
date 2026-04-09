@@ -227,7 +227,7 @@ export default function Finance() {
 				</div>
 			</section>
 
-			<main className="layout-shell layout-stack">
+			<main className="layout-shell finance-stack">
 				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
 					<div className="space-y-6">
 						<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance Your Next Car</h2>
@@ -252,7 +252,7 @@ export default function Finance() {
 					/>
 				</section>
 
-			<section className="motion-rise motion-rise-delay-1 py-10 md:py-12">
+			<section className="motion-rise motion-rise-delay-1">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5">
 							<p className="text-[12px] text-zinc-500 md:text-[14px]">• Finance Benefits</p>
@@ -291,7 +291,7 @@ export default function Finance() {
 					</div>
 				</section>
 
-				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 pt-10 md:scroll-mt-28 md:pt-12">
+				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 md:scroll-mt-28">
 					<p className="text-center text-[12px] text-zinc-500 md:text-[14px]">• Finance Application</p>
 					<h2 className="text-center text-[30px] font-semibold text-white md:text-[44px]">Apply for Finance</h2>
 					<p className="text-center text-[16px] text-zinc-400 md:text-[18px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
@@ -371,7 +371,7 @@ export default function Finance() {
 					</div>
 				</section>
 
-			<section className="motion-rise grid gap-8 pt-12 lg:grid-cols-[320px_1fr] lg:gap-10">
+			<section className="motion-rise grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
 				<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance FAQS</h2>
 				<div className="border-y border-zinc-700">
 						{faq.map((item, index) => {
@@ -403,7 +403,7 @@ export default function Finance() {
 				</section>
 			</main>
 
-			<section className="relative mt-6 overflow-hidden">
+			<section className="relative overflow-hidden">
 				<img
 					src={financeCtaImg}
 					alt="Finance CTA"
@@ -494,7 +494,7 @@ export default function Finance() {
 						{' '}|{' '}
 						<Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
 						{' '}|{' '}
-						<a href="#" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</a>
+						<Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
 					</p>
 					<p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
 					<p className="mt-2 text-[13px] text-white md:text-[14px]">

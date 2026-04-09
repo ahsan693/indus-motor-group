@@ -520,7 +520,7 @@ export default function Cars() {
 							<div className="site-footer-links">
 								<Link to="/privacy-policy" className="block">Privacy Policy</Link>
 								<p>Cookie Policy</p>
-								<p>Terms & Conditions</p>
+								<Link to="/terms-conditions" className="block">Terms & Conditions</Link>
 							</div>
 						</div>
 
