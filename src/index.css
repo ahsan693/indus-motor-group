@@ -214,6 +214,14 @@
     margin-top: 3rem;
   }
 
+  .finance-stack {
+    padding-block: 80px;
+  }
+
+  .finance-stack > * + * {
+    margin-top: 80px;
+  }
+
   .hero-shell {
     width: 100%;
     max-width: 1240px;
@@ -300,6 +308,14 @@
   }
 
   @media (min-width: 640px) {
+    .finance-stack {
+      padding-block: 110px;
+    }
+
+    .finance-stack > * + * {
+      margin-top: 110px;
+    }
+
     .layout-shell {
       padding-inline: 1.25rem;
     }
@@ -314,6 +330,14 @@
   }
 
   @media (min-width: 768px) {
+    .finance-stack {
+      padding-block: 150px;
+    }
+
+    .finance-stack > * + * {
+      margin-top: 150px;
+    }
+
     .layout-shell {
       padding-inline: 2rem;
     }

@@ -4,6 +4,7 @@ import Details from './pages/Details'
 import Cars from './pages/cars'
 import CookiePolicy from './pages/cookie-policy'
 import PrivacyPolicy from './pages/privacypolicy'
+import TermsConditions from './pages/termsconditions'
 import Finance from './pages/finance'
 import Warranty from './pages/Warranty'
 import About from './pages/About'
@@ -18,6 +19,7 @@ function App() {
       <Route path="/studio" element={<StudioEmbedPage />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-conditions" element={<TermsConditions />} />
       <Route path="/finance" element={<Finance />} />
       <Route path="/warranty" element={<Warranty />} />
       <Route path="/about" element={<About />} />

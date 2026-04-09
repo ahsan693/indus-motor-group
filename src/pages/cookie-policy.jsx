@@ -155,7 +155,7 @@ export default function CookiePolicy() {
 				</section>
 
 				<div className="mt-16 border-t border-zinc-800 pt-6">
-					<Link to="/" className="text-sm text-zinc-400 hover:text-white">
+					<Link to="/" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">
 						← Back to Home
 					</Link>
 				</div>
