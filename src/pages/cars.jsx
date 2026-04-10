@@ -478,13 +478,13 @@ export default function Cars() {
 				</section>
 			</main>
 
-			<section className="relative mt-8 overflow-hidden border-y border-zinc-800">
+			<section className="relative mx-auto mt-8 h-[400px] w-full max-w-[1440px] overflow-hidden border-t border-zinc-800 sm:h-[520px] md:h-[750px]">
 				<img
 					src={ourCarsHeroImg}
 					alt="Find your next car"
 					loading="lazy"
 					decoding="async"
-					className="hero-zoom-settle h-[360px] w-full object-cover md:h-[430px]"
+					className="hero-zoom-settle h-full w-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
