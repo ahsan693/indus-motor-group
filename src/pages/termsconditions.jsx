@@ -193,13 +193,13 @@ export default function TermsConditions() {
 				</div>
 			</main>
 
-			<section className="relative mt-[116px] overflow-hidden">
+			<section className="relative mx-auto mt-[116px] h-[400px] w-full max-w-[1440px] overflow-hidden sm:h-[520px] md:h-[750px]">
 				<img
 					src={termsCtaImg}
 					alt="Find your next car"
 					loading="lazy"
 					decoding="async"
-					className="h-[360px] w-full object-cover md:h-[430px]"
+					className="h-full w-full object-cover"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
