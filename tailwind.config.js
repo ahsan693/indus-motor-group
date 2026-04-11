@@ -7,6 +7,9 @@ export default {
         sans: ['TT Interphases Pro', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['TT Interphases Pro Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
+      screens: {
+        'iphone': {'raw': '(max-width: 430px) and (max-device-pixel-ratio: 3)'},
+      },
     },
   },
   plugins: [],

@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 
 export default function CookiePolicy() {
 	return (
-		<div className="min-h-screen bg-black text-zinc-300">
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16">
+			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16 iphone:px-2 iphone:py-5">
 				<section className="motion-rise space-y-6">
-					<h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl">Cookie Policy</h1>
-					<p className="text-sm text-zinc-400">
+					<h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl iphone:text-[22px] iphone:font-normal">Cookie Policy</h1>
+					<p className="text-sm text-zinc-400 iphone:text-[14px]">
 						Last updated: <span className="font-medium text-zinc-200">March 2025</span>
 					</p>
 
-					<div className="space-y-5 text-sm leading-7 text-zinc-300">
+					<div className="space-y-5 text-sm leading-7 text-zinc-300 iphone:text-[14px] iphone:leading-5">
 						<p>
 							This Cookie Policy explains how Indus Motors Limited, trading as <span className="font-medium text-zinc-100">Indus Motor Group</span>,
 							uses cookies and similar technologies when you visit{' '}
@@ -29,13 +29,13 @@ export default function CookiePolicy() {
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-1 mt-12 space-y-10 md:mt-14">
+				<section className="motion-rise motion-rise-delay-1 mt-12 space-y-10 md:mt-14 iphone:mt-5">
 					<div className="space-y-4">
-						<h2 className="text-2xl font-semibold text-white sm:text-3xl">How We Use Cookies</h2>
-						<p className="text-sm text-zinc-400">We use cookies for the following purposes.</p>
+						<h2 className="text-2xl font-semibold text-white sm:text-3xl iphone:text-[16px] iphone:font-normal">How We Use Cookies</h2>
+						<p className="text-sm text-zinc-400 iphone:text-[13px]">We use cookies for the following purposes.</p>
 					</div>
 
-					<div className="space-y-3 text-sm leading-7 text-zinc-300">
+					<div className="space-y-3 text-sm leading-7 text-zinc-300 iphone:text-[14px] iphone:leading-5">
 						<h3 className="text-xl font-medium text-white">Essential Cookies</h3>
 						<p>
 							These cookies are necessary for the website to function correctly. They enable core functionality such as page
@@ -163,3 +163,4 @@ export default function CookiePolicy() {
 		</div>
 	)
 }
+

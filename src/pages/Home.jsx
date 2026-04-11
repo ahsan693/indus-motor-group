@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { useMemo, useRef, useState, useEffect } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
@@ -64,9 +64,9 @@ export function Navbar({ overlay = false }) {
 
   return (
     <header className={overlay ? 'absolute inset-x-0 top-0 z-20' : ''}>
-      <div className="layout-shell py-4 md:py-5">
+      <div className="layout-shell py-4 md:py-5 pl-0" style={overlay ? { paddingTop: 'max(env(safe-area-inset-top), 12px)' } : undefined}>
         <div className="flex w-full items-center gap-3">
-          <Link to="/" className="inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
+          <Link to="/" className="-ml-[17px] inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
             <span className="flex flex-col gap-0.5" aria-hidden="true">
               <span className="h-[2px] w-3 -rotate-[22deg] rounded-full bg-white"></span>
               <span className="h-[2px] w-2.5 -rotate-[22deg] rounded-full bg-white"></span>
@@ -179,22 +179,22 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300">
-      <section className="relative overflow-hidden">
+    <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+      <section className="relative mx-auto h-[560px] w-[calc(100%-2px)] max-w-none overflow-hidden min-[390px]:h-[620px] sm:h-[700px] md:h-[810px] iphone:h-[220px]">
         <img
           src={navbarBg}
           alt="Luxury vehicle background"
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="hero-zoom-settle absolute inset-0 h-full w-full object-cover object-[center_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] [will-change:transform] md:object-[center_34%]"
+          className="absolute inset-0 h-full w-full scale-[1.20] object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:h-[220px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/6 to-black/22"></div>
         <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-b from-transparent via-black/56 to-black"></div>
 
         <Navbar overlay />
 
-        <div className="relative z-10 grid min-h-[600px] grid-rows-[1fr_auto] sm:min-h-[660px] md:min-h-[680px]">
+        <div className="relative z-10 grid h-full grid-rows-[1fr_auto]">
           <div className="hero-shell flex items-end pb-0">
             <span className="relative z-20 inline-flex w-fit translate-y-1/2 items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:text-[14px]">
               <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -207,16 +207,16 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-            <div className="hero-content-rise hero-shell relative z-10 pb-16 pt-14 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
-              <h1 className="max-w-[620px] text-[36px] font-medium leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[70px]">
+            <div className="hero-content-rise hero-shell relative z-10 pb-10 pt-8 min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
+              <h1 className="max-w-[620px] text-[30px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[34px] sm:text-[38px] md:text-[70px] iphone:text-[18px]">
                 <span className="block">Quality Used Cars</span>
                 <span className="block">in Ireland</span>
               </h1>
               <div className="mt-4 flex flex-col items-start gap-4 sm:gap-5">
-                <p className="max-w-[560px] text-[16px] leading-7 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px]">
+                <p className="max-w-[560px] text-[16px] leading-7 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px] iphone:text-[14px] iphone:leading-5">
                   Transparent pricing. Nationwide delivery.
                 </p>
-                <Link to="/cars" className="ui-btn w-fit rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">
+                <Link to="/cars" className="ui-btn w-fit rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
                   Browse Available Cars
                 </Link>
               </div>
@@ -225,11 +225,11 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="layout-shell layout-stack pt-16 sm:pt-20 md:pt-24">
-        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px]">
-          <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3">
-            <h2 className="text-[30px] font-medium text-white md:text-[44px]">Featured Cars</h2>
-            <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px]">
+      <main className="layout-shell layout-stack pt-16 sm:pt-20 md:pt-24 iphone:pt-4">
+        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px] iphone:mt-4">
+          <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 iphone:mb-3 iphone:gap-1">
+            <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Featured Cars</h2>
+            <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
               View All Cars
             </Link>
           </div>
@@ -244,7 +244,7 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-[16px] text-zinc-400 md:text-[18px]">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 iphone:gap-2">
               {recentCars.map((car) => {
                 // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
@@ -265,46 +265,50 @@ export default function Home() {
                 }
 
                 return (
-                <Link key={car._id} to={`/details?id=${car._id}`} className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600">
-                  {imageUrl ? (
-                    <img 
-                      src={imageUrl} 
-                      alt={`${car.make} ${car.model}`} 
-                      loading="lazy"
-                      decoding="async"
-                      className="h-[210px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                    />
-                  ) : (
-                    <div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px]">
-                      No image
+                <Link key={car._id} to={`/details?id=${car._id}`} className="group block">
+                  <article className="motion-card h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700 iphone:rounded-xl">
+                    {imageUrl ? (
+                      <img
+                        src={imageUrl}
+                        alt={`${car.make} ${car.model}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="motion-media h-[210px] w-full object-cover iphone:h-[180px]"
+                      />
+                    ) : (
+                      <div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px] iphone:h-[180px]">
+                        No image
+                      </div>
+                    )}
+                    <div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
+                      <div className="flex items-start justify-between gap-3 iphone:gap-1">
+                        <h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+                        <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
+                      </div>
+                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
+                        {car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
+                      </p>
+                      <div className="flex flex-wrap gap-[10px] iphone:gap-1">
+                        {car.transmission && (
+                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+                            {car.transmission}
+                          </span>
+                        )}
+                        {car.fuelType && (
+                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+                            {car.fuelType}
+                          </span>
+                        )}
+                        {car.seats && (
+                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+                            {car.seats} Seats
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
+                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
                     </div>
-                  )}
-                  <div className="flex flex-1 flex-col space-y-[15px] p-[10px]">
-                    <h3 className="truncate text-[18px] font-medium text-white">{car.make} {car.model}</h3>
-                    <p className="truncate text-[16px] font-normal text-[#BABABA]">
-                      {car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
-                    </p>
-                    <div className="flex flex-wrap gap-[10px]">
-                      {car.transmission && (
-                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
-                          {car.transmission}
-                        </span>
-                      )}
-                      {car.fuelType && (
-                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
-                          {car.fuelType}
-                        </span>
-                      )}
-                      {car.seats && (
-                        <span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
-                          {car.seats} Seats
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[24px] font-normal leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
-                    <p className="text-[16px] font-normal text-[#BABABA]">Finance Available</p>
-                    <Link to={`/details?id=${car._id}`} className="mt-auto inline-flex items-center text-[13px] font-normal text-[#BABABA] transition-all duration-300 hover:text-white group-hover:translate-x-1">View Details ›</Link>
-                  </div>
+                  </article>
                 </Link>
                 )
               })}
@@ -313,46 +317,46 @@ export default function Home() {
         </section>
 
         {/* Trade-In & Financing Options Section */}
-        <section className="mt-[80px] overflow-hidden bg-black sm:mt-[100px] md:mt-[150px]">
-          <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12">
-            <h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">
+        <section className="mt-[80px] overflow-hidden bg-black sm:mt-[100px] md:mt-[150px] iphone:mt-4">
+          <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12 iphone:px-2 iphone:py-3">
+            <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 bg-black md:grid-cols-2">
-            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+          <div className="grid grid-cols-1 bg-black md:grid-cols-2 iphone:gap-2">
+            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5 iphone:px-2 iphone:py-2">
               <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-zinc-100" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 12a9 9 0 1 1-2.64-6.36" />
                   <polyline points="21 3 21 9 15 9" />
                 </svg>
               </div>
-              <h3 className="text-[18px] font-medium text-zinc-100 md:text-[20px]">Trade-In</h3>
-              <p className="mt-1.5 max-w-[300px] text-[16px] leading-6 text-zinc-500 md:text-[18px]">
+              <h3 className="text-[18px] font-normal text-zinc-100 md:text-[20px] iphone:text-[13px]">Trade-In</h3>
+              <p className="mt-1.5 max-w-[300px] text-[16px] leading-6 text-zinc-500 md:text-[18px] iphone:text-[13px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
-              <button className="ui-btn mt-2.5 inline-flex items-center text-[16px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
+              <button className="ui-btn mt-2.5 inline-flex items-center text-[16px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px] iphone:text-[14px] iphone:px-2 iphone:py-1">
                 <span className="transition-transform duration-300 group-hover:translate-x-1">Enquire Now</span>
-                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </button>
             </article>
 
-            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5">
+            <article className="group px-4 py-4 md:min-h-[160px] md:px-5 md:py-5 iphone:px-2 iphone:py-2">
               <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-amber-300" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="6" width="20" height="12" rx="2" ry="2" />
                   <line x1="2" y1="10" x2="22" y2="10" />
                 </svg>
               </div>
-              <h3 className="text-[18px] font-medium text-zinc-100 md:text-[20px]">Finance Assistance</h3>
-              <p className="mt-1.5 max-w-[320px] text-[16px] leading-6 text-zinc-500 md:text-[18px]">
+              <h3 className="text-[18px] font-normal text-zinc-100 md:text-[20px] iphone:text-[13px]">Finance Assistance</h3>
+              <p className="mt-1.5 max-w-[320px] text-[16px] leading-6 text-zinc-500 md:text-[18px] iphone:text-[13px]">
                 Finance options available through trusted third party lenders.
               </p>
-              <button className="ui-btn mt-2.5 inline-flex items-center text-[16px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
+              <button className="ui-btn mt-2.5 inline-flex items-center text-[16px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px] iphone:text-[14px] iphone:px-2 iphone:py-1">
                 <span className="transition-transform duration-300 group-hover:translate-x-1">Learn More</span>
-                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </button>
             </article>
           </div>
@@ -362,35 +366,35 @@ export default function Home() {
             alt="Luxury car interior"
             loading="lazy"
             decoding="async"
-            className="h-[290px] w-full object-cover md:h-[500px]"
+            className="h-[290px] w-full object-cover md:h-[500px] iphone:h-[140px]"
           />
         </section>
 
         <section
-          className="mt-[80px] rounded-2xl px-4 py-7 sm:mt-[100px] md:mt-[150px] md:px-10 md:py-11"
+          className="mt-[80px] rounded-2xl px-4 py-7 sm:mt-[100px] md:mt-[150px] md:px-10 md:py-11 iphone:mt-4 iphone:px-2 iphone:py-3"
           style={{ backgroundColor: '#0d0d0d' }}
         >
           <div className="text-center">
-            <span className="inline-flex items-center gap-1 text-[14px] text-zinc-500 md:text-[16px]">
+            <span className="inline-flex items-center gap-1 text-[14px] text-zinc-500 md:text-[16px] iphone:text-[13px]">
               <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
                 <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
               </svg>
               Peace of Mind Included
             </span>
-            <h2 className="mt-4 text-[30px] font-medium leading-tight text-zinc-100 md:text-[44px]">Warranty & Aftercare Protection</h2>
+            <h2 className="mt-4 text-[30px] font-normal leading-tight text-zinc-100 md:text-[44px] iphone:text-[16px]">Warranty & Aftercare Protection</h2>
           </div>
 
-          <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16">
-            <div className="max-w-[360px] text-[16px] leading-7 text-zinc-400 md:text-[18px]">
+          <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16 iphone:gap-2">
+            <div className="max-w-[360px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
               <p>
                 Warranty cover available on all vehicles
                 <br />
                 through trusted providers.
               </p>
-              <ul className="mt-5 space-y-1.5 text-[16px] text-zinc-300 md:text-[18px]">
-                <li>✓ Up to 2 Years Coverage</li>
-                <li>✓ Wide range of protection plans</li>
-                <li>✓ Added peace of mind</li>
+              <ul className="mt-5 space-y-1.5 text-[16px] text-zinc-300 md:text-[18px] iphone:text-[14px]">
+                <li>OK Up to 2 Years Coverage</li>
+                <li>OK Wide range of protection plans</li>
+                <li>OK Added peace of mind</li>
               </ul>
             </div>
 
@@ -400,15 +404,15 @@ export default function Home() {
                 alt="2 year warranty badge"
                 loading="lazy"
                 decoding="async"
-                className="h-[180px] w-[156px] object-contain md:h-[210px] md:w-[182px]"
+                className="h-[80px] w-[70px] object-contain md:h-[210px] md:w-[182px] iphone:h-[40px] iphone:w-[35px]"
               />
             </div>
           </div>
         </section>
 
-        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px]">
-          <h2 className="mb-16 text-center text-[30px] font-medium leading-tight text-white md:mb-20 md:text-[44px]">Why Choose Indus Motor Group</h2>
-          <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2">
+        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px] iphone:mt-4">
+          <h2 className="mb-16 text-center text-[30px] font-normal leading-tight text-white md:mb-20 md:text-[44px] iphone:text-[16px] iphone:mb-4">Why Choose Indus Motor Group</h2>
+          <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2 iphone:gap-y-2">
             {whyChooseCards.map((card) => (
               <article
                 key={card.title}
@@ -419,29 +423,29 @@ export default function Home() {
                   alt={card.title}
                   loading="lazy"
                   decoding="async"
-                  className="h-[240px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px]"
+                  className="h-[120px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px] iphone:h-[140px]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
-                  <h3 className="text-[18px] font-medium leading-tight text-white md:text-[22px]">{card.title}</h3>
-                  <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px]">{card.body}</p>
+                <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 iphone:p-2">
+                  <h3 className="text-[18px] font-normal leading-tight text-white md:text-[22px] iphone:text-[13px]">{card.title}</h3>
+                  <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mt-[80px] text-center sm:mt-[100px] md:mt-[150px]">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1 text-[14px] text-zinc-300 md:text-[16px]">
+        <section className="mt-[80px] text-center sm:mt-[100px] md:mt-[150px] iphone:mt-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1 text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">
             <svg viewBox="0 0 16 16" className="h-2 w-2 text-zinc-400" fill="currentColor" aria-hidden="true">
               <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
             </svg>
             Trusted by Drivers Across Ireland
           </span>
-          <h2 className="mt-4 text-[30px] font-medium leading-tight text-white md:text-[44px]">What Our Customers Say</h2>
-          <p className="mt-2 text-[16px] text-zinc-500 md:text-[18px]">Real feedback from customers who purchased their vehicles from us.</p>
+          <h2 className="mt-4 text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">What Our Customers Say</h2>
+          <p className="mt-2 text-[16px] text-zinc-500 md:text-[18px] iphone:text-[13px]">Real feedback from customers who purchased their vehicles from us.</p>
 
-          <div className="mt-12 md:hidden">
+          <div className="mt-12 md:hidden iphone:mt-4">
             <div
               ref={testimonialsCarouselRef}
               onScroll={handleTestimonialScroll}
@@ -451,8 +455,8 @@ export default function Home() {
               {testimonials.map((item) => (
                 <div key={item.name} className="w-full shrink-0 snap-center px-1">
                   <article className="rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out">
-                    <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px]">★★★★★</p>
-                    <p className="mt-3 min-h-[92px] text-[16px] leading-7 text-zinc-300 md:text-[18px]">{item.quote}</p>
+                    <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px] iphone:text-[13px]">★★★★★</p>
+                    <p className="mt-3 min-h-[92px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">{item.quote}</p>
                     <div className="mt-4 flex items-center gap-2.5">
                       <img
                         src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
@@ -460,8 +464,8 @@ export default function Home() {
                         className="h-6 w-6 rounded-full bg-white p-0.5"
                       />
                       <div>
-                        <p className="text-[16px] font-medium text-white md:text-[16px]">{item.name}</p>
-                        <p className="text-[14px] text-zinc-500 md:text-[14px]">Dublin</p>
+                        <p className="text-[16px] font-medium text-white md:text-[16px] iphone:text-[14px]">{item.name}</p>
+                        <p className="text-[14px] text-zinc-500 md:text-[14px] iphone:text-[14px]">Dublin</p>
                       </div>
                     </div>
                   </article>
@@ -487,11 +491,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 iphone:mt-4">
             {testimonials.map((item) => (
               <article key={item.name} className="group rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out hover:-translate-y-1 md:p-5">
-                <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px]">★★★★★</p>
-                <p className="mt-3 min-h-[92px] text-[16px] leading-6 text-zinc-300 md:text-[18px]">{item.quote}</p>
+                <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px] iphone:text-[13px]">★★★★★</p>
+                <p className="mt-3 min-h-[92px] text-[16px] leading-6 text-zinc-300 md:text-[18px] iphone:text-[13px]">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-2.5">
                   <img
                     src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
@@ -499,8 +503,8 @@ export default function Home() {
                     className="h-6 w-6 rounded-full bg-white p-0.5"
                   />
                   <div>
-                    <p className="text-[16px] font-medium text-white md:text-[16px]">{item.name}</p>
-                    <p className="text-[14px] text-zinc-500 md:text-[14px]">Dublin</p>
+                    <p className="text-[16px] font-medium text-white md:text-[16px] iphone:text-[14px]">{item.name}</p>
+                    <p className="text-[14px] text-zinc-500 md:text-[14px] iphone:text-[14px]">Dublin</p>
                   </div>
                 </div>
               </article>
@@ -509,33 +513,31 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mx-auto mt-[80px] h-[400px] w-full max-w-[1440px] overflow-hidden sm:mt-[100px] sm:h-[520px] md:mt-[150px] md:h-[750px]">
+      <section className="relative mx-auto mt-[80px] h-[400px] w-full max-w-[1440px] overflow-hidden sm:mt-[100px] sm:h-[520px] md:mt-[150px] md:h-[750px] iphone:h-[180px] iphone:mt-4">
         <img
           src={findYourCarImg}
           alt="Find your next car"
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover iphone:h-[180px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-          <h2 className="text-[30px] font-medium text-white md:text-[44px]">Find Your Next Car Today</h2>
-          <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px]">Browse Available Cars</Link>
+        <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-2">
+          <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+          <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
         </div>
       </section>
 
-      <footer className="mt-10 bg-black">
-        <div className="site-footer-shell text-zinc-300">
+      <footer className="mt-10 bg-black iphone:mt-4">
+        <div className="site-footer-shell text-zinc-300 iphone:text-[14px]">
           <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
-              <p className="site-footer-copy">
-                Quality used cars with transparent pricing, trusted warranty
-                <br />
-                options, and a straightforward buying experience.
+              <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
+                Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
               </p>
 
-              <div className="mt-4 flex items-center gap-3 text-zinc-400">
+              <div className="mt-2 flex items-center gap-3 text-zinc-400">
                 <a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
                   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -597,8 +599,8 @@ export default function Home() {
 
           <div className="mt-10 border-t border-zinc-800 pt-5 text-center">
             <p className="site-footer-legal">
-              Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570.
-              Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
+              <span className="block">Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland.</span>
+              <span className="block">Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin, Ireland.</span>
             </p>
             <p className="mt-2 text-[13px] text-zinc-500 md:text-[14px]">
               <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
@@ -617,3 +619,4 @@ export default function Home() {
     </div>
   )
 }
+

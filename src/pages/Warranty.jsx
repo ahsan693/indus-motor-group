@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import warrantyHeroImg from '../images/warrantypage-images/QO39bC2hbcBpcVKCuwubY36DU.webp'
 import vehicleWarrantyImg from '../images/warrantypage-images/image 25.png'
@@ -97,117 +97,130 @@ function KeyFeatureIcon({ type }) {
 	)
 }
 
+import { useState } from 'react'
+
 export default function Warranty() {
-	return (
-		<div className="min-h-screen bg-black text-zinc-300">
-			<section className="relative overflow-hidden">
-				<img
-					src={warrantyHeroImg}
-					alt="Warranty hero"
-					loading="eager"
-					fetchPriority="high"
-					decoding="async"
-					className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover sm:h-[560px] md:mb-0 md:h-[640px]"
-				/>
+   const [openFaq, setOpenFaq] = useState(null)
+   return (
+	   <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+			   <section className="relative overflow-hidden iphone:h-[220px]">
+				   <img
+					   src={warrantyHeroImg}
+					   alt="Warranty hero"
+					   loading="eager"
+					   fetchPriority="high"
+					   decoding="async"
+					   className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover sm:h-[560px] md:mb-0 md:h-[640px] iphone:h-[220px]"
+				   />
 				<div className="absolute -inset-px bg-gradient-to-b from-black/20 via-black/30 to-black md:inset-0"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-15 md:pb-20">
-					<h1 className="mb-15 text-[36px] font-semibold text-white md:text-[56px]">Warranty & Aftercare</h1>
+				   <div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 min-[390px]:pb-8 sm:pb-10 md:pb-20 iphone:pb-2">
+					   <h1 className="mb-7 text-[32px] font-normal text-white min-[390px]:text-[34px] sm:text-[36px] md:mb-15 md:text-[56px] iphone:text-[18px]">Warranty & Aftercare</h1>
 				</div>
 			</section>
 
-			<main className="layout-shell layout-stack">
-				<section className="motion-rise mt-20 grid items-center gap-6 md:mt-16 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
-					<div className="space-y-5">
-						<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Vehicle Warranty for Added Peace of Mind</h2>
-						<p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px]">
-							All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
-						</p>
-						<p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px]">
-							Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months, depending on the vehicle and selected plan.
-						</p>
-						<button className="rounded-full bg-white px-5 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Ask About Warranty</button>
-					</div>
+			   <main className="layout-shell layout-stack iphone:pt-4">
+				   <section className="motion-rise mt-12 grid items-center gap-6 sm:mt-14 md:mt-16 md:grid-cols-[0.95fr_1.05fr] md:gap-10 iphone:mt-4 iphone:gap-2">
+					   <div className="space-y-5 iphone:space-y-2">
+						   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Vehicle Warranty for Added Peace of Mind</h2>
+						   <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
+							   All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
+						   </p>
+						   <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
+							   Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months, depending on the vehicle and selected plan.
+						   </p>
+						   <button className="rounded-full bg-white px-5 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:text-[14px] iphone:px-3 iphone:py-2">Ask About Warranty</button>
+					   </div>
 
-					<img
-						src={vehicleWarrantyImg}
-						alt="Vehicle warranty"
-						loading="lazy"
-						decoding="async"
-						className="motion-card h-[300px] w-full rounded-lg object-cover sm:h-[360px] md:h-[430px]"
-					/>
+					   <img
+						   src={vehicleWarrantyImg}
+						   alt="Vehicle warranty"
+						   loading="lazy"
+						   decoding="async"
+						   className="motion-card h-[300px] w-full rounded-lg object-cover sm:h-[360px] md:h-[430px] iphone:h-[140px]"
+					   />
 				</section>
 
-				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10">
+				   <section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:mt-4 iphone:px-2 iphone:py-3">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
-						<div className="space-y-4">
-							<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Key Features</h2>
-							<p className="max-w-[310px] text-[16px] leading-7 text-zinc-400 md:text-[18px]">
-								Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
-							</p>
-						</div>
+						   <div className="space-y-4 iphone:space-y-2">
+							   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Key Features</h2>
+							   <p className="max-w-[310px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
+								   Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
+							   </p>
+						   </div>
 
-						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
-							{keyFeatures.map((item) => (
-								<article key={item.title} className="group motion-card rounded-lg bg-black/40 p-4">
+						   <div className="grid gap-2 sm:grid-cols-2 md:gap-3 iphone:gap-1">
+							   {keyFeatures.map((item) => (
+								   <article key={item.title} className="group motion-card rounded-lg bg-black/40 p-4 iphone:p-2">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<KeyFeatureIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-[18px] font-medium text-zinc-100 md:text-[22px]">{item.title}</h3>
-									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.body}</p>
+									   <h3 className="motion-link-slide text-[18px] font-normal text-zinc-100 md:text-[22px] iphone:text-[13px]">{item.title}</h3>
+									   <p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 								</article>
 							))}
 						</div>
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-2 space-y-6">
-					<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">How It Works</h2>
-					<div className="grid gap-4 md:grid-cols-3">
+				   <section className="motion-rise motion-rise-delay-2 space-y-6 iphone:mt-4 iphone:space-y-2">
+					   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">How It Works</h2>
+					   <div className="grid gap-4 md:grid-cols-3 iphone:gap-1">
 						{steps.map((item) => (
-							<article key={item.title} className="group motion-card space-y-3">
-								<div className="overflow-hidden rounded-xl">
-									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover sm:h-64" />
-								</div>
-								<p className="text-[12px] text-zinc-500 md:text-[14px]">({item.step})</p>
-								<h3 className="motion-link-slide text-[20px] font-medium leading-tight text-white md:text-[24px]">{item.title}</h3>
-								<p className="text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.body}</p>
+							   <article key={item.title} className="group motion-card space-y-3 iphone:space-y-1">
+								   <div className="overflow-hidden rounded-xl">
+									   <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover sm:h-64 iphone:h-[140px]" />
+								   </div>
+								   <p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">({item.step})</p>
+								   <h3 className="motion-link-slide text-[20px] font-normal leading-tight text-white md:text-[24px] iphone:text-[13px]">{item.title}</h3>
+								   <p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
-				<section className="motion-rise grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8">
-					<h2 className="text-[30px] font-semibold text-white md:text-[44px]">Warranty FAQS</h2>
-					<div className="space-y-4">
-						{faq.map(([question, answer]) => (
-							<div key={question} className="border-b border-zinc-800 pb-4 transition-colors hover:bg-zinc-950/40">
-								<div className="flex items-start justify-between gap-4">
-									<h3 className="text-[16px] font-medium text-white md:text-[18px]">{question}</h3>
-									<span className="text-lg text-zinc-300">+</span>
-								</div>
-								<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{answer}</p>
-							</div>
-						))}
-					</div>
-				</section>
+				   <section className="motion-rise grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
+				   <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Warranty FAQS</h2>
+					   <div className="space-y-4">
+						   {faq.map(([question, answer], idx) => {
+							   const open = openFaq === idx
+							   return (
+								   <div key={question} className="border-b border-zinc-800 pb-4 transition-colors hover:bg-zinc-950/40 iphone:pb-2">
+									   <button
+										   className="flex w-full items-start justify-between gap-4 text-left focus:outline-none iphone:py-2"
+										   onClick={() => setOpenFaq(open ? null : idx)}
+										   aria-expanded={open}
+										   aria-controls={`faq-answer-${idx}`}
+									   >
+										<h3 className="text-[16px] font-normal text-white md:text-[18px] iphone:text-[13px]">{question}</h3>
+										   <span className="text-lg text-zinc-300">{open ? '-' : '+'}</span>
+									   </button>
+									   {open && (
+										   <p id={`faq-answer-${idx}`} className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{answer}</p>
+									   )}
+								   </div>
+							   )
+						   })}
+					   </div>
+				   </section>
 
-				<section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center">
-					<h2 className="text-[30px] font-semibold text-white md:text-[44px]">Drive Away With Confidence</h2>
-					<p className="mx-auto mt-3 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px]">
-						Warranty options are available on all vehicles to help protect your purchase.
-					</p>
-					<button className="mt-7 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Ask About Warranty</button>
-				</section>
+				   <section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center iphone:py-4">
+					   <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Drive Away With Confidence</h2>
+					   <p className="mx-auto mt-3 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
+						   Warranty options are available on all vehicles to help protect your purchase.
+					   </p>
+					   <button className="mt-7 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Ask About Warranty</button>
+				   </section>
 			</main>
 
-			<footer className="mt-10 bg-black">
-				<div className="site-footer-shell text-white">
+			   <footer className="mt-10 bg-black iphone:mt-4">
+				   <div className="site-footer-shell text-white iphone:text-[14px]">
 					<div className="site-footer-grid">
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
-							<p className="site-footer-copy">
+							   <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
@@ -289,3 +302,4 @@ export default function Warranty() {
 		</div>
 	)
 }
+

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Navbar } from './Home'
 import privacyHeroImg from '../images/privacypolicyimages/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
@@ -261,9 +261,7 @@ export default function PrivacyPolicy() {
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
 							<p className="site-footer-copy">
-								Quality used cars with transparent pricing, trusted warranty
-								<br />
-								options, and a straightforward buying experience.
+								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
 							<div className="mt-4 flex items-center gap-3 text-zinc-400">
@@ -349,3 +347,4 @@ export default function PrivacyPolicy() {
 		</div>
 	)
 }
+
