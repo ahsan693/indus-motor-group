@@ -364,6 +364,36 @@
       gap: 2rem;
     }
   }
+
+  @media (max-width: 430px) {
+    .layout-shell,
+    .hero-shell,
+    .site-footer-shell {
+      padding-inline: 0.85rem;
+    }
+
+    .layout-stack {
+      padding-block: 1.5rem;
+    }
+
+    .layout-stack > * + * {
+      margin-top: 1.6rem;
+    }
+
+    .finance-stack {
+      padding-block: 2rem;
+    }
+
+    .finance-stack > * + * {
+      margin-top: 2rem;
+    }
+
+    .ui-btn,
+    button,
+    a[role='button'] {
+      min-height: 44px;
+    }
+  }
 }
 
 @layer utilities {

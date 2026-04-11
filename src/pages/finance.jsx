@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import financeHeroImg from '../images/financepage-images/financenavbar.jpg'
@@ -57,38 +57,32 @@ const faq = [
 	{
 		question: 'Is there any obligation to apply?',
 		answer: 'No, submitting an application does not commit you to any finance agreement.',
-		details:
-			'An application simply lets a finance provider review your situation and share options. You remain free to decide whether to proceed.',
+		details: 'An application simply lets a finance provider review your situation and share options.',
 	},
 	{
 		question: 'Will applying affect my credit score?',
 		answer: 'This depends on the finance provider, but any checks will be explained before proceeding.',
-		details:
-			'Some providers may perform a soft eligibility check first, while others may request a full credit check at a later stage. This is always clarified in advance.',
+		details: 'Some providers may perform a soft eligibility check first.',
 	},
 	{
 		question: 'Do I need a deposit?',
 		answer: 'Some finance providers may require a deposit, depending on the agreement.',
-		details:
-			'Deposit requirements can vary based on vehicle price, agreement type, and lender criteria. Our team can outline options that may suit your budget.',
+		details: 'Deposit requirements can vary based on vehicle price and lender criteria.',
 	},
 	{
 		question: 'How long does approval take?',
 		answer: 'Applications are typically reviewed within a short time after submission.',
-		details:
-			'Timings can vary by lender and application volume. Once submitted, a finance provider will contact you to discuss next steps as soon as possible.',
+		details: 'Timings can vary by lender and application volume.',
 	},
 	{
 		question: 'Can I apply if I have not chosen a car yet?',
 		answer: 'Yes, you can apply and discuss suitable options with a finance provider.',
-		details:
-			'If you are still deciding, you can share your preferred budget range and vehicle type first, then finalize your choice once options are clearer.',
+		details: 'You can share your budget and vehicle type first, then finalize your choice later.',
 	},
 	{
 		question: 'Is finance available across Ireland?',
 		answer: 'Yes, finance options are available to customers across Ireland.',
-		details:
-			'Where eligible, finance providers can support applicants nationwide. Contact us for guidance based on your location and preferred vehicle.',
+		details: 'Finance providers can support applicants nationwide.',
 	},
 ]
 
@@ -150,16 +144,11 @@ function BenefitIcon({ type }) {
 }
 
 export default function Finance() {
-	const [expandedFaqItems, setExpandedFaqItems] = useState({})
+const [openFaq, setOpenFaq] = useState(null)
 	const [formValues, setFormValues] = useState(INITIAL_FORM_STATE)
 	const [submitState, setSubmitState] = useState({ submitting: false, error: '', success: '' })
 
-	const toggleFaqItem = (index) => {
-		setExpandedFaqItems((previous) => ({
-			...previous,
-			[index]: !previous[index],
-		}))
-	}
+
 
 	const handleFormChange = (event) => {
 		const { name, value, type, checked } = event.target
@@ -209,37 +198,38 @@ export default function Finance() {
 	}
 
 	return (
-		<div className="min-h-screen bg-black text-zinc-300">
-			<section className="relative overflow-hidden">
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+			<section className="relative mx-auto w-full max-w-[1440px] overflow-hidden aspect-[16/10] min-[430px]:aspect-[16/9] sm:aspect-[16/8] md:aspect-[12/5] iphone:aspect-auto iphone:h-[220px]">
 				<img
 					src={financeHeroImg}
 					alt="Finance hero"
 					loading="eager"
 					fetchPriority="high"
 					decoding="async"
-					className="hero-zoom-settle h-[560px] w-full object-cover object-[center_90%] sm:h-[620px] md:h-[680px]"
+					className="h-full w-full object-cover object-center"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
+				<div className="absolute inset-0 bg-black/8"></div>
+				<div className="absolute inset-x-0 bottom-0 h-[155px] bg-gradient-to-t from-black/75 via-black/45 to-transparent"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-20 md:pb-25">
-					<h1 className="text-[36px] font-semibold text-white md:text-[56px]">Car Finance Made Simple</h1>
+				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-2">
+					<h1 className="text-[32px] font-normal text-white min-[390px]:text-[34px] sm:text-[36px] md:text-[56px] iphone:text-[18px]">Car Finance Made Simple</h1>
 				</div>
 			</section>
 
-			<main className="layout-shell finance-stack">
-				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
-					<div className="space-y-6">
-						<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance Your Next Car</h2>
-						<p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px]">
+			<main className="layout-shell finance-stack iphone:pt-4">
+				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
+					<div className="space-y-6 iphone:space-y-2">
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance Your Next Car</h2>
+						<p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 							We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
 						</p>
-						<p className="max-w-[430px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
+						<p className="max-w-[430px] text-[14px] leading-6 text-zinc-500 md:text-[16px] iphone:text-[14px]">
 							Finance is provided by third party lenders. Indus Motor Group does not act as a lender or provide financial advice.
 						</p>
-						<div className="flex flex-wrap items-center gap-4">
-							<a href="#finance-application-form" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Apply for Finance</a>
-							<Link to="/cars" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200">Browse Cars →</Link>
+						<div className="flex flex-wrap items-center gap-4 iphone:gap-1">
+							<a href="#finance-application-form" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:text-[14px] iphone:px-3 iphone:py-2">Apply for Finance</a>
+							<Link to="/cars" className="ui-btn rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Cars &rarr;</Link>
 						</div>
 					</div>
 
@@ -248,70 +238,70 @@ export default function Finance() {
 						alt="Luxury car in a tunnel"
 						loading="lazy"
 						decoding="async"
-						className="motion-card h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px]"
+						className="motion-card h-[300px] w-full rounded-lg border border-zinc-800 object-cover sm:h-[360px] md:h-[430px] iphone:h-[140px]"
 					/>
 				</section>
 
-			<section className="motion-rise motion-rise-delay-1">
+			<section className="motion-rise motion-rise-delay-1 iphone:mt-4">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
-						<div className="space-y-5">
-							<p className="text-[12px] text-zinc-500 md:text-[14px]">• Finance Benefits</p>
-							<h2 className="max-w-[280px] text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance Options Available</h2>
+						<div className="space-y-5 iphone:space-y-2">
+							<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Finance Benefits</p>
+							<h2 className="max-w-[280px] text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance Options Available</h2>
 						</div>
 
-						<div className="grid gap-2 sm:grid-cols-2 md:gap-3">
+						<div className="grid gap-2 sm:grid-cols-2 md:gap-3 iphone:gap-1">
 							{benefits.map((item) => (
-								<article key={item.title} className="group motion-card rounded-lg bg-zinc-950 p-5">
+								<article key={item.title} className="group motion-card rounded-lg bg-zinc-950 p-5 iphone:p-2">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<BenefitIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-[18px] font-medium text-white md:text-[22px]">{item.title}</h3>
-									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.body}</p>
+									<h3 className="motion-link-slide text-[18px] font-normal text-white md:text-[22px] iphone:text-[13px]">{item.title}</h3>
+									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 								</article>
 							))}
 						</div>
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-2">
-					<p className="text-[12px] text-zinc-500 md:text-[14px]">• Process</p>
-					<h2 className="mt-2 text-[30px] font-semibold text-white md:text-[44px]">How Finance Works</h2>
+				<section className="motion-rise motion-rise-delay-2 iphone:mt-4">
+					<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Process</p>
+					<h2 className="mt-2 text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">How Finance Works</h2>
 
-					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3">
+					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3 iphone:gap-1 iphone:mt-4">
 						{processSteps.map((item) => (
-							<article key={item.title} className="group motion-card space-y-3">
+							<article key={item.title} className="group motion-card space-y-3 iphone:space-y-1">
 								<div className="overflow-hidden rounded-xl border border-zinc-700">
-									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover" />
+									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover iphone:h-[140px]" />
 								</div>
-								<p className="text-[12px] text-zinc-500 md:text-[14px]">({item.step})</p>
-								<h3 className="motion-link-slide text-[20px] font-medium text-white md:text-[24px]">{item.title}</h3>
-								<p className="text-[16px] text-zinc-400 md:text-[18px]">{item.body}</p>
+								<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">({item.step})</p>
+								<h3 className="motion-link-slide text-[20px] font-normal text-white md:text-[24px] iphone:text-[13px]">{item.title}</h3>
+								<p className="text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
-				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 md:scroll-mt-28">
-					<p className="text-center text-[12px] text-zinc-500 md:text-[14px]">• Finance Application</p>
-					<h2 className="text-center text-[30px] font-semibold text-white md:text-[44px]">Apply for Finance</h2>
-					<p className="text-center text-[16px] text-zinc-400 md:text-[18px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
+				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 md:scroll-mt-28 iphone:mt-4 iphone:space-y-2">
+					<p className="text-center text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Finance Application</p>
+					<h2 className="text-center text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Apply for Finance</h2>
+					<p className="text-center text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
-					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4">
-						<form onSubmit={handleFinanceSubmit} className="space-y-3 rounded-lg border border-zinc-700 bg-black p-3 sm:p-4 md:p-5">
+					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4 iphone:gap-1">
+						<form onSubmit={handleFinanceSubmit} className="space-y-3 rounded-lg border border-zinc-700 bg-black p-3 sm:p-4 md:p-5 iphone:space-y-2 iphone:p-2">
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Vehicle Make</label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Vehicle Make</label>
 								<input name="vehicleMake" value={formValues.vehicleMake} onChange={handleFormChange} type="text" placeholder="e.g. Volkswagen" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Model</label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Model</label>
 								<input name="model" value={formValues.model} onChange={handleFormChange} type="text" placeholder="e.g. Golf" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Year</label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Year</label>
 								<input name="year" value={formValues.year} onChange={handleFormChange} type="text" placeholder="e.g. 2019" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Monthly Budget</label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Monthly Budget</label>
 								<select name="monthlyBudget" value={formValues.monthlyBudget} onChange={handleFormChange} className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none">
 									<option value="" disabled>Select your budget</option>
 									{MONTHLY_BUDGET_OPTIONS.map((option) => (
@@ -320,27 +310,27 @@ export default function Finance() {
 								</select>
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Sale Price<span className="text-red-500">*</span></label>
-								<input name="salePrice" value={formValues.salePrice} onChange={handleFormChange} type="text" required placeholder="e.g. €18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Sale Price<span className="text-red-500">*</span></label>
+								<input name="salePrice" value={formValues.salePrice} onChange={handleFormChange} type="text" required placeholder="e.g. EUR 18950" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Your First Name<span className="text-red-500">*</span></label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Your First Name<span className="text-red-500">*</span></label>
 								<input name="firstName" value={formValues.firstName} onChange={handleFormChange} type="text" required placeholder="e.g. John" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Last Name<span className="text-red-500">*</span></label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Last Name<span className="text-red-500">*</span></label>
 								<input name="lastName" value={formValues.lastName} onChange={handleFormChange} type="text" required placeholder="Murphy" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Email<span className="text-red-500">*</span></label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Email<span className="text-red-500">*</span></label>
 								<input name="email" value={formValues.email} onChange={handleFormChange} type="email" required placeholder="e.g. yourname@email.com" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 							<div className="space-y-1.5">
-								<label className="text-[14px] text-zinc-300 md:text-[16px]">Phone Number</label>
+								<label className="text-[14px] text-zinc-300 md:text-[16px] iphone:text-[13px]">Phone Number</label>
 								<input name="phoneNumber" value={formValues.phoneNumber} onChange={handleFormChange} type="tel" placeholder="e.g. +353 87 123 4567" className="w-full rounded-md border border-zinc-700 bg-black px-3 py-2.5 text-[16px] text-zinc-100 outline-none placeholder:text-zinc-500" />
 							</div>
 
-							<button disabled={submitState.submitting} type="submit" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60">{submitState.submitting ? 'Submitting...' : 'Apply Now'}</button>
+							<button disabled={submitState.submitting} type="submit" className="mt-2 w-full rounded-md bg-zinc-200 py-2.5 text-[16px] font-medium text-black transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60 iphone:text-[14px]">{submitState.submitting ? 'Submitting...' : 'Apply Now'}</button>
 
 							{submitState.error && (
 								<p className="text-[14px] text-red-400 md:text-[15px]">{submitState.error}</p>
@@ -349,16 +339,16 @@ export default function Finance() {
 								<p className="text-[14px] text-emerald-400 md:text-[15px]">{submitState.success}</p>
 							)}
 
-							<label className="flex items-start gap-2 pt-1 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
+							<label className="flex items-start gap-2 pt-1 text-[14px] leading-5 text-zinc-400 md:text-[16px] iphone:text-[14px]">
 								<input name="consentShareWithProvider" checked={formValues.consentShareWithProvider} onChange={handleFormChange} required type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I agree to my details being shared with a third party finance provider.</span>
 							</label>
-							<label className="flex items-start gap-2 text-[14px] leading-5 text-zinc-400 md:text-[16px]">
+							<label className="flex items-start gap-2 text-[14px] leading-5 text-zinc-400 md:text-[16px] iphone:text-[14px]">
 								<input name="consentMarketing" checked={formValues.consentMarketing} onChange={handleFormChange} type="checkbox" className="mt-0.5 h-4 w-4 rounded border-zinc-600 bg-black" />
 								<span>I would like to receive updates and marketing communications from Indus Motor Group.</span>
 							</label>
 
-							<p className="pt-1 text-[13px] italic text-zinc-500 md:text-[14px]">By submitting this form you agree to our Privacy Policy.</p>
+							<p className="pt-1 text-[13px] italic text-zinc-500 md:text-[14px] iphone:text-[14px]">By submitting this form you agree to our Privacy Policy.</p>
 						</form>
 
 						<img
@@ -366,64 +356,66 @@ export default function Finance() {
 							alt="Apply for finance"
 							loading="lazy"
 							decoding="async"
-							className="motion-card h-full min-h-[520px] w-full rounded-lg object-cover"
+							className="motion-card h-full min-h-[280px] w-full rounded-lg object-cover min-[390px]:min-h-[340px] sm:min-h-[420px] md:min-h-[520px] iphone:min-h-[90px]"
 						/>
 					</div>
 				</section>
 
-			<section className="motion-rise grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10">
-				<h2 className="text-[30px] font-semibold leading-tight text-white md:text-[44px]">Finance FAQS</h2>
-				<div className="border-y border-zinc-700">
-						{faq.map((item, index) => {
-							const isExpanded = Boolean(expandedFaqItems[index])
-
-							return (
-						<article key={item.question} className="border-b border-zinc-700 last:border-b-0">
-									<button
-										type="button"
-										onClick={() => toggleFaqItem(index)}
-										className="flex w-full items-start justify-between gap-3 py-4 text-left"
-										aria-expanded={isExpanded}
-									>
-										<span className="text-[16px] font-medium leading-6 text-zinc-100 md:text-[18px]">{item.question}</span>
-										<span className="mt-0.5 text-2xl leading-none text-zinc-300">{isExpanded ? '−' : '+'}</span>
-									</button>
-
-									<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-400 md:text-[18px]">{item.answer}</p>
-
-									<div className={`grid transition-all duration-300 ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-										<div className="overflow-hidden">
-											<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-500 md:text-[18px]">{item.details}</p>
-										</div>
+			<section className="motion-rise grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10 iphone:gap-2 iphone:mt-4">
+				<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance FAQS</h2>
+				<div>
+					{faq.map((item, idx) => {
+						const open = openFaq === idx
+						return (
+							<div key={item.question} className={
+								[
+									idx !== 0 ? 'border-t border-zinc-700' : '',
+									'transition-colors hover:bg-zinc-950/40'
+								].join(' ')
+							}>
+								<button
+									className="flex w-full items-start justify-between gap-3 py-4 text-left focus:outline-none iphone:py-2"
+									onClick={() => setOpenFaq(open ? null : idx)}
+									aria-expanded={open}
+									aria-controls={`faq-answer-${idx}`}
+									type="button"
+								>
+									<span className="text-[16px] font-normal leading-6 text-zinc-100 md:text-[18px] iphone:text-[13px]">{item.question}</span>
+									<span className="mt-0.5 text-2xl leading-none text-zinc-300">{open ? '-' : '+'}</span>
+								</button>
+								{open && (
+									<div id={`faq-answer-${idx}`} className="pr-8 pb-4 iphone:pb-2">
+										<p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.details}</p>
 									</div>
-								</article>
-							)
-						})}
-					</div>
-				</section>
+								)}
+							</div>
+						)
+					})}
+				</div>
+			</section>
 			</main>
 
-			<section className="relative mx-auto h-[400px] w-full max-w-[1440px] overflow-hidden sm:h-[520px] md:h-[750px]">
+			<section className="relative mx-auto h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[180px] iphone:mt-4">
 				<img
 					src={financeCtaImg}
 					alt="Finance CTA"
 					loading="lazy"
 					decoding="async"
-					className="hero-zoom-settle h-full w-full object-cover"
+					className="h-full w-full object-cover object-center iphone:h-[180px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-					<h2 className="max-w-[420px] text-[30px] font-semibold text-white md:text-[44px]">Ready to Get Started With Finance?</h2>
-					<a href="#finance-application-form" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Start Application</a>
+				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
+					<h2 className="max-w-[420px] text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Ready to Get Started With Finance?</h2>
+					<a href="#finance-application-form" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Start Application</a>
 				</div>
 			</section>
 
-			<footer className="mt-10 border-b border-zinc-700 bg-black">
-				<div className="site-footer-shell text-white">
+			<footer className="mt-10 border-b border-zinc-700 bg-black iphone:mt-4">
+				<div className="site-footer-shell text-white iphone:text-[14px]">
 					<div className="site-footer-grid">
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
-							<p className="site-footer-copy">
+							<p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
@@ -496,7 +488,7 @@ export default function Finance() {
 						{' '}|{' '}
 						<Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
 					</p>
-					<p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+							<p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
 					<p className="mt-2 text-[13px] text-white md:text-[14px]">
 						Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
 					</p>
@@ -505,3 +497,4 @@ export default function Finance() {
 		</div>
 	)
 }
+

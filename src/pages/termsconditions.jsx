@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import termsCtaImg from '../images/privacypolicyimages/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
@@ -9,17 +9,17 @@ export default function TermsConditions() {
 	}, [])
 
 	return (
-		<div className="min-h-screen bg-black text-zinc-300">
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-0 pt-[116px]">
+			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-0 pt-[116px] iphone:px-2 iphone:pt-5">
 				<section className="space-y-6">
-					<h1 className="text-[36px] font-medium leading-tight text-white md:text-[56px]">Terms &amp; Conditions</h1>
-					<p className="text-[14px] text-zinc-500 md:text-[16px]">
+					<h1 className="text-[36px] font-medium leading-tight text-white md:text-[56px] iphone:text-[22px] iphone:font-normal">Terms &amp; Conditions</h1>
+					<p className="text-[14px] text-zinc-500 md:text-[16px] iphone:text-[14px]">
 						Last updated: <span className="font-medium text-zinc-200">March 2026</span>
 					</p>
 
-					<div className="space-y-4 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
+					<div className="space-y-4 text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 						<p>
 							These Terms &amp; Conditions govern the use of the website{' '}
 							<a className="text-sky-400 underline underline-offset-2 hover:text-sky-300" href="https://www.indusmotorgroup.ie" target="_blank" rel="noreferrer">
@@ -33,11 +33,11 @@ export default function TermsConditions() {
 					</div>
 				</section>
 
-				<div className="mt-16 space-y-14 md:mt-20 md:space-y-16">
+				<div className="mt-16 space-y-14 md:mt-20 md:space-y-16 iphone:mt-5">
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Website Owner</h2>
-						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">This website is operated by:</p>
-						<div className="space-y-1 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
+						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px] iphone:text-[16px] iphone:font-normal">Website Owner</h2>
+						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">This website is operated by:</p>
+						<div className="space-y-1 text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 							<p>Indus Motors Limited</p>
 							<p>Trading as Indus Motor Group</p>
 							<p>Company Number: 790570</p>
@@ -214,9 +214,7 @@ export default function TermsConditions() {
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
 							<p className="site-footer-copy">
-								Quality used cars with transparent pricing, trusted warranty
-								<br />
-								options, and a straightforward buying experience.
+								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 
 							<div className="mt-4 flex items-center gap-3 text-zinc-400">
@@ -302,3 +300,4 @@ export default function TermsConditions() {
 		</div>
 	)
 }
+

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { useState, useMemo, useEffect } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
@@ -131,14 +131,14 @@ export default function Cars() {
 	}
 
 	return (
-		<div className="min-h-screen bg-black text-zinc-300">
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="layout-shell py-10 md:py-14">
+			<main className="layout-shell py-10 md:py-14 iphone:py-4">
 				<section className="motion-rise relative z-40 space-y-7">
-					<h1 className="text-center text-[36px] font-semibold leading-tight text-white md:text-[56px]">Quality Used Cars for Sale</h1>
+						<h1 className="text-center text-[32px] font-normal leading-tight text-white min-[390px]:text-[34px] md:text-[56px] iphone:text-[18px]">Quality Used Cars for Sale</h1>
 
-					<div className="flex justify-center md:hidden">
+					<div className="flex justify-center md:hidden iphone:mt-2">
 						<button
 							type="button"
 							onClick={() => setIsFilterModalOpen(true)}
@@ -151,7 +151,7 @@ export default function Cars() {
 						</button>
 					</div>
 
-					<div className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3">
+					<div className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3 iphone:gap-1">
 						{filterOrder.map((filterName) => (
 							<div key={filterName} className="relative">
 								<button
@@ -315,11 +315,11 @@ export default function Cars() {
 					</div>
 				)}
 
-				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-20 md:mt-24">
-					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-20 md:mt-24 iphone:mt-4">
+					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between iphone:mb-3 iphone:gap-2">
 						<div className="max-w-[760px]">
-							<h2 className="text-[30px] font-semibold leading-[1.08] text-white md:text-[44px]">Explore Our Collection</h2>
-							<p className="mt-2 mb-28 text-[16px] leading-6 text-zinc-400 md:mb-22 md:text-[18px]">
+							<h2 className="text-[30px] font-normal leading-[1.08] text-white md:text-[44px] iphone:text-[16px]">Explore Our Collection</h2>
+							<p className="mt-2 mb-8 text-[16px] leading-6 text-zinc-400 md:mb-12 md:text-[18px] iphone:text-[13px] iphone:mb-4">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
 						</div>
@@ -329,7 +329,7 @@ export default function Cars() {
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
 								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[14px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
 							>
-								Sort By ⌄
+								Sort By v
 							</button>
 							
 							{showFilters.sortMenu && (
@@ -384,7 +384,7 @@ export default function Cars() {
 						</div>
 					</div>
 
-					<div className="mt-[44px]">
+					<div className="mt-[44px] iphone:mt-2">
 						{loading ? (
 							<div className="flex items-center justify-center py-20">
 								<div className="space-y-4 text-center">
@@ -397,7 +397,7 @@ export default function Cars() {
 								{cars.length === 0 ? 'No cars available at the moment. Please check back soon.' : 'No cars match your filters. Try adjusting your search.'}
 							</div>
 						) : (
-							<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+							<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 iphone:gap-2">
 								{filteredCars.map((car) => {
 								// Handle both Sanity image objects and direct URLs
 								let imageUrl = null
@@ -419,47 +419,47 @@ export default function Cars() {
 
 								return (
 								<Link key={car._id} to={`/details?id=${car._id}`} className="group block">
-									<article className="motion-card h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
+									<article className="motion-card h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700 iphone:rounded-xl">
 										{imageUrl ? (
 											<img 
 												src={imageUrl} 
 												alt={`${car.make} ${car.model}`} 
 												loading="lazy"
 												decoding="async"
-												className="motion-media h-[210px] w-full object-cover" 
+												className="motion-media h-[210px] w-full object-cover iphone:h-[180px]" 
 											/>
 										) : (
-												<div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px]">
+												<div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px] iphone:h-[180px]">
 												No image
 											</div>
 										)}
-												<div className="space-y-[15px] p-[10px]">
-											<div className="flex items-start justify-between gap-3">
-												<h3 className="truncate text-[18px] font-medium text-white">{car.make} {car.model}</h3>
-												<span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details ›</span>
+												<div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
+											<div className="flex items-start justify-between gap-3 iphone:gap-1">
+												<h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+												<span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
 											</div>
-												<p className="text-[16px] font-normal text-[#BABABA]">
-												{car.year} · {car.mileage?.toLocaleString() || 0} km · {car.transmission} · {car.fuelType}
+												<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
+												{car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
 											</p>
-												<div className="flex flex-wrap gap-[10px]">
+												<div className="flex flex-wrap gap-[10px] iphone:gap-1">
 												{car.transmission && (
-													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
 														{car.transmission}
 													</span>
 												)}
 												{car.fuelType && (
-													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
 														{car.fuelType}
 													</span>
 												)}
 												{car.seats && (
-													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white">
+													<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
 														{car.seats} Seats
 													</span>
 												)}
 											</div>
-												<p className="text-[24px] font-normal leading-none text-white">€{car.price?.toLocaleString() || 0}</p>
-												<p className="text-[16px] font-normal text-[#BABABA]">Finance Available</p>
+												<p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
+												<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
 										</div>
 									</article>
 								</Link>
@@ -478,27 +478,27 @@ export default function Cars() {
 				</section>
 			</main>
 
-			<section className="relative mx-auto mt-8 h-[400px] w-full max-w-[1440px] overflow-hidden border-t border-zinc-800 sm:h-[520px] md:h-[750px]">
+			<section className="relative mx-auto mt-8 h-[320px] w-full max-w-[1440px] overflow-hidden border-t border-zinc-800 sm:h-[420px] md:h-[750px] iphone:h-[180px] iphone:mt-4">
 				<img
 					src={ourCarsHeroImg}
 					alt="Find your next car"
 					loading="lazy"
 					decoding="async"
-					className="hero-zoom-settle h-full w-full object-cover"
+					className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-5 pt-8 md:px-8 md:pt-10">
-					<h2 className="text-[30px] font-semibold text-white md:text-[44px]">Find Your Next Car Today</h2>
-					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Browse Available Cars</Link>
+				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10 iphone:pt-2">
+					<h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
 				</div>
 			</section>
 
-			<footer className="mt-10 bg-black">
-				<div className="site-footer-shell text-zinc-300">
+			<footer className="mt-10 bg-black iphone:mt-4">
+				<div className="site-footer-shell text-zinc-300 iphone:text-[14px]">
 					<div className="site-footer-grid border-b border-zinc-800 pb-10">
 						<div>
 							<p className="site-footer-brand">INDUS MOTOR GROUP</p>
-							<p className="site-footer-copy">
+							<p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
 								Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
 							</p>
 							<p className="mt-6 text-[13px] text-zinc-500 md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
@@ -542,3 +542,4 @@ export default function Cars() {
 		</div>
 	)
 }
+
