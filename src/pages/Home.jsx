@@ -9,7 +9,6 @@ import nationwideDeliveryImg from '../images/homepage-images/NaXiqyCuHV5HfwzSgAX
 import warrantyImg from '../images/homepage-images/7wP4pWwqqXr5Bc6QUsmemBnVi98.jpg'
 import warrantyBadgeImg from '../images/homepage-images/Frame 1321319011.png'
 import financeImg from '../images/homepage-images/my26-jx-1084_16-9.webp'
-import findYourCarImg from '../images/homepage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 
 const navItems = [
   { label: 'Our Cars', to: '/cars' },
@@ -62,9 +61,10 @@ const whyChooseCards = [
 export function Navbar({ overlay = false }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // Always fixed, full width, high z-index, solid bg
   return (
-    <header className={overlay ? 'absolute inset-x-0 top-0 z-20' : ''}>
-      <div className="layout-shell py-4 md:py-5 pl-0" style={overlay ? { paddingTop: 'max(env(safe-area-inset-top), 12px)' } : undefined}>
+    <header className="fixed inset-x-0 top-0 z-50 bg-black/0">
+      <div className="layout-shell py-4 md:py-5 pl-0">
         <div className="flex w-full items-center gap-3">
           <Link to="/" className="-ml-[17px] inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
             <span className="flex flex-col gap-0.5" aria-hidden="true">
@@ -179,8 +179,8 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
-      <section className="relative mx-auto h-[560px] w-[calc(100%-2px)] max-w-none overflow-hidden min-[390px]:h-[620px] sm:h-[700px] md:h-[810px] iphone:h-[220px]">
+    <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden iphone:text-[15px]">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-screen w-screen overflow-hidden iphone:h-[220px]">
         <img
           src={navbarBg}
           alt="Luxury vehicle background"
@@ -189,10 +189,9 @@ export default function Home() {
           decoding="async"
           className="absolute inset-0 h-full w-full scale-[1.20] object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:h-[220px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/6 to-black/22"></div>
-        <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-b from-transparent via-black/56 to-black"></div>
+        <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 
-        <Navbar overlay />
+        <Navbar />
 
         <div className="relative z-10 grid h-full grid-rows-[1fr_auto]">
           <div className="hero-shell flex items-end pb-0">
@@ -207,8 +206,8 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-            <div className="hero-content-rise hero-shell relative z-10 pb-10 pt-8 min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
-              <h1 className="max-w-[620px] text-[30px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[34px] sm:text-[38px] md:text-[70px] iphone:text-[18px]">
+            <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-10 pt-8 translate-y-[4px] min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
+              <h1 className="hero-heading-mobile max-w-[620px] text-[26px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">
                 <span className="block">Quality Used Cars</span>
                 <span className="block">in Ireland</span>
               </h1>
@@ -225,8 +224,9 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="layout-shell layout-stack pt-16 sm:pt-20 md:pt-24 iphone:pt-4">
-        <section className="mt-[80px] sm:mt-[100px] md:mt-[150px] iphone:mt-4">
+      {/* Add top padding to prevent content hiding behind fixed navbar (height: ~64px on desktop, ~48px on mobile) */}
+      <main className="layout-shell layout-stack pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
+        <section className="mt-[100px] sm:mt-[100px] md:mt-[100px] iphone:mt-[100px]">
           <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 iphone:mb-3 iphone:gap-1">
             <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
@@ -366,7 +366,8 @@ export default function Home() {
             alt="Luxury car interior"
             loading="lazy"
             decoding="async"
-            className="h-[290px] w-full object-cover md:h-[500px] iphone:h-[140px]"
+            className="h-[290px] object-cover md:h-[500px] iphone:h-[140px]"
+            style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', margin: 0, paddingLeft: 0, paddingRight: 0 }}
           />
         </section>
 
@@ -385,16 +386,24 @@ export default function Home() {
           </div>
 
           <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16 iphone:gap-2">
-            <div className="max-w-[360px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
-              <p>
-                Warranty cover available on all vehicles
-                <br />
+            <div className="max-w-[360px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px] mx-auto text-left md:text-left">
+              <p className="mb-6">
+                Warranty cover available on all vehicles<br />
                 through trusted providers.
               </p>
-              <ul className="mt-5 space-y-1.5 text-[16px] text-zinc-300 md:text-[18px] iphone:text-[14px]">
-                <li>OK Up to 2 Years Coverage</li>
-                <li>OK Wide range of protection plans</li>
-                <li>OK Added peace of mind</li>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-2">
+                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Up to 2 Years Coverage</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Wide range of protection plans</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Added peace of mind</span>
+                </li>
               </ul>
             </div>
 
@@ -513,31 +522,32 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mx-auto mt-[80px] h-[400px] w-full max-w-[1440px] overflow-hidden sm:mt-[100px] sm:h-[520px] md:mt-[150px] md:h-[750px] iphone:h-[180px] iphone:mt-4">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] iphone:mt-4">
         <img
-          src={findYourCarImg}
+          src={luxuryCarImage}
           alt="Find your next car"
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover iphone:h-[180px]"
+          className="block h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-2">
-          <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
-          <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
+        <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
+        <div className="absolute inset-x-0 top-0 pt-8 md:pt-10 iphone:pt-2">
+          <div className="mx-auto max-w-[1240px] px-2">
+            <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+            <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
+          </div>
         </div>
       </section>
 
       <footer className="mt-10 bg-black iphone:mt-4">
-        <div className="site-footer-shell text-zinc-300 iphone:text-[14px]">
+        <div className="site-footer-shell text-white iphone:text-[14px]">
           <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
               <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
                 Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
               </p>
-
-              <div className="mt-2 flex items-center gap-3 text-zinc-400">
+              <div className="mt-4 flex items-center gap-3 text-white">
                 <a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
                   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
@@ -545,18 +555,15 @@ export default function Home() {
                     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
                   </svg>
                 </a>
-                <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-white">
-                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="3" />
-                    <path d="M8 11v5" />
-                    <path d="M8 8h.01" />
-                    <path d="M12 16v-3c0-1.3.7-2 1.8-2s1.7.7 1.7 2v3" />
-                  </svg>
-                </a>
                 <a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
                   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2.5" y="6" width="19" height="12" rx="3" />
                     <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a href="#" aria-label="Facebook" className="transition-colors hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
                   </svg>
                 </a>
                 <a href="#" aria-label="TikTok" className="transition-colors hover:text-white">
@@ -567,17 +574,15 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
             <div>
               <p className="site-footer-label">Company</p>
               <div className="site-footer-links">
+                <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
                 <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
                 <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
-                <Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
                 <Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
               </div>
             </div>
-
             <div>
               <p className="site-footer-label">Opening Hours</p>
               <div className="site-footer-links">
@@ -586,34 +591,31 @@ export default function Home() {
                 <p>Sun: Closed</p>
               </div>
             </div>
-
             <div>
               <p className="site-footer-label">Get in Touch</p>
               <div className="site-footer-links">
                 <p>hello@indusmotorgroup.com</p>
                 <p>+353 89 967 5410</p>
-                <p className="text-zinc-500">Serving customers across Ireland</p>
+                <p className="text-white">Serving customers across Ireland</p>
               </div>
             </div>
           </div>
-
-          <div className="mt-10 border-t border-zinc-800 pt-5 text-center">
-            <p className="site-footer-legal">
-              <span className="block">Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland.</span>
-              <span className="block">Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin, Ireland.</span>
-            </p>
-            <p className="mt-2 text-[13px] text-zinc-500 md:text-[14px]">
-              <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
-              {' '}|{' '}
-              <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
-              {' '}|{' '}
-              <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
-            </p>
-            <p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
-            <p className="mt-2 text-[13px] text-zinc-600 md:text-[14px]">
-              Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
-            </p>
-          </div>
+        </div>
+        <div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
+          <p className="site-footer-legal">
+            Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
+          </p>
+          <p className="mt-2 text-[13px] text-white md:text-[14px]">
+            <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
+            {' '}|{' '}
+            <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
+            {' '}|{' '}
+            <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
+          </p>
+          <p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+          <p className="mt-2 text-[13px] text-white md:text-[14px]">
+            Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+          </p>
         </div>
       </footer>
     </div>

@@ -33,7 +33,7 @@ const APPROACH_CARDS = [
 const CONFIDENCE_POINTS = [
 	{
 		title: 'Fresh NCT on Vehicles',
-		body: 'Most vehicles are supplied with a valid or freshly completed NCT for added peace of mind.',
+		body: 'Most vehicles are supplied with a valid or freshly completed NCT for added peace.',
 	},
 	{
 		title: 'Carefully Selected Cars',
@@ -203,12 +203,11 @@ export default function About() {
 					decoding="async"
 					className="hero-zoom-settle h-[260px] w-full object-cover iphone:h-[180px] sm:h-[460px] md:h-[620px]"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
-					<h1 className="text-[32px] font-normal leading-tight text-white min-[390px]:text-[34px] sm:text-[36px] md:text-[56px] iphone:text-[22px]">Our Story</h1>
-					<p className="mt-2 text-[16px] text-zinc-300 md:text-[18px] iphone:text-[13px]">About Indus Motor Group</p>
+				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
+					<h1 className="hero-heading-mobile text-[32px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[34px] sm:text-[36px] md:text-[56px] iphone:text-[22px]">Our Story</h1>
+					<p className="hero-subtitle-mobile mt-2 text-[16px] text-zinc-300 drop-shadow md:text-[18px] iphone:text-[13px]">About Indus Motor Group</p>
 				</div>
 			</section>
 
@@ -241,7 +240,7 @@ export default function About() {
 				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:px-2 iphone:py-4">
 					<div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
 						<div className="space-y-4 iphone:space-y-2">
-							<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Our Approach to Selling Cars</h2>
+							<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
 							<p className="max-w-[320px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 								We help you find the right car through a simple, transparent, and reliable buying experience.
 							</p>
@@ -289,46 +288,50 @@ export default function About() {
 								}
 								const targetPath = car._id ? `/details?id=${car._id}` : '/cars'
 								return (
-									<Link key={car._id || `fallback-${index}`} to={targetPath} className="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-black transition-transform duration-500 ease-out hover:-translate-y-1 hover:border-zinc-600 iphone:min-h-[180px]">
-										{imageUrl ? (
-											<img
-												src={imageUrl}
-												alt={`${car.make} ${car.model}`}
-												loading="lazy"
-												decoding="async"
-												className="h-[110px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 iphone:h-[180px]"
-											/>
-										) : (
-											<div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px]">
-												No image
+									<Link key={car._id || `fallback-${index}`} to={targetPath} className="group block">
+										<article className="motion-card h-full cursor-pointer overflow-hidden rounded-lg border border-zinc-800 bg-black transition-colors hover:border-zinc-700 iphone:rounded-xl">
+											{imageUrl ? (
+												<img
+													src={imageUrl}
+													alt={`${car.make} ${car.model}`}
+													loading="lazy"
+													decoding="async"
+													className="motion-media h-[210px] w-full object-cover iphone:h-[180px]"
+												/>
+											) : (
+												<div className="flex h-[210px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:text-[16px] iphone:h-[180px]">
+													No image
+												</div>
+											)}
+											<div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
+												<div className="flex items-start justify-between gap-3 iphone:gap-1">
+													<h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+													<span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
+												</div>
+												<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
+													{car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
+												</p>
+												<div className="flex flex-wrap gap-[10px] iphone:gap-1">
+													{car.transmission && (
+														<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+															{car.transmission}
+														</span>
+													)}
+													{car.fuelType && (
+														<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+															{car.fuelType}
+														</span>
+													)}
+													{car.seats && (
+														<span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
+															{car.seats} Seats
+														</span>
+													)}
+												</div>
+												<p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
+												<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
 											</div>
-										)}
-										<div className="flex flex-1 flex-col space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
-											<h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
-											<p className="truncate text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
-												{car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
-											</p>
-											<div className="flex flex-wrap gap-[10px] iphone:gap-1">
-												{car.transmission && (
-													<span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white iphone:text-[14px] iphone:px-2">
-														{car.transmission}
-													</span>
-												)}
-												{car.fuelType && (
-													<span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
-														{car.fuelType}
-													</span>
-												)}
-												{car.seats && (
-													<span className="rounded-full border border-zinc-700 bg-black px-2 py-0.5 text-[11px] font-normal text-white">
-														{car.seats} Seats
-													</span>
-												)}
-											</div>
-											<p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
-											<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
-											<Link to={targetPath} className="mt-auto inline-flex items-center text-[13px] font-normal text-[#BABABA] transition-all duration-300 hover:text-white group-hover:translate-x-1 iphone:text-[13px]">View Details {'>'}</Link>
-										</div>
+										</article>
 									</Link>
 								)
 							})}
@@ -338,23 +341,23 @@ export default function About() {
 
 				<section className="motion-rise iphone:mt-3">
 					<h2 className="mb-6 text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[18px]">Buy With Confidence</h2>
-					<div className="border-y border-zinc-800 iphone:border-none">
+					<div className="border-b border-zinc-800 iphone:border-none">
 						{CONFIDENCE_POINTS.map((point) => (
 							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 transition-colors hover:bg-zinc-950/40 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8 iphone:gap-1 iphone:py-2 iphone:text-[13px]">
-								<h3 className="text-[18px] font-normal text-white md:text-[22px] iphone:text-[13px]">{point.title}</h3>
-								<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">{point.body}</p>
+							<h4 className="text-[12px] font-normal text-white md:text-[13px] iphone:text-[11px]">{point.title}</h4>
+								<p className="text-[15px] leading-7 text-zinc-400 md:text-[16px] iphone:text-[13px] whitespace-nowrap overflow-hidden text-ellipsis">{point.body}</p>
 							</article>
 						))}
 					</div>
 				</section>
 
 
-				<section className="motion-rise grid gap-6 md:gap-8 lg:grid-cols-[320px_1fr] lg:gap-10 iphone:gap-2">
+				<section className="motion-rise grid gap-6 md:gap-8 md:grid-cols-[1fr_1fr] iphone:gap-2">
 					<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[18px]">Frequently Asked Questions</h2>
 					<div className="border-y border-zinc-800 iphone:border-none">
-						{FAQ_ITEMS.map((item, index) => {
-							const isExpanded = Boolean(expandedFaqItems[index])
-							return (
+							{FAQ_ITEMS.map((item, index) => {
+								const isExpanded = Boolean(expandedFaqItems[index])
+								return (
 								<article key={item.question} className="border-b border-zinc-800 last:border-b-0 iphone:text-[13px]">
 									<button
 										type="button"
@@ -368,25 +371,25 @@ export default function About() {
 									{isExpanded && (
 										<div className="pr-8 pb-4 iphone:pr-2 iphone:pb-2">
 											<p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[14px]">{item.answer}</p>
-											<p className="mt-2 text-[16px] leading-6 text-zinc-500 md:text-[18px] iphone:text-[13px]">{item.details}</p>
+											<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.details}</p>
 										</div>
 									)}
 								</article>
-							)
-						})}
+								)
+							})}
 					</div>
 				</section>
 			</main>
 
-			<section className="relative mx-auto mt-6 h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[750px] iphone:h-[180px] iphone:mt-2">
+			<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-6 h-[320px] w-screen max-w-none overflow-hidden sm:mt-6 sm:h-[420px] md:mt-6 md:h-[750px] iphone:h-[180px] iphone:mt-2">
 				<img
 					src={ctaImage}
 					alt="Start your search"
 					loading="lazy"
 					decoding="async"
-					className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
+					className="hero-zoom-settle block h-full w-full object-cover"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40"></div>
+				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
 					<h2 className="max-w-[460px] text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Start Your Car Search Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">
@@ -395,7 +398,8 @@ export default function About() {
 				</div>
 			</section>
 
-			<footer className="mt-10 bg-black">
+			<footer className="mt-10 bg-black iphone:mt-4">
+			  
 				<div className="site-footer-shell text-white">
 					<div className="site-footer-grid">
 						<div>

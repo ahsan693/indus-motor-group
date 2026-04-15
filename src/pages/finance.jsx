@@ -199,21 +199,21 @@ const [openFaq, setOpenFaq] = useState(null)
 
 	return (
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
-			<section className="relative mx-auto w-full max-w-[1440px] overflow-hidden aspect-[16/10] min-[430px]:aspect-[16/9] sm:aspect-[16/8] md:aspect-[12/5] iphone:aspect-auto iphone:h-[220px]">
+				<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden h-[460px] sm:h-[560px] md:h-screen iphone:h-[220px]">
 				<img
 					src={financeHeroImg}
 					alt="Finance hero"
 					loading="eager"
 					fetchPriority="high"
 					decoding="async"
-					className="h-full w-full object-cover object-center"
+					className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover object-center sm:h-[560px] md:mb-0 md:h-screen iphone:h-[220px]"
 				/>
 				<div className="absolute inset-0 bg-black/8"></div>
 				<div className="absolute inset-x-0 bottom-0 h-[155px] bg-gradient-to-t from-black/75 via-black/45 to-transparent"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-2">
-					<h1 className="text-[32px] font-normal text-white min-[390px]:text-[34px] sm:text-[36px] md:text-[56px] iphone:text-[18px]">Car Finance Made Simple</h1>
+				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-2">
+					<h1 className="hero-heading-mobile text-[26px] font-normal text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Car Finance Made Simple</h1>
 				</div>
 			</section>
 

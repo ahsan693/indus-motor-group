@@ -101,8 +101,8 @@ import { useState } from 'react'
 
 export default function Warranty() {
    const [openFaq, setOpenFaq] = useState(null)
-   return (
-	   <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+	   return (
+	   	   <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			   <section className="relative overflow-hidden iphone:h-[220px]">
 				   <img
 					   src={warrantyHeroImg}
@@ -112,12 +112,13 @@ export default function Warranty() {
 					   decoding="async"
 					   className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover sm:h-[560px] md:mb-0 md:h-[640px] iphone:h-[220px]"
 				   />
-				<div className="absolute -inset-px bg-gradient-to-b from-black/20 via-black/30 to-black md:inset-0"></div>
+				{/* top-only overlay for navbar readability — no bottom blending */}
+				<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 				<Navbar overlay />
 
-				   <div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pb-7 min-[390px]:pb-8 sm:pb-10 md:pb-20 iphone:pb-2">
-					   <h1 className="mb-7 text-[32px] font-normal text-white min-[390px]:text-[34px] sm:text-[36px] md:mb-15 md:text-[56px] iphone:text-[18px]">Warranty & Aftercare</h1>
-				</div>
+				   <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell">
+					<h1 className="hero-heading-mobile text-[26px] font-normal text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Warranty & Aftercare</h1>
+					</div>
 			</section>
 
 			   <main className="layout-shell layout-stack iphone:pt-4">
@@ -181,13 +182,16 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				   <section className="motion-rise grid gap-6 border-b border-zinc-800 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
+				   <section className="motion-rise grid gap-6 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
 				   <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Warranty FAQS</h2>
 					   <div className="space-y-4">
 						   {faq.map(([question, answer], idx) => {
 							   const open = openFaq === idx
 							   return (
-								   <div key={question} className="border-b border-zinc-800 pb-4 transition-colors hover:bg-zinc-950/40 iphone:pb-2">
+							   <div
+							   	   key={question}
+							   	   className={`pb-4 transition-colors hover:bg-zinc-950/40 iphone:pb-2 ${idx !== faq.length - 1 ? 'border-b border-zinc-800' : ''}`}
+							   >
 									   <button
 										   className="flex w-full items-start justify-between gap-4 text-left focus:outline-none iphone:py-2"
 										   onClick={() => setOpenFaq(open ? null : idx)}
