@@ -8,7 +8,8 @@ export default {
         mono: ['TT Interphases Pro Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       screens: {
-        'iphone': {'raw': '(max-width: 430px) and (max-device-pixel-ratio: 3)'},
+        // mobile / small phone breakpoint for iPhone-like widths
+        iphone: { max: '430px' },
       },
     },
   },

@@ -58,15 +58,52 @@ const whyChooseCards = [
   },
 ]
 
-export function Navbar({ overlay = false }) {
+export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const mobileNavRef = useRef(null)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 30)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Lock body scroll and manage focus when mobile menu is open
+  useEffect(() => {
+    if (!mobileNavRef) return
+
+    let prevOverflow = ''
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false)
+    }
+
+    if (isMobileMenuOpen) {
+      prevOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+
+      // Focus the first focusable element in the mobile menu
+      requestAnimationFrame(() => {
+        const first = mobileNavRef.current?.querySelector('a,button')
+        first?.focus()
+      })
+
+      document.addEventListener('keydown', handleKey)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = prevOverflow || ''
+    }
+  }, [isMobileMenuOpen])
 
   // Always fixed, full width, high z-index, solid bg
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black/0">
-      <div className="layout-shell py-4 md:py-5 pl-0">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
+      <div className="layout-shell py-4 md:py-5">
         <div className="flex w-full items-center gap-3">
-          <Link to="/" className="-ml-[17px] inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
+          <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
             <span className="flex flex-col gap-0.5" aria-hidden="true">
               <span className="h-[2px] w-3 -rotate-[22deg] rounded-full bg-white"></span>
               <span className="h-[2px] w-2.5 -rotate-[22deg] rounded-full bg-white"></span>
@@ -111,26 +148,41 @@ export function Navbar({ overlay = false }) {
 
         <div
           id="mobile-nav"
-          className={`overflow-hidden transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+          className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+          role="dialog"
+          aria-modal={isMobileMenuOpen}
         >
-          <nav className="rounded-xl border border-white/15 bg-black/80 p-3 text-[16px] text-zinc-200 backdrop-blur">
-            <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
-              Home
-            </Link>
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
+          {/* backdrop */}
+          <div
+            className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+
+          {/* slide-in panel */}
+          <div
+            className={`absolute right-0 top-0 h-full w-[92%] max-w-[360px] transform bg-black/95 p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            ref={mobileNavRef}
+            aria-hidden={!isMobileMenuOpen}
+          >
+            <nav className="rounded-xl border border-white/10 bg-transparent p-2 text-[16px] text-zinc-200 backdrop-blur-md">
+              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+                Home
               </Link>
-            ))}
-            <button className="ui-btn mt-2 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black">
-              Contact Us
-            </button>
-          </nav>
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <button className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black">
+                Contact Us
+              </button>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
@@ -180,22 +232,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden iphone:text-[15px]">
-      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-screen w-screen overflow-hidden iphone:h-[220px]">
+      <section style={{ height: 'var(--hero-height, calc(var(--vh, 1vh) * 100))' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-screen w-screen overflow-hidden">
         <img
           src={navbarBg}
           alt="Luxury vehicle background"
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 h-full w-full scale-[1.20] object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:h-[220px]"
+          className="absolute inset-0 h-full w-full scale-[1.20] object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:inset-x-0 iphone:top-0 iphone:bottom-auto iphone:h-[var(--hero-image-height)]"
         />
         <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 
         <Navbar />
 
-        <div className="relative z-10 grid h-full grid-rows-[1fr_auto]">
-          <div className="hero-shell flex items-end pb-0">
-            <span className="relative z-20 inline-flex w-fit translate-y-1/2 items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:text-[14px]">
+        <div className="relative z-10 grid h-full grid-rows-[1fr_auto] iphone:block">
+          <div className="hero-shell flex items-end pb-0 iphone:hidden">
+            <span className="relative z-20 hidden w-fit items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:inline-flex md:translate-y-1/2 md:text-[14px]">
               <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
                 <path d="M8 4l4 5 4-5" />
@@ -206,7 +258,14 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-            <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-10 pt-8 translate-y-[4px] min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
+              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-10 pt-8 iphone:pt-[var(--hero-content-offset)] iphone:pb-[30px] translate-y-[4px] lg:translate-y-[20px] min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16 lg:pb-6 xl:pb-8">
+              <span className="relative z-20 mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:hidden">
+                <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
+                  <path d="M8 4l4 5 4-5" />
+                </svg>
+                Drive Away with Confidence
+              </span>
               <h1 className="hero-heading-mobile max-w-[620px] text-[26px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">
                 <span className="block">Quality Used Cars</span>
                 <span className="block">in Ireland</span>
@@ -522,7 +581,7 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] iphone:mt-4">
+      <section style={{ height: 'calc(var(--vh, 1vh) * 100)' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] iphone:mt-4">
         <img
           src={luxuryCarImage}
           alt="Find your next car"
