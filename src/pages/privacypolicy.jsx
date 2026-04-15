@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
 
 			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-16 pt-14 md:pb-24 md:pt-20">
 				<section className="space-y-6">
-					<h1 className="text-[36px] font-medium leading-tight text-white md:text-[56px]">Privacy Policy</h1>
+					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Privacy Policy</h1>
 					<p className="text-[14px] text-zinc-500 md:text-[16px]">
 						Last updated: <span className="font-medium text-zinc-200">March 2026</span>
 					</p>
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
 
 				<div className="mt-[80px] space-y-[80px] sm:mt-[100px] sm:space-y-[100px] md:mt-[120px] md:space-y-[120px]">
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Who We Are</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Who We Are</h2>
 						<div className="space-y-2 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p className="font-medium text-zinc-100">Indus Motors Limited</p>
 							<p>Trading as <span className="font-medium text-zinc-100">Indus Motor Group</span></p>
@@ -59,11 +59,11 @@ export default function PrivacyPolicy() {
 					</section>
 
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">What Personal Data We Collect</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">What Personal Data We Collect</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">We may collect and process the following types of personal data.</p>
 
 						<div className="space-y-3">
-							<h3 className="text-[20px] font-medium leading-tight text-white md:text-[24px]">Information You Provide</h3>
+							<h3 className="text-[18px] font-normal leading-tight text-white md:text-[22px]">Information You Provide</h3>
 							<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">When you contact us or submit forms on our website, we may collect:</p>
 							<ul className="list-disc space-y-1.5 pl-6 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 								<li>Name</li>
@@ -75,7 +75,7 @@ export default function PrivacyPolicy() {
 						</div>
 
 						<div className="space-y-3">
-							<h3 className="text-[20px] font-medium leading-tight text-white md:text-[24px]">Automatically Collected Information</h3>
+							<h3 className="text-[18px] font-normal leading-tight text-white md:text-[22px]">Automatically Collected Information</h3>
 							<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 								When you visit our website, certain technical data may be collected automatically through cookies and analytics
 								tools, including:
@@ -91,7 +91,7 @@ export default function PrivacyPolicy() {
 					</section>
 
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">How We Use Your Information</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">How We Use Your Information</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">We use your personal data for the following purposes.</p>
 
 						<div className="space-y-4 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
@@ -103,7 +103,7 @@ export default function PrivacyPolicy() {
 						</div>
 
 						<div className="space-y-3">
-							<h3 className="text-[20px] font-medium leading-tight text-white md:text-[24px]">Finance Application Services</h3>
+							<h3 className="text-[18px] font-normal leading-tight text-white md:text-[22px]">Finance Application Services</h3>
 							<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 								If you submit a finance enquiry through our website, your information may be securely transmitted to third party{' '}
 								<span className="font-medium text-zinc-100">finance providers</span>, such as Vendor Finance Ireland, who will process
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
 					</section>
 
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Legal Basis for Processing</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Legal Basis for Processing</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">We process personal data under the following legal bases.</p>
 						<div className="space-y-4 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p><span className="font-medium text-zinc-100">Legitimate Interests</span><br />To operate and improve our website and respond to customer enquiries.</p>
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
 					</section>
 
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Data Sharing</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Data Sharing</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">We do not sell or rent your personal data.</p>
 						<div className="space-y-3">
 							<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">Your information may be shared with:</p>
@@ -142,7 +142,7 @@ export default function PrivacyPolicy() {
 					</section>
 
 					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Data Retention</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Data Retention</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							We only retain personal data for as long as necessary to fulfil the purposes for which it was collected, including:
 						</p>
@@ -188,24 +188,25 @@ export default function PrivacyPolicy() {
 
 					<section className="space-y-6">
 						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Data Security</h2>
-						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
-							We take appropriate technical and organisational measures to protect your personal data from unauthorised access,
-							misuse, or disclosure.
-						</p>
-						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
-							However, no method of transmission over the internet can be guaranteed to be completely secure.
-						</p>
+						<div className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
+					<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] md:mt-[150px]">
+						<img
+							src={privacyHeroImg}
+							alt="Find your next car"
+							loading="lazy"
+							decoding="async"
+							className="h-full w-full object-cover"
+						/>
+						<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
+						<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
+							<h2 className="text-[30px] font-medium text-white md:text-[44px]">Find Your Next Car Today</h2>
+							<Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Cars</Link>
+						</div>
 					</section>
-
-					<section className="space-y-6">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Third Party Links</h2>
-						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
-							Our website may contain links to third party websites. We are not responsible for the privacy practices of those
-							external websites.
-						</p>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							We encourage users to review the privacy policies of any external sites they visit.
 						</p>
+					</div>
 					</section>
 
 					<section className="space-y-6">

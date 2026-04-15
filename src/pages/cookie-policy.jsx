@@ -8,7 +8,7 @@ export default function CookiePolicy() {
 
 			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16 iphone:px-2 iphone:py-5">
 				<section className="motion-rise space-y-6">
-					<h1 className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl iphone:text-[22px] iphone:font-normal">Cookie Policy</h1>
+					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Cookie Policy</h1>
 					<p className="text-sm text-zinc-400 iphone:text-[14px]">
 						Last updated: <span className="font-medium text-zinc-200">March 2025</span>
 					</p>
@@ -31,12 +31,12 @@ export default function CookiePolicy() {
 
 				<section className="motion-rise motion-rise-delay-1 mt-12 space-y-10 md:mt-14 iphone:mt-5">
 					<div className="space-y-4">
-						<h2 className="text-2xl font-semibold text-white sm:text-3xl iphone:text-[16px] iphone:font-normal">How We Use Cookies</h2>
+						<h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">How We Use Cookies</h2>
 						<p className="text-sm text-zinc-400 iphone:text-[13px]">We use cookies for the following purposes.</p>
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300 iphone:text-[14px] iphone:leading-5">
-						<h3 className="text-xl font-medium text-white">Essential Cookies</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Essential Cookies</h3>
 						<p>
 							These cookies are necessary for the website to function correctly. They enable core functionality such as page
 							navigation, security, and access to certain areas of the website. The website cannot function properly without these
@@ -45,7 +45,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Analytics Cookies</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Analytics Cookies</h3>
 						<p>
 							These cookies help us understand how visitors use our website. They allow us to analyse website traffic, identify
 							popular pages, and improve the overall user experience.
@@ -58,7 +58,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Marketing and Advertising Cookies</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Marketing and Advertising Cookies</h3>
 						<p>
 							Marketing cookies help us deliver relevant advertisements and measure the effectiveness of marketing campaigns.
 						</p>
@@ -76,7 +76,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">User Behaviour and Experience Tools</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">User Behaviour and Experience Tools</h3>
 						<p>
 							We may use tools that help us understand how users interact with the website in order to improve usability and
 							performance.
@@ -90,7 +90,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Third Party Services</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Third Party Services</h3>
 						<p>Some cookies may be placed by third party services integrated into our website.</p>
 						<p>
 							For example, when users submit a finance application form, the information provided may be securely transmitted to
@@ -102,7 +102,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Managing Cookies</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Managing Cookies</h3>
 						<p>
 							When you visit our website, you will be presented with a cookie consent banner allowing you to:
 						</p>
@@ -124,7 +124,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Changes to This Cookie Policy</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Changes to This Cookie Policy</h3>
 						<p>
 							We may update this Cookie Policy from time to time to reflect changes in legal requirements, technologies, or website
 							functionality.
@@ -133,7 +133,7 @@ export default function CookiePolicy() {
 					</div>
 
 					<div className="space-y-3 text-sm leading-7 text-zinc-300">
-						<h3 className="text-xl font-medium text-white">Contact Information</h3>
+						<h3 className="text-[18px] font-normal text-white md:text-[22px]">Contact Information</h3>
 						<p>
 							If you have any questions about this Cookie Policy or how your data is handled, you can contact us.
 						</p>

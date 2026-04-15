@@ -14,7 +14,7 @@ export default function TermsConditions() {
 
 			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-0 pt-[116px] iphone:px-2 iphone:pt-5">
 				<section className="space-y-6">
-					<h1 className="text-[36px] font-medium leading-tight text-white md:text-[56px] iphone:text-[22px] iphone:font-normal">Terms &amp; Conditions</h1>
+					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Terms &amp; Conditions</h1>
 					<p className="text-[14px] text-zinc-500 md:text-[16px] iphone:text-[14px]">
 						Last updated: <span className="font-medium text-zinc-200">March 2026</span>
 					</p>
@@ -35,7 +35,7 @@ export default function TermsConditions() {
 
 				<div className="mt-16 space-y-14 md:mt-20 md:space-y-16 iphone:mt-5">
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px] iphone:text-[16px] iphone:font-normal">Website Owner</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Website Owner</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">This website is operated by:</p>
 						<div className="space-y-1 text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 							<p>Indus Motors Limited</p>
@@ -54,7 +54,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Website Use</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Website Use</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>This website is provided for general information about vehicles and services offered by Indus Motor Group.</p>
 							<p>You agree to use this website only for lawful purposes and in a way that does not infringe the rights of others or restrict their use of the website.</p>
@@ -63,7 +63,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Vehicle Information</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Vehicle Information</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">We make every effort to ensure that vehicle descriptions, specifications, images, and pricing displayed on this website are accurate.</p>
 						<div className="space-y-2">
 							<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">However:</p>
@@ -78,7 +78,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Vehicle Availability</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Vehicle Availability</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>All vehicles displayed on this website are subject to availability.</p>
 							<p>Vehicles may be sold, reserved, or removed from sale without prior notice.</p>
@@ -87,7 +87,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Pricing</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Pricing</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>All vehicle prices listed on this website are provided for guidance.</p>
 							<p>While we aim to ensure accuracy, pricing errors may occasionally occur.</p>
@@ -101,7 +101,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Finance Disclaimer</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Finance Disclaimer</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>Finance options may be available through third party finance providers.</p>
 							<p>Indus Motor Group does not provide finance directly. Finance applications submitted through this website may be shared with third party finance providers who will assess your eligibility.</p>
@@ -110,7 +110,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Vehicle Delivery</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Vehicle Delivery</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>Where available, vehicle delivery may be arranged across Ireland.</p>
 							<p>Delivery options, costs, and timeframes will be discussed with customers individually and may vary depending on location and vehicle availability.</p>
@@ -118,7 +118,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Third Party Links</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Third Party Links</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>This website may include links to external websites or services.</p>
 							<p>We are not responsible for the content, policies, or practices of third party websites.</p>
@@ -127,7 +127,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Intellectual Property</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Intellectual Property</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">All content on this website, including:</p>
 						<ul className="list-disc space-y-1 pl-6 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<li>text</li>
@@ -141,7 +141,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Limitation of Liability</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Limitation of Liability</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>Indus Motor Group makes reasonable efforts to ensure that the information on this website is accurate and up to date.</p>
 							<p>However, we do not guarantee that the website will always be free from errors or interruptions.</p>
@@ -156,7 +156,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Changes to These Terms</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Changes to These Terms</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>We may update these Terms &amp; Conditions from time to time.</p>
 							<p>Any updates will be posted on this page with the revised date.</p>
@@ -164,7 +164,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Governing Law</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Governing Law</h2>
 						<div className="space-y-3 text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							<p>These Terms &amp; Conditions are governed by and interpreted in accordance with the laws of Ireland.</p>
 							<p>Any disputes arising from the use of this website shall be subject to the jurisdiction of the Irish courts.</p>
@@ -172,7 +172,7 @@ export default function TermsConditions() {
 					</section>
 
 					<section className="space-y-4">
-						<h2 className="text-[30px] font-medium leading-tight text-white md:text-[44px]">Contact Information</h2>
+						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px]">Contact Information</h2>
 						<p className="text-[16px] leading-7 text-zinc-400 md:text-[18px]">
 							If you have any questions about these Terms &amp; Conditions, please contact us.
 						</p>
@@ -193,7 +193,7 @@ export default function TermsConditions() {
 				</div>
 			</main>
 
-			<section className="relative mx-auto mt-[116px] h-[400px] w-full max-w-[1440px] overflow-hidden sm:h-[520px] md:h-[750px]">
+			<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[116px] h-screen w-screen max-w-none overflow-hidden">
 				<img
 					src={termsCtaImg}
 					alt="Find your next car"
@@ -201,9 +201,9 @@ export default function TermsConditions() {
 					decoding="async"
 					className="h-full w-full object-cover"
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+				<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 				<div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10">
-					<h2 className="text-[30px] font-medium text-white md:text-[44px]">Find Your Next Car Today</h2>
+					<h2 className="text-[30px] font-normal text-white md:text-[44px]">Find Your Next Car Today</h2>
 					<Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">Browse Cars</Link>
 				</div>
 			</section>
