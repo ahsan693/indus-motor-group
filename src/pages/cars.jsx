@@ -121,9 +121,7 @@ export default function Cars() {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
 				<Navbar />
-				{/* Add top padding to prevent content hiding behind fixed navbar (height: ~64px on desktop, ~48px on mobile) */}
-				<div className="pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]" />
-				<main className="layout-shell py-10 md:py-14">
+				<main className="layout-shell py-10 md:py-14 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 					<div className="rounded-lg border border-red-900 bg-red-950 p-4 text-center text-red-200">
 						Unable to load cars at this time. Please try again later.
 					</div>
@@ -136,11 +134,9 @@ export default function Cars() {
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="layout-shell py-10 md:py-14 iphone:py-4">
+				<main className="layout-shell py-10 md:py-14 iphone:py-4 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 						<section className="motion-rise relative z-40 space-y-7">
-								{/* 100px transparent gap */}
-								<div style={{ height: '100px' }} />
-<h1 className="text-center text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Quality Used Cars for Sale</h1>
+							<h1 className="text-center hero-heading-mobile font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Quality Used Cars for Sale</h1>
 
 					<div className="flex justify-center md:hidden iphone:mt-2">
 						<button
