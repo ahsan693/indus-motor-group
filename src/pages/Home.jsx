@@ -61,11 +61,10 @@ const whyChooseCards = [
 export function Navbar({ overlay = false }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const headerClass = overlay ? 'absolute inset-x-0 top-0 z-50' : 'fixed inset-x-0 top-0 z-50 bg-black'
-
+  // Always fixed, full width, high z-index, solid bg
   return (
-    <header className={headerClass}>
-      <div className="layout-shell py-4 md:py-5 pl-0" style={overlay ? { paddingTop: 'max(var(--safe-top), 12px)' } : undefined}>
+    <header className="fixed inset-x-0 top-0 z-50 bg-black/0">
+      <div className="layout-shell py-4 md:py-5 pl-0">
         <div className="flex w-full items-center gap-3">
           <Link to="/" className="-ml-[17px] inline-flex shrink-0 items-center gap-2 text-white" aria-label="Indus Motor Group home">
             <span className="flex flex-col gap-0.5" aria-hidden="true">
@@ -112,7 +111,7 @@ export function Navbar({ overlay = false }) {
 
         <div
           id="mobile-nav"
-          className={`overflow-hidden transition-all duration-300 lg:hidden ${overlay ? 'absolute left-0 right-0 top-full' : ''} ${isMobileMenuOpen ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
+          className={`overflow-hidden transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'mt-3 max-h-96 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
         >
           <nav className="rounded-xl border border-white/15 bg-black/80 p-3 text-[16px] text-zinc-200 backdrop-blur">
             <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>

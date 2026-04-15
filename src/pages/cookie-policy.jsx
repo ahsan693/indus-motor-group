@@ -6,7 +6,7 @@ export default function CookiePolicy() {
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16 iphone:px-2 iphone:py-5 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
+			<main className="motion-rise mx-auto w-full max-w-[760px] px-4 py-10 sm:px-5 md:px-8 md:py-16 iphone:px-2 iphone:py-5">
 				<section className="motion-rise space-y-6">
 					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Cookie Policy</h1>
 					<p className="text-sm text-zinc-400 iphone:text-[14px]">
