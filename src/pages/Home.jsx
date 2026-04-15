@@ -4,6 +4,7 @@ import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
 import navbarBg from '../images/homepage-images/navbar-backgorund.jpg'
 import luxuryCarImage from '../images/homepage-images/image 9.png'
+import findYourCarImg from '../images/homepage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 import carefullySelectedImg from '../images/homepage-images/lhKhWi6mDCQjU2k2CXrFgqm9AA.jpg'
 import nationwideDeliveryImg from '../images/homepage-images/NaXiqyCuHV5HfwzSgAX8DPnjY6o.jpg'
 import warrantyImg from '../images/homepage-images/7wP4pWwqqXr5Bc6QUsmemBnVi98.jpg'
@@ -583,7 +584,7 @@ export default function Home() {
 
       <section style={{ height: 'calc(var(--vh, 1vh) * 100)' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] iphone:mt-4">
         <img
-          src={luxuryCarImage}
+          src={findYourCarImg}
           alt="Find your next car"
           loading="lazy"
           decoding="async"
