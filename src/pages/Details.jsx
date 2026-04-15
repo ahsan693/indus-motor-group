@@ -226,7 +226,7 @@ export default function Details() {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
 				<Navbar />
-				<main className="layout-shell space-y-8 py-10 md:py-14">
+				<main className="layout-shell space-y-8 py-10 md:py-14 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 					<div className="rounded-lg border border-yellow-900 bg-yellow-950 p-4 text-center text-yellow-200">
 						No car selected. Please choose a vehicle from our inventory.
 					</div>
@@ -244,7 +244,7 @@ export default function Details() {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
 				<Navbar />
-				<main className="layout-shell space-y-10 py-10 md:py-14">
+				<main className="layout-shell space-y-10 py-10 md:py-14 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 					<div className="flex items-center justify-center py-20">
 						<div className="space-y-4 text-center">
 							<div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-white"></div>
@@ -260,7 +260,7 @@ export default function Details() {
 		return (
 			<div className="min-h-screen bg-black text-zinc-300">
 				<Navbar />
-				<main className="layout-shell space-y-10 py-10 md:py-14">
+				<main className="layout-shell space-y-10 py-10 md:py-14 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 					<div className="rounded-lg border border-red-900 bg-red-950 p-4 text-center text-red-200">
 						Unable to load car details. Please try selecting a car from our inventory.
 					</div>
@@ -377,11 +377,10 @@ export default function Details() {
 		}))
 	}
 
-  return (
-    <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
-	<Navbar />
-	<div style={{ height: '20px' }} />
-	<main className="layout-shell py-8 md:py-10 iphone:py-4">
+	return (
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+		<Navbar />
+		<main className="layout-shell py-8 md:py-10 iphone:py-4 pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
 
 
         <section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-3 iphone:mt-3">
@@ -627,7 +626,7 @@ export default function Details() {
 					)}
 				</section>
 
-				<section className="motion-rise mt-16 pt-10 md:mt-20 md:pt-12">
+				<section className="motion-rise mt-16 border-t border-zinc-800 pt-10 md:mt-20 md:pt-12">
 					<div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
 						<div>
 							<h2 className="max-w-[240px] text-4xl font-normal leading-tight text-white sm:text-5xl">
