@@ -590,11 +590,19 @@ export default function Home() {
           decoding="async"
           className="block h-full w-full object-cover"
         />
-        <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
-        <div className="absolute inset-x-0 top-0 pt-8 md:pt-10 iphone:pt-2">
-          <div className="mx-auto max-w-[1240px] px-2">
-            <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
-            <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
+        {/* higher-contrast bottom gradient so the centered copy and button read clearly */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+        {/* Centered content over the image (matches reference screenshots) */}
+        <div className="absolute inset-x-0 top-6 md:top-10 flex justify-center px-4">
+          <div className="mx-auto w-full max-w-[900px] text-center">
+            <h2 className="text-[20px] md:text-[36px] lg:text-[44px] font-normal text-white iphone:text-[16px]">Find Your Next Car Today</h2>
+            <Link
+              to="/cars"
+              className="ui-btn mt-4 inline-flex w-fit mx-auto rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2"
+            >
+              Browse Available Cars
+            </Link>
           </div>
         </div>
       </section>
