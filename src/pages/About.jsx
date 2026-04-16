@@ -206,7 +206,7 @@ export default function About() {
 				<Navbar overlay />
 
 				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
-					<h1 className="hero-heading-mobile text-[32px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[34px] sm:text-[36px] md:text-[56px] iphone:text-[22px]">Our Story</h1>
+					<h1 className="hero-heading-mobile text-[22px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[22px]">Our Story</h1>
 					<p className="hero-subtitle-mobile mt-2 text-[16px] text-zinc-300 drop-shadow md:text-[18px] iphone:text-[13px]">About Indus Motor Group</p>
 				</div>
 			</section>
@@ -215,7 +215,7 @@ export default function About() {
 				<section className="motion-rise py-12 md:py-14 iphone:py-5">
 					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10 iphone:gap-3">
 						<div className="space-y-6 iphone:space-y-3">
-							<h2 className="mb-4 text-[30px] font-normal leading-tight text-white md:mb-0 md:text-[44px] iphone:text-[18px]">Who We Are</h2>
+							<h2 className="mb-4 text-[22px] font-normal leading-tight text-white md:mb-0 md:text-[30px] iphone:text-[18px]">Who We Are</h2>
 							<p className="max-w-[520px] text-[16px] leading-8 text-zinc-400 md:text-[18px] iphone:text-[13px] iphone:leading-6">
 								Indus Motor Group was founded by car enthusiasts who believe buying a car should be straightforward, transparent, and enjoyable. After experiencing the challenges many buyers face when searching for a reliable used car, we saw an opportunity to do things differently.
 							</p>
@@ -240,7 +240,7 @@ export default function About() {
 				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:px-2 iphone:py-4">
 					<div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
 						<div className="space-y-4 iphone:space-y-2">
-							<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
+							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
 							<p className="max-w-[320px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 								We help you find the right car through a simple, transparent, and reliable buying experience.
 							</p>
@@ -252,7 +252,7 @@ export default function About() {
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<ApproachIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-[18px] font-normal text-zinc-100 md:text-[22px] iphone:text-[13px]">{item.title}</h3>
+									<h3 className="motion-link-slide text-[16px] font-normal text-zinc-100 md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 								</article>
 							))}
@@ -262,7 +262,7 @@ export default function About() {
 
 
 				<section className="motion-rise motion-rise-delay-2 iphone:mt-3">
-					<h2 className="mb-8 text-center text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[18px] iphone:mb-3">Latest Arrivals</h2>
+					<h2 className="mb-8 text-center text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] iphone:mb-3">Latest Arrivals</h2>
 					{arrivalsLoading && latestArrivals === FALLBACK_ARRIVALS ? (
 						<div className="flex items-center justify-center py-10">
 							<div className="space-y-3 text-center">
@@ -340,7 +340,7 @@ export default function About() {
 				</section>
 
 				<section className="motion-rise iphone:mt-3">
-					<h2 className="mb-6 text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[18px]">Buy With Confidence</h2>
+					<h2 className="mb-6 text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Buy With Confidence</h2>
 					<div className="border-b border-zinc-800 iphone:border-none">
 						{CONFIDENCE_POINTS.map((point) => (
 							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 transition-colors hover:bg-zinc-950/40 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8 iphone:gap-1 iphone:py-2 iphone:text-[13px]">
@@ -353,7 +353,7 @@ export default function About() {
 
 
 				<section className="motion-rise grid gap-6 md:gap-8 md:grid-cols-[1fr_1fr] iphone:gap-2">
-					<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[18px]">Frequently Asked Questions</h2>
+					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Frequently Asked Questions</h2>
 					<div className="border-y border-zinc-800 iphone:border-none">
 							{FAQ_ITEMS.map((item, index) => {
 								const isExpanded = Boolean(expandedFaqItems[index])
@@ -391,7 +391,7 @@ export default function About() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
-					<h2 className="max-w-[460px] text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Start Your Car Search Today</h2>
+					<h2 className="max-w-[460px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Start Your Car Search Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">
 						Browse Available Cars
 					</Link>
@@ -438,7 +438,7 @@ export default function About() {
 
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
 								<Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
@@ -446,18 +446,18 @@ export default function About() {
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-white">Serving customers across Ireland</p>

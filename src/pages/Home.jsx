@@ -132,19 +132,23 @@ export function Navbar() {
             <button className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]">Contact Us</button>
           </div>
 
-          <button
-            type="button"
-            className="ml-auto inline-flex h-10 w-10 items-center justify-center text-white lg:hidden"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-controls="mobile-nav"
-            aria-expanded={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          >
-            <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
-              <span className={`h-0.5 w-full rounded-full bg-white transition-transform duration-200 ${isMobileMenuOpen ? 'translate-y-1 rotate-45' : ''}`}></span>
-              <span className={`h-0.5 w-full rounded-full bg-white transition-transform duration-200 ${isMobileMenuOpen ? '-translate-y-1 -rotate-45' : ''}`}></span>
-            </span>
-          </button>
+          {/* Hamburger menu button: only visible when sidebar is closed */}
+          {!isMobileMenuOpen && (
+            <button
+              type="button"
+              className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(true)}
+              style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+            >
+              <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
+                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+              </span>
+            </button>
+          )}
         </div>
 
         <div
@@ -161,11 +165,26 @@ export function Navbar() {
 
           {/* slide-in panel */}
           <div
-            className={`absolute right-0 top-0 h-full w-[92%] max-w-[360px] transform bg-black/95 p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             ref={mobileNavRef}
             aria-hidden={!isMobileMenuOpen}
           >
-            <nav className="rounded-xl border border-white/10 bg-transparent p-2 text-[16px] text-zinc-200 backdrop-blur-md">
+            {/* Close button inside sidebar */}
+            {isMobileMenuOpen && (
+              <button
+                type="button"
+                className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
+                aria-label="Close menu"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+              >
+                <span className="relative block h-5 w-5">
+                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
+                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded bg-white"></span>
+                </span>
+              </button>
+            )}
+            <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
               <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
@@ -259,7 +278,7 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-2 pt-8 iphone:pt-[var(--hero-content-offset)] iphone:pb-2 translate-y-[4px] lg:translate-y-[20px] min-[390px]:pb-4 min-[390px]:pt-10 sm:pb-4 sm:pt-14 md:pb-6 md:pt-16 lg:pb-4 xl:pb-4">
+              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-2 pt-4 iphone:pt-[44vw] iphone:pb-2 lg:translate-y-[20px] min-[390px]:pb-4 min-[390px]:pt-10 sm:pb-4 sm:pt-14 md:pb-6 md:pt-16 lg:pb-4 xl:pb-4">
               <span className="relative z-20 mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:hidden">
                 <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
@@ -267,7 +286,7 @@ export default function Home() {
                 </svg>
                 Drive Away with Confidence
               </span>
-              <h1 className="hero-heading-mobile max-w-[620px] text-[26px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">
+              <h1 className="hero-heading-mobile max-w-[620px] text-[22px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[22px] iphone:leading-tight">
                 <span className="block">Quality Used Cars</span>
                 <span className="block">in Ireland</span>
               </h1>
@@ -286,7 +305,7 @@ export default function Home() {
       <main className="layout-shell layout-stack pt-[48px] sm:pt-[48px] md:pt-[56px] iphone:pt-[32px]">
         <section className="mt-[8px] sm:mt-[12px] md:mt-[16px] iphone:mt-[4px]">
           <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 iphone:mb-3 iphone:gap-1">
-            <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Featured Cars</h2>
+            <h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
               View All Cars
             </Link>
@@ -340,7 +359,7 @@ export default function Home() {
                     )}
                     <div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
                       <div className="flex items-start justify-between gap-3 iphone:gap-1">
-                        <h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+                        <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
                         <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
                       </div>
                       <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
@@ -377,7 +396,7 @@ export default function Home() {
         {/* Trade-In & Financing Options Section */}
         <section className="mt-[80px] overflow-hidden bg-black sm:mt-[100px] md:mt-[150px] iphone:mt-4">
           <div className="border-b border-zinc-800 px-4 py-8 md:px-5 md:py-12 iphone:px-2 iphone:py-3">
-            <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">
+            <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
             </h2>
@@ -391,7 +410,7 @@ export default function Home() {
                   <polyline points="21 3 21 9 15 9" />
                 </svg>
               </div>
-              <h3 className="text-[18px] font-normal text-zinc-100 md:text-[20px] iphone:text-[13px]">Trade-In</h3>
+              <h3 className="text-[16px] font-normal text-zinc-100 md:text-[18px] iphone:text-[13px]">Trade-In</h3>
               <p className="mt-1.5 max-w-[300px] text-[16px] leading-6 text-zinc-500 md:text-[18px] iphone:text-[13px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
@@ -408,7 +427,7 @@ export default function Home() {
                   <line x1="2" y1="10" x2="22" y2="10" />
                 </svg>
               </div>
-              <h3 className="text-[18px] font-normal text-zinc-100 md:text-[20px] iphone:text-[13px]">Finance Assistance</h3>
+              <h3 className="text-[16px] font-normal text-zinc-100 md:text-[18px] iphone:text-[13px]">Finance Assistance</h3>
               <p className="mt-1.5 max-w-[320px] text-[16px] leading-6 text-zinc-500 md:text-[18px] iphone:text-[13px]">
                 Finance options available through trusted third party lenders.
               </p>
@@ -440,7 +459,7 @@ export default function Home() {
               </svg>
               Peace of Mind Included
             </span>
-            <h2 className="mt-4 text-[30px] font-normal leading-tight text-zinc-100 md:text-[44px] iphone:text-[16px]">Warranty & Aftercare Protection</h2>
+            <h2 className="mt-4 text-[22px] font-normal leading-tight text-zinc-100 md:text-[30px] iphone:text-[16px]">Warranty & Aftercare Protection</h2>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16 iphone:gap-2">
@@ -478,7 +497,7 @@ export default function Home() {
         </section>
 
         <section className="mt-[80px] sm:mt-[100px] md:mt-[150px] iphone:mt-4">
-          <h2 className="mb-16 text-center text-[30px] font-normal leading-tight text-white md:mb-20 md:text-[44px] iphone:text-[16px] iphone:mb-4">Why Choose Indus Motor Group</h2>
+          <h2 className="mb-16 text-center text-[22px] font-normal leading-tight text-white md:mb-20 md:text-[30px] iphone:text-[16px] iphone:mb-4">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2 iphone:gap-y-2">
             {whyChooseCards.map((card) => (
               <article
@@ -494,7 +513,7 @@ export default function Home() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-transparent"></div>
                 <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 iphone:p-2">
-                  <h3 className="text-[18px] font-normal leading-tight text-white md:text-[22px] iphone:text-[13px]">{card.title}</h3>
+                  <h3 className="text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{card.title}</h3>
                   <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
                 </div>
               </article>
@@ -509,7 +528,7 @@ export default function Home() {
             </svg>
             Trusted by Drivers Across Ireland
           </span>
-          <h2 className="mt-4 text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">What Our Customers Say</h2>
+          <h2 className="mt-4 text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">What Our Customers Say</h2>
           <p className="mt-2 text-[16px] text-zinc-500 md:text-[18px] iphone:text-[13px]">Real feedback from customers who purchased their vehicles from us.</p>
 
           <div className="mt-12 md:hidden iphone:mt-4">
@@ -590,7 +609,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
-          <h2 className="max-w-[420px] text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+          <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Find Your Next Car Today</h2>
           <Link
             to="/cars"
             className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2 iphone:w-auto iphone:min-w-0 iphone:ml-0"
@@ -603,7 +622,7 @@ export default function Home() {
 
       <footer className="mt-10 bg-black iphone:mt-4">
         <div className="site-footer-shell text-white iphone:text-[14px]">
-          <div className="site-footer-grid">
+              <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
               <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
@@ -638,7 +657,7 @@ export default function Home() {
             </div>
             <div>
               <p className="site-footer-label">Company</p>
-              <div className="site-footer-links">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
                 <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
                 <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -647,7 +666,7 @@ export default function Home() {
             </div>
             <div>
               <p className="site-footer-label">Opening Hours</p>
-              <div className="site-footer-links">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <p>Mon - Fri: 9:00am - 6:00pm</p>
                 <p>Sat: 10:00am - 4:00pm</p>
                 <p>Sun: Closed</p>
@@ -655,7 +674,7 @@ export default function Home() {
             </div>
             <div>
               <p className="site-footer-label">Get in Touch</p>
-              <div className="site-footer-links">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <p>hello@indusmotorgroup.com</p>
                 <p>+353 89 967 5410</p>
                 <p className="text-white">Serving customers across Ireland</p>

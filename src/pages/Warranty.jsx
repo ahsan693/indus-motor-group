@@ -117,14 +117,14 @@ export default function Warranty() {
 				<Navbar overlay />
 
 				   <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell">
-					<h1 className="hero-heading-mobile text-[26px] font-normal text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Warranty & Aftercare</h1>
+					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[14px]">Warranty & Aftercare</h1>
 					</div>
 			</section>
 
 			   <main className="layout-shell layout-stack iphone:pt-4">
 				   <section className="motion-rise mt-12 grid items-center gap-6 sm:mt-14 md:mt-16 md:grid-cols-[0.95fr_1.05fr] md:gap-10 iphone:mt-4 iphone:gap-2">
 					   <div className="space-y-5 iphone:space-y-2">
-						   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Vehicle Warranty for Added Peace of Mind</h2>
+						<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Vehicle Warranty for Added Peace of Mind</h2>
 						   <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
 							   All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
 						   </p>
@@ -146,7 +146,7 @@ export default function Warranty() {
 				   <section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:mt-4 iphone:px-2 iphone:py-3">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						   <div className="space-y-4 iphone:space-y-2">
-							   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Key Features</h2>
+							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Key Features</h2>
 							   <p className="max-w-[310px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 								   Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
 							   </p>
@@ -158,7 +158,7 @@ export default function Warranty() {
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
 										<KeyFeatureIcon type={item.icon} />
 									</span>
-									   <h3 className="motion-link-slide text-[18px] font-normal text-zinc-100 md:text-[22px] iphone:text-[13px]">{item.title}</h3>
+									<h3 className="motion-link-slide text-[16px] font-normal text-zinc-100 md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 									   <p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 								</article>
 							))}
@@ -167,7 +167,7 @@ export default function Warranty() {
 				</section>
 
 				   <section className="motion-rise motion-rise-delay-2 space-y-6 iphone:mt-4 iphone:space-y-2">
-					   <h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">How It Works</h2>
+					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">How It Works</h2>
 					   <div className="grid gap-4 md:grid-cols-3 iphone:gap-1">
 						{steps.map((item) => (
 							   <article key={item.title} className="group motion-card space-y-3 iphone:space-y-1">
@@ -175,7 +175,7 @@ export default function Warranty() {
 									   <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover sm:h-64 iphone:h-[140px]" />
 								   </div>
 								   <p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">({item.step})</p>
-								   <h3 className="motion-link-slide text-[20px] font-normal leading-tight text-white md:text-[24px] iphone:text-[13px]">{item.title}</h3>
+								<h3 className="motion-link-slide text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 								   <p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 							</article>
 						))}
@@ -183,7 +183,7 @@ export default function Warranty() {
 				</section>
 
 				   <section className="motion-rise grid gap-6 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
-				   <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Warranty FAQS</h2>
+				<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Warranty FAQS</h2>
 					   <div className="space-y-4">
 						   {faq.map(([question, answer], idx) => {
 							   const open = openFaq === idx
@@ -198,7 +198,7 @@ export default function Warranty() {
 										   aria-expanded={open}
 										   aria-controls={`faq-answer-${idx}`}
 									   >
-										<h3 className="text-[16px] font-normal text-white md:text-[18px] iphone:text-[13px]">{question}</h3>
+										<h3 className="text-[14px] font-normal text-white md:text-[16px] iphone:text-[13px]">{question}</h3>
 										   <span className="text-lg text-zinc-300">{open ? '-' : '+'}</span>
 									   </button>
 									   {open && (
@@ -211,7 +211,7 @@ export default function Warranty() {
 				   </section>
 
 				   <section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center iphone:py-4">
-					   <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Drive Away With Confidence</h2>
+					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Drive Away With Confidence</h2>
 					   <p className="mx-auto mt-3 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 						   Warranty options are available on all vehicles to help protect your purchase.
 					   </p>
@@ -258,7 +258,7 @@ export default function Warranty() {
 
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -266,18 +266,18 @@ export default function Warranty() {
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+				<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-white">Serving customers across Ireland</p>

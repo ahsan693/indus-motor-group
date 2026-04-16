@@ -213,14 +213,14 @@ const [openFaq, setOpenFaq] = useState(null)
 				<Navbar overlay />
 
 				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-2">
-					<h1 className="hero-heading-mobile text-[26px] font-normal text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Car Finance Made Simple</h1>
+					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[14px]">Car Finance Made Simple</h1>
 				</div>
 			</section>
 
 			<main className="layout-shell finance-stack iphone:pt-4">
 				<section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
 					<div className="space-y-6 iphone:space-y-2">
-						<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance Your Next Car</h2>
+						<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Finance Your Next Car</h2>
 						<p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 							We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
 						</p>
@@ -246,7 +246,7 @@ const [openFaq, setOpenFaq] = useState(null)
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
 						<div className="space-y-5 iphone:space-y-2">
 							<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Finance Benefits</p>
-							<h2 className="max-w-[280px] text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance Options Available</h2>
+							<h2 className="max-w-[280px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Finance Options Available</h2>
 						</div>
 
 						<div className="grid gap-2 sm:grid-cols-2 md:gap-3 iphone:gap-1">
@@ -255,7 +255,7 @@ const [openFaq, setOpenFaq] = useState(null)
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<BenefitIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-[18px] font-normal text-white md:text-[22px] iphone:text-[13px]">{item.title}</h3>
+									<h3 className="motion-link-slide text-[16px] font-normal text-white md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 								</article>
 							))}
@@ -265,7 +265,7 @@ const [openFaq, setOpenFaq] = useState(null)
 
 				<section className="motion-rise motion-rise-delay-2 iphone:mt-4">
 					<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Process</p>
-					<h2 className="mt-2 text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">How Finance Works</h2>
+					<h2 className="mt-2 text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">How Finance Works</h2>
 
 					<div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3 iphone:gap-1 iphone:mt-4">
 						{processSteps.map((item) => (
@@ -274,7 +274,7 @@ const [openFaq, setOpenFaq] = useState(null)
 									<img src={item.image} alt={item.title} loading="lazy" decoding="async" className="motion-media h-56 w-full object-cover iphone:h-[140px]" />
 								</div>
 								<p className="text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">({item.step})</p>
-								<h3 className="motion-link-slide text-[20px] font-normal text-white md:text-[24px] iphone:text-[13px]">{item.title}</h3>
+								<h3 className="motion-link-slide text-[16px] font-normal text-white md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 								<p className="text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
 							</article>
 						))}
@@ -283,7 +283,7 @@ const [openFaq, setOpenFaq] = useState(null)
 
 				<section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-7 md:scroll-mt-28 iphone:mt-4 iphone:space-y-2">
 					<p className="text-center text-[12px] text-zinc-500 md:text-[14px] iphone:text-[14px]">- Finance Application</p>
-					<h2 className="text-center text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Apply for Finance</h2>
+					<h2 className="text-center text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Apply for Finance</h2>
 					<p className="text-center text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px]">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
 					<div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4 iphone:gap-1">
@@ -362,7 +362,7 @@ const [openFaq, setOpenFaq] = useState(null)
 				</section>
 
 			<section className="motion-rise grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10 iphone:gap-2 iphone:mt-4">
-				<h2 className="text-[30px] font-normal leading-tight text-white md:text-[44px] iphone:text-[16px]">Finance FAQS</h2>
+				<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Finance FAQS</h2>
 				<div>
 					{faq.map((item, idx) => {
 						const open = openFaq === idx
@@ -405,7 +405,7 @@ const [openFaq, setOpenFaq] = useState(null)
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
-					<h2 className="max-w-[420px] text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Ready to Get Started With Finance?</h2>
+					<h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Ready to Get Started With Finance?</h2>
 										<a
 											href="#finance-application-form"
 											className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2 iphone:w-auto iphone:min-w-0 iphone:ml-0"
@@ -455,7 +455,7 @@ const [openFaq, setOpenFaq] = useState(null)
 
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -463,18 +463,18 @@ const [openFaq, setOpenFaq] = useState(null)
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
 							</div>
 						</div>
 
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-white">Serving customers across Ireland</p>
