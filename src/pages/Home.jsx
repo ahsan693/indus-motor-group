@@ -9,7 +9,7 @@ import carefullySelectedImg from '../images/homepage-images/lhKhWi6mDCQjU2k2CXrF
 import nationwideDeliveryImg from '../images/homepage-images/NaXiqyCuHV5HfwzSgAX8DPnjY6o.jpg'
 import warrantyImg from '../images/homepage-images/7wP4pWwqqXr5Bc6QUsmemBnVi98.jpg'
 import warrantyBadgeImg from '../images/homepage-images/Frame 1321319011.png'
-import financeImg from '../images/homepage-images/my26-jx-1084_16-9.webp'
+import financeAltImg from '../images/homepage-images/x28QfPunZTyDfNTpW3xLpenckbU.jpg'
 
 const navItems = [
   { label: 'Our Cars', to: '/cars' },
@@ -55,7 +55,7 @@ const whyChooseCards = [
   {
     title: 'Finance Available',
     body: 'Finance options available through trusted third-party lenders.',
-    image: financeImg,
+    image: financeAltImg,
   },
 ]
 
@@ -502,19 +502,25 @@ export default function Home() {
             {whyChooseCards.map((card) => (
               <article
                 key={card.title}
-                className="group relative overflow-hidden rounded-[14px] bg-black transition-transform duration-500 ease-out hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-[14px] bg-black transition-transform duration-500 ease-out hover:-translate-y-1 aspect-[16/9] md:aspect-[16/9]"
               >
                 <img
                   src={card.image}
                   alt={card.title}
                   loading="lazy"
                   decoding="async"
-                  className="h-[120px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 md:h-[280px] iphone:h-[140px]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+                <div className="relative z-10 h-full w-full flex flex-col justify-end">
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 iphone:p-2">
-                  <h3 className="text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{card.title}</h3>
-                  <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
+                  <div className="absolute inset-x-0 bottom-0">
+                    <div className="w-full bg-gradient-to-t from-black/95 via-black/80 to-transparent pt-12 md:pt-14 iphone:pt-10">
+                      <div className="px-4 pb-3 md:px-5 md:pb-4 iphone:px-2 iphone:pb-2">
+                        <h3 className="text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{card.title}</h3>
+                        <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
             ))}
