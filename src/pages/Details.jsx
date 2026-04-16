@@ -398,7 +398,7 @@ export default function Details() {
 						{/* Back button moved above, removed here for better spacing */}
 
 						<div className="space-y-2 iphone:space-y-1">
-							<h1 className="text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[22px]">{car.make} {car.model}</h1>
+							<h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[22px]">{car.make} {car.model}</h1>
 							<p className="text-4xl font-normal text-white iphone:text-[18px]">{formatPrice(car.price)}</p>
 						</div>
 
@@ -475,7 +475,7 @@ export default function Details() {
 				</section>
 
 				<section className="motion-rise motion-rise-delay-1 mt-12 pb-4 md:mt-14 iphone:mt-5 iphone:pb-2">
-			<h2 className="text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[18px]">Vehicle Specifications</h2>
+			<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[18px]">Vehicle Specifications</h2>
           <div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2 iphone:gap-x-3 iphone:gap-y-1">
             <div>
               {leftSpecifications.map((spec) => (
@@ -497,7 +497,7 @@ export default function Details() {
         </section>
 
 				<section className="motion-rise mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10">
-					<h2 className="text-4xl font-normal leading-tight text-white sm:text-5xl">Features</h2>
+					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px]">Features</h2>
 
 					{selectedFeatureGroups.length === 0 ? (
 						<p className="mt-6 text-sm text-zinc-500">No optional features selected for this vehicle.</p>
@@ -506,7 +506,7 @@ export default function Details() {
 							{selectedFeatureGroups.map((group) => (
 								<div key={group.title} className="border-b border-zinc-800 py-6">
 									<div className="mb-4 flex items-center">
-										<h3 className="text-sm font-normal text-zinc-200">{group.title}</h3>
+										<h3 className="text-[14px] font-normal text-zinc-200">{group.title}</h3>
 									</div>
 									<div className="flex flex-wrap gap-x-8 gap-y-3">
 										{group.selectedItems.map((item) => (
@@ -524,7 +524,7 @@ export default function Details() {
 				<section className="motion-rise mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
 						<div className="space-y-4">
-							<h2 className="text-3xl font-normal leading-tight text-white sm:text-4xl">Enquire About This Vehicle</h2>
+							<h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px]">Enquire About This Vehicle</h2>
 							<p className="max-w-md text-sm leading-6 text-zinc-400">
 								Contact our team to arrange a viewing, ask questions, or check availability.
 							</p>
@@ -539,7 +539,7 @@ export default function Details() {
 									<span className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
 										<HighlightIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-sm font-normal text-zinc-100">{item.title}</h3>
+									<h3 className="motion-link-slide text-[14px] font-normal text-zinc-100">{item.title}</h3>
 									<p className="mt-2 text-xs leading-5 text-zinc-400">{item.description}</p>
 								</article>
 							))}
@@ -550,7 +550,7 @@ export default function Details() {
 				<section className="motion-rise motion-rise-delay-2 mt-14 md:mt-16 iphone:mt-6">
           <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:gap-2">
             <div>
-              <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl iphone:text-[18px] iphone:font-normal">You May Also Like</h2>
+			<h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[18px] iphone:font-normal">You May Also Like</h2>
               <p className="mt-2 text-[11px] text-zinc-500 iphone:text-[14px]">
                 Discover more quality used cars available at Indus Motor Group.
               </p>
@@ -606,7 +606,7 @@ export default function Details() {
 
 											<div className="space-y-3 p-4">
 												<div className="flex items-start justify-between gap-3">
-													<h3 className="text-2xl font-medium leading-tight text-white">{relatedCar.make} {relatedCar.model}</h3>
+													<h3 className="text-[16px] font-medium leading-tight text-white">{relatedCar.make} {relatedCar.model}</h3>
 													<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details {'>'}</span>
 												</div>
 
@@ -742,7 +742,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
@@ -752,7 +752,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
@@ -761,7 +761,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-zinc-500">Serving customers across Ireland</p>

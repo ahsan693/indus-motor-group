@@ -452,9 +452,9 @@ body {
     padding-block: 2.5rem;
   }
 
-  /* Reusable button used across the app; mobile-first, full-width on small screens */
+  /* Reusable button used across the app */
   .ui-btn {
-    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium select-none transition-colors w-full sm:w-auto;
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium select-none transition-colors;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     min-height: 44px;
@@ -520,6 +520,7 @@ body {
     margin-inline: auto;
     padding-inline: 0px;
     padding-block: 3rem;
+    border-bottom: 1px solid rgb(39 39 42);
   }
 
   .site-footer-grid {
@@ -545,19 +546,23 @@ body {
   }
 
   .site-footer-label {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
     color: rgb(255 255 255);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
   }
 
   .site-footer-links {
-    margin-top: 0.75rem;
     display: grid;
-    gap: 0.625rem;
     font-size: 14px;
-    line-height: 1.35;
+    line-height: 1.5;
     color: rgb(255 255 255);
     overflow-wrap: anywhere;
+  }
+
+  .site-footer-links + .site-footer-label {
+    margin-top: 1.5rem;
   }
 
   .site-footer-shell a,
@@ -696,6 +701,19 @@ body {
 }
 
 @layer utilities {
+  @media (max-width: 430px) {
+    .ui-btn,
+    a.rounded-full.bg-white,
+    button.rounded-full.bg-white,
+    [role='button'].rounded-full.bg-white {
+      padding-inline: 0.75rem;
+      padding-block: 0.4rem;
+      font-size: 14px;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
   .hero-zoom-settle {
     animation: heroZoomSettle 2.1s cubic-bezier(0.2, 0.85, 0.24, 1) both;
   }

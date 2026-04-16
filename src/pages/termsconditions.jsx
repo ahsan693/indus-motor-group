@@ -250,7 +250,7 @@ export default function TermsConditions() {
 
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="/about" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -261,7 +261,7 @@ export default function TermsConditions() {
 
 						<div>
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
@@ -270,7 +270,7 @@ export default function TermsConditions() {
 
 						<div>
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+								<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-zinc-500">Serving customers across Ireland</p>

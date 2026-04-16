@@ -140,7 +140,7 @@ export default function Cars() {
 						<section className="motion-rise relative z-40 space-y-7">
 								{/* 100px transparent gap */}
 								<div style={{ height: '100px' }} />
-<h1 className="text-center text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Quality Used Cars for Sale</h1>
+<h1 className="text-center text-[22px] font-normal leading-tight text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[14px]">Quality Used Cars for Sale</h1>
 
 					<div className="flex justify-center md:hidden iphone:mt-2">
 						<button
@@ -242,7 +242,7 @@ export default function Cars() {
 						></button>
 						<div className="absolute inset-x-0 top-0 h-full overflow-y-auto bg-black px-6 pb-10 pt-8">
 							<div className="flex items-center justify-between">
-								<h2 className="text-[30px] font-semibold text-white">Search</h2>
+								<h2 className="text-[22px] font-semibold text-white md:text-[30px]">Search</h2>
 								<button
 									type="button"
 									className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-300"
@@ -322,7 +322,7 @@ export default function Cars() {
 				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-20 md:mt-24 iphone:mt-4">
 					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between iphone:mb-3 iphone:gap-2">
 						<div className="max-w-[760px]">
-							<h2 className="text-[30px] font-normal leading-[1.08] text-white md:text-[44px] iphone:text-[16px]">Explore Our Collection</h2>
+							<h2 className="text-[22px] font-normal leading-[1.08] text-white md:text-[30px] iphone:text-[16px]">Explore Our Collection</h2>
 							<p className="mt-2 mb-8 text-[16px] leading-6 text-zinc-400 md:mb-12 md:text-[18px] iphone:text-[13px] iphone:mb-4">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
@@ -439,7 +439,7 @@ export default function Cars() {
 										)}
 												<div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
 											<div className="flex items-start justify-between gap-3 iphone:gap-1">
-												<h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+												<h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
 												<span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
 											</div>
 												<p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
@@ -491,8 +491,9 @@ export default function Cars() {
 					className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
 				/>
 				<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
+				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10 iphone:pt-2">
-					<h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Find Your Next Car Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
 				</div>
 			</section>
@@ -508,24 +509,24 @@ export default function Cars() {
 						</div>
 						<div>
 							<p className="site-footer-label">Company</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
 								<Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
 							</div>
 						</div>
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Opening Hours</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
 							</div>
 						</div>
-						<div>
+						<div className="mt-6">
 							<p className="site-footer-label">Get in Touch</p>
-							<div className="site-footer-links">
+			<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-white">Serving customers across Ireland</p>
@@ -533,7 +534,7 @@ export default function Cars() {
 						</div>
 					</div>
 				</div>
-				<div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
+				<div className="px-5 py-6 text-center md:px-8 md:py-8">
 					<p className="site-footer-legal">
 						Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
 					</p>
