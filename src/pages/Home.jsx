@@ -259,7 +259,7 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-10 pt-8 iphone:pt-[var(--hero-content-offset)] iphone:pb-[30px] translate-y-[4px] lg:translate-y-[20px] min-[390px]:pb-12 min-[390px]:pt-10 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16 lg:pb-6 xl:pb-8">
+              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-2 pt-8 iphone:pt-[var(--hero-content-offset)] iphone:pb-2 translate-y-[4px] lg:translate-y-[20px] min-[390px]:pb-4 min-[390px]:pt-10 sm:pb-4 sm:pt-14 md:pb-6 md:pt-16 lg:pb-4 xl:pb-4">
               <span className="relative z-20 mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:hidden">
                 <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
@@ -275,9 +275,7 @@ export default function Home() {
                 <p className="max-w-[560px] text-[16px] leading-7 text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px] iphone:text-[14px] iphone:leading-5">
                   Transparent pricing. Nationwide delivery.
                 </p>
-                <Link to="/cars" className="ui-btn w-fit rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
-                  Browse Available Cars
-                </Link>
+                <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
               </div>
             </div>
           </div>
@@ -285,8 +283,8 @@ export default function Home() {
       </section>
 
       {/* Add top padding to prevent content hiding behind fixed navbar (height: ~64px on desktop, ~48px on mobile) */}
-      <main className="layout-shell layout-stack pt-[64px] sm:pt-[64px] md:pt-[72px] iphone:pt-[56px]">
-        <section className="mt-[100px] sm:mt-[100px] md:mt-[100px] iphone:mt-[100px]">
+      <main className="layout-shell layout-stack pt-[48px] sm:pt-[48px] md:pt-[56px] iphone:pt-[32px]">
+        <section className="mt-[8px] sm:mt-[12px] md:mt-[16px] iphone:mt-[4px]">
           <div className="mb-10 sm:mb-12 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 iphone:mb-3 iphone:gap-1">
             <h2 className="text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[16px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2">
@@ -582,28 +580,24 @@ export default function Home() {
         </section>
       </main>
 
-      <section style={{ height: 'calc(var(--vh, 1vh) * 100)' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[80px] h-screen w-screen max-w-none overflow-hidden sm:mt-[100px] iphone:h-[180px] iphone:mt-4">
+      <section className="relative mx-auto h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[180px] iphone:mt-4">
         <img
           src={findYourCarImg}
           alt="Find your next car"
           loading="lazy"
           decoding="async"
-          className="block h-full w-full object-cover"
+          className="h-full w-full object-cover object-center iphone:h-[180px]"
         />
-        {/* higher-contrast bottom gradient so the centered copy and button read clearly */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-
-        {/* Centered content over the image (matches reference screenshots) */}
-        <div className="absolute inset-x-0 top-6 md:top-10 flex justify-center px-4">
-          <div className="mx-auto w-full max-w-[900px] text-center">
-            <h2 className="text-[20px] md:text-[36px] lg:text-[44px] font-normal text-white iphone:text-[16px]">Find Your Next Car Today</h2>
-            <Link
-              to="/cars"
-              className="ui-btn mt-4 inline-flex w-fit mx-auto rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] md:text-[16px] iphone:text-[14px] iphone:px-3 iphone:py-2"
-            >
-              Browse Available Cars
-            </Link>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
+          <h2 className="max-w-[420px] text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Find Your Next Car Today</h2>
+          <Link
+            to="/cars"
+            className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2 iphone:w-auto iphone:min-w-0 iphone:ml-0"
+            style={{ justifyContent: 'flex-start' }}
+          >
+            Browse Available Cars
+          </Link>
         </div>
       </section>
 
