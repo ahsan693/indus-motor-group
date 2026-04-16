@@ -406,7 +406,13 @@ const [openFaq, setOpenFaq] = useState(null)
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
 					<h2 className="max-w-[420px] text-[30px] font-normal text-white md:text-[44px] iphone:text-[16px]">Ready to Get Started With Finance?</h2>
-					<a href="#finance-application-form" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Start Application</a>
+										<a
+											href="#finance-application-form"
+											className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2 iphone:w-auto iphone:min-w-0 iphone:ml-0"
+											style={{ justifyContent: 'flex-start' }}
+										>
+											Start Application
+										</a>
 				</div>
 			</section>
 

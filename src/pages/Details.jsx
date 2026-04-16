@@ -378,17 +378,24 @@ export default function Details() {
 	}
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
-	<Navbar />
-	<div style={{ height: '20px' }} />
-	<main className="layout-shell py-8 md:py-10 iphone:py-4">
-
-
-        <section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-3 iphone:mt-3">
-          <div className="space-y-6 iphone:space-y-3">
-<Link to="/cars" className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">
+		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+			<Navbar />
+			<main className="layout-shell py-8 md:py-10 iphone:py-4">
+				{/* Back button: below navbar, above main content, with breathing space */}
+				<div className="flex w-full justify-center">
+					<Link
+						to="/cars"
+						className="ui-btn mt-20 mb-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:mt-24 iphone:mb-6"
+						style={{ maxWidth: '340px', width: '100%' }}
+					>
 						← Back
-						</Link>
+					</Link>
+				</div>
+
+
+				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-3 iphone:mt-3">
+					<div className="space-y-6 iphone:space-y-3">
+						{/* Back button moved above, removed here for better spacing */}
 
 						<div className="space-y-2 iphone:space-y-1">
 							<h1 className="text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[22px]">{car.make} {car.model}</h1>
