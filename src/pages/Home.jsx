@@ -511,15 +511,11 @@ export default function Home() {
                   decoding="async"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="relative z-10 h-full w-full flex flex-col justify-end">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-transparent"></div>
-                  <div className="absolute inset-x-0 bottom-0">
-                    <div className="w-full bg-gradient-to-t from-black/95 via-black/80 to-transparent pt-12 md:pt-14 iphone:pt-10">
-                      <div className="px-4 pb-3 md:px-5 md:pb-4 iphone:px-2 iphone:pb-2">
-                        <h3 className="text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{card.title}</h3>
-                        <p className="mt-1 max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
-                      </div>
-                    </div>
+                <div className="absolute inset-0 flex flex-col justify-end">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 md:h-[45%] iphone:h-[60%] bg-gradient-to-t from-black/95 via-black/80 to-transparent"></div>
+                  <div className="relative z-20 px-4 pb-3 md:px-5 md:pb-4 iphone:px-2 iphone:pb-2">
+                    <h3 className="text-[16px] font-normal leading-tight text-white md:text-[18px] iphone:text-[13px]">{card.title}</h3>
+                    <p className="mt-1 max-w-none md:max-w-[300px] text-[16px] leading-6 text-zinc-200 md:text-[18px] iphone:text-[13px]">{card.body}</p>
                   </div>
                 </div>
               </article>
