@@ -280,7 +280,7 @@ export default function Home() {
 
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/52 to-black/90"></div>
-              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-2 pt-4 iphone:pt-[44vw] iphone:pb-2 lg:translate-y-[20px] min-[390px]:pb-4 min-[390px]:pt-10 sm:pb-4 sm:pt-14 md:pb-6 md:pt-16 lg:pb-4 xl:pb-4">
+              <div className="hero-content-rise hero-shell hero-mobile-shell relative z-10 pb-2 pt-4 iphone:pt-[36vw] iphone:pb-2 iphone:-translate-y-[12vw] lg:translate-y-[20px] min-[390px]:pb-4 min-[390px]:pt-10 sm:pb-4 sm:pt-14 md:pb-6 md:pt-16 lg:pb-4 xl:pb-4">
               <span className="relative z-20 mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black px-4 py-2 text-[12px] text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.92)] md:hidden">
                 <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
@@ -288,7 +288,7 @@ export default function Home() {
                 </svg>
                 Drive Away with Confidence
               </span>
-              <h1 className="hero-heading-mobile max-w-[620px] text-[22px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">
+              <h1 className="hero-heading-mobile max-w-[620px] text-[22px] font-normal leading-tight text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[36px] iphone:leading-tight">
                 <span className="block">Quality Used Cars</span>
                 <span className="block">in Ireland</span>
               </h1>
