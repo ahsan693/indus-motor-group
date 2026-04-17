@@ -140,7 +140,7 @@ export default function Cars() {
 						<section className="motion-rise relative z-40 space-y-7">
 								{/* 100px transparent gap */}
 								<div style={{ height: '100px' }} />
-<h1 className="text-center text-[22px] font-normal leading-tight text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[14px]">Quality Used Cars for Sale</h1>
+<h1 className="text-center text-[22px] font-normal leading-tight text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">Quality Used Cars for Sale</h1>
 
 					<div className="flex justify-center md:hidden iphone:mt-2">
 						<button
@@ -242,7 +242,7 @@ export default function Cars() {
 						></button>
 						<div className="absolute inset-x-0 top-0 h-full overflow-y-auto bg-black px-6 pb-10 pt-8">
 							<div className="flex items-center justify-between">
-								<h2 className="text-[22px] font-semibold text-white md:text-[30px]">Search</h2>
+								<h2 className="text-[22px] font-semibold text-white md:text-[30px] iphone:text-[22px]">Search</h2>
 								<button
 									type="button"
 									className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 text-zinc-300"
@@ -322,7 +322,7 @@ export default function Cars() {
 				<section className="motion-rise motion-rise-delay-1 relative z-10 mt-20 md:mt-24 iphone:mt-4">
 					<div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between iphone:mb-3 iphone:gap-2">
 						<div className="max-w-[760px]">
-							<h2 className="text-[22px] font-normal leading-[1.08] text-white md:text-[30px] iphone:text-[16px]">Explore Our Collection</h2>
+							<h2 className="text-[22px] font-normal leading-[1.08] text-white md:text-[30px] iphone:text-[22px]">Explore Our Collection</h2>
 							<p className="mt-2 mb-8 text-[16px] leading-6 text-zinc-400 md:mb-12 md:text-[18px] iphone:text-[13px] iphone:mb-4">
 								Carefully selected used cars chosen for quality, reliability, and value.
 							</p>
@@ -331,9 +331,12 @@ export default function Cars() {
 						<div className="relative mt-2 sm:mt-0 md:self-start">
 							<button 
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
-								className="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-[14px] font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
+								className="inline-flex h-10 items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 text-[14px] font-medium text-white transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
 							>
-								Sort By v
+								<span>Sort By</span>
+								<svg viewBox="0 0 20 20" className={`h-3.5 w-3.5 transition-transform ${showFilters.sortMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+									<path d="M5 7.5 10 12.5l5-5" strokeLinecap="round" strokeLinejoin="round" />
+								</svg>
 							</button>
 							
 							{showFilters.sortMenu && (
@@ -493,7 +496,7 @@ export default function Cars() {
 				<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10 iphone:pt-2">
-					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Find Your Next Car Today</h2>
+					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[22px]">Find Your Next Car Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">Browse Available Cars</Link>
 				</div>
 			</section>

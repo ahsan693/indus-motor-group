@@ -377,29 +377,32 @@ export default function Details() {
 		}))
 	}
 
-  return (
+	return (
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
-			<main className="layout-shell py-8 md:py-10 iphone:py-4">
-				{/* Back button: below navbar, above main content, with breathing space */}
-				<div className="flex w-full justify-center">
+			{/* Back button: always below navbar, never overlapping, with clear spacing */}
+			<div className="layout-shell">
+				<div className="mt-4 md:mt-28 iphone:mt-4 mb-2 md:mb-4 iphone:mb-2">
 					<Link
 						to="/cars"
-						className="ui-btn mt-20 mb-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:mt-24 iphone:mb-6"
-						style={{ maxWidth: '340px', width: '100%' }}
+						className="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg iphone:px-4 iphone:py-2 iphone:text-[15px]"
+						style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)' }}
 					>
-						← Back
+						<span className="mr-2 text-xl md:text-xl iphone:text-lg" aria-hidden="true">&#8592;</span>
+						Back
 					</Link>
 				</div>
+			</div>
 
-
+			<main className="layout-shell py-4 md:py-10 iphone:py-2">
+				{/* ...existing code... */}
 				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-3 iphone:mt-3">
 					<div className="space-y-6 iphone:space-y-3">
 						{/* Back button moved above, removed here for better spacing */}
 
 						<div className="space-y-2 iphone:space-y-1">
-							<h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[22px]">{car.make} {car.model}</h1>
-							<p className="text-4xl font-normal text-white iphone:text-[18px]">{formatPrice(car.price)}</p>
+							<h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">{car.make} {car.model}</h1>
+							<p className="text-4xl font-normal text-white iphone:text-[28px]">{formatPrice(car.price)}</p>
 						</div>
 
 						<div className="flex flex-wrap gap-2 iphone:gap-1">
@@ -475,7 +478,7 @@ export default function Details() {
 				</section>
 
 				<section className="motion-rise motion-rise-delay-1 mt-12 pb-4 md:mt-14 iphone:mt-5 iphone:pb-2">
-			<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[18px]">Vehicle Specifications</h2>
+				<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px]">Vehicle Specifications</h2>
           <div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2 iphone:gap-x-3 iphone:gap-y-1">
             <div>
               {leftSpecifications.map((spec) => (
@@ -497,7 +500,7 @@ export default function Details() {
         </section>
 
 				<section className="motion-rise mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10">
-					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px]">Features</h2>
+					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px]">Features</h2>
 
 					{selectedFeatureGroups.length === 0 ? (
 						<p className="mt-6 text-sm text-zinc-500">No optional features selected for this vehicle.</p>
@@ -524,7 +527,7 @@ export default function Details() {
 				<section className="motion-rise mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10">
 					<div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
 						<div className="space-y-4">
-							<h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px]">Enquire About This Vehicle</h2>
+							<h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px] iphone:text-[22px]">Enquire About This Vehicle</h2>
 							<p className="max-w-md text-sm leading-6 text-zinc-400">
 								Contact our team to arrange a viewing, ask questions, or check availability.
 							</p>
@@ -548,9 +551,9 @@ export default function Details() {
 				</section>
 
 				<section className="motion-rise motion-rise-delay-2 mt-14 md:mt-16 iphone:mt-6">
-          <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:gap-2">
-            <div>
-			<h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[18px] iphone:font-normal">You May Also Like</h2>
+				  <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:gap-2">
+				    <div>
+				<h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px] iphone:font-normal">You May Also Like</h2>
               <p className="mt-2 text-[11px] text-zinc-500 iphone:text-[14px]">
                 Discover more quality used cars available at Indus Motor Group.
               </p>
