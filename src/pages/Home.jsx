@@ -120,11 +120,11 @@ export function Navbar() {
           </Link>
 
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
-            <Link to="/" className="ui-nav-link transition-colors hover:text-white">
+            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
               Home
             </Link>
             {navItems.map((item) => (
-              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white">
+              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
                 {item.label}
               </Link>
             ))}
@@ -187,7 +187,7 @@ export function Navbar() {
               </button>
             )}
             <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
-              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
                 Home
               </Link>
               {navItems.map((item) => (
@@ -195,7 +195,7 @@ export function Navbar() {
                   key={item.label}
                   to={item.to}
                   className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
                 >
                   {item.label}
                 </Link>
