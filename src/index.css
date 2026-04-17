@@ -476,7 +476,7 @@ body {
     }
 
     .layout-stack {
-      padding-block: 1.5rem;
+      padding-block: 1.75rem;
     }
 
     /* Slightly tighter grid gaps on very small screens */
@@ -670,6 +670,11 @@ body {
   }
 
   @media (max-width: 430px) {
+    /* Ensure content clears the fixed header on very small screens */
+    header + .layout-shell {
+      padding-top: 3.5rem;
+    }
+
     .layout-shell,
     .hero-shell,
     .site-footer-shell {
@@ -677,11 +682,12 @@ body {
     }
 
     .layout-stack {
-      padding-block: 1.5rem;
+      padding-block: 1.75rem;
     }
 
+    /* Slightly more vertical breathing room between stacked sections on phones */
     .layout-stack > * + * {
-      margin-top: 1.6rem;
+      margin-top: 2rem;
     }
 
     .finance-stack {

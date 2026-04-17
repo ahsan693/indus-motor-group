@@ -116,15 +116,15 @@ export default function Warranty() {
 				<div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 				<Navbar overlay />
 
-				   <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell">
-					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[14px]">Warranty & Aftercare</h1>
+				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 iphone:bottom-2 hero-shell">
+					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[36px] iphone:leading-tight iphone:translate-y-3">Warranty & Aftercare</h1>
 					</div>
 			</section>
 
 			   <main className="layout-shell layout-stack iphone:pt-4">
 				   <section className="motion-rise mt-12 grid items-center gap-6 sm:mt-14 md:mt-16 md:grid-cols-[0.95fr_1.05fr] md:gap-10 iphone:mt-4 iphone:gap-2">
-					   <div className="space-y-5 iphone:space-y-2">
-						<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Vehicle Warranty for Added Peace of Mind</h2>
+					<div className="space-y-5 iphone:space-y-2">
+						<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Vehicle Warranty for Added Peace of Mind</h2>
 						   <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
 							   All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
 						   </p>
@@ -145,8 +145,8 @@ export default function Warranty() {
 
 				   <section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:mt-4 iphone:px-2 iphone:py-3">
 					<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
-						   <div className="space-y-4 iphone:space-y-2">
-							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Key Features</h2>
+						<div className="space-y-4 iphone:space-y-2">
+							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Key Features</h2>
 							   <p className="max-w-[310px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 								   Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
 							   </p>
@@ -166,8 +166,8 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				   <section className="motion-rise motion-rise-delay-2 space-y-6 iphone:mt-4 iphone:space-y-2">
-					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">How It Works</h2>
+				<section className="motion-rise motion-rise-delay-2 space-y-6 iphone:mt-4 iphone:space-y-2">
+					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">How It Works</h2>
 					   <div className="grid gap-4 md:grid-cols-3 iphone:gap-1">
 						{steps.map((item) => (
 							   <article key={item.title} className="group motion-card space-y-3 iphone:space-y-1">
@@ -182,8 +182,8 @@ export default function Warranty() {
 					</div>
 				</section>
 
-				   <section className="motion-rise grid gap-6 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
-				<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Warranty FAQS</h2>
+				<section className="motion-rise grid gap-6 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 iphone:gap-2 iphone:mt-4">
+				<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px]">Warranty FAQS</h2>
 					   <div className="space-y-4">
 						   {faq.map(([question, answer], idx) => {
 							   const open = openFaq === idx
@@ -210,8 +210,8 @@ export default function Warranty() {
 					   </div>
 				   </section>
 
-				   <section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center iphone:py-4">
-					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[16px]">Drive Away With Confidence</h2>
+				<section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center iphone:py-4">
+					<h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px]">Drive Away With Confidence</h2>
 					   <p className="mx-auto mt-3 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
 						   Warranty options are available on all vehicles to help protect your purchase.
 					   </p>

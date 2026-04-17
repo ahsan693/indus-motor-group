@@ -6,6 +6,10 @@ import { urlFor } from '../lib/sanity'
 import heroImage from '../images/aboutpage-images/sq7d6hkZyKS9CyP7Aro9dKYym7M (1).webp'
 import buildingImage from '../images/aboutpage-images/0Eazpe9g7yXj6vMKEsho44fz40.webp.png'
 import ctaImage from '../images/aboutpage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (4).webp'
+import iconQuality from '../images/aboutpage-images/qualityvehicle.png'
+import iconPricing from '../images/aboutpage-images/transparentpricing.png'
+import iconNationwide from '../images/aboutpage-images/nationwidecustoemrs.png'
+import iconSupport from '../images/aboutpage-images/cutomersupport.png'
 
 const APPROACH_CARDS = [
 	{
@@ -54,42 +58,31 @@ const FAQ_ITEMS = [
 		question: 'Do your vehicles come with warranty?',
 		answer:
 			'Warranty options are available on all vehicles at the point of sale, with coverage available for up to two years through a trusted third party provider.',
-		details:
-			'Coverage levels vary by plan and vehicle. Our team will explain available options and terms before you complete your purchase.',
+		
 	},
 	{
 		question: 'Can I trade in my current car?',
 		answer:
 			'Trade-ins may be considered depending on the vehicle. Contact us to discuss your current car and available options.',
-		details:
-			'If you share registration, mileage, condition, and service history, we can guide you through the next steps more quickly.',
-	},
+		},
 	{
 		question: 'Do you offer finance?',
 		answer:
 			'Finance options may be available through trusted third party lenders. Customers can also arrange finance through their own bank or provider.',
-		details:
-			'Any finance agreement is subject to lender approval criteria. We can help you understand possible options and required documents.',
-	},
+		},
 	{
 		question: 'Can I arrange a viewing?',
 		answer:
 			'Yes, viewings can be arranged by contacting us directly. Get in touch to schedule a time to see a vehicle.',
-		details:
-			'Please include the vehicle you are interested in so we can have it prepared before your appointment.',
-	},
+		},
 	{
 		question: 'Where are you located?',
 		answer:
 			'Indus Motor Group serves customers across Ireland. Contact us to arrange a viewing or enquiry.',
-		details:
-			'We support local and nationwide customers, including remote enquiries and scheduled in-person appointments.',
-	},
+		},
 	{
 		question: 'Do you deliver vehicles across Ireland?',
 		answer: 'Yes. We can arrange vehicle delivery across Ireland if required.',
-		details:
-			'Delivery availability and timelines may depend on destination and scheduling. Our team will confirm this during your enquiry.',
 	},
 ]
 
@@ -174,6 +167,13 @@ function ApproachIcon({ type }) {
 	)
 }
 
+const APPROACH_ICONS = {
+	quality: iconQuality,
+	pricing: iconPricing,
+	nationwide: iconNationwide,
+	support: iconSupport,
+}
+
 export default function About() {
 	const { cars, loading: arrivalsLoading } = useCars({ status: 'available' })
 	const [expandedFaqItems, setExpandedFaqItems] = useState({})
@@ -206,7 +206,7 @@ export default function About() {
 				<Navbar overlay />
 
 				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
-					<h1 className="hero-heading-mobile text-[22px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[22px]">Our Story</h1>
+					<h1 className="hero-heading-mobile text-[22px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">Our Story</h1>
 					<p className="hero-subtitle-mobile mt-2 text-[16px] text-zinc-300 drop-shadow md:text-[18px] iphone:text-[13px]">About Indus Motor Group</p>
 				</div>
 			</section>
@@ -215,7 +215,7 @@ export default function About() {
 				<section className="motion-rise py-12 md:py-14 iphone:py-5">
 					<div className="grid items-center gap-6 md:grid-cols-[0.95fr_1.05fr] md:gap-10 iphone:gap-3">
 						<div className="space-y-6 iphone:space-y-3">
-							<h2 className="mb-4 text-[22px] font-normal leading-tight text-white md:mb-0 md:text-[30px] iphone:text-[18px]">Who We Are</h2>
+							<h2 className="mb-4 text-[22px] font-normal leading-tight text-white md:mb-0 md:text-[30px] iphone:text-[22px]">Who We Are</h2>
 							<p className="max-w-[520px] text-[16px] leading-8 text-zinc-400 md:text-[18px] iphone:text-[13px] iphone:leading-6">
 								Indus Motor Group was founded by car enthusiasts who believe buying a car should be straightforward, transparent, and enjoyable. After experiencing the challenges many buyers face when searching for a reliable used car, we saw an opportunity to do things differently.
 							</p>
@@ -240,7 +240,7 @@ export default function About() {
 				<section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:px-2 iphone:py-4">
 					<div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
 						<div className="space-y-4 iphone:space-y-2">
-							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
+							<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
 							<p className="max-w-[320px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
 								We help you find the right car through a simple, transparent, and reliable buying experience.
 							</p>
@@ -250,7 +250,7 @@ export default function About() {
 							{APPROACH_CARDS.map((item) => (
 								<article key={item.title} className="group motion-card rounded-lg bg-black/40 p-4 iphone:p-2">
 									<span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
-										<ApproachIcon type={item.icon} />
+										<img src={APPROACH_ICONS[item.icon]} alt={`${item.title} icon`} className="h-3.5 w-3.5 object-contain" />
 									</span>
 									<h3 className="motion-link-slide text-[16px] font-normal text-zinc-100 md:text-[18px] iphone:text-[13px]">{item.title}</h3>
 									<p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.body}</p>
@@ -262,7 +262,7 @@ export default function About() {
 
 
 				<section className="motion-rise motion-rise-delay-2 iphone:mt-3">
-					<h2 className="mb-8 text-center text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] iphone:mb-3">Latest Arrivals</h2>
+					<h2 className="mb-8 text-center text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px] iphone:mb-3">Latest Arrivals</h2>
 					{arrivalsLoading && latestArrivals === FALLBACK_ARRIVALS ? (
 						<div className="flex items-center justify-center py-10">
 							<div className="space-y-3 text-center">
@@ -340,7 +340,7 @@ export default function About() {
 				</section>
 
 				<section className="motion-rise iphone:mt-3">
-					<h2 className="mb-6 text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Buy With Confidence</h2>
+					<h2 className="mb-6 text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Buy With Confidence</h2>
 					<div className="border-b border-zinc-800 iphone:border-none">
 						{CONFIDENCE_POINTS.map((point) => (
 							<article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 transition-colors hover:bg-zinc-950/40 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8 iphone:gap-1 iphone:py-2 iphone:text-[13px]">
@@ -353,7 +353,7 @@ export default function About() {
 
 
 				<section className="motion-rise grid gap-6 md:gap-8 md:grid-cols-[1fr_1fr] iphone:gap-2">
-					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px]">Frequently Asked Questions</h2>
+					<h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Frequently Asked Questions</h2>
 					<div className="border-y border-zinc-800 iphone:border-none">
 							{FAQ_ITEMS.map((item, index) => {
 								const isExpanded = Boolean(expandedFaqItems[index])
@@ -391,7 +391,7 @@ export default function About() {
 				/>
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
-					<h2 className="max-w-[460px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[16px]">Start Your Car Search Today</h2>
+					<h2 className="max-w-[460px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Start Your Car Search Today</h2>
 					<Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black iphone:text-[14px] iphone:px-3 iphone:py-2">
 						Browse Available Cars
 					</Link>
