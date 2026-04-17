@@ -12,10 +12,10 @@ export default function PrivacyPolicy() {
 		<div className="min-h-screen bg-black text-zinc-300">
 			<Navbar />
 
-			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-16 pt-14 md:pb-24 md:pt-20">
+			<main className="motion-rise mx-auto w-full max-w-[760px] px-5 pb-16 pt-14 md:pb-24 md:pt-20 iphone:px-2 iphone:py-5 iphone:pt-[120px]">
 				<section className="space-y-6">
-					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[14px]">Privacy Policy</h1>
-					<p className="text-[14px] text-zinc-500 md:text-[16px]">
+					<h1 className="text-[26px] font-normal leading-tight text-white min-[390px]:text-[30px] sm:text-[34px] md:text-[66px] iphone:text-[56px] iphone:leading-[0.95] iphone:mt-6 iphone:mb-3 iphone:text-center">Privacy Policy</h1>
+					<p className="text-[14px] text-zinc-500 md:text-[16px] iphone:text-[15px] iphone:mt-3 iphone:text-center">
 						Last updated: <span className="font-medium text-zinc-200">March 2026</span>
 					</p>
 					<div className="space-y-4">
