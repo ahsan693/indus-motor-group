@@ -2,13 +2,11 @@ import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import { useState } from 'react'
 import findYourCarImg from '../images/homepage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
-import warrantyHeroImg from '../images/warrantypage-images/QO39bC2hbcBpcVKCuwubY36DU.webp'
-import vehicleWarrantyImg from '../images/warrantypage-images/image 25.png'
 import stepOneImg from '../images/warrantypage-images/IL8Bx4obJa2x3WwpottYhJS6K8.webp'
 import stepTwoImg from '../images/warrantypage-images/w2mNaZnIbEJtakXLPOnkYEfJmts.webp'
 import stepThreeImg from '../images/warrantypage-images/MoRXSXu7z7dxC2bPV8u4yu8VF3Y.webp'
-import contactImg1 from '../images/homepage-images/my26-jx-1084_16-9.webp'
-import contactImg2 from '../images/homepage-images/7wP4pWwqqXr5Bc6QUsmemBnVi98.jpg'
+import contactHero from '../images/contactus/contactus-navbar.png'
+import formImage from '../images/contactus/form-image.png'
 
 const keyFeatures = [
   {
@@ -107,8 +105,8 @@ export default function ContactUs() {
          <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
          <section className="relative overflow-hidden iphone:h-[220px]">
            <img
-             src={warrantyHeroImg}
-             alt="Warranty hero"
+             src={contactHero}
+             alt="Contact hero"
              loading="eager"
              fetchPriority="high"
              decoding="async"
@@ -130,8 +128,8 @@ export default function ContactUs() {
   {/* Left: Image */}
   <div className="overflow-hidden rounded-lg">
     <img
-      src={contactImg1}
-      alt="Contact image 1"
+      src={formImage}
+      alt="Contact form"
       loading="lazy"
       decoding="async"
       className="h-full w-full object-cover"
@@ -359,4 +357,3 @@ export default function ContactUs() {
     </div>
   )
 }
-
