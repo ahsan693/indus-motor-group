@@ -1,5 +1,5 @@
 ﻿import { Link } from 'react-router-dom'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
@@ -16,6 +16,39 @@ export default function Cars() {
 	const [showFilters, setShowFilters] = useState({})
 	const [searchTerm, setSearchTerm] = useState('')
 	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
+	const filterControlsRef = useRef(null)
+	const sortMenuRef = useRef(null)
+
+	useEffect(() => {
+		const closeDropdowns = () => setShowFilters({})
+
+		const handlePointerDown = (event) => {
+			if (isFilterModalOpen) return
+
+			const target = event.target
+			const clickedInsideFilters = filterControlsRef.current?.contains(target)
+			const clickedInsideSort = sortMenuRef.current?.contains(target)
+
+			if (!clickedInsideFilters && !clickedInsideSort) {
+				closeDropdowns()
+			}
+		}
+
+		const handleKeyDown = (event) => {
+			if (event.key === 'Escape') {
+				closeDropdowns()
+				setIsFilterModalOpen(false)
+			}
+		}
+
+		document.addEventListener('pointerdown', handlePointerDown)
+		document.addEventListener('keydown', handleKeyDown)
+
+		return () => {
+			document.removeEventListener('pointerdown', handlePointerDown)
+			document.removeEventListener('keydown', handleKeyDown)
+		}
+	}, [isFilterModalOpen])
 
 	// Get unique filter values from cars
 	const brands = [...new Set(cars.map(car => car.make))].sort()
@@ -155,7 +188,7 @@ export default function Cars() {
 						</button>
 					</div>
 
-					<div className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3 iphone:gap-1">
+					<div ref={filterControlsRef} className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3 iphone:gap-1">
 						{filterOrder.map((filterName) => (
 							<div key={filterName} className="relative">
 								<button
@@ -328,7 +361,7 @@ export default function Cars() {
 							</p>
 						</div>
 						
-						<div className="relative mt-2 sm:mt-0 md:self-start">
+						<div ref={sortMenuRef} className="relative mt-2 sm:mt-0 md:self-start">
 							<button 
 								onClick={() => setShowFilters(prev => ({...prev, sortMenu: !prev.sortMenu}))}
 								className="inline-flex h-10 items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 text-[14px] font-medium text-white transition-colors hover:border-zinc-500 hover:bg-zinc-800 md:text-[16px]"
