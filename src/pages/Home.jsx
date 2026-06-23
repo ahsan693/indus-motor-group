@@ -3,6 +3,7 @@ import { useMemo, useRef, useState, useEffect } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
 import navbarBg from '../images/homepage-images/navbar-backgorund.jpg'
+import LogoImg from '../images/Logo.png'
 import luxuryCarImage from '../images/homepage-images/image 9.png'
 import findYourCarImg from '../images/homepage-images/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 import carefullySelectedImg from '../images/homepage-images/lhKhWi6mDCQjU2k2CXrFgqm9AA.jpg'
@@ -107,16 +108,11 @@ export function Navbar() {
       <div className="layout-shell py-4 md:py-5">
         <div className="flex w-full items-center gap-3">
           <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
-            <span className="flex flex-col gap-0.5" aria-hidden="true">
-              <span className="h-[2px] w-3 -rotate-[22deg] rounded-full bg-white"></span>
-              <span className="h-[2px] w-2.5 -rotate-[22deg] rounded-full bg-white"></span>
-              <span className="h-[2px] w-2 -rotate-[22deg] rounded-full bg-white"></span>
-            </span>
-            <span className="text-[12px] font-semibold leading-[0.95] tracking-[0.14em] md:text-[16px]">
-              <span className="block">INDUS</span>
-              <span className="block">MOTOR</span>
-              <span className="block">GROUP</span>
-            </span>
+            <img 
+              src={LogoImg} 
+              alt="Indus Motor Group Logo" 
+              className="h-8 w-auto sm:h-10 md:h-12"
+            />
           </Link>
 
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
@@ -131,7 +127,9 @@ export function Navbar() {
           </nav>
 
           <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-            <button className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]">Contact Us</button>
+            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
+              Contact Us
+            </Link>
           </div>
 
           {/* Hamburger menu button: only visible when sidebar is closed */}
@@ -200,9 +198,9 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <button className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black">
+              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
                 Contact Us
-              </button>
+              </Link>
             </nav>
           </div>
         </div>
@@ -444,54 +442,62 @@ export default function Home() {
           />
         </section>
 
-        <section
-          className="mt-[80px] rounded-2xl px-4 py-7 sm:mt-[100px] md:mt-[150px] md:px-10 md:py-11 iphone:mt-4 iphone:px-2 iphone:py-3"
-          style={{ backgroundColor: '#0d0d0d' }}
-        >
-          <div className="text-center">
-            <span className="inline-flex items-center gap-1 text-[14px] text-zinc-500 md:text-[16px] iphone:text-[13px]">
-              <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
-                <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
-              </svg>
-              Peace of Mind Included
-            </span>
-            <h2 className="mt-4 text-[22px] font-normal leading-tight text-zinc-100 md:text-[30px] iphone:text-[22px]">Warranty & Aftercare Protection</h2>
-          </div>
+   <section
+  className="mt-[80px] rounded-2xl px-4 py-7 sm:mt-[100px] md:mt-[150px] md:px-10 md:py-11 iphone:mt-4 iphone:px-2 iphone:py-3"
+  style={{ backgroundColor: '#0d0d0d' }}
+>
+  <div className="max-w-[980px] mx-auto">
+    <div className="flex items-center justify-between">
 
-          <div className="mx-auto mt-8 grid max-w-[980px] items-center gap-6 sm:gap-7 md:grid-cols-[1fr_auto] md:gap-16 iphone:gap-2">
-            <div className="max-w-[360px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px] mx-auto text-left md:text-left">
-              <p className="mb-6">
-                Warranty cover available on all vehicles<br />
-                through trusted providers.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span>Up to 2 Years Coverage</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span>Wide range of protection plans</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  <span>Added peace of mind</span>
-                </li>
-              </ul>
-            </div>
+      {/* LEFT SIDE: h2 + text all starting from same point */}
+      <div className="mx-auto">
+        <span className="inline-flex items-center gap-1 text-[14px] text-zinc-500 md:text-[16px] iphone:text-[13px]">
+          <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
+            <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
+          </svg>
+          Peace of Mind Included
+        </span>
 
-            <div className="mx-auto">
-              <img
-                src={warrantyBadgeImg}
-                alt="2 year warranty badge"
-                loading="lazy"
-                decoding="async"
-                className="h-[80px] w-[70px] object-contain md:h-[210px] md:w-[182px] iphone:h-[40px] iphone:w-[35px]"
-              />
-            </div>
-          </div>
-        </section>
+        <h2 className="mt-4 text-[22px] font-normal leading-tight text-zinc-100 md:text-[30px] iphone:text-[22px]">
+          Warranty & Aftercare Protection
+        </h2>
 
+        <div className="mt-8 text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
+          <p className="mb-6">
+            Warranty cover available on all vehicles<br />
+            through trusted providers.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Up to 2 Years Coverage</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Wide range of protection plans</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Added peace of mind</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* RIGHT SIDE: badge */}
+      <div className="flex-shrink-0">
+        <img
+          src={warrantyBadgeImg}
+          alt="2 year warranty badge"
+          loading="lazy"
+          decoding="async"
+          className="h-[80px] w-[70px] object-contain md:h-[210px] md:w-[182px] iphone:h-[40px] iphone:w-[35px]"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
         <section className="mt-[80px] sm:mt-[100px] md:mt-[150px] iphone:mt-4">
           <h2 className="mb-16 text-center text-[22px] font-normal leading-tight text-white md:mb-20 md:text-[30px] iphone:text-[22px] iphone:mb-4">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-2 iphone:gap-y-2">

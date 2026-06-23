@@ -9,6 +9,7 @@ import Finance from './pages/finance'
 import Warranty from './pages/Warranty'
 import About from './pages/About'
 import StudioEmbedPage from './pages/StudioEmbedPage'
+import ContactUs from './pages/contact-us'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/finance" element={<Finance />} />
       <Route path="/warranty" element={<Warranty />} />
       <Route path="/about" element={<About />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       <Route path="*" element={<Home />} />
     </Routes>
   )
