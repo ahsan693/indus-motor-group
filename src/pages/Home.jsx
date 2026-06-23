@@ -442,15 +442,26 @@ export default function Home() {
           />
         </section>
 
-   <section
+  <section
   className="mt-12 rounded-2xl px-2 py-4 sm:mt-14 md:mt-[150px] md:px-10 md:py-11"
   style={{ backgroundColor: '#0d0d0d' }}
 >
   <div className="max-w-[980px] mx-auto">
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
 
-      {/* LEFT SIDE: h2 + text all starting from same point */}
-      <div className="mx-auto">
+      {/* BADGE: top on mobile, right on desktop */}
+      <div className="flex-shrink-0 mb-6 md:mb-0 md:order-2">
+        <img
+          src={warrantyBadgeImg}
+          alt="2 year warranty badge"
+          loading="lazy"
+          decoding="async"
+          className="h-[90px] w-[78px] object-contain md:h-[210px] md:w-[182px]"
+        />
+      </div>
+
+      {/* LEFT SIDE: text content */}
+      <div className="md:order-1">
         <span className="inline-flex items-center gap-1 text-[13px] text-zinc-500 md:text-[16px]">
           <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
             <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
@@ -482,17 +493,6 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </div>
-
-      {/* RIGHT SIDE: badge */}
-      <div className="flex-shrink-0">
-        <img
-          src={warrantyBadgeImg}
-          alt="2 year warranty badge"
-          loading="lazy"
-          decoding="async"
-          className="h-[60px] w-[52px] object-contain md:h-[210px] md:w-[182px]"
-        />
       </div>
 
     </div>
