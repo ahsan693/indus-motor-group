@@ -169,103 +169,112 @@ export default function Cars() {
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
-			<main className="layout-shell py-10 md:py-14 iphone:py-4">
-						<section className="motion-rise relative z-40 space-y-7">
-								{/* 100px transparent gap */}
-								<div style={{ height: '100px' }} />
-<h1 className="text-center text-[22px] font-normal leading-tight text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">Quality Used Cars for Sale</h1>
+			<main className="layout-shell py-12 md:py-16 iphone:py-6">
+    <section className="motion-rise relative z-40 space-y-8 md:space-y-10">
 
-					<div className="flex justify-center md:hidden iphone:mt-2">
-						<button
-							type="button"
-							onClick={() => setIsFilterModalOpen(true)}
-							className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black"
-						>
-							Refine
-							<svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-								<path d="M4 5h12M6.5 10h7M9 15h2" strokeLinecap="round" />
-							</svg>
-						</button>
-					</div>
+        {/* Transparent gap */}
+        <div className="h-[64px] md:h-[120px]" />
 
-					<div ref={filterControlsRef} className="relative z-[80] hidden flex-wrap items-center justify-center gap-2.5 md:flex md:gap-3 iphone:gap-1">
-						{filterOrder.map((filterName) => (
-							<div key={filterName} className="relative">
-								<button
-									onClick={() => toggleFilterDropdown(filterName)}
-									className={`inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-[14px] font-medium leading-none transition-all md:text-[16px] ${
-										activeFilters[filterName]
-											? 'border-zinc-500 bg-zinc-800 text-white'
-											: 'border-zinc-700 bg-zinc-900 text-white hover:border-zinc-500 hover:bg-zinc-800'
-								}`}
-							>
-								<svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-									<path d="M4.5 5h11m-10 5h8m-6 5h4" strokeLinecap="round" strokeLinejoin="round" />
-								</svg>
-								<span>{filterName}</span>
-								<svg viewBox="0 0 20 20" className={`h-3 w-3 transition-transform ${showFilters[filterName] ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-									<path d="M5 7.5 10 12.5l5-5" strokeLinecap="round" strokeLinejoin="round" />
-								</svg>
-							</button>
-							
-							{showFilters[filterName] && (
-								<div className="absolute left-0 top-full z-[120] mt-2 min-w-[210px] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg">
-										<div className="max-h-[272px] space-y-1 overflow-y-auto pr-1 [scrollbar-color:#3f3f46_#18181b] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-700">
-											{filterOptions[filterName].map((option) => (
-												<button
-													key={option}
-													onClick={(e) => {
-														e.preventDefault()
-														toggleFilter(filterName, option)
-														setShowFilters(prev => ({...prev, [filterName]: false}))
-													}}
-													className={`w-full rounded px-3 py-2 text-left text-[14px] transition-colors md:text-[16px] ${
-														activeFilters[filterName] === option
-															? 'bg-white text-black font-medium'
-															: 'text-zinc-300 hover:bg-zinc-800'
-													}`}
-												>
-													{option}
-												</button>
-											))}
-										</div>
-									</div>
-								)}
-							</div>
-						))}
+        <h1 className="text-left text-[34px] font-normal leading-tight text-white px-6 min-[390px]:text-[36px] sm:text-[38px] md:text-center md:text-[42px] md:px-0 iphone:text-[52px] iphone:leading-tight iphone:text-center iphone:px-0">
+            Quality Used Cars for Sale
+        </h1>
 
-						<button
-							onClick={clearFilters}
-							className="grid h-10 w-10 place-items-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
-							title="Reset filters"
-						>
-							<svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-								<line x1="3" y1="5" x2="17" y2="5" />
-								<circle cx="8" cy="5" r="1.8" fill="currentColor" stroke="none" />
-								<line x1="3" y1="10" x2="17" y2="10" />
-								<circle cx="12" cy="10" r="1.8" fill="currentColor" stroke="none" />
-								<line x1="3" y1="15" x2="17" y2="15" />
-								<circle cx="6" cy="15" r="1.8" fill="currentColor" stroke="none" />
-							</svg>
-						</button>
+        {/* Mobile Refine button */}
+        <div className="flex justify-start px-6 md:hidden iphone:mt-4 iphone:justify-center iphone:px-0">
+            <button
+                type="button"
+                onClick={() => setIsFilterModalOpen(true)}
+                className="inline-flex w-full max-w-[340px] items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 text-[16px] font-medium text-black iphone:w-auto iphone:max-w-none"
+            >
+                Refine
+                <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <path d="M4 5h12M6.5 10h7M9 15h2" strokeLinecap="round" />
+                </svg>
+            </button>
+        </div>
 
-						<div className="relative">
-							<svg viewBox="0 0 24 24" className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-500" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-								<circle cx="11" cy="11" r="7" />
-								<line x1="16.65" y1="16.65" x2="21" y2="21" />
-							</svg>
-							<input
-								type="text"
-								value={searchTerm}
-								onChange={(e) => setSearchTerm(e.target.value)}
-								placeholder="Search"
-								className="h-10 w-[126px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-[14px] text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500 md:text-[16px]"
-							/>
-						</div>
-					</div>
-				</section>
+        {/* Desktop filter row */}
+        <div ref={filterControlsRef} className="relative z-[80] hidden flex-wrap items-center justify-center gap-2 md:flex md:gap-2.5 iphone:gap-1.5">
+            {filterOrder.map((filterName) => (
+                <div key={filterName} className="relative">
+                    <button
+                        onClick={() => toggleFilterDropdown(filterName)}
+                        className={`inline-flex h-10 items-center gap-1.5 rounded-full border px-3.5 text-[13px] font-medium leading-none transition-all md:text-[14px] ${
+                            activeFilters[filterName]
+                                ? 'border-zinc-500 bg-zinc-800 text-white'
+                                : 'border-zinc-700 bg-zinc-900 text-white hover:border-zinc-500 hover:bg-zinc-800'
+                        }`}
+                    >
+                        <svg viewBox="0 0 20 20" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                            <path d="M4.5 5h11m-10 5h8m-6 5h4" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <span>{filterName}</span>
+                        <svg viewBox="0 0 20 20" className={`h-3 w-3 transition-transform ${showFilters[filterName] ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                            <path d="M5 7.5 10 12.5l5-5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </button>
 
-				{isFilterModalOpen && (
+                    {showFilters[filterName] && (
+                        <div className="absolute left-0 top-full z-[120] mt-2 min-w-[200px] rounded-lg border border-zinc-700 bg-zinc-900 p-1.5 shadow-lg">
+                            <div className="max-h-[272px] space-y-1 overflow-y-auto pr-1 [scrollbar-color:#3f3f46_#18181b] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-zinc-900 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-700">
+                                {filterOptions[filterName].map((option) => (
+                                    <button
+                                        key={option}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            toggleFilter(filterName, option)
+                                            setShowFilters(prev => ({ ...prev, [filterName]: false }))
+                                        }}
+                                        className={`w-full rounded px-3 py-2 text-left text-[13px] transition-colors md:text-[14px] ${
+                                            activeFilters[filterName] === option
+                                                ? 'bg-white text-black font-medium'
+                                                : 'text-zinc-300 hover:bg-zinc-800'
+                                        }`}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            ))}
+
+            {/* Clear filters button */}
+            <button
+                onClick={clearFilters}
+                className="grid h-10 w-10 place-items-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
+                title="Reset filters"
+            >
+                <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <line x1="3" y1="5" x2="17" y2="5" />
+                    <circle cx="8" cy="5" r="1.8" fill="currentColor" stroke="none" />
+                    <line x1="3" y1="10" x2="17" y2="10" />
+                    <circle cx="12" cy="10" r="1.8" fill="currentColor" stroke="none" />
+                    <line x1="3" y1="15" x2="17" y2="15" />
+                    <circle cx="6" cy="15" r="1.8" fill="currentColor" stroke="none" />
+                </svg>
+            </button>
+
+            {/* Search input */}
+            <div className="relative">
+                <svg viewBox="0 0 24 24" className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-500" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.65" y1="16.65" x2="21" y2="21" />
+                </svg>
+                <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search"
+                    className="h-10 w-[110px] rounded-full border border-zinc-700 bg-zinc-900 pl-9 pr-3 text-[13px] text-zinc-200 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-500 md:text-[14px]"
+                />
+            </div>
+        </div>
+
+    </section>
+
+ {isFilterModalOpen && (
 					<div className="fixed inset-0 z-[200] md:hidden">
 						<button
 							type="button"
