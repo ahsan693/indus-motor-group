@@ -122,83 +122,85 @@ export default function ContactUs() {
       </section>
 
          <main className="layout-shell layout-stack iphone:pt-4">
-           <section className="motion-rise">
-             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] text-center mb-10">Reach Out to Us</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 mb-12">
-  {/* Left: Image */}
-  <div className="overflow-hidden rounded-lg">
-    <img
-      src={formImage}
-      alt="Contact form"
-      loading="lazy"
-      decoding="async"
-      className="h-full w-full object-cover"
-    />
-  </div>
+          <section className="motion-rise">
+  <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] text-center mb-10">Reach Out to Us</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 mb-12">
 
-  {/* Right: Form */}
-  <div className="bg-zinc-900/50 rounded-lg px-4 py-6 border border-zinc-800">
-    <form className="space-y-5">
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-xs text-zinc-400 mb-2 font-medium">Full Name</label>
-          <input
-            type="text"
-            className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-            placeholder="Your full name"
-          />
+    {/* Form — first in DOM = top on mobile, md:col-start-2 = right on desktop */}
+    <div className="bg-zinc-900/50 rounded-lg px-4 py-6 border border-zinc-800 md:col-start-2">
+      <form className="space-y-5">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs text-zinc-400 mb-2 font-medium">Full Name</label>
+            <input
+              type="text"
+              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+              placeholder="Your full name"
+            />
+          </div>
+          <div>
+            <label className="block text-xs text-zinc-400 mb-2 font-medium">Phone</label>
+            <input
+              type="tel"
+              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+              placeholder="Phone Number"
+            />
+          </div>
         </div>
+
         <div>
-          <label className="block text-xs text-zinc-400 mb-2 font-medium">Phone</label>
-          <input
-            type="tel"
-            className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-            placeholder="Phone Number"
-          />
+          <label className="block text-xs text-zinc-400 mb-2 font-medium">Service Type</label>
+          <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
+            <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
+            <option value="sales" className="bg-zinc-900">Car Sales</option>
+            <option value="service" className="bg-zinc-900">Service & Maintenance</option>
+          </select>
         </div>
-      </div>
-      
-      <div>
-        <label className="block text-xs text-zinc-400 mb-2 font-medium">Service Type</label>
-        <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
-          <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
-          <option value="sales" className="bg-zinc-900">Car Sales</option>
-          <option value="service" className="bg-zinc-900">Service & Maintenance</option>
-        </select>
-      </div>
-      
-      <div className="flex flex-col h-full">
-  <div>
-    <label className="block text-xs text-zinc-400 mb-2 font-medium">Message (Optional)</label>
-    <textarea
-      rows={10}
-      className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
-      placeholder="Tell us how we can help"
-    />
-  </div>
 
-  <div className="mt-auto pt-6">
-    <button
-      type="submit"
-      className="w-full bg-white text-black py-2.5 rounded text-sm font-medium hover:bg-zinc-200 transition"
-    >
-      Submit
-    </button>
+        <div className="flex flex-col h-full">
+          <div>
+            <label className="block text-xs text-zinc-400 mb-2 font-medium">Message (Optional)</label>
+            <textarea
+              rows={10}
+              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
+              placeholder="Tell us how we can help"
+            />
+          </div>
 
-    <div className="flex items-start gap-2 mt-3">
-      <input type="checkbox" defaultChecked className="mt-1" />
-      <label className="text-xs text-zinc-500">
-        By submitting, you agree to our{' '}
-        <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
-          Privacy Policy
-        </Link>
-      </label>
+          <div className="mt-auto pt-6">
+            <button
+              type="submit"
+              className="w-full bg-white text-black py-2.5 rounded text-sm font-medium hover:bg-zinc-200 transition"
+            >
+              Submit
+            </button>
+
+            <div className="flex items-start gap-2 mt-3">
+              <input type="checkbox" defaultChecked className="mt-1" />
+              <label className="text-xs text-zinc-500">
+                By submitting, you agree to our{' '}
+                <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
+                  Privacy Policy
+                </Link>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+
+    {/* Image — second in DOM = below on mobile, md:col-start-1 md:row-start-1 = left on desktop */}
+    <div className="overflow-hidden rounded-lg md:col-start-1 md:row-start-1">
+      <img
+        src={formImage}
+        alt="Contact form"
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover"
+      />
+    </div>
+
   </div>
-</div>
-    </form>
-  </div>
-</div>
 </section>
 
            <section className="motion-rise motion-rise-delay-1 mt-12">
