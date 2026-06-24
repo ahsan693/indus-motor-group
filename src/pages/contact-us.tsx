@@ -203,61 +203,72 @@ export default function ContactUs() {
   </div>
 </section>
 
-           <section className="motion-rise motion-rise-delay-1 mt-12">
-             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] mb-10">Contact Information</h2>
-             <div className="space-y-0">
-               <div className="grid grid-cols-2 py-4 border-t border-b border-zinc-800">
-                 <div className="text-xs text-white font-medium">Get in Touch</div>
-                 <div className="text-xs text-zinc-300 space-y-1">
-                   <div>+353 89 967 5410</div>
-                   <div>hello@indusmotorgroup.com</div>
-                 </div>
-               </div>
-               <div className="grid grid-cols-2 py-4 border-b border-zinc-800">
-                 <div className="text-xs text-white font-medium">Address & Working Hours</div>
-                 <div className="text-xs text-zinc-300 space-y-1">
-                   <div>Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland</div>
-                   <div className="text-zinc-300 text-[12px]">Mon - Fri: 9:00am - 6:00pm</div>
-                 </div>
-               </div>
-               <div className="grid grid-cols-2 py-4 border-b border-zinc-800">
-                 <div className="text-xs text-white font-medium">Socials</div>
-                 <div className="text-xs text-zinc-300 space-y-2">
-                   <a href="#" className="block hover:text-white transition">Instagram</a>
-                   <a href="#" className="block hover:text-white transition">Facebook</a>
-                 </div>
-               </div>
-             </div>
-           </section>
-           
-           <section className="motion-rise mt-12">
-             <div className="grid grid-cols-2">
-               <h2 className="text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] mb-10">Warranty FAQS</h2>
-               <div className="space-y-0">
-                 {faq.map(([question, answer], idx) => {
-                   const open = openFaq === idx
-                   return (
-                   <div
-                       key={question}
-                       className={`py-4 transition-colors hover:bg-zinc-950/40 iphone:pb-2 ${idx !== faq.length - 1 ? 'border-b border-zinc-800' : ''}`}
-                   >
-                       <button
-                         className="flex w-full items-center justify-between text-left focus:outline-none"
-                         onClick={() => setOpenFaq(open ? null : idx)}
-                         aria-expanded={open ? "true" : "false"}
-                       >
-                         <span className="text-xs font-normal text-zinc-300 md:text-[14px]">{question}</span>
-                         <span className="text-sm text-zinc-300 font-light">+</span>
-                       </button>
-                       {open && (
-                         <p className="mt-2 text-xs leading-relaxed text-zinc-400 md:text-[13px]">{answer}</p>
-                       )}
-                     </div>
-                   )
-                 })}
-               </div>
-             </div>
-           </section>
+          {/* Contact Information */}
+<section className="motion-rise motion-rise-delay-1 mt-12">
+  <h2 className="text-[28px] font-normal leading-tight text-white md:text-[30px] mb-8">
+    Contact Information
+  </h2>
+
+  <div className="space-y-0">
+    {/* Get in Touch */}
+    <div className="py-5 border-t border-zinc-800">
+      <div className="text-xs text-zinc-500 font-medium mb-2">Get in Touch</div>
+      <div className="text-sm text-white space-y-1">
+        <div>+353 89 967 5410</div>
+        <div>hello@indusmotorgroup.com</div>
+      </div>
+    </div>
+
+    {/* Address & Working Hours */}
+    <div className="py-5 border-t border-zinc-800">
+      <div className="text-xs text-zinc-500 font-medium mb-2">Address & Working Hours</div>
+      <div className="text-sm text-white space-y-1">
+        <div>Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland</div>
+        <div>Mon - Fri: 9:00am - 6:00pm</div>
+      </div>
+    </div>
+
+    {/* Socials */}
+    <div className="py-5 border-t border-b border-zinc-800">
+      <div className="text-xs text-zinc-500 font-medium mb-2">Socials</div>
+      <div className="text-sm space-y-2">
+        <a href="#" className="block text-white hover:text-zinc-400 transition underline underline-offset-2">Instagram</a>
+        <a href="#" className="block text-white hover:text-zinc-400 transition underline underline-offset-2">Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Warranty FAQs */}
+<section className="motion-rise mt-16">
+  <h2 className="text-[28px] font-normal text-white md:text-[30px] mb-8">
+    Warranty FAQS
+  </h2>
+
+  <div className="space-y-0">
+    {faq.map(([question, answer], idx) => {
+      const open = openFaq === idx
+      return (
+        <div
+          key={question}
+          className={`py-5 border-t transition-colors ${idx === faq.length - 1 ? 'border-b border-zinc-800' : 'border-zinc-800'}`}
+        >
+          <button
+            className="flex w-full items-center justify-between text-left focus:outline-none gap-4"
+            onClick={() => setOpenFaq(open ? null : idx)}
+            aria-expanded={open ? "true" : "false"}
+          >
+            <span className="text-sm font-normal text-white">{question}</span>
+            <span className="text-xl text-zinc-400 font-light flex-shrink-0">+</span>
+          </button>
+          {open && (
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">{answer}</p>
+          )}
+        </div>
+      )
+    })}
+  </div>
+</section>
        
       </main>
       
