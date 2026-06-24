@@ -167,25 +167,35 @@ export default function ContactUs() {
         </select>
       </div>
       
-      <div>
-        <label className="block text-xs text-zinc-400 mb-2 font-medium">Message (Optional)</label>
-        <textarea
-          rows={4}
-          className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
-          placeholder="Tell us how we can help"
-        />
-      </div>
-      
-      <button type="submit" className="w-full bg-white text-black py-2.5 rounded text-sm font-medium hover:bg-zinc-200 transition">
-        Submit
-      </button>
-      
-      <div className="flex items-start gap-2 mt-3">
-        <input type="checkbox" defaultChecked className="mt-1" />
-        <label className="text-xs text-zinc-500">
-          By submitting, you agree to our <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">Privacy Policy</Link>
-        </label>
-      </div>
+      <div className="flex flex-col h-full">
+  <div>
+    <label className="block text-xs text-zinc-400 mb-2 font-medium">Message (Optional)</label>
+    <textarea
+      rows={10}
+      className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
+      placeholder="Tell us how we can help"
+    />
+  </div>
+
+  <div className="mt-auto pt-6">
+    <button
+      type="submit"
+      className="w-full bg-white text-black py-2.5 rounded text-sm font-medium hover:bg-zinc-200 transition"
+    >
+      Submit
+    </button>
+
+    <div className="flex items-start gap-2 mt-3">
+      <input type="checkbox" defaultChecked className="mt-1" />
+      <label className="text-xs text-zinc-500">
+        By submitting, you agree to our{' '}
+        <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
+          Privacy Policy
+        </Link>
+      </label>
+    </div>
+  </div>
+</div>
     </form>
   </div>
 </div>
