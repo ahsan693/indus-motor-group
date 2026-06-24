@@ -104,108 +104,108 @@ export function Navbar() {
 
   // Always fixed, full width, high z-index, solid bg
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
-      <div className="layout-shell py-4 md:py-5">
-        <div className="flex w-full items-center gap-3">
-          <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
-            <img 
-              src={LogoImg} 
-              alt="Indus Motor Group Logo" 
-              className="h-8 w-auto sm:h-10 md:h-12"
-            />
+   <section className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
+  <div className="layout-shell py-4 md:py-5">
+    <div className="flex w-full items-center gap-3">
+      <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
+        <img 
+          src={LogoImg} 
+          alt="Indus Motor Group Logo" 
+          className="h-8 w-auto sm:h-10 md:h-12"
+        />
+      </Link>
+
+      <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
+        <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+          Home
+        </Link>
+        {navItems.map((item) => (
+          <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+            {item.label}
           </Link>
+        ))}
+      </nav>
 
-          <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
-            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
-              Home
-            </Link>
-            {navItems.map((item) => (
-              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
-              Contact Us
-            </Link>
-          </div>
-
-          {/* Hamburger menu button: only visible when sidebar is closed */}
-          {!isMobileMenuOpen && (
-            <button
-              type="button"
-              className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
-              aria-label="Open menu"
-              aria-controls="mobile-nav"
-              aria-expanded={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(true)}
-              style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
-            >
-              <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
-                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
-                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
-              </span>
-            </button>
-          )}
-        </div>
-
-        <div
-          id="mobile-nav"
-          className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-          role="dialog"
-          aria-modal={isMobileMenuOpen}
-        >
-          {/* backdrop */}
-          <div
-            className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-
-          {/* slide-in panel */}
-          <div
-            className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-            ref={mobileNavRef}
-            aria-hidden={!isMobileMenuOpen}
-          >
-            {/* Close button inside sidebar */}
-            {isMobileMenuOpen && (
-              <button
-                type="button"
-                className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
-                aria-label="Close menu"
-                onClick={() => setIsMobileMenuOpen(false)}
-                style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
-              >
-                <span className="relative block h-5 w-5">
-                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
-                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded bg-white"></span>
-                </span>
-              </button>
-            )}
-            <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
-              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
-                Home
-              </Link>
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
-                Contact Us
-              </Link>
-            </nav>
-          </div>
-        </div>
+      <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
+        <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
+          Contact Us
+        </Link>
       </div>
-    </header>
+
+      {/* Hamburger menu button: only visible when sidebar is closed */}
+      {!isMobileMenuOpen && (
+        <button
+          type="button"
+          className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
+          aria-label="Open menu"
+          aria-controls="mobile-nav"
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen(true)}
+          style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+        >
+          <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
+            <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+            <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+          </span>
+        </button>
+      )}
+    </div>
+
+    <div
+      id="mobile-nav"
+      className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      role="dialog"
+      aria-modal={isMobileMenuOpen}
+    >
+      {/* backdrop */}
+      <div
+        className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* slide-in panel */}
+      <div
+        className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        ref={mobileNavRef}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        {/* Close button inside sidebar */}
+        {isMobileMenuOpen && (
+          <button
+            type="button"
+            className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
+            aria-label="Close menu"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+          >
+            <span className="relative block h-5 w-5">
+              <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
+              <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded bg-white"></span>
+            </span>
+          </button>
+        )}
+        <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
+          <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+            Home
+          </Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              to={item.to}
+              className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+              onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+            Contact Us
+          </Link>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
   )
 }
 
@@ -252,15 +252,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden iphone:text-[15px]">
-      <section style={{ height: 'var(--hero-height, calc(var(--vh, 1vh) * 100))' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-screen w-screen overflow-hidden">
-        <img
-          src={navbarBg}
-          alt="Luxury vehicle background"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full scale-[1.20] object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:inset-x-0 iphone:top-0 iphone:bottom-auto iphone:h-[var(--hero-image-height)]"
-        />
+     <section style={{ height: 'var(--hero-height, calc(var(--vh, 1vh) * 100))' }} className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] h-screen w-screen overflow-hidden">
+  <img
+    src={navbarBg}
+    alt="Luxury vehicle background"
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+    className="absolute inset-0 h-full w-full object-cover object-[58%_29%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] iphone:inset-x-0 iphone:top-0 iphone:bottom-auto iphone:h-[var(--hero-image-height)] animate-kenburns"
+  />
         <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
 
         <Navbar />

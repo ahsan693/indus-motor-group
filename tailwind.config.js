@@ -8,11 +8,18 @@ export default {
         mono: ['TT Interphases Pro Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       screens: {
-        // mobile / small phone breakpoint for iPhone-like widths
         iphone: { max: '430px' },
+      },
+      keyframes: {
+        kenburns: {
+          '0%':   { transform: 'scale(1.12) translateX(20px) translateY(10px)' },
+          '100%': { transform: 'scale(1) translateX(0px) translateY(0px)' },
+        },
+      },
+      animation: {
+        kenburns: 'kenburns 8s ease-out forwards',
       },
     },
   },
   plugins: [],
 }
-
