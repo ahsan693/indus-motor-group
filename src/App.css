@@ -1,3 +1,19 @@
+@keyframes kenburns {
+  0% {
+    transform: scale(1.12) translateX(20px) translateY(10px);
+  }
+  100% {
+    transform: scale(1) translateX(0px) translateY(0px);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 8s ease-out forwards;
+  will-change: transform;
+}
+
+
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

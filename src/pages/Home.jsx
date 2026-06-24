@@ -74,7 +74,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll and manage focus when mobile menu is open
   useEffect(() => {
     if (!mobileNavRef) return
 
@@ -87,7 +86,6 @@ export function Navbar() {
       prevOverflow = document.body.style.overflow
       document.body.style.overflow = 'hidden'
 
-      // Focus the first focusable element in the mobile menu
       requestAnimationFrame(() => {
         const first = mobileNavRef.current?.querySelector('a,button')
         first?.focus()
@@ -102,7 +100,6 @@ export function Navbar() {
     }
   }, [isMobileMenuOpen])
 
-  // Always fixed, full width, high z-index, solid bg
   return (
    <section className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
   <div className="layout-shell py-4 md:py-5">
@@ -132,7 +129,6 @@ export function Navbar() {
         </Link>
       </div>
 
-      {/* Hamburger menu button: only visible when sidebar is closed */}
       {!isMobileMenuOpen && (
         <button
           type="button"
@@ -157,19 +153,16 @@ export function Navbar() {
       role="dialog"
       aria-modal={isMobileMenuOpen}
     >
-      {/* backdrop */}
       <div
         className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* slide-in panel */}
       <div
         className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         ref={mobileNavRef}
         aria-hidden={!isMobileMenuOpen}
       >
-        {/* Close button inside sidebar */}
         {isMobileMenuOpen && (
           <button
             type="button"
@@ -301,10 +294,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Add top padding to prevent content hiding behind fixed navbar (height: ~64px on desktop, ~48px on mobile) */}
-      <main className="layout-shell layout-stack pt-9 sm:pt-9 md:pt-[56px]">
-        <section className="mt-2 sm:mt-2 md:mt-[16px]">
-          <div className="mb-6 sm:mb-6 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-2 md:gap-3">
+      {/* OPTIMIZED SPACING: Consistent top padding + improved section gaps */}
+      <main className="layout-shell layout-stack">
+        {/* Featured Cars Section */}
+        <section className="pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-10 md:pb-16">
+          <div className="mb-8 sm:mb-10 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 md:gap-4">
             <h2 className="text-[22px] font-normal text-white md:text-[30px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[14px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] md:px-5 md:py-2">
               View All Cars
@@ -321,21 +315,17 @@ export default function Home() {
           ) : recentCars.length === 0 ? (
             <p className="text-[16px] text-zinc-400 md:text-[18px]">No featured cars available at the moment.</p>
           ) : (
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
               {recentCars.map((car) => {
-                // Handle both Sanity image objects and direct URLs
                 let imageUrl = null
                 if (car.images?.[0]) {
                   const img = car.images[0]
-                  // Check if it's a proper Sanity image object with _type
                   if (img._type === 'image' || img.asset) {
                     imageUrl = urlFor(img).width(600).url()
                   } 
-                  // Check if it's a URL string directly
                   else if (typeof img === 'string') {
                     imageUrl = img
                   }
-                  // Check if it has a url property
                   else if (img.url) {
                     imageUrl = img.url
                   }
@@ -357,7 +347,7 @@ export default function Home() {
                         No image
                       </div>
                     )}
-                    <div className="space-y-2 p-2 md:space-y-[15px] md:p-[10px]">
+                    <div className="space-y-3 p-3 md:space-y-3 md:p-3">
                       <div className="flex items-start justify-between gap-1 md:gap-3">
                         <h3 className="truncate text-[13px] font-normal text-white md:text-[16px]">{car.make} {car.model}</h3>
                         <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details {'>'}</span>
@@ -365,19 +355,19 @@ export default function Home() {
                       <p className="text-[13px] font-normal text-[#BABABA] md:text-[16px]">
                         {car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
                       </p>
-                      <div className="flex flex-wrap gap-1 md:gap-[10px]">
+                      <div className="flex flex-wrap gap-2 md:gap-2">
                         {car.transmission && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[14px] font-normal text-white md:text-[11px]">
+                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
                             {car.transmission}
                           </span>
                         )}
                         {car.fuelType && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[14px] font-normal text-white md:text-[11px]">
+                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
                             {car.fuelType}
                           </span>
                         )}
                         {car.seats && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-2 py-0.5 text-[14px] font-normal text-white md:text-[11px]">
+                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
                             {car.seats} Seats
                           </span>
                         )}
@@ -393,39 +383,39 @@ export default function Home() {
           )}
         </section>
 
-        {/* Trade-In & Financing Options Section */}
-        <section className="mt-12 overflow-hidden bg-black sm:mt-14 md:mt-[150px]">
-          <div className="border-b border-zinc-800 px-2 py-4 md:px-5 md:py-12">
+        {/* Trade-In & Financing Section */}
+        <section className="pt-8 sm:pt-10 md:pt-16 pb-0 bg-black">
+          <div className="border-b border-zinc-800 px-0 py-6 sm:py-8 md:py-12 mb-0">
             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 bg-black md:grid-cols-2 md:gap-0">
-            <article className="group px-2 py-3 md:min-h-[160px] md:px-5 md:py-5">
-              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
+          <div className="grid grid-cols-1 gap-0 bg-black md:grid-cols-2">
+            <article className="group px-4 sm:px-5 py-6 sm:py-8 md:min-h-[160px] md:px-6 md:py-8 border-b md:border-b md:border-r md:border-zinc-800">
+              <div className="mb-4 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <img src={tradeInIcon} alt="Trade-in icon" className="h-3.5 w-3.5" />
               </div>
-              <h3 className="text-[13px] font-normal text-zinc-100 md:text-[18px]">Trade-In</h3>
-              <p className="mt-1.5 max-w-[300px] text-[13px] leading-6 text-zinc-500 md:text-[18px]">
+              <h3 className="text-[15px] font-normal text-zinc-100 md:text-[18px]">Trade-In</h3>
+              <p className="mt-2 max-w-[300px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
-              <button className="ui-btn mt-2.5 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
+              <button className="ui-btn mt-4 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
                 <span className="transition-transform duration-300 group-hover:translate-x-1">Enquire Now</span>
                 <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </button>
             </article>
 
-            <article className="group px-2 py-3 md:min-h-[160px] md:px-5 md:py-5">
-              <div className="mb-3 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
+            <article className="group px-4 sm:px-5 py-6 sm:py-8 md:min-h-[160px] md:px-6 md:py-8 border-b md:border-b-0">
+              <div className="mb-4 grid h-6 w-6 place-items-center rounded-sm bg-zinc-900">
                 <img src={financeIcon} alt="Finance icon" className="h-3.5 w-3.5" />
               </div>
-              <h3 className="text-[13px] font-normal text-zinc-100 md:text-[18px]">Finance Assistance</h3>
-              <p className="mt-1.5 max-w-[320px] text-[13px] leading-6 text-zinc-500 md:text-[18px]">
+              <h3 className="text-[15px] font-normal text-zinc-100 md:text-[18px]">Finance Assistance</h3>
+              <p className="mt-2 max-w-[320px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Finance options available through trusted third party lenders.
               </p>
-              <button className="ui-btn mt-2.5 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
+              <button className="ui-btn mt-4 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
                 <span className="transition-transform duration-300 group-hover:translate-x-1">Learn More</span>
                 <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </button>
@@ -437,98 +427,100 @@ export default function Home() {
             alt="Luxury car interior"
             loading="lazy"
             decoding="async"
-            className="mt-3 h-[180px] object-cover md:mt-0 md:h-[500px]"
-            style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', padding: 0 }}
+            className="h-[180px] w-full object-cover md:h-[500px]"
           />
         </section>
 
-<section
-  className="mt-12 rounded-2xl px-4 py-8 sm:mt-14 md:mt-[150px] md:px-10 md:py-11"
-  style={{ backgroundColor: '#0d0d0d' }}
->
-  <div className="max-w-[980px] mx-auto">
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        {/* Warranty Section */}
+        <section
+          className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14 rounded-none sm:rounded-2xl px-4 sm:px-6 md:px-10 md:py-12 sm:my-8 md:my-0"
+          style={{ backgroundColor: '#0d0d0d' }}
+        >
+          <div className="max-w-[980px] mx-auto">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-8">
 
-      {/* TEXT CONTENT */}
-      <div className="md:order-1 md:flex-1 md:flex md:justify-center">
-        <div className="md:max-w-[480px] w-full">
+              {/* TEXT CONTENT */}
+              <div className="md:order-1 md:flex-1 md:flex md:justify-center mb-6 sm:mb-8 md:mb-0">
+                <div className="md:max-w-[480px] w-full">
 
-          {/* Eyebrow */}
-          <span className="inline-flex items-center justify-center md:justify-start gap-1 text-[13px] text-zinc-500 md:text-[16px] w-full">
-            <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
-              <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
-            </svg>
-            Peace of Mind Included
-          </span>
+                  {/* Eyebrow */}
+                  <span className="inline-flex items-center justify-center md:justify-start gap-1 text-[13px] text-zinc-500 md:text-[16px] w-full">
+                    <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
+                      <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
+                    </svg>
+                    Peace of Mind Included
+                  </span>
 
-          {/* Heading */}
-          <h2 className="mt-4 text-[38px] font-normal leading-[1.1] text-zinc-100 md:text-[30px] md:leading-tight text-center md:text-left">
-            Warranty &<br className="md:hidden" /> Aftercare<br className="md:hidden" /> Protection
-          </h2>
+                  {/* Heading */}
+                  <h2 className="mt-4 text-[28px] sm:text-[32px] font-normal leading-tight text-zinc-100 md:text-[30px] text-center md:text-left">
+                    Warranty &<br className="md:hidden" /> Aftercare<br className="md:hidden" /> Protection
+                  </h2>
 
-          {/* Badge — mobile only */}
-          <div className="flex justify-center my-10 md:hidden">
-            <img
-              src={warrantyBadgeImg}
-              alt="2 year warranty badge"
-              loading="lazy"
-              decoding="async"
-              className="h-[150px] w-[130px] object-contain"
-            />
+                  {/* Badge — mobile only */}
+                  <div className="flex justify-center my-8 sm:my-10 md:hidden">
+                    <img
+                      src={warrantyBadgeImg}
+                      alt="2 year warranty badge"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-[150px] w-[130px] object-contain"
+                    />
+                  </div>
+
+                  {/* Body text + checklist */}
+                  <div className="text-[14px] leading-7 text-zinc-300 md:mt-8 md:text-[16px] text-center md:text-left">
+                    <p className="mb-4 md:mb-6">
+                      Warranty cover available on all vehicles<br />
+                      through trusted providers.
+                    </p>
+                    <ul className="space-y-3 md:space-y-4 inline-block text-left">
+                      <li className="flex items-center gap-3">
+                        <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span className="text-[14px] md:text-[16px]">Up to 2 Years Coverage</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span className="text-[14px] md:text-[16px]">Wide range of protection plans</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span className="text-[14px] md:text-[16px]">Added peace of mind</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+              {/* BADGE — desktop only, right side */}
+              <div className="hidden md:flex flex-shrink-0 md:order-2">
+                <img
+                  src={warrantyBadgeImg}
+                  alt="2 year warranty badge"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[210px] w-[182px] object-contain"
+                />
+              </div>
+
+            </div>
           </div>
+        </section>
 
-          {/* Body text + checklist */}
-          <div className="text-[14px] leading-7 text-zinc-300 md:mt-8 md:text-[18px] text-center md:text-left">
-            <p className="mb-4 md:mb-6">
-              Warranty cover available on all vehicles<br />
-              through trusted providers.
-            </p>
-            <ul className="space-y-3 md:space-y-4 inline-block text-left">
-              <li className="flex items-center gap-2">
-                <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span>Up to 2 Years Coverage</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span>Wide range of protection plans</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span>Added peace of mind</span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      {/* BADGE — desktop only, right side */}
-      <div className="hidden md:flex flex-shrink-0 md:order-2">
-        <img
-          src={warrantyBadgeImg}
-          alt="2 year warranty badge"
-          loading="lazy"
-          decoding="async"
-          className="h-[210px] w-[182px] object-contain"
-        />
-      </div>
-
-    </div>
-  </div>
-</section>
-        <section className="mt-12 sm:mt-14 md:mt-[150px]">
-          <h2 className="mb-6 text-center text-[22px] font-normal leading-tight text-white md:mb-20 md:text-[30px]">Why Choose Indus Motor Group</h2>
-          <div className="grid grid-cols-1 gap-x-4 gap-y-3 sm:gap-y-8 md:grid-cols-2">
+        {/* Why Choose Section */}
+        <section className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14">
+          <h2 className="mb-8 sm:mb-10 text-center text-[22px] font-normal leading-tight text-white md:mb-16 md:text-[30px]">Why Choose Indus Motor Group</h2>
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-4">
             {whyChooseCards.map((card) => (
               <article
                 key={card.title}
-                className="group relative overflow-hidden rounded-[14px] bg-black transition-transform duration-500 ease-out hover:-translate-y-1 aspect-[16/9] md:aspect-[16/9]"
+                className="group relative overflow-hidden rounded-[14px] bg-black transition-transform duration-500 ease-out hover:-translate-y-1 aspect-[16/9]"
               >
                 <img
                   src={card.image}
@@ -539,9 +531,9 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 flex flex-col justify-end">
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%] md:h-[45%] bg-gradient-to-t from-black/95 via-black/80 to-transparent"></div>
-                  <div className="relative z-20 px-2 pb-2 md:px-5 md:pb-4">
-                    <h3 className="text-[13px] font-normal leading-tight text-white md:text-[18px]">{card.title}</h3>
-                    <p className="mt-1 max-w-none text-[13px] leading-6 text-zinc-200 md:max-w-[300px] md:text-[18px]">{card.body}</p>
+                  <div className="relative z-20 px-4 pb-4 md:px-5 md:pb-5">
+                    <h3 className="text-[14px] font-normal leading-tight text-white md:text-[18px]">{card.title}</h3>
+                    <p className="mt-1.5 max-w-none text-[13px] leading-6 text-zinc-200 md:max-w-[300px] md:text-[16px]">{card.body}</p>
                   </div>
                 </div>
               </article>
@@ -549,17 +541,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-12 text-center sm:mt-14 md:mt-[150px]">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1 text-[13px] text-zinc-300 md:text-[16px]">
+        {/* Testimonials Section */}
+        <section className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1.5 text-[13px] text-zinc-300 md:text-[16px]">
             <svg viewBox="0 0 16 16" className="h-2 w-2 text-zinc-400" fill="currentColor" aria-hidden="true">
               <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
             </svg>
             Trusted by Drivers Across Ireland
           </span>
           <h2 className="mt-4 text-[22px] font-normal leading-tight text-white md:text-[30px]">What Our Customers Say</h2>
-          <p className="mt-2 text-[13px] text-zinc-500 md:text-[18px]">Real feedback from customers who purchased their vehicles from us.</p>
+          <p className="mt-2 text-[13px] text-zinc-500 md:text-[16px]">Real feedback from customers who purchased their vehicles from us.</p>
 
-          <div className="mt-6 md:hidden">
+          <div className="mt-8 md:hidden">
             <div
               ref={testimonialsCarouselRef}
               onScroll={handleTestimonialScroll}
@@ -587,7 +580,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-3 flex items-center justify-center gap-1.5">
+            <div className="mt-4 flex items-center justify-center gap-1.5">
               {testimonials.map((item, idx) => (
                 <button
                   key={item.name}
@@ -605,11 +598,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mt-16">
+          <div className="mt-10 hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mt-14">
             {testimonials.map((item) => (
-              <article key={item.name} className="group rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out hover:-translate-y-1 md:p-5">
+              <article key={item.name} className="group rounded-2xl bg-[#101010] p-5 text-left transition-transform duration-500 ease-out hover:-translate-y-1 md:p-6">
                 <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px]">★★★★★</p>
-                <p className="mt-3 min-h-[92px] text-[16px] leading-6 text-zinc-300 md:text-[18px]">{item.quote}</p>
+                <p className="mt-3 min-h-[92px] text-[15px] leading-6 text-zinc-300 md:text-[16px]">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-2.5">
                   <img
                     src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
@@ -617,8 +610,8 @@ export default function Home() {
                     className="h-6 w-6 rounded-full bg-white p-0.5"
                   />
                   <div>
-                    <p className="text-[16px] font-medium text-white md:text-[16px]">{item.name}</p>
-                    <p className="text-[14px] text-zinc-500 md:text-[14px]">Dublin</p>
+                    <p className="text-[16px] font-medium text-white">{item.name}</p>
+                    <p className="text-[14px] text-zinc-500">Dublin</p>
                   </div>
                 </div>
               </article>
@@ -627,7 +620,8 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="relative mx-auto mt-12 h-[200px] w-full max-w-[1440px] overflow-hidden sm:mt-14 sm:h-[420px] md:mt-[150px] md:h-[600px]">
+      {/* CTA Section with Image */}
+      <section className="relative mx-auto mt-8 sm:mt-10 md:mt-16 h-[200px] w-full max-w-[1440px] overflow-hidden">
         <img
           src={findYourCarImg}
           alt="Find your next car"
@@ -636,11 +630,11 @@ export default function Home() {
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-4 sm:pt-8 md:pt-10">
-          <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px]">Find Your Next Car Today</h2>
+        <div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pt-0 pb-4 sm:pb-6 md:pb-8">
+          <h2 className="max-w-[420px] text-[20px] sm:text-[24px] font-normal text-white md:text-[30px]">Find Your Next Car Today</h2>
           <Link
             to="/cars"
-            className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[14px] font-medium text-black md:text-[16px] md:px-6 md:py-2.5"
+            className="ui-btn mt-4 sm:mt-5 inline-flex rounded-full bg-white px-5 sm:px-6 py-2 sm:py-2.5 text-[14px] font-medium text-black md:text-[16px]"
             style={{ justifyContent: 'flex-start' }}
           >
             Browse Available Cars
@@ -648,12 +642,12 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="mt-12 bg-black sm:mt-14 md:mt-10">
+      <footer className="mt-8 sm:mt-10 md:mt-16 bg-black">
         <div className="site-footer-shell text-white text-[14px]">
               <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
-              <p className="site-footer-copy text-[14px] leading-4 font-normal md:text-[14px] md:leading-tight">
+              <p className="site-footer-copy text-[13px] sm:text-[14px] leading-6 font-normal md:text-[14px] md:leading-tight">
                 Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
               </p>
               <div className="mt-4 flex items-center gap-3 text-white">
@@ -710,19 +704,19 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="border-t border-zinc-800 px-5 py-6 text-center md:px-8 md:py-8">
-          <p className="site-footer-legal">
+        <div className="border-t border-zinc-800 px-4 sm:px-5 py-6 sm:py-8 text-center md:px-8 md:py-10">
+          <p className="site-footer-legal text-[12px] sm:text-[13px] md:text-[14px] leading-6">
             Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
           </p>
-          <p className="mt-2 text-[13px] text-white md:text-[14px]">
+          <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
             <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
             {' '}|{' '}
             <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
             {' '}|{' '}
             <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
           </p>
-          <p className="mt-2 text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
-          <p className="mt-2 text-[13px] text-white md:text-[14px]">
+          <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+          <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
             Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
           </p>
         </div>
