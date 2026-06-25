@@ -225,7 +225,8 @@ const [openFaq, setOpenFaq] = useState(null)
 				<Navbar overlay />
 
 				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-3">
-					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[26px] iphone:leading-tight">Car Finance Made Simple</h1>
+					 <h1 className="mt-4 sm:mt-6 text-[32px] sm:text-[44px] md:text-[60px] lg:text-[72px] font-normal leading-[1.1] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)]">
+               Car Finance Made Simple</h1>
 				</div>
 			</section>
 
