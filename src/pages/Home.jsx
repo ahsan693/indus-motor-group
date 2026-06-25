@@ -614,27 +614,27 @@ export default function Home() {
         </section>
       </main>
 
-      {/* CTA Section with Image */}
-      <section className="relative mx-auto mt-8 sm:mt-10 md:mt-16 h-[200px] w-full max-w-[1440px] overflow-hidden">
-        <img
-          src={findYourCarImg}
-          alt="Find your next car"
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-        <div className="hero-content-rise absolute inset-x-0 bottom-0 hero-shell pt-0 pb-4 sm:pb-6 md:pb-8">
-          <h2 className="max-w-[420px] text-[20px] sm:text-[24px] font-normal text-white md:text-[30px]">Find Your Next Car Today</h2>
-          <Link
-            to="/cars"
-            className="ui-btn mt-4 sm:mt-5 inline-flex rounded-full bg-white px-5 sm:px-6 py-2 sm:py-2.5 text-[14px] font-medium text-black md:text-[16px]"
-            style={{ justifyContent: 'flex-start' }}
-          >
-            Browse Available Cars
-          </Link>
-        </div>
-      </section>
+    {/* CTA Section with Image */}
+<section className="relative mx-auto mt-8 sm:mt-10 md:mt-16 h-[200px] md:h-[541px] w-full max-w-[1440px] overflow-hidden">
+  <img
+    src={findYourCarImg}
+    alt="Find your next car"
+    loading="lazy"
+    decoding="async"
+    className="h-full w-full object-cover object-center"
+  />
+<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
+					<h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Find Your Next Car Today</h2>
+    <Link
+      to="/cars"
+      className="ui-btn mt-4 sm:mt-5 inline-flex rounded-full bg-white px-5 sm:px-6 py-2 sm:py-2.5 text-[14px] font-medium text-black md:text-[16px]"
+      style={{ justifyContent: 'flex-start' }}
+    >
+      Browse Available Cars
+    </Link>
+  </div>
+</section>
 
       <footer className="mt-8 sm:mt-10 md:mt-16 bg-black">
         <div className="site-footer-shell text-white text-[14px]">
