@@ -101,104 +101,104 @@ export function Navbar() {
   }, [isMobileMenuOpen])
 
   return (
-   <section className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
-  <div className="layout-shell py-4 md:py-5">
-    <div className="flex w-full items-center gap-3">
-      <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
-        <img 
-          src={LogoImg} 
-          alt="Indus Motor Group Logo" 
-          className="h-8 w-auto sm:h-10 md:h-12"
-        />
-      </Link>
-
-      <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
-        <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
-          Home
-        </Link>
-        {navItems.map((item) => (
-          <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
-            {item.label}
+    <section className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-sm' : 'bg-black/0'}`}>
+      <div className="layout-shell py-4 md:py-5">
+        <div className="flex w-full items-center gap-3">
+          <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
+            <img 
+              src={LogoImg} 
+              alt="Indus Motor Group Logo" 
+              className="h-8 w-auto sm:h-10 md:h-12"
+            />
           </Link>
-        ))}
-      </nav>
 
-      <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-        <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
-          Contact Us
-        </Link>
-      </div>
-
-      {!isMobileMenuOpen && (
-        <button
-          type="button"
-          className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
-          aria-label="Open menu"
-          aria-controls="mobile-nav"
-          aria-expanded={isMobileMenuOpen}
-          onClick={() => setIsMobileMenuOpen(true)}
-          style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
-        >
-          <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
-            <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
-            <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
-          </span>
-        </button>
-      )}
-    </div>
-
-    <div
-      id="mobile-nav"
-      className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-      role="dialog"
-      aria-modal={isMobileMenuOpen}
-    >
-      <div
-        className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-        onClick={() => setIsMobileMenuOpen(false)}
-      />
-
-      <div
-        className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-        ref={mobileNavRef}
-        aria-hidden={!isMobileMenuOpen}
-      >
-        {isMobileMenuOpen && (
-          <button
-            type="button"
-            className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
-            aria-label="Close menu"
-            onClick={() => setIsMobileMenuOpen(false)}
-            style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
-          >
-            <span className="relative block h-5 w-5">
-              <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
-              <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded bg-white"></span>
-            </span>
-          </button>
-        )}
-        <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
-          <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
-            Home
-          </Link>
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-              onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
-            >
-              {item.label}
+          <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
+            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+              Home
             </Link>
-          ))}
-          <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
-            Contact Us
-          </Link>
-        </nav>
+            {navItems.map((item) => (
+              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
+            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
+              Contact Us
+            </Link>
+          </div>
+
+          {!isMobileMenuOpen && (
+            <button
+              type="button"
+              className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(true)}
+              style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+            >
+              <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
+                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+                <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
+              </span>
+            </button>
+          )}
+        </div>
+
+        <div
+          id="mobile-nav"
+          className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+          role="dialog"
+          aria-modal={isMobileMenuOpen}
+        >
+          <div
+            className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+
+          <div
+            className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            ref={mobileNavRef}
+            aria-hidden={!isMobileMenuOpen}
+          >
+            {isMobileMenuOpen && (
+              <button
+                type="button"
+                className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
+                aria-label="Close menu"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
+              >
+                <span className="relative block h-5 w-5">
+                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
+                  <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded bg-white"></span>
+                </span>
+              </button>
+            )}
+            <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
+              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+                Home
+              </Link>
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+                Contact Us
+              </Link>
+            </nav>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   )
 }
 
@@ -244,47 +244,51 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden iphone:text-[15px]">
-      <section className="relative min-h-[100svh] w-full overflow-hidden md:min-h-screen">
-        <img
-          src={navbarBg}
-          alt="Luxury vehicle background"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-center brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-[56%_34%] animate-kenburns"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/85"></div>
+    <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden">
+      {/* HERO SECTION - FIXED FOR MOBILE IMAGE DISPLAY */}
+  <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
+  <img
+    src={navbarBg}
+    alt="Luxury vehicle background"
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+    className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/95"></div>
 
-        <Navbar />
+  <Navbar />
 
-        <div className="relative z-10 flex min-h-[100svh] flex-col justify-end md:min-h-screen">
-          <div className="hero-shell pb-10 sm:pb-12 md:pb-16 lg:pb-20">
-            <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black/60 px-4 py-2 text-xs text-white shadow-lg backdrop-blur-sm md:text-[14px]">
-              <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
-                <path d="M8 4l4 5 4-5" />
-              </svg>
-              Drive Away with Confidence
-            </span>
+  <div className="relative z-10 flex h-full flex-col justify-end md:h-screen md:min-h-screen">
+    <div className="hero-shell pb-10 sm:pb-12 md:pb-16 lg:pb-20">
+      <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black/60 px-4 py-2 text-xs text-white shadow-lg backdrop-blur-sm md:text-[14px]">
+        <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
+          <path d="M8 4l4 5 4-5" />
+        </svg>
+        Drive Away with Confidence
+      </span>
 
-            <h1 className="max-w-[700px] text-[38px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] min-[390px]:text-[44px] sm:text-[52px] md:text-[60px] lg:text-[72px]">
-              <span className="block">Quality Used Cars</span>
-              <span className="block">in Ireland</span>
-            </h1>
+      <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
+        <span className="block md:hidden">Quality</span>
+        <span className="block md:hidden">Used Cars</span>
+        <span className="block md:hidden">in Ireland</span>
+        <span className="hidden md:block">Quality Used Cars</span>
+        <span className="hidden md:block">in Ireland</span>
+      </h1>
 
-            <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-[16px] md:text-[18px]">
-              Transparent pricing. Nationwide delivery.
-            </p>
+      <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-[16px] md:text-[18px]">
+        Transparent pricing. Nationwide delivery.
+      </p>
 
-            <Link to="/cars" className="ui-btn mt-7 inline-flex w-fit rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]">
-              Browse Available Cars
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Link to="/cars" className="ui-btn mt-7 inline-flex w-fit rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]">
+        Browse Available Cars
+      </Link>
+    </div>
+  </div>
+</section>
 
-      {/* OPTIMIZED SPACING: Consistent top padding + improved section gaps */}
+      {/* MAIN CONTENT */}
       <main className="layout-shell layout-stack">
         {/* Featured Cars Section */}
         <section className="pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-10 md:pb-16">
