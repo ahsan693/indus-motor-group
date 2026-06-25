@@ -206,8 +206,7 @@ export default function About() {
 				<Navbar overlay />
 
 				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
-					 <h1 className="mt-4 sm:mt-6 text-[32px] sm:text-[44px] md:text-[60px] lg:text-[72px] font-normal leading-[1.1] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)]">
-               Our Story</h1>
+					<h1 className="hero-heading-mobile text-[22px] font-normal leading-tight text-white drop-shadow-md min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">Our Story</h1>
 					<p className="hero-subtitle-mobile mt-2 text-[16px] text-zinc-300 drop-shadow md:text-[18px] iphone:text-[13px]">About Indus Motor Group</p>
 				</div>
 			</section>
