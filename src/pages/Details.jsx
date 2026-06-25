@@ -380,64 +380,80 @@ export default function Details() {
 	return (
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
-			{/* Back button: always below navbar, never overlapping, with clear spacing */}
+
+			{/* Back button */}
 			<div className="layout-shell">
-				<div className="mt-4 md:mt-28 iphone:mt-4 mb-2 md:mb-4 iphone:mb-2">
+				<div className="mt-4 md:mt-28 iphone:mt-[72px] mb-2 md:mb-4 iphone:mb-3">
 					<Link
 						to="/cars"
-						className="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg iphone:px-4 iphone:py-2 iphone:text-[15px]"
+						className="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg iphone:px-4 iphone:py-2 iphone:text-[14px]"
 						style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)' }}
 					>
-						<span className="mr-2 text-xl md:text-xl iphone:text-lg" aria-hidden="true">&#8592;</span>
+						<span className="mr-2 text-xl md:text-xl iphone:text-base" aria-hidden="true">&#8592;</span>
 						Back
 					</Link>
 				</div>
 			</div>
 
-			<main className="layout-shell py-4 md:py-10 iphone:py-2">
-				{/* ...existing code... */}
-				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-3 iphone:mt-3">
-					<div className="space-y-6 iphone:space-y-3">
-						{/* Back button moved above, removed here for better spacing */}
+			<main className="layout-shell py-4 md:py-10 iphone:py-2 iphone:pt-1">
+
+				{/* ── Hero Section ── */}
+				<section className="motion-rise mt-6 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:mt-3 iphone:gap-5">
+
+					{/* Left: title, price, tags, description, CTA */}
+					<div className="space-y-6 iphone:space-y-4">
 
 						<div className="space-y-2 iphone:space-y-1">
-							<h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[48px] iphone:leading-tight">{car.make} {car.model}</h1>
-							<p className="text-4xl font-normal text-white iphone:text-[28px]">{formatPrice(car.price)}</p>
+							<h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[20px] iphone:leading-snug">
+								{car.make} {car.model}
+							</h1>
+							<p className="text-4xl font-normal text-white iphone:text-[22px]">
+								{formatPrice(car.price)}
+							</p>
 						</div>
 
-						<div className="flex flex-wrap gap-2 iphone:gap-1">
+						<div className="flex flex-wrap gap-2 iphone:gap-1.5">
 							{HERO_TAGS.map((tag) => (
-								<span key={tag} className="rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-[11px] text-zinc-300 iphone:text-[14px] iphone:px-2 iphone:py-0.5">
+								<span
+									key={tag}
+									className="rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-[11px] text-zinc-300 iphone:text-[11px] iphone:px-2.5 iphone:py-1"
+								>
 									{tag}
 								</span>
 							))}
 						</div>
 
 						{car.description && (
-							<p className="max-w-xl text-sm leading-7 text-zinc-400 iphone:text-[14px] iphone:leading-5">
+							<p className="max-w-xl text-sm leading-7 text-zinc-400 iphone:text-[12px] iphone:leading-5">
 								{car.description}
 							</p>
 						)}
 
 						{heroSummary.length > 0 && (
-							<p className="text-sm text-zinc-400 iphone:text-[13px]">{heroSummary.join(' · ')}</p>
+							<p className="text-sm text-zinc-400 iphone:text-[12px]">
+								{heroSummary.join(' · ')}
+							</p>
 						)}
 
-						<a href={enquiryMail} className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">
+						<a
+							href={enquiryMail}
+							className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[13px] iphone:px-4 iphone:py-2"
+						>
 							Enquire Now <span className="ml-2">→</span>
 						</a>
 					</div>
 
+					{/* Right: image carousel */}
 					<div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl">
 						{activeImageUrl ? (
 							<img
 								src={activeImageUrl}
 								alt={`${car.make} ${car.model}`}
 								decoding="async"
-								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[180px]"
+								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px]"
 							/>
 						) : (
-							<div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[180px]">
+							<div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[190px]">
 								No image available
 							</div>
 						)}
@@ -477,41 +493,47 @@ export default function Details() {
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-1 mt-12 pb-4 md:mt-14 iphone:mt-5 iphone:pb-2">
-				<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px]">Vehicle Specifications</h2>
-          <div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2 iphone:gap-x-3 iphone:gap-y-1">
-            <div>
-              {leftSpecifications.map((spec) => (
-                <div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-2">
-                  <span className="text-sm text-zinc-500 iphone:text-[13px]">{spec.label}</span>
-                  <span className="text-sm text-white iphone:text-[13px]">{spec.value}</span>
-                </div>
-              ))}
-            </div>
-            <div>
-              {rightSpecifications.map((spec) => (
-                <div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-2">
-                  <span className="text-sm text-zinc-500 iphone:text-[13px]">{spec.label}</span>
-                  <span className="text-sm text-white iphone:text-[13px]">{spec.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+				{/* ── Vehicle Specifications ── */}
+				<section className="motion-rise motion-rise-delay-1 mt-12 pb-4 md:mt-14 iphone:mt-10 iphone:pb-2">
+					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[17px]">
+						Vehicle Specifications
+					</h2>
+					<div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2 iphone:mt-5 iphone:gap-x-3 iphone:gap-y-0">
+						<div>
+							{leftSpecifications.map((spec) => (
+								<div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-3.5">
+									<span className="text-sm text-zinc-500 iphone:text-[12px]">{spec.label}</span>
+									<span className="text-sm text-white iphone:text-[12px]">{spec.value}</span>
+								</div>
+							))}
+						</div>
+						<div>
+							{rightSpecifications.map((spec) => (
+								<div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-3.5">
+									<span className="text-sm text-zinc-500 iphone:text-[12px]">{spec.label}</span>
+									<span className="text-sm text-white iphone:text-[12px]">{spec.value}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				</section>
 
-				<section className="motion-rise mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10">
-					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px]">Features</h2>
+				{/* ── Features ── */}
+				<section className="motion-rise mt-10 border-t border-zinc-800 pt-8 md:mt-12 md:pt-10 iphone:mt-12 iphone:pt-8">
+					<h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[20px]">
+						Features
+					</h2>
 
 					{selectedFeatureGroups.length === 0 ? (
 						<p className="mt-6 text-sm text-zinc-500">No optional features selected for this vehicle.</p>
 					) : (
 						<div className="mt-6 border-t border-zinc-800">
 							{selectedFeatureGroups.map((group) => (
-								<div key={group.title} className="border-b border-zinc-800 py-6">
-									<div className="mb-4 flex items-center">
+								<div key={group.title} className="border-b border-zinc-800 py-6 iphone:py-5">
+									<div className="mb-4 flex items-center iphone:mb-3">
 										<h3 className="text-[14px] font-normal text-zinc-200">{group.title}</h3>
 									</div>
-									<div className="flex flex-wrap gap-x-8 gap-y-3">
+									<div className="flex flex-wrap gap-x-8 gap-y-3 iphone:gap-x-5 iphone:gap-y-2">
 										{group.selectedItems.map((item) => (
 											<span key={`${group.title}-${item}`} className="inline-flex items-center text-xs text-zinc-300 sm:text-sm">
 												{item}
@@ -524,47 +546,56 @@ export default function Details() {
 					)}
 				</section>
 
-				<section className="motion-rise mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10">
-					<div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
-						<div className="space-y-4">
-							<h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px] iphone:text-[22px]">Enquire About This Vehicle</h2>
-							<p className="max-w-md text-sm leading-6 text-zinc-400">
+				{/* ── Enquire Section ── */}
+				<section className="motion-rise mt-12 rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:mt-14 md:px-10 md:py-10 iphone:mt-12 iphone:rounded-2xl iphone:px-5 iphone:py-7">
+					<div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10 iphone:gap-7">
+						<div className="space-y-4 iphone:space-y-4">
+							<h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px] iphone:text-[20px]">
+								Enquire About This Vehicle
+							</h2>
+							<p className="max-w-md text-sm leading-6 text-zinc-400 iphone:text-[13px]">
 								Contact our team to arrange a viewing, ask questions, or check availability.
 							</p>
-							<a href={enquiryMail} className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black">
+							<a
+								href={enquiryMail}
+								className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[15px] iphone:px-5 iphone:py-2"
+							>
 								Enquire Now
 							</a>
 						</div>
 
-						<div className="grid gap-4 sm:grid-cols-2">
+						<div className="grid gap-4 sm:grid-cols-2 iphone:gap-3">
 							{ENQUIRY_HIGHLIGHTS.map((item) => (
-								<article key={item.title} className="group motion-card rounded-xl border border-zinc-800 bg-black/35 p-4">
-									<span className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
+								<article key={item.title} className="group motion-card rounded-xl border border-zinc-800 bg-black/35 p-4 iphone:p-3">
+									<span className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300 iphone:mb-2">
 										<HighlightIcon type={item.icon} />
 									</span>
-									<h3 className="motion-link-slide text-[14px] font-normal text-zinc-100">{item.title}</h3>
-									<p className="mt-2 text-xs leading-5 text-zinc-400">{item.description}</p>
+									<h3 className="motion-link-slide text-[14px] font-normal text-zinc-100 iphone:text-[13px]">{item.title}</h3>
+									<p className="mt-2 text-xs leading-5 text-zinc-400 iphone:mt-1 iphone:text-[11px]">{item.description}</p>
 								</article>
 							))}
 						</div>
 					</div>
 				</section>
 
-				<section className="motion-rise motion-rise-delay-2 mt-14 md:mt-16 iphone:mt-6">
-				  <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:gap-2">
-				    <div>
-				<h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[22px] iphone:font-normal">You May Also Like</h2>
-              <p className="mt-2 text-[11px] text-zinc-500 iphone:text-[14px]">
-                Discover more quality used cars available at Indus Motor Group.
-              </p>
-            </div>
-            <Link
-              to="/cars"
-              className="inline-flex items-center rounded-full bg-white px-5 py-2 text-[11px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:text-[14px] iphone:px-3 iphone:py-2"
-            >
-              View All Cars
-            </Link>
-          </div>
+				{/* ── You May Also Like ── */}
+				<section className="motion-rise motion-rise-delay-2 mt-14 md:mt-16 iphone:mt-14">
+					<div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:mb-6 iphone:flex-row iphone:items-center iphone:gap-3">
+						<div>
+							<h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[20px] iphone:font-normal">
+								You May Also Like
+							</h2>
+							<p className="mt-2 text-[11px] text-zinc-500 iphone:mt-1 iphone:text-[11px]">
+								Discover more quality used cars available at Indus Motor Group.
+							</p>
+						</div>
+						<Link
+							to="/cars"
+							className="inline-flex items-center rounded-full bg-white px-5 py-2 text-[11px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:px-3 iphone:py-1.5 iphone:text-[11px] iphone:shrink-0"
+						>
+							View All Cars
+						</Link>
+					</div>
 
 					{relatedCarsLoading ? (
 						<div className="flex items-center justify-center rounded-xl border border-zinc-800 py-10">
@@ -578,7 +609,7 @@ export default function Details() {
 							More vehicles are coming soon.
 						</div>
 					) : (
-						<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+						<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 iphone:gap-3">
 							{relatedCars.map((relatedCar) => {
 								const relatedImageUrl = getImageUrl(relatedCar.images?.[0], 900)
 								const relatedSummary = [
@@ -599,18 +630,20 @@ export default function Details() {
 													alt={`${relatedCar.make} ${relatedCar.model}`}
 													loading="lazy"
 													decoding="async"
-													className="motion-media h-44 w-full object-cover"
+													className="motion-media h-44 w-full object-cover iphone:h-36"
 												/>
 											) : (
-												<div className="flex h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">
+												<div className="flex h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500 iphone:h-36">
 													No image available
 												</div>
 											)}
 
-											<div className="space-y-3 p-4">
+											<div className="space-y-3 p-4 iphone:space-y-3 iphone:p-4">
 												<div className="flex items-start justify-between gap-3">
-													<h3 className="text-[16px] font-medium leading-tight text-white">{relatedCar.make} {relatedCar.model}</h3>
-													<span className="motion-link-slide pt-1 text-[11px] text-zinc-300">View Details {'>'}</span>
+													<h3 className="text-[16px] font-medium leading-tight text-white iphone:text-[14px]">
+														{relatedCar.make} {relatedCar.model}
+													</h3>
+													<span className="motion-link-slide pt-1 text-[11px] text-zinc-300 iphone:shrink-0">View Details {'>'}</span>
 												</div>
 
 												<p className="text-[11px] text-zinc-500">{relatedSummary.join(' · ')}</p>
@@ -623,7 +656,7 @@ export default function Details() {
 													))}
 												</div>
 
-												<p className="pt-1 text-3xl font-normal text-white">
+												<p className="pt-1 text-3xl font-normal text-white iphone:text-[22px] iphone:pt-0.5">
 													{relatedCar.price === undefined || relatedCar.price === null || relatedCar.price === ''
 														? 'Price on request'
 														: formatEuroNoDecimals(relatedCar.price)}
@@ -637,10 +670,11 @@ export default function Details() {
 					)}
 				</section>
 
-				<section className="motion-rise mt-16 border-t border-zinc-800 pt-10 md:mt-20 md:pt-12">
-					<div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
+				{/* ── FAQ ── */}
+				<section className="motion-rise mt-16 border-t border-zinc-800 pt-10 md:mt-20 md:pt-12 iphone:mt-14 iphone:pt-9">
+					<div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12 iphone:gap-6">
 						<div>
-							<h2 className="max-w-[240px] text-4xl font-normal leading-tight text-white sm:text-5xl">
+							<h2 className="max-w-[240px] text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[26px] iphone:max-w-full">
 								Frequently Asked Questions
 							</h2>
 						</div>
@@ -654,20 +688,22 @@ export default function Details() {
 										<button
 											type="button"
 											onClick={() => toggleFaqItem(index)}
-											className="flex w-full items-start justify-between gap-3 py-4 text-left"
+											className="flex w-full items-start justify-between gap-3 py-4 text-left iphone:py-4 iphone:gap-2"
 											aria-expanded={isExpanded}
 										>
-											<span className="text-[18px] font-normal leading-6 text-zinc-100">{item.question}</span>
-											<span className="mt-0.5 text-xl leading-none text-zinc-300">{isExpanded ? '-' : '+'}</span>
+											<span className="text-[18px] font-normal leading-6 text-zinc-100 iphone:text-[15px] iphone:leading-snug">{item.question}</span>
+											<span className="mt-0.5 text-xl leading-none text-zinc-300 iphone:shrink-0">{isExpanded ? '-' : '+'}</span>
 										</button>
 
 										{isExpanded && (
 											<>
-												<p className="pb-1 pr-8 text-[16px] leading-6 text-zinc-400">
+												<p className="pb-1 pr-8 text-[16px] leading-6 text-zinc-400 iphone:text-[14px] iphone:pr-4 iphone:leading-relaxed">
 													{item.answer}
 												</p>
 												{item.moreDetails && (
-													<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-400">{item.moreDetails}</p>
+													<p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-400 iphone:text-[14px] iphone:pr-4 iphone:pb-3 iphone:leading-relaxed">
+														{item.moreDetails}
+													</p>
 												)}
 											</>
 										)}
@@ -679,13 +715,14 @@ export default function Details() {
 				</section>
 			</main>
 
-			<section className="motion-rise hero-shell mt-14 md:mt-16">
-				<div className="rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 text-center sm:px-10 md:py-16">
-					<h2 className="mx-auto max-w-[520px] text-4xl font-normal leading-tight text-white sm:text-5xl">
+			{/* ── CTA Banner ── */}
+			<section className="motion-rise hero-shell mt-14 md:mt-16 iphone:mt-14">
+				<div className="rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 text-center sm:px-10 md:py-16 iphone:px-5 iphone:py-12 iphone:rounded-xl">
+					<h2 className="mx-auto max-w-[520px] text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[22px] iphone:max-w-[280px]">
 						Choose Your Next Car and Have It Delivered Anywhere in Ireland
 					</h2>
 
-					<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded-full bg-white p-2 text-black">
+					<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded-full bg-white p-2 text-black iphone:mt-6">
 						<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
 							<path d="M11.2 4.5v9.8" />
 							<path d="m8.8 6.6 2.4-2.1 2.4 2.1" />
@@ -694,19 +731,20 @@ export default function Details() {
 						</svg>
 					</div>
 
-					<p className="mt-4 text-sm text-zinc-200">Indus Motor Group</p>
+					<p className="mt-4 text-sm text-zinc-200 iphone:mt-3">Indus Motor Group</p>
 					<p className="mt-1 text-xs text-zinc-500">Nationwide vehicle delivery available.</p>
 
 					<a
 						href={enquiryMail}
-						className="ui-btn mt-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black"
+						className="ui-btn mt-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:mt-5 iphone:text-[15px] iphone:px-5 iphone:py-2"
 					>
 						Enquire Now
 					</a>
 				</div>
 			</section>
 
-			<footer className="mt-14 bg-black md:mt-16">
+			{/* ── Footer ── */}
+			<footer className="mt-14 bg-black md:mt-16 iphone:mt-14">
 				<div className="site-footer-shell">
 					<div className="site-footer-grid">
 						<div>
@@ -745,7 +783,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Company</p>
-								<div className="site-footer-links space-y-2 text-[14px]">
+							<div className="site-footer-links space-y-2 text-[14px]">
 								<Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
 								<Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
 								<Link to="/warranty" className="block transition-colors hover:text-zinc-300">Warranty</Link>
@@ -755,7 +793,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Opening Hours</p>
-								<div className="site-footer-links space-y-2 text-[14px]">
+							<div className="site-footer-links space-y-2 text-[14px]">
 								<p>Mon - Fri: 9:00am - 6:00pm</p>
 								<p>Sat: 10:00am - 4:00pm</p>
 								<p>Sun: Closed</p>
@@ -764,7 +802,7 @@ export default function Details() {
 
 						<div>
 							<p className="site-footer-label">Get in Touch</p>
-								<div className="site-footer-links space-y-2 text-[14px]">
+							<div className="site-footer-links space-y-2 text-[14px]">
 								<p>hello@indusmotorgroup.com</p>
 								<p>+353 89 967 5410</p>
 								<p className="text-zinc-500">Serving customers across Ireland</p>
@@ -793,4 +831,3 @@ export default function Details() {
 		</div>
 	)
 }
-
