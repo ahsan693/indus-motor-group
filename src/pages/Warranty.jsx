@@ -115,8 +115,8 @@ export default function Warranty() {
                 <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent" />
                 <Navbar overlay />
                 <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 iphone:bottom-2 hero-shell">
-                    <h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[36px] iphone:leading-tight iphone:translate-y-3">
-                        Warranty & Aftercare
+                    <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
+               Warranty & Aftercare
                     </h1>
                 </div>
             </section>

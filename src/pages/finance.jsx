@@ -224,8 +224,12 @@ const [openFaq, setOpenFaq] = useState(null)
 				<div className="absolute inset-x-0 bottom-0 h-[155px] bg-gradient-to-t from-black/75 via-black/45 to-transparent"></div>
 				<Navbar overlay />
 
-				<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 hero-shell pb-7 min-[390px]:pb-8 sm:pb-12 md:pb-25 iphone:pb-3">
-					<h1 className="hero-heading-mobile text-[22px] font-normal text-white min-[390px]:text-[26px] sm:text-[28px] md:text-[38px] iphone:text-[26px] iphone:leading-tight">Car Finance Made Simple</h1>
+				  <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 iphone:bottom-2 hero-shell">
+        <h1 className="max-w-none mt-8 md:mt-10 text-[34px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:whitespace-nowrap md:text-[36px] lg:text-[58px]">
+  <span className="block md:hidden">Car Finance</span>
+  <span className="block md:hidden">Made Simple</span>
+  <span className="hidden md:inline">Car Finance Made Simple</span>
+</h1>
 				</div>
 			</section>
 
