@@ -530,54 +530,54 @@ export default function Details() {
 					</div>
 
 					{/* Right: image carousel */}
-					<div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl">
-						{activeImageUrl ? (
-							<img
-								src={activeImageUrl}
-								alt={`${car.make} ${car.model}`}
-								decoding="async"
-								onClick={() => setLightboxOpen(true)}
-								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px] cursor-pointer"
-							/>
-						) : (
-							<div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[190px]">
-								No image available
-							</div>
-						)}
+<div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl">
+    {activeImageUrl ? (
+        <img
+            src={activeImageUrl}
+            alt={`${car.make} ${car.model}`}
+            decoding="async"
+            onClick={() => setLightboxOpen(true)}
+            className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px] cursor-pointer"
+        />
+    ) : (
+        <div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[190px]">
+            No image available
+        </div>
+    )}
 
-						{hasMultipleImages && (
-							<>
-								<button
-									type="button"
-									onClick={goToPreviousImage}
-									className="absolute left-4 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-zinc-500/70 bg-black/45 text-2xl text-white transition-colors hover:bg-black/70"
-									aria-label="Previous image"
-								>
-									‹
-								</button>
-								<button
-									type="button"
-									onClick={goToNextImage}
-									className="absolute right-4 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-zinc-500/70 bg-black/45 text-2xl text-white transition-colors hover:bg-black/70"
-									aria-label="Next image"
-								>
-									›
-								</button>
+    {hasMultipleImages && (
+        <>
+            <button
+                type="button"
+                onClick={goToPreviousImage}
+                className="absolute left-4 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-zinc-500/70 bg-black/45 text-2xl text-white transition-colors hover:bg-black/70"
+                aria-label="Previous image"
+            >
+                ‹
+            </button>
+            <button
+                type="button"
+                onClick={goToNextImage}
+                className="absolute right-4 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-zinc-500/70 bg-black/45 text-2xl text-white transition-colors hover:bg-black/70"
+                aria-label="Next image"
+            >
+                ›
+            </button>
 
-								<div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-1.5">
-									{imageUrls.map((_, index) => (
-										<button
-											type="button"
-											key={`image-dot-${index}`}
-											onClick={() => setCurrentImageIndex(index)}
-											className={`h-1.5 w-1.5 iphone:h-1 iphone:w-1 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
-											aria-label={`View image ${index + 1}`}
-										/>
-									))}
-								</div>
-							</>
-						)}
-					</div>
+            <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-1">
+                {imageUrls.map((_, index) => (
+                    <button
+                        type="button"
+                        key={`image-dot-${index}`}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`h-[5px] w-[5px] sm:h-1.5 sm:w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
+                        aria-label={`View image ${index + 1}`}
+                    />
+                ))}
+            </div>
+        </>
+    )}
+</div>
 				</section>
 
 				{/* ── Vehicle Specifications ── */}
