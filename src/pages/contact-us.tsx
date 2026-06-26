@@ -117,9 +117,8 @@ export default function ContactUs() {
         <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
         <Navbar />
 
-       <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 -bottom-10 md:bottom-12 iphone:-bottom-12 hero-shell">
-            <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
-            Contact Us
+       	<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
+					 <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">     Contact Us
           </h1>
         </div>
       </section>
