@@ -194,14 +194,15 @@ export default function About() {
 
 	return (
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
-			<section className="relative overflow-hidden iphone:rounded-b-2xl iphone:mb-2">
+			 <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
+ 
 				<img
 					src={heroImage}
 					alt="Our story"
 					loading="eager"
 					fetchPriority="high"
 					decoding="async"
-					className="hero-zoom-settle h-[260px] w-full object-cover iphone:h-[180px] sm:h-[460px] md:h-[620px]"
+					 className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
 				/>
 				<Navbar overlay />
 

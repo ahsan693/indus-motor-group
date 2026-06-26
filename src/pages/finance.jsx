@@ -211,14 +211,15 @@ const [openFaq, setOpenFaq] = useState(null)
 	return (
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			{/* ── Hero ── */}
-			<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden h-[460px] sm:h-[560px] md:h-screen iphone:h-[220px]">
+			  <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
+ 
 				<img
 					src={financeHeroImg}
 					alt="Finance hero"
 					loading="eager"
 					fetchPriority="high"
 					decoding="async"
-					className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover object-center sm:h-[560px] md:mb-0 md:h-screen iphone:h-[220px]"
+					 className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
 				/>
 				<div className="absolute inset-0 bg-black/8"></div>
 				<div className="absolute inset-x-0 bottom-0 h-[155px] bg-gradient-to-t from-black/75 via-black/45 to-transparent"></div>

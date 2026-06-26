@@ -103,14 +103,15 @@ export default function Warranty() {
         <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 
             {/* ── Hero ── */}
-            <section className="relative overflow-hidden iphone:h-[220px]">
+         <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
+ 
                 <img
                     src={warrantyHeroImg}
                     alt="Warranty hero"
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
-                    className="hero-zoom-settle -mb-px block h-[460px] w-full object-cover sm:h-[560px] md:mb-0 md:h-[640px] iphone:h-[220px]"
+                    className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
                 />
                 <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent" />
                 <Navbar overlay />
