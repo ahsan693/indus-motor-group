@@ -529,7 +529,7 @@ export default function Details() {
 						</a>
 					</div>
 
-					{/* Right: image carousel */}
+	{/* Right: image carousel */}
 <div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl">
     {activeImageUrl ? (
         <img
@@ -544,7 +544,6 @@ export default function Details() {
             No image available
         </div>
     )}
-
     {hasMultipleImages && (
         <>
             <button
@@ -563,14 +562,13 @@ export default function Details() {
             >
                 ›
             </button>
-
-            <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-1">
+            <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-0.5 sm:gap-1">
                 {imageUrls.map((_, index) => (
                     <button
                         type="button"
                         key={`image-dot-${index}`}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`h-[5px] w-[5px] sm:h-1.5 sm:w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
+                        className={`h-px w-px sm:h-1.5 sm:w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
                         aria-label={`View image ${index + 1}`}
                     />
                 ))}
