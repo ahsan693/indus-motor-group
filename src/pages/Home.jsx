@@ -615,14 +615,15 @@ export default function Home() {
       </main>
 
     {/* CTA Section with Image */}
-<section className="relative mx-auto mt-8 sm:mt-10 md:mt-16 h-[200px] md:h-[541px] w-full max-w-[1440px] overflow-hidden">
+	<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-8 h-screen w-screen max-w-none overflow-hidden iphone:h-[180px] iphone:mt-4">
+					
   <img
     src={findYourCarImg}
     alt="Find your next car"
     loading="lazy"
     decoding="async"
-    className="h-full w-full object-cover object-center"
-  />
+  className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
+			  />
 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
 				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
 					<h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Find Your Next Car Today</h2>
