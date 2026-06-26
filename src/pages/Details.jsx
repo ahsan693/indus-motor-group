@@ -807,7 +807,7 @@ export default function Details() {
 						Choose Your Next Car and Have It Delivered Anywhere in Ireland
 					</h2>
 
-					<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded-full bg-zinc-950 px-4 py-3 ring-1 ring-white/15 iphone:mt-6">
+					<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded">
 						<img
 							src={Logo}
 							alt="Indus Motor Group"
