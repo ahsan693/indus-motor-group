@@ -117,175 +117,185 @@ export default function ContactUs() {
         <Navbar />
 
         <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-6 md:bottom-12 iphone:bottom-2 hero-shell">
-
-         <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
-             
-            
-             Contact Us</h1>
-          </div>
+          <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
+            Contact Us
+          </h1>
+        </div>
       </section>
 
-         <main className="layout-shell layout-stack iphone:pt-4">
-          <section className="motion-rise">
-  <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] text-center mb-10">Reach Out to Us</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 mb-12">
+      {/* ── MAIN ── */}
+      <main className="layout-shell layout-stack iphone:pt-6">
 
-    {/* Form — first in DOM = top on mobile, md:col-start-2 = right on desktop */}
-    <div className="bg-zinc-900/50 rounded-lg px-4 py-6 border border-zinc-800 md:col-start-2">
-      <form className="space-y-5">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs text-zinc-400 mb-2 font-medium">Full Name</label>
-            <input
-              type="text"
-              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-              placeholder="Your full name"
-            />
+        {/* ── Reach Out to Us ── */}
+        <section className="motion-rise">
+          <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] text-center mb-10 iphone:mb-8">
+            Reach Out to Us
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 mb-12 iphone:mt-4 iphone:mb-10 iphone:gap-0">
+
+            {/* ── Form card — first in DOM = top on mobile ── */}
+            <div className="bg-zinc-900/50 rounded-lg px-4 py-6 iphone:px-5 iphone:py-7 border border-zinc-800 md:col-start-2">
+              <form className="space-y-5 iphone:space-y-6">
+
+                {/* Full Name & Phone — 2 col on desktop, 1 col on mobile */}
+                <div className="grid grid-cols-2 gap-4 iphone:grid-cols-1 iphone:gap-6">
+                  <div>
+                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Full Name</label>
+                    <input
+                      type="text"
+                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Phone</label>
+                    <input
+                      type="tel"
+                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
+
+                {/* Service Type */}
+                <div>
+                  <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Service Type</label>
+                  <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
+                    <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
+                    <option value="sales" className="bg-zinc-900">Car Sales</option>
+                    <option value="service" className="bg-zinc-900">Service & Maintenance</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col h-full">
+                  <div>
+                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Message (Optional)</label>
+                    <textarea
+                      rows={10}
+                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
+                      placeholder="Tell us how we can help"
+                    />
+                  </div>
+
+                  <div className="mt-auto pt-6 iphone:pt-7">
+                    <button
+                      type="submit"
+                      className="w-full bg-white text-black py-2.5 iphone:py-3 rounded text-sm font-medium hover:bg-zinc-200 transition"
+                    >
+                      Submit
+                    </button>
+
+                    <div className="flex items-start gap-2 mt-3 iphone:mt-4">
+                      <input type="checkbox" defaultChecked className="mt-1" />
+                      <label className="text-xs iphone:text-sm text-zinc-500">
+                        By submitting, you agree to our{' '}
+                        <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
+                          Privacy Policy
+                        </Link>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+
+            {/* Image — second in DOM = below form on mobile, left on desktop */}
+            <div className="overflow-hidden rounded-lg md:col-start-1 md:row-start-1 iphone:hidden">
+              <img
+                src={formImage}
+                alt="Contact form"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
           </div>
-          <div>
-            <label className="block text-xs text-zinc-400 mb-2 font-medium">Phone</label>
-            <input
-              type="tel"
-              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-              placeholder="Phone Number"
-            />
-          </div>
-        </div>
+        </section>
 
-        <div>
-          <label className="block text-xs text-zinc-400 mb-2 font-medium">Service Type</label>
-          <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
-            <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
-            <option value="sales" className="bg-zinc-900">Car Sales</option>
-            <option value="service" className="bg-zinc-900">Service & Maintenance</option>
-          </select>
-        </div>
+        {/* ── Contact Information ── */}
+        <section className="motion-rise motion-rise-delay-1 mt-12 iphone:mt-14">
+          <h2 className="text-[28px] md:text-[30px] font-normal leading-tight text-white mb-8 md:mb-10 iphone:mb-7">
+            Contact Information
+          </h2>
 
-        <div className="flex flex-col h-full">
-          <div>
-            <label className="block text-xs text-zinc-400 mb-2 font-medium">Message (Optional)</label>
-            <textarea
-              rows={10}
-              className="w-full bg-transparent border border-zinc-700 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
-              placeholder="Tell us how we can help"
-            />
-          </div>
+          <div className="space-y-0">
+            {/* Get in Touch */}
+            <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b iphone:py-6">
+              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Get in Touch</div>
+              <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[15px]">
+                <div>+353 89 967 5410</div>
+                <div>hello@indusmotorgroup.com</div>
+              </div>
+            </div>
 
-          <div className="mt-auto pt-6">
-            <button
-              type="submit"
-              className="w-full bg-white text-black py-2.5 rounded text-sm font-medium hover:bg-zinc-200 transition"
-            >
-              Submit
-            </button>
+            {/* Address & Working Hours */}
+            <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b iphone:py-6">
+              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Address & Working Hours</div>
+              <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[15px]">
+                <div>Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland</div>
+                <div>Mon - Fri: 9:00am - 6:00pm</div>
+              </div>
+            </div>
 
-            <div className="flex items-start gap-2 mt-3">
-              <input type="checkbox" defaultChecked className="mt-1" />
-              <label className="text-xs text-zinc-500">
-                By submitting, you agree to our{' '}
-                <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
-                  Privacy Policy
-                </Link>
-              </label>
+            {/* Socials */}
+            <div className="py-5 border-t border-b border-zinc-800 md:grid md:grid-cols-2 md:py-4 iphone:py-6">
+              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Socials</div>
+              <div className="text-sm md:text-xs space-y-2 iphone:space-y-3">
+                <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]">Instagram</a>
+                <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]">Facebook</a>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </section>
 
-    {/* Image — second in DOM = below on mobile, md:col-start-1 md:row-start-1 = left on desktop */}
-    <div className="overflow-hidden rounded-lg md:col-start-1 md:row-start-1">
-      <img
-        src={formImage}
-        alt="Contact form"
-        loading="lazy"
-        decoding="async"
-        className="h-full w-full object-cover"
-      />
-    </div>
+        {/* ── Warranty FAQs ── */}
+        <section className="motion-rise mt-16 md:mt-12 iphone:mt-14">
+          <div className="md:grid md:grid-cols-2">
+            <h2 className="text-[28px] md:text-[30px] font-normal text-white mb-8 md:mb-10 iphone:mb-7">
+              Warranty FAQS
+            </h2>
 
-  </div>
-</section>
-
-          {/* Contact Information */}
-<section className="motion-rise motion-rise-delay-1 mt-12">
-  <h2 className="text-[28px] md:text-[30px] font-normal leading-tight text-white mb-8 md:mb-10">
-    Contact Information
-  </h2>
-
-  <div className="space-y-0">
-    {/* Get in Touch */}
-    <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b">
-      <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0">Get in Touch</div>
-      <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1">
-        <div>+353 89 967 5410</div>
-        <div>hello@indusmotorgroup.com</div>
-      </div>
-    </div>
-
-    {/* Address & Working Hours */}
-    <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b">
-      <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0">Address & Working Hours</div>
-      <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1">
-        <div>Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland</div>
-        <div>Mon - Fri: 9:00am - 6:00pm</div>
-      </div>
-    </div>
-
-    {/* Socials */}
-    <div className="py-5 border-t border-b border-zinc-800 md:grid md:grid-cols-2 md:py-4">
-      <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0">Socials</div>
-      <div className="text-sm md:text-xs space-y-2">
-        <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline">Instagram</a>
-        <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline">Facebook</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Warranty FAQs */}
-<section className="motion-rise mt-16 md:mt-12">
-  <div className="md:grid md:grid-cols-2">
-    <h2 className="text-[28px] md:text-[30px] font-normal text-white mb-8 md:mb-10">
-      Warranty FAQS
-    </h2>
-
-    <div className="space-y-0">
-      {faq.map(([question, answer], idx) => {
-        const open = openFaq === idx
-        return (
-          <div
-            key={question}
-            className={`py-5 md:py-4 border-t transition-colors hover:bg-zinc-950/40 ${idx === faq.length - 1 ? 'border-b border-zinc-800' : 'border-zinc-800'}`}
-          >
-            <button
-              className="flex w-full items-center justify-between text-left focus:outline-none gap-4"
-              onClick={() => setOpenFaq(open ? null : idx)}
-              aria-expanded={open ? "true" : "false"}
-            >
-              <span className="text-sm md:text-xs font-normal text-white md:text-zinc-300">{question}</span>
-              <span className="text-xl md:text-sm text-zinc-400 md:text-zinc-300 font-light flex-shrink-0">+</span>
-            </button>
-            {open && (
-              <p className="mt-3 md:mt-2 text-sm md:text-xs leading-relaxed text-zinc-400">{answer}</p>
-            )}
+            <div className="space-y-0">
+              {faq.map(([question, answer], idx) => {
+                const open = openFaq === idx
+                return (
+                  <div
+                    key={question}
+                    className={`py-5 md:py-4 iphone:py-5 border-t transition-colors hover:bg-zinc-950/40 ${idx === faq.length - 1 ? 'border-b border-zinc-800' : 'border-zinc-800'}`}
+                  >
+                    <button
+                      className="flex w-full items-center justify-between text-left focus:outline-none gap-4"
+                      onClick={() => setOpenFaq(open ? null : idx)}
+                      aria-expanded={open ? "true" : "false"}
+                    >
+                      <span className="text-sm md:text-xs font-normal text-white md:text-zinc-300 iphone:text-[15px]">{question}</span>
+                      <span className="text-xl md:text-sm text-zinc-400 md:text-zinc-300 font-light flex-shrink-0">+</span>
+                    </button>
+                    {open && (
+                      <p className="mt-3 md:mt-2 iphone:mt-4 text-sm md:text-xs iphone:text-[14px] leading-relaxed text-zinc-400">{answer}</p>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
           </div>
-        )
-      })}
-    </div>
-  </div>
-</section>
-       
+        </section>
+
       </main>
-      
- <section className="relative h-[320px] w-full overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[180px] iphone:mt-4">
-  <img
-    src={findYourCarImg}
-    alt="Find your next car"
-    loading="lazy"
-    decoding="async"
-    className="h-full w-full object-cover object-center iphone:h-[180px]"
-  />
+
+      {/* ── Find Your Car CTA ── */}
+      <section className="relative h-[320px] w-full overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[180px] iphone:mt-14">
+        <img
+          src={findYourCarImg}
+          alt="Find your next car"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-center iphone:h-[180px]"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
         <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
           <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[22px]">Ready To Get Started With Finance</h2>
@@ -299,12 +309,13 @@ export default function ContactUs() {
         </div>
       </section>
 
-         <footer className="mt-10 bg-black iphone:mt-4">
-           <div className="site-footer-shell text-white iphone:text-[14px]">
+      {/* ── Footer ── */}
+      <footer className="mt-10 bg-black iphone:mt-4">
+        <div className="site-footer-shell text-white iphone:text-[14px]">
           <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
-                 <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
+              <p className="site-footer-copy text-[13px] leading-tight md:text-[14px] font-normal iphone:text-[14px] iphone:leading-4">
                 Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
               </p>
 
@@ -338,7 +349,7 @@ export default function ContactUs() {
 
             <div>
               <p className="site-footer-label">Company</p>
-        <div className="site-footer-links space-y-2 text-[14px]">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
                 <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
                 <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
@@ -348,7 +359,7 @@ export default function ContactUs() {
 
             <div className="mt-6">
               <p className="site-footer-label">Opening Hours</p>
-        <div className="site-footer-links space-y-2 text-[14px]">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <p>Mon - Fri: 9:00am - 6:00pm</p>
                 <p>Sat: 10:00am - 4:00pm</p>
                 <p>Sun: Closed</p>
@@ -357,7 +368,7 @@ export default function ContactUs() {
 
             <div className="mt-6">
               <p className="site-footer-label">Get in Touch</p>
-        <div className="site-footer-links space-y-2 text-[14px]">
+              <div className="site-footer-links space-y-2 text-[14px]">
                 <p>hello@indusmotorgroup.com</p>
                 <p>+353 89 967 5410</p>
                 <p className="text-white">Serving customers across Ireland</p>
