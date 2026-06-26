@@ -122,10 +122,16 @@ export default function Warranty() {
             </section>
 
             {/* ── Main ── */}
-            <main className="layout-shell layout-stack iphone:pt-4">
+            {/*
+                Spacing system:
+                  Mobile  — mt-16  (64px) between every section
+                  Desktop — md:mt-20 (80px) between every section
+                  First section after hero gets a little extra top padding via iphone:pt-8
+            */}
+            <main className="layout-shell layout-stack iphone:pt-8">
 
                 {/* Section 1 — Intro text + image */}
-                <section className="motion-rise mt-10 grid items-center gap-8 sm:mt-14 md:mt-16 md:grid-cols-[0.95fr_1.05fr] md:gap-10">
+                <section className="motion-rise mt-16 grid items-center gap-8 sm:gap-10 md:mt-20 md:grid-cols-[0.95fr_1.05fr] md:gap-14">
                     <div className="space-y-5">
                         <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
                             Vehicle Warranty for Added Peace of Mind
@@ -150,8 +156,8 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 2 — Key Features */}
-                <section className="motion-rise motion-rise-delay-1 mt-10 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:mt-0 md:px-10 md:py-10">
-                    <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
+                <section className="motion-rise motion-rise-delay-1 mt-16 rounded-[22px] bg-zinc-950 px-6 py-10 sm:px-8 sm:py-12 md:mt-20 md:px-10 md:py-14">
+                    <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12">
                         <div className="space-y-4">
                             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
                                 Key Features
@@ -160,9 +166,9 @@ export default function Warranty() {
                                 Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
                             </p>
                         </div>
-                        <div className="grid gap-3 sm:grid-cols-2 md:gap-3">
+                        <div className="grid gap-4 sm:grid-cols-2">
                             {keyFeatures.map((item) => (
-                                <article key={item.title} className="group motion-card rounded-lg bg-black/40 p-5 md:p-4">
+                                <article key={item.title} className="group motion-card rounded-lg bg-black/40 p-5 md:p-5">
                                     <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 text-zinc-300">
                                         <KeyFeatureIcon type={item.icon} />
                                     </span>
@@ -179,13 +185,13 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 3 — How It Works */}
-                <section className="motion-rise motion-rise-delay-2 mt-10 space-y-6 md:mt-0">
+                <section className="motion-rise motion-rise-delay-2 mt-16 space-y-8 md:mt-20 md:space-y-10">
                     <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
                         How It Works
                     </h2>
-                    <div className="grid gap-6 md:grid-cols-3 md:gap-4">
+                    <div className="grid gap-8 md:grid-cols-3 md:gap-6">
                         {steps.map((item) => (
-                            <article key={item.title} className="group motion-card space-y-3">
+                            <article key={item.title} className="group motion-card space-y-4">
                                 <div className="overflow-hidden rounded-xl">
                                     <img
                                         src={item.image}
@@ -208,17 +214,17 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 4 — FAQ */}
-                <section className="motion-rise mt-10 grid gap-6 pb-5 lg:grid-cols-[360px_1fr] lg:gap-8 md:mt-0">
+                <section className="motion-rise mt-16 grid gap-8 pb-6 lg:grid-cols-[360px_1fr] lg:gap-12 md:mt-20">
                     <h2 className="text-[22px] font-normal text-white md:text-[30px]">
                         Warranty FAQs
                     </h2>
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                         {faq.map(([question, answer], idx) => {
                             const open = openFaq === idx
                             return (
                                 <div
                                     key={question}
-                                    className={`pb-5 transition-colors hover:bg-zinc-950/40 ${idx !== faq.length - 1 ? 'border-b border-zinc-800' : ''}`}
+                                    className={`pb-6 transition-colors hover:bg-zinc-950/40 ${idx !== faq.length - 1 ? 'border-b border-zinc-800' : ''}`}
                                 >
                                     <button
                                         className="flex w-full items-start justify-between gap-4 text-left focus:outline-none"
@@ -232,7 +238,7 @@ export default function Warranty() {
                                         <span className="text-lg text-zinc-300">{open ? '-' : '+'}</span>
                                     </button>
                                     {open && (
-                                        <p id={`faq-answer-${idx}`} className="mt-3 text-[14px] leading-6 text-zinc-400 md:text-[18px]">
+                                        <p id={`faq-answer-${idx}`} className="mt-4 text-[14px] leading-6 text-zinc-400 md:text-[18px]">
                                             {answer}
                                         </p>
                                     )}
@@ -243,14 +249,14 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 5 — CTA */}
-                <section className="motion-rise rounded-2xl bg-zinc-950 py-12 text-center md:py-14">
+                <section className="motion-rise mt-16 rounded-2xl bg-zinc-950 py-14 text-center md:mt-20 md:py-20">
                     <h2 className="text-[22px] font-normal text-white md:text-[30px]">
                         Drive Away With Confidence
                     </h2>
                     <p className="mx-auto mt-4 max-w-xl text-[15px] leading-7 text-zinc-400 md:text-[18px]">
                         Warranty options are available on all vehicles to help protect your purchase.
                     </p>
-                    <button className="mt-7 rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black">
+                    <button className="mt-8 rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black">
                         Ask About Warranty
                     </button>
                 </section>
@@ -258,7 +264,7 @@ export default function Warranty() {
             </main>
 
             {/* ── Footer ── */}
-            <footer className="mt-10 bg-black">
+            <footer className="mt-20 bg-black md:mt-24">
                 <div className="site-footer-shell text-white iphone:text-[14px]">
                     <div className="site-footer-grid">
                         <div>
