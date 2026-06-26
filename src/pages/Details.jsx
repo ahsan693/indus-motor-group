@@ -185,6 +185,7 @@ export default function Details() {
 	const { cars: availableCars, loading: relatedCarsLoading } = useCars({ status: 'available' })
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [expandedFaqItems, setExpandedFaqItems] = useState({})
+	const [lightboxOpen, setLightboxOpen] = useState(false)
 
 	const imageUrls = useMemo(() => {
 		if (!car?.images?.length) return []
@@ -209,6 +210,18 @@ export default function Details() {
 	useEffect(() => {
 		setCurrentImageIndex(0)
 	}, [carId, car?._id])
+
+	// Lock body scroll when lightbox is open
+	useEffect(() => {
+		if (lightboxOpen) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = ''
+		}
+		return () => {
+			document.body.style.overflow = ''
+		}
+	}, [lightboxOpen])
 
 	const hasMultipleImages = imageUrls.length > 1
 	const activeImageUrl = imageUrls[currentImageIndex] || null
@@ -382,6 +395,78 @@ export default function Details() {
 		<div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
 			<Navbar />
 
+			{/* ── Lightbox ── */}
+			{lightboxOpen && (
+				<div
+					className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+					onClick={() => setLightboxOpen(false)}
+				>
+					{/* Close button */}
+					<button
+						type="button"
+						onClick={() => setLightboxOpen(false)}
+						className="absolute top-4 right-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white text-xl hover:bg-white/20 transition-colors"
+						aria-label="Close lightbox"
+					>
+						✕
+					</button>
+
+					{/* Prev button */}
+					{hasMultipleImages && (
+						<button
+							type="button"
+							onClick={(e) => { e.stopPropagation(); goToPreviousImage() }}
+							className="absolute left-4 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition-colors"
+							aria-label="Previous image"
+						>
+							‹
+						</button>
+					)}
+
+					{/* Image */}
+					<img
+						src={activeImageUrl}
+						alt={`${car.make} ${car.model}`}
+						className="max-h-[90vh] max-w-[95vw] object-contain"
+						onClick={(e) => e.stopPropagation()}
+					/>
+
+					{/* Next button */}
+					{hasMultipleImages && (
+						<button
+							type="button"
+							onClick={(e) => { e.stopPropagation(); goToNextImage() }}
+							className="absolute right-4 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition-colors"
+							aria-label="Next image"
+						>
+							›
+						</button>
+					)}
+
+					{/* Dot indicators */}
+					{hasMultipleImages && (
+						<div className="absolute bottom-5 flex items-center justify-center gap-1.5">
+							{imageUrls.map((_, index) => (
+								<button
+									type="button"
+									key={`lightbox-dot-${index}`}
+									onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index) }}
+									className={`h-1.5 w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500 hover:bg-zinc-300'}`}
+									aria-label={`View image ${index + 1}`}
+								/>
+							))}
+						</div>
+					)}
+
+					{/* Image counter */}
+					{hasMultipleImages && (
+						<div className="absolute top-4 left-4 rounded-full bg-black/50 px-3 py-1 text-xs text-white">
+							{currentImageIndex + 1} / {imageUrls.length}
+						</div>
+					)}
+				</div>
+			)}
+
 			{/* Back button */}
 			<div className="layout-shell">
 				<div className="mt-4 md:mt-28 iphone:mt-[72px] mb-2 md:mb-4 iphone:mb-3">
@@ -451,7 +536,8 @@ export default function Details() {
 								src={activeImageUrl}
 								alt={`${car.make} ${car.model}`}
 								decoding="async"
-								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px]"
+								onClick={() => setLightboxOpen(true)}
+								className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px] cursor-pointer"
 							/>
 						) : (
 							<div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[190px]">
@@ -484,7 +570,7 @@ export default function Details() {
 											type="button"
 											key={`image-dot-${index}`}
 											onClick={() => setCurrentImageIndex(index)}
-											className={`h-2.5 w-2.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
+											className={`h-1.5 w-1.5 iphone:h-1 iphone:w-1 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
 											aria-label={`View image ${index + 1}`}
 										/>
 									))}
