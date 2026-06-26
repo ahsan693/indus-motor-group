@@ -4,7 +4,7 @@ import { Navbar } from './Home'
 import { useCar } from '../hooks/useCar'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
-import Logo from '../images/Logo.png'
+import Logo from '../images/Logos.png'
 
 const HERO_TAGS = ['Finance Available', 'Trade-Ins Welcome', 'Nationwide Delivery Available']
 
@@ -723,13 +723,13 @@ export default function Details() {
 						Choose Your Next Car and Have It Delivered Anywhere in Ireland
 					</h2>
 
-	<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded-full bg-white p-2 iphone:mt-6">
-    <img
-        src={Logo}
-        alt="Indus Motor Group"
-        className="h-8 w-8 object-contain"
-    />
-</div>
+					<div className="mx-auto mt-8 flex w-fit items-center justify-center rounded-full bg-zinc-950 px-4 py-3 ring-1 ring-white/15 iphone:mt-6">
+						<img
+							src={Logo}
+							alt="Indus Motor Group"
+							className="h-14 w-auto object-contain"
+						/>
+					</div>
 
 					<p className="mt-4 text-sm text-zinc-200 iphone:mt-3">Indus Motor Group</p>
 					<p className="mt-1 text-xs text-zinc-500">Nationwide vehicle delivery available.</p>
