@@ -117,14 +117,15 @@ export default function ContactUs() {
         <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
         <Navbar />
 
-       	<div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
-					 <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">     Contact Us
+        <div className="hero-content-rise hero-mobile-shell absolute inset-x-0 bottom-0 hero-shell pb-5 min-[390px]:pb-6 sm:pb-8 md:pb-10 iphone:pb-2">
+           <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">     Contact Us
           </h1>
         </div>
       </section>
 
       {/* ── MAIN ── */}
-      <main className="layout-shell layout-stack iphone:pt-6">
+      {/* REFACTORED FOR PERFECT 99PX / 150PX GAPS */}
+      <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
 
         {/* ── Reach Out to Us ── */}
         <section className="motion-rise">
@@ -132,7 +133,7 @@ export default function ContactUs() {
             Reach Out to Us
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 mb-12 iphone:mt-4 iphone:mb-10 iphone:gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch mt-12 iphone:mt-4 iphone:gap-0">
 
             {/* ── Form card — first in DOM = top on mobile ── */}
             <div className="bg-zinc-900/50 rounded-lg px-4 py-6 iphone:px-5 iphone:py-7 border border-zinc-800 md:col-start-2">
@@ -217,7 +218,7 @@ export default function ContactUs() {
         </section>
 
         {/* ── Contact Information ── */}
-        <section className="motion-rise motion-rise-delay-1 mt-12 iphone:mt-14">
+        <section className="motion-rise motion-rise-delay-1">
           <h2 className="text-[28px] md:text-[30px] font-normal leading-tight text-white mb-8 md:mb-10 iphone:mb-7">
             Contact Information
           </h2>
@@ -253,7 +254,7 @@ export default function ContactUs() {
         </section>
 
         {/* ── Warranty FAQs ── */}
-        <section className="motion-rise mt-16 md:mt-12 iphone:mt-14">
+        <section className="motion-rise">
           <div className="md:grid md:grid-cols-2">
             <h2 className="text-[28px] md:text-[30px] font-normal text-white mb-8 md:mb-10 iphone:mb-7">
               Warranty FAQS
@@ -288,7 +289,7 @@ export default function ContactUs() {
       </main>
 
       {/* ── Find Your Car CTA ── */}
-     <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-8 h-screen w-screen max-w-none overflow-hidden iphone:h-[180px] iphone:mt-4">
+     <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[99px] md:mt-[150px] h-screen w-screen max-w-none overflow-hidden iphone:h-[180px]">
      <img
           src={findYourCarImg}
           alt="Find your next car"
@@ -310,7 +311,7 @@ export default function ContactUs() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="mt-8 sm:mt-10 md:mt-16 bg-black">
+      <footer className="mt-[99px] md:mt-[150px] bg-black">
              <div className="site-footer-shell text-white text-[14px]">
                    <div className="site-footer-grid">
                  <div>

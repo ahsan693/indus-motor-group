@@ -23,18 +23,15 @@ const navItems = [
 
 const testimonials = [
   {
-    quote:
-      'Great experience buying my car from Indus Motor Group. The vehicle was exactly as described and the whole process was smooth and straightforward.',
+    quote: 'Great experience buying my car from Indus Motor Group. The vehicle was exactly as described and the whole process was smooth and straightforward.',
     name: 'James Murphy',
   },
   {
-    quote:
-      'Very impressed with the quality of the cars and the honest approach. Everything was explained clearly and the purchase was quick and hassle free.',
+    quote: 'Very impressed with the quality of the cars and the honest approach. Everything was explained clearly and the purchase was quick and hassle free.',
     name: "Sarah O'Connor",
   },
   {
-    quote:
-      'Excellent service and a great car. The team was professional and helpful throughout, and I would happily recommend them.',
+    quote: 'Excellent service and a great car. The team was professional and helpful throughout, and I would happily recommend them.',
     name: 'David Byrne',
   },
 ]
@@ -246,52 +243,52 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-zinc-300 overflow-x-hidden">
       {/* HERO SECTION - FIXED FOR MOBILE IMAGE DISPLAY */}
-  <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
-  <img
-    src={navbarBg}
-    alt="Luxury vehicle background"
-    loading="eager"
-    fetchPriority="high"
-    decoding="async"
-    className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
-  />
-  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/95"></div>
+      <section className="relative h-[62vh] min-h-[420px] w-full overflow-hidden md:h-screen md:min-h-screen">
+        <img
+          src={navbarBg}
+          alt="Luxury vehicle background"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[center_30%] brightness-[1.1] contrast-[1.05] saturate-[1.06] md:object-center md:object-[56%_34%] animate-kenburns"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/95"></div>
 
-  <Navbar />
+        <Navbar />
 
-  <div className="relative z-10 flex h-full flex-col justify-end md:h-screen md:min-h-screen">
-    <div className="hero-shell pb-10 sm:pb-12 md:pb-16 lg:pb-20">
-      <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black/60 px-4 py-2 text-xs text-white shadow-lg backdrop-blur-sm md:text-[14px]">
-        <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
-          <path d="M8 4l4 5 4-5" />
-        </svg>
-        Drive Away with Confidence
-      </span>
+        <div className="relative z-10 flex h-full flex-col justify-end md:h-screen md:min-h-screen">
+          <div className="hero-shell pb-10 sm:pb-12 md:pb-16 lg:pb-20">
+            <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-black/60 px-4 py-2 text-xs text-white shadow-lg backdrop-blur-sm md:text-[14px]">
+              <svg viewBox="0 0 24 24" className="h-3 w-3 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 9 8 4h8l5 5-9 11L3 9Z" />
+                <path d="M8 4l4 5 4-5" />
+              </svg>
+              Drive Away with Confidence
+            </span>
 
-      <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
-        <span className="block md:hidden">Quality</span>
-        <span className="block md:hidden">Used Cars</span>
-        <span className="block md:hidden">in Ireland</span>
-        <span className="hidden md:block">Quality Used Cars</span>
-        <span className="hidden md:block">in Ireland</span>
-      </h1>
+            <h1 className="max-w-[700px] text-[44px] font-normal leading-[1.05] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] md:text-[60px] lg:text-[72px]">
+              <span className="block md:hidden">Quality</span>
+              <span className="block md:hidden">Used Cars</span>
+              <span className="block md:hidden">in Ireland</span>
+              <span className="hidden md:block">Quality Used Cars</span>
+              <span className="hidden md:block">in Ireland</span>
+            </h1>
 
-      <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-[16px] md:text-[18px]">
-        Transparent pricing. Nationwide delivery.
-      </p>
+            <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-[16px] md:text-[18px]">
+              Transparent pricing. Nationwide delivery.
+            </p>
 
-      <Link to="/cars" className="ui-btn mt-7 inline-flex w-fit rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]">
-        Browse Available Cars
-      </Link>
-    </div>
-  </div>
-</section>
+            <Link to="/cars" className="ui-btn mt-7 inline-flex w-fit rounded-full bg-white px-6 py-3 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]">
+              Browse Available Cars
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* MAIN CONTENT */}
-      <main className="layout-shell layout-stack">
+      {/* MAIN CONTENT - REFACTORED FOR PERFECT 99PX / 150PX GAPS */}
+      <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
         {/* Featured Cars Section */}
-        <section className="pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-10 md:pb-16">
+        <section>
           <div className="mb-8 sm:mb-10 md:mb-16 flex flex-row flex-wrap items-center justify-between gap-3 md:gap-4">
             <h2 className="text-[22px] font-normal text-white md:text-[30px]">Featured Cars</h2>
             <Link to="/cars" className="ui-btn inline-flex rounded-full bg-white px-5 py-2 text-[14px] font-medium text-black shadow-[0_16px_30px_-24px_rgba(255,255,255,0.7)] md:text-[16px] md:px-5 md:py-2">
@@ -378,8 +375,8 @@ export default function Home() {
         </section>
 
         {/* Trade-In & Financing Section */}
-        <section className="pt-8 sm:pt-10 md:pt-16 pb-0 bg-black">
-          <div className="border-b border-zinc-800 px-0 py-6 sm:py-8 md:py-12 mb-0">
+        <section className="bg-black">
+          <div className="border-b border-zinc-800 px-0 pb-6 sm:pb-8 md:pb-12 mb-0">
             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
               <span className="block sm:inline">Trade-In &amp;</span>{' '}
               <span className="block sm:inline">Financing Options</span>
@@ -427,7 +424,7 @@ export default function Home() {
 
         {/* Warranty Section */}
         <section
-          className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14 rounded-none sm:rounded-2xl px-4 sm:px-6 md:px-10 md:py-12 sm:my-8 md:my-0"
+          className="rounded-none sm:rounded-2xl px-4 sm:px-6 md:px-10 py-10 md:py-12"
           style={{ backgroundColor: '#0d0d0d' }}
         >
           <div className="max-w-[980px] mx-auto">
@@ -508,7 +505,7 @@ export default function Home() {
         </section>
 
         {/* Why Choose Section */}
-        <section className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14">
+        <section>
           <h2 className="mb-8 sm:mb-10 text-center text-[22px] font-normal leading-tight text-white md:mb-16 md:text-[30px]">Why Choose Indus Motor Group</h2>
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-4">
             {whyChooseCards.map((card) => (
@@ -536,7 +533,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="pt-8 sm:pt-10 md:pt-16 pb-8 sm:pb-10 md:pb-14 text-center">
+        <section className="text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-950 px-3 py-1.5 text-[13px] text-zinc-300 md:text-[16px]">
             <svg viewBox="0 0 16 16" className="h-2 w-2 text-zinc-400" fill="currentColor" aria-hidden="true">
               <path d="M8 1.5 14.5 8 8 14.5 1.5 8 8 1.5Z" />
@@ -614,32 +611,32 @@ export default function Home() {
         </section>
       </main>
 
-    {/* CTA Section with Image */}
-	<section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-8 h-screen w-screen max-w-none overflow-hidden iphone:h-[180px] iphone:mt-4">
-					
-  <img
-    src={findYourCarImg}
-    alt="Find your next car"
-    loading="lazy"
-    decoding="async"
-  className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
-			  />
-<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-				<div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
-					<h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Find Your Next Car Today</h2>
-    <Link
-      to="/cars"
-      className="ui-btn mt-4 sm:mt-5 inline-flex rounded-full bg-white px-5 sm:px-6 py-2 sm:py-2.5 text-[14px] font-medium text-black md:text-[16px]"
-      style={{ justifyContent: 'flex-start' }}
-    >
-      Browse Available Cars
-    </Link>
-  </div>
-</section>
+      {/* CTA Section with Image */}
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[99px] md:mt-[150px] h-screen w-screen max-w-none overflow-hidden iphone:h-[180px]">
+        <img
+          src={findYourCarImg}
+          alt="Find your next car"
+          loading="lazy"
+          decoding="async"
+          className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+        <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
+          <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Find Your Next Car Today</h2>
+          <Link
+            to="/cars"
+            className="ui-btn mt-4 sm:mt-5 inline-flex rounded-full bg-white px-5 sm:px-6 py-2 sm:py-2.5 text-[14px] font-medium text-black md:text-[16px]"
+            style={{ justifyContent: 'flex-start' }}
+          >
+            Browse Available Cars
+          </Link>
+        </div>
+      </section>
 
-      <footer className="mt-8 sm:mt-10 md:mt-16 bg-black">
+      {/* Footer */}
+      <footer className="mt-[99px] md:mt-[150px] bg-black">
         <div className="site-footer-shell text-white text-[14px]">
-              <div className="site-footer-grid">
+          <div className="site-footer-grid">
             <div>
               <p className="site-footer-brand">INDUS MOTOR GROUP</p>
               <p className="site-footer-copy text-[13px] sm:text-[14px] leading-6 font-normal md:text-[14px] md:leading-tight">
