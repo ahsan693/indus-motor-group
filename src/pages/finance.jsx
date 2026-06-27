@@ -441,85 +441,85 @@ export default function Finance() {
             </section>
 
             {/* ── Footer ── */}
-             <footer className="mt-[99px] md:mt-[150px] bg-black">
-                <div className="site-footer-shell text-white text-[14px]">
-                      <div className="site-footer-grid">
-                    <div>
-                      <p className="site-footer-brand">INDUS MOTOR GROUP</p>
-                      <p className="site-footer-copy text-[13px] sm:text-[14px] leading-6 font-normal md:text-[14px] md:leading-tight">
-                        Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
-                      </p>
-                      <div className="mt-4 flex items-center gap-3 text-white">
-                        <a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
-                          <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
-                            <circle cx="12" cy="12" r="4" />
-                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                          </svg>
-                        </a>
-                        <a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
-                          <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="2.5" y="6" width="19" height="12" rx="3" />
-                            <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
-                          </svg>
-                        </a>
-                        <a href="#" aria-label="Facebook" className="transition-colors hover:text-white">
-                          <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
-                          </svg>
-                        </a>
-                        <a href="#" aria-label="TikTok" className="transition-colors hover:text-white">
-                          <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14 4v8.5a3.5 3.5 0 1 1-2.6-3.4" />
-                            <path d="M14 4c1.1 1.6 2.5 2.4 4.5 2.4" />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="site-footer-label">Company</p>
-                      <div className="site-footer-links space-y-2 text-[14px]">
-                        <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
-                        <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
-                        <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
-                        <Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="site-footer-label">Opening Hours</p>
-                      <div className="site-footer-links space-y-2 text-[14px]">
-                        <p>Mon - Fri: 9:00am - 6:00pm</p>
-                        <p>Sat: 10:00am - 4:00pm</p>
-                        <p>Sun: Closed</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="site-footer-label">Get in Touch</p>
-                      <div className="site-footer-links space-y-2 text-[14px]">
-                        <p>hello@indusmotorgroup.com</p>
-                        <p>+353 89 967 5410</p>
-                        <p className="text-white">Serving customers across Ireland</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="border-t border-zinc-800 px-4 sm:px-5 py-6 sm:py-8 text-center md:px-8 md:py-10">
-                  <p className="site-footer-legal text-[12px] sm:text-[13px] md:text-[14px] leading-6">
-                    Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
-                  </p>
-                  <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-                    <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
-                    {' '}|{' '}
-                    <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
-                    {' '}|{' '}
-                    <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
-                  </p>
-                  <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
-                  <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-                    Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
-                  </p>
-                </div>
-              </footer>
+            <footer className="mt-[99px] md:mt-[150px] bg-black">
+                   <div className="site-footer-shell text-white text-[14px]">
+                     <div className="site-footer-grid">
+                       <div>
+                         <p className="site-footer-brand">INDUS MOTOR GROUP</p>
+                         <p className="site-footer-copy text-[13px] sm:text-[14px] leading-6 font-normal md:text-[14px] md:leading-tight">
+                           Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
+                         </p>
+                         <div className="mt-4 flex items-center gap-3 text-white">
+                           <a href="#" aria-label="Instagram" className="transition-colors hover:text-white">
+                             <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                               <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+                               <circle cx="12" cy="12" r="4" />
+                               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                             </svg>
+                           </a>
+                           <a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
+                             <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                               <rect x="2.5" y="6" width="19" height="12" rx="3" />
+                               <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+                             </svg>
+                           </a>
+                           <a href="#" aria-label="Facebook" className="transition-colors hover:text-white">
+                             <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                               <path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
+                             </svg>
+                           </a>
+                           <a href="#" aria-label="TikTok" className="transition-colors hover:text-white">
+                             <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                               <path d="M14 4v8.5a3.5 3.5 0 1 1-2.6-3.4" />
+                               <path d="M14 4c1.1 1.6 2.5 2.4 4.5 2.4" />
+                             </svg>
+                           </a>
+                         </div>
+                       </div>
+                       <div>
+                         <p className="site-footer-label">Company</p>
+                         <div className="site-footer-links space-y-2 text-[14px]">
+                           <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
+                           <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
+                           <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
+                           <Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
+                         </div>
+                       </div>
+                       <div>
+                         <p className="site-footer-label">Opening Hours</p>
+                         <div className="site-footer-links space-y-2 text-[14px]">
+                           <p>Mon - Fri: 9:00am - 6:00pm</p>
+                           <p>Sat: 10:00am - 4:00pm</p>
+                           <p>Sun: Closed</p>
+                         </div>
+                       </div>
+                       <div>
+                         <p className="site-footer-label">Get in Touch</p>
+                         <div className="site-footer-links space-y-2 text-[14px]">
+                           <p>hello@indusmotorgroup.com</p>
+                           <p>+353 89 967 5410</p>
+                           <p className="text-white">Serving customers across Ireland</p>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                   <div className="border-t border-zinc-800 px-4 sm:px-5 py-6 sm:py-8 text-center md:px-8 md:py-10">
+                     <p className="site-footer-legal text-[12px] sm:text-[13px] md:text-[14px] leading-6">
+                       Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
+                     </p>
+                     <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
+                       <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
+                       {' '}|{' '}
+                       <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
+                       {' '}|{' '}
+                       <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
+                     </p>
+                     <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
+                     <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
+                       Website by <a href="#" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+                     </p>
+                   </div>
+                 </footer>
         </div>
     )
 }
