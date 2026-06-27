@@ -525,14 +525,14 @@ export default function Cars() {
             </main>
 
             {/* CTA Section */}
-            <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[99px] md:mt-[150px] h-screen w-screen max-w-none overflow-hidden iphone:h-[180px]">
-                <img
+           <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
+          <img
                     src={ourCarsHeroImg}
                     alt="Find your next car"
                     loading="lazy"
                     decoding="async"
-                    className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
-                />
+                   className="h-full w-full object-cover object-center iphone:h-[200px]"
+         />
                 <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
                 <div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10 iphone:pt-2">

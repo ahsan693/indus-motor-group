@@ -382,14 +382,14 @@ export default function About() {
                 </section>
             </main>
 
-            <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mt-[99px] md:mt-[150px] h-screen w-screen max-w-none overflow-hidden iphone:h-[180px]">
+        <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
         <img
                     src={ctaImage}
                     alt="Start your search"
                     loading="lazy"
                     decoding="async"
-                    className="hero-zoom-settle h-full w-full object-cover iphone:h-[180px]"
-    />
+                   className="h-full w-full object-cover object-center iphone:h-[200px]"
+          />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
                 <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
                     <h2 className="max-w-[460px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Start Your Car Search Today</h2>
