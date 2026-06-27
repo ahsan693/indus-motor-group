@@ -392,10 +392,10 @@ export default function Home() {
               <p className="mt-2 max-w-[300px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
-              <button className="ui-btn mt-4 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
-                <span className="transition-transform duration-300 group-hover:translate-x-1">Enquire Now</span>
-                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-              </button>
+             <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
+  <span>Enquire Now</span>
+  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+</button>
             </article>
 
             <article className="group px-4 sm:px-5 py-6 sm:py-8 md:min-h-[160px] md:px-6 md:py-8 border-b md:border-b-0">
@@ -406,10 +406,10 @@ export default function Home() {
               <p className="mt-2 max-w-[320px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Finance options available through trusted third party lenders.
               </p>
-              <button className="ui-btn mt-4 inline-flex items-center text-[14px] font-medium text-zinc-100 transition-colors hover:text-white md:text-[16px]">
-                <span className="transition-transform duration-300 group-hover:translate-x-1">Learn More</span>
-                <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-              </button>
+             <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
+  <span>Learn More</span>
+  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+</button>
             </article>
           </div>
 
