@@ -187,6 +187,10 @@ export default function Details() {
     const [expandedFaqItems, setExpandedFaqItems] = useState({})
     const [lightboxOpen, setLightboxOpen] = useState(false)
 
+    // Touch states for mobile swipe
+    const [touchStart, setTouchStart] = useState(null)
+    const [touchEnd, setTouchEnd] = useState(null)
+
     const imageUrls = useMemo(() => {
         if (!car?.images?.length) return []
         return car.images.map((image) => getImageUrl(image)).filter(Boolean)
@@ -234,6 +238,32 @@ export default function Details() {
     const goToNextImage = () => {
         if (!hasMultipleImages) return
         setCurrentImageIndex((previous) => (previous === imageUrls.length - 1 ? 0 : previous + 1))
+    }
+
+    // Touch event handlers for carousel and lightbox swipe
+    const minSwipeDistance = 50
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null)
+        setTouchStart(e.targetTouches[0].clientX)
+    }
+
+    const onTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX)
+    }
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return
+        
+        const distance = touchStart - touchEnd
+        const isLeftSwipe = distance > minSwipeDistance
+        const isRightSwipe = distance < -minSwipeDistance
+
+        if (isLeftSwipe) {
+            goToNextImage()
+        } else if (isRightSwipe) {
+            goToPreviousImage()
+        }
     }
 
     if (!carId) {
@@ -398,8 +428,11 @@ export default function Details() {
             {/* ── Lightbox ── */}
             {lightboxOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 touch-none"
                     onClick={() => setLightboxOpen(false)}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                 >
                     {/* Close button */}
                     <button
@@ -443,15 +476,15 @@ export default function Details() {
                         </button>
                     )}
 
-                    {/* Dot indicators */}
+                    {/* Dot indicators - Hidden on mobile, visible on sm and up */}
                     {hasMultipleImages && (
-                        <div className="absolute bottom-5 flex items-center justify-center gap-1.5">
+                        <div className="absolute bottom-5 hidden sm:flex items-center justify-center gap-1.5">
                             {imageUrls.map((_, index) => (
                                 <button
                                     type="button"
                                     key={`lightbox-dot-${index}`}
                                     onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index) }}
-                                    className={`h-1.5 w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500 hover:bg-zinc-300'}`}
+                                    className={`h-1.5 w-1.5 p-0 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500 hover:bg-zinc-300'}`}
                                     aria-label={`View image ${index + 1}`}
                                 />
                             ))}
@@ -481,7 +514,6 @@ export default function Details() {
                 </div>
             </div>
 
-            {/* REFACTORED FOR PERFECT 99PX / 150PX GAPS */}
             <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
 
                 {/* ── Hero Section ── */}
@@ -531,7 +563,12 @@ export default function Details() {
                     </div>
 
                     {/* Right: image carousel */}
-                    <div className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl">
+                    <div 
+                        className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl touch-pan-y"
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                    >
                         {activeImageUrl ? (
                             <img
                                 src={activeImageUrl}
@@ -563,13 +600,18 @@ export default function Details() {
                                 >
                                     ›
                                 </button>
-                                <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-0.5 sm:gap-1">
+                                
+                                {/* Dot Indicators - hidden on mobile, visible on sm and up */}
+                                <div className="absolute inset-x-0 bottom-4 hidden sm:flex items-center justify-center gap-2 sm:gap-1.5">
                                     {imageUrls.map((_, index) => (
-                                        <button
-                                            type="button"
+                                        <div
                                             key={`image-dot-${index}`}
                                             onClick={() => setCurrentImageIndex(index)}
-                                            className={`h-px w-px sm:h-1.5 sm:w-1.5 rounded-full transition-colors ${currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'}`}
+                                            role="button"
+                                            tabIndex={0}
+                                            className={`h-1.5 w-1.5 flex-none cursor-pointer rounded-full sm:h-2 sm:w-2 transition-colors ${
+                                                currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'
+                                            }`}
                                             aria-label={`View image ${index + 1}`}
                                         />
                                     ))}
