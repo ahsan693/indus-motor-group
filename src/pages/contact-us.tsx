@@ -242,14 +242,36 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* Socials */}
-            <div className="py-5 border-t border-b border-zinc-800 md:grid md:grid-cols-2 md:py-4 iphone:py-6">
-              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Socials</div>
-              <div className="text-sm md:text-xs space-y-2 iphone:space-y-3">
-                <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]">Instagram</a>
-                <a href="#" className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]">Facebook</a>
-              </div>
-            </div>
+           {/* Socials */}
+<div className="py-5 border-t border-b border-zinc-800 md:grid md:grid-cols-2 md:py-4 iphone:py-6">
+  <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Socials</div>
+  <div className="text-sm md:text-xs space-y-2 iphone:space-y-3">
+    <a
+      href="https://www.instagram.com/indusmotorgroup"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+    >
+      Instagram
+    </a>
+    <a
+      href="https://www.facebook.com/indusmotorgroup"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+    >
+      Facebook
+    </a>
+    <a
+      href="https://www.tiktok.com/@indusmotorgroup"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+    >
+      TikTok
+    </a>
+  </div>
+</div>
           </div>
         </section>
 
