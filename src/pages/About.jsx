@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useMemo, useState } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
@@ -242,8 +242,8 @@ export default function About() {
                 <section className="motion-rise motion-rise-delay-1 rounded-[22px] bg-zinc-950 px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:px-2 iphone:py-4">
                     <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-2">
                         <div className="space-y-4 iphone:space-y-2">
-                            <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
-                            <p className="max-w-[320px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-5">
+                            <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]"><span className="block">Our Approach to</span><span className="block">Selling Cars</span></h2>
+                            <p className="max-w-[320px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px] iphone:leading-5">
                                 We help you find the right car through a simple, transparent, and reliable buying experience.
                             </p>
                         </div>
@@ -263,7 +263,7 @@ export default function About() {
                 </section>
 
                 <section className="motion-rise motion-rise-delay-2">
-                    <h2 className="mb-8 text-center text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px] iphone:mb-3">Latest Arrivals</h2>
+                    <h2 className="mb-8 text-center text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:mb-3">Latest Arrivals</h2>
                     {arrivalsLoading && latestArrivals === FALLBACK_ARRIVALS ? (
                         <div className="flex items-center justify-center py-10">
                             <div className="space-y-3 text-center">
@@ -306,7 +306,7 @@ export default function About() {
                                             )}
                                             <div className="space-y-[15px] p-[10px] iphone:space-y-2 iphone:p-2">
                                                 <div className="flex items-start justify-between gap-3 iphone:gap-1">
-                                                    <h3 className="truncate text-[18px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+                                                    <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
                                                     <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA] iphone:text-[13px]">View Details {'>'}</span>
                                                 </div>
                                                 <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
@@ -341,12 +341,12 @@ export default function About() {
                 </section>
 
                 <section className="motion-rise">
-                    <h2 className="mb-6 text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Buy With Confidence</h2>
+                    <h2 className="mb-6 text-[22px] font-normal leading-tight text-white md:text-[30px]">Buy With Confidence</h2>
                     <div className="border-b border-zinc-800 iphone:border-none">
                         {CONFIDENCE_POINTS.map((point) => (
                             <article key={point.title} className="grid gap-3 border-b border-zinc-800 py-4 last:border-b-0 transition-colors hover:bg-zinc-950/40 sm:gap-4 md:grid-cols-[1fr_1fr] md:gap-8 iphone:gap-1 iphone:py-2 iphone:text-[13px]">
                             <h4 className="text-[12px] font-normal text-white md:text-[13px] iphone:text-[11px]">{point.title}</h4>
-                                <p className="text-[15px] leading-7 text-zinc-400 md:text-[16px] iphone:text-[13px] whitespace-nowrap overflow-hidden text-ellipsis">{point.body}</p>
+                                <p className="text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px] whitespace-nowrap overflow-hidden text-ellipsis">{point.body}</p>
                             </article>
                         ))}
                     </div>
@@ -354,7 +354,7 @@ export default function About() {
 
 
                 <section className="motion-rise grid gap-6 md:gap-8 md:grid-cols-[1fr_1fr] iphone:gap-2">
-                    <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px]">Frequently Asked Questions</h2>
+                    <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">Frequently Asked Questions</h2>
                     <div className="border-y border-zinc-800 iphone:border-none">
                             {FAQ_ITEMS.map((item, index) => {
                                 const isExpanded = Boolean(expandedFaqItems[index])
@@ -371,7 +371,7 @@ export default function About() {
                                     </button>
                                     {isExpanded && (
                                         <div className="pr-8 pb-4 iphone:pr-2 iphone:pb-2">
-                                            <p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[14px]">{item.answer}</p>
+                                            <p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.answer}</p>
                                             <p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">{item.details}</p>
                                         </div>
                                     )}

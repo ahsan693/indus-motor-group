@@ -533,7 +533,7 @@ export default function Details() {
                     <div className="space-y-8 md:space-y-6">
 
                         <div className="space-y-2 md:space-y-2">
-                            <h1 className="text-[44px] leading-[1.1] font-medium text-white tracking-tight sm:text-[48px] md:text-[38px] md:font-normal md:leading-tight break-words">
+                            <h1 className="text-[44px] leading-[1.1] font-medium text-white tracking-tight md:text-[60px] lg:text-[72px] md:font-normal md:leading-tight break-words">
                                 {car.make} {car.model}
                             </h1>
                             <p className="text-[34px] font-medium text-white tracking-tight mt-2 md:mt-0 md:text-4xl md:font-normal">
@@ -553,13 +553,13 @@ export default function Details() {
                         </div>
 
                         {car.description && (
-                            <p className="max-w-xl text-[15px] leading-7 text-zinc-400 md:text-sm md:leading-7">
+                            <p className="max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px] md:leading-7">
                                 {car.description}
                             </p>
                         )}
 
                         {heroSummary.length > 0 && (
-                            <p className="text-[15px] text-zinc-400 md:text-sm">
+                            <p className="text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                 {heroSummary.join(' • ')}
                             </p>
                         )}
@@ -636,7 +636,7 @@ export default function Details() {
 
                 {/* ── Vehicle Specifications ── */}
                 <section className="motion-rise motion-rise-delay-1 pb-2">
-                    <h2 className="text-[26px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
+                    <h2 className="text-[22px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                         Vehicle Specifications
                     </h2>
                     <div className="mt-8 md:mt-8 grid gap-x-14 md:grid-cols-2 gap-y-0 md:gap-y-2">
@@ -661,7 +661,7 @@ export default function Details() {
 
                 {/* ── Features ── */}
                 <section className="motion-rise border-t border-zinc-800/80 pt-8 md:pt-10">
-                    <h2 className="text-[26px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
+                    <h2 className="text-[22px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                         Features
                     </h2>
 
@@ -716,10 +716,10 @@ export default function Details() {
                 <section className="motion-rise rounded-[24px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:px-10 md:py-10 md:rounded-2xl">
                     <div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
                         <div className="space-y-5 md:space-y-4">
-                            <h2 className="text-[22px] font-medium leading-tight text-white md:text-[28px] md:font-normal">
+                            <h2 className="text-[22px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                                 Enquire About This Vehicle
                             </h2>
-                            <p className="max-w-md text-[15px] leading-7 text-zinc-400 md:text-sm md:leading-6">
+                            <p className="max-w-md text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px] md:leading-6">
                                 Contact our team to arrange a viewing, ask questions, or check availability.
                             </p>
                             <a
@@ -737,7 +737,7 @@ export default function Details() {
                                         <HighlightIcon type={item.icon} />
                                     </span>
                                     <h3 className="motion-link-slide text-[15px] font-medium md:text-[14px] md:font-normal text-zinc-100">{item.title}</h3>
-                                    <p className="mt-2 text-[14px] leading-relaxed text-zinc-400 md:mt-2 md:text-xs md:leading-5">{item.description}</p>
+                                    <p className="mt-2 text-[16px] leading-relaxed text-zinc-400 md:mt-2 md:text-[18px] iphone:text-[13px] md:leading-5">{item.description}</p>
                                 </article>
                             ))}
                         </div>
@@ -806,13 +806,13 @@ export default function Details() {
 
                                             <div className="space-y-4 md:space-y-3 p-5 md:p-4">
                                                 <div className="flex items-start justify-between gap-3">
-                                                    <h3 className="text-[18px] md:text-[16px] font-medium leading-tight text-white">
+                                                    <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">
                                                         {relatedCar.make} {relatedCar.model}
                                                     </h3>
                                                     <span className="motion-link-slide pt-1 text-[13px] md:text-[11px] text-zinc-300 shrink-0">View Details {'>'}</span>
                                                 </div>
 
-                                                <p className="text-[14px] md:text-[11px] text-zinc-400 md:text-zinc-500">{relatedSummary.join(' • ')}</p>
+                                                <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">{relatedSummary.join(' • ')}</p>
 
                                                 <div className="flex flex-wrap gap-2 md:gap-1.5">
                                                     {getRelatedTags(relatedCar).map((tag) => (
@@ -822,7 +822,7 @@ export default function Details() {
                                                     ))}
                                                 </div>
 
-                                                <p className="pt-2 md:pt-1 text-[30px] md:text-3xl font-medium md:font-normal text-white">
+                                                <p className="pt-2 md:pt-1 text-[24px] font-normal leading-none text-white iphone:text-[15px]">
                                                     {relatedCar.price === undefined || relatedCar.price === null || relatedCar.price === ''
                                                         ? 'Price on request'
                                                         : formatEuroNoDecimals(relatedCar.price)}
@@ -840,9 +840,9 @@ export default function Details() {
                 <section className="motion-rise border-t border-zinc-800 pt-10 md:pt-12">
                     <div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
                         <div>
-                            <h2 className="text-[28px] md:text-4xl lg:max-w-[240px] font-medium md:font-normal leading-tight text-white sm:text-5xl">
-                                Frequently Asked Questions
-                            </h2>
+                             <h2 className="text-[22px] lg:max-w-[240px] font-normal leading-tight text-white md:text-[30px]">
+                                 Frequently Asked Questions
+                             </h2>
                         </div>
 
                         <div>
@@ -863,11 +863,11 @@ export default function Details() {
 
                                         {isExpanded && (
                                             <>
-                                                <p className="pb-4 pr-4 md:pb-2 md:pr-8 text-[15px] md:text-[16px] leading-7 md:leading-6 text-zinc-400">
+                                                <p className="pb-4 pr-4 md:pb-2 md:pr-8 text-[16px] leading-7 md:leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                                     {item.answer}
                                                 </p>
                                                 {item.moreDetails && (
-                                                    <p className="pb-6 md:pb-4 pr-4 md:pr-8 text-[15px] md:text-[16px] leading-7 md:leading-6 text-zinc-400">
+                                                    <p className="pb-6 md:pb-4 pr-4 md:pr-8 text-[16px] leading-7 md:leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                                         {item.moreDetails}
                                                     </p>
                                                 )}
@@ -884,7 +884,7 @@ export default function Details() {
             {/* ── CTA Banner ── */}
             <section className="motion-rise hero-shell mt-[99px] md:mt-[150px]">
                 <div className="rounded-[24px] md:rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 md:py-16 text-center sm:px-10">
-                    <h2 className="mx-auto max-w-[300px] md:max-w-[520px] text-[28px] md:text-4xl font-medium md:font-normal leading-tight text-white sm:text-5xl">
+                    <h2 className="mx-auto max-w-[300px] md:max-w-[520px] text-[22px] font-normal leading-tight text-white md:text-[30px]">
                         Choose Your Next Car and Have It Delivered Anywhere in Ireland
                     </h2>
 

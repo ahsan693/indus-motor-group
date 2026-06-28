@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import financeHeroImg from '../images/financepage-images/financenavbar.jpg'
@@ -238,8 +238,8 @@ export default function Finance() {
                 {/* ── Intro ── */}
                 <section className="motion-rise grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10 iphone:gap-5">
                     <div className="space-y-4 iphone:space-y-3">
-                        <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[20px] iphone:leading-snug">Finance Your Next Car</h2>
-                        <p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[14px] iphone:leading-6">
+                        <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:leading-snug">Finance Your Next Car</h2>
+                        <p className="max-w-[430px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px] iphone:leading-6">
                             We offer flexible finance options through trusted third party lenders. Apply online and we will connect you with a provider to discuss the best option for your needs.
                         </p>
                         <p className="max-w-[430px] text-[14px] leading-6 text-zinc-500 md:text-[16px] iphone:text-[13px] iphone:leading-5">
@@ -265,7 +265,7 @@ export default function Finance() {
                     <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
                         <div className="space-y-3 iphone:space-y-2">
                             <p className="text-[12px] text-zinc-500 md:text-[14px]">- Finance Benefits</p>
-                            <h2 className="max-w-[280px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[20px] iphone:leading-snug">Finance Options Available</h2>
+                            <h2 className="max-w-[280px] text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:leading-snug">Finance Options Available</h2>
                         </div>
 
                         <div className="grid gap-3 sm:grid-cols-2 iphone:gap-2">
@@ -285,7 +285,7 @@ export default function Finance() {
                 {/* ── Process ── */}
                 <section className="motion-rise motion-rise-delay-2">
                     <p className="text-[12px] text-zinc-500 md:text-[14px]">- Process</p>
-                    <h2 className="mt-2 text-[22px] font-normal text-white md:text-[30px] iphone:text-[20px] iphone:mt-1.5">How Finance Works</h2>
+                    <h2 className="mt-2 text-[22px] font-normal text-white md:text-[30px] iphone:mt-1.5">How Finance Works</h2>
 
                     <div className="mt-12 md:mt-16 grid gap-4 md:grid-cols-3 iphone:mt-5 iphone:gap-4">
                         {processSteps.map((item) => (
@@ -304,7 +304,7 @@ export default function Finance() {
                 {/* ── Finance Application Form ── */}
                 <section id="finance-application-form" className="motion-rise scroll-mt-24 space-y-6 md:scroll-mt-28 iphone:space-y-4">
                     <p className="text-center text-[12px] text-zinc-500 md:text-[14px]">- Finance Application</p>
-                    <h2 className="text-center text-[22px] font-normal text-white md:text-[30px] iphone:text-[20px]">Apply for Finance</h2>
+                    <h2 className="text-center text-[22px] font-normal text-white md:text-[30px]">Apply for Finance</h2>
                     <p className="text-center text-[16px] text-zinc-400 md:text-[18px] iphone:text-[13px] iphone:leading-5">Complete the short form below and a finance provider will contact you to discuss your application.</p>
 
                     <div className="grid items-stretch gap-3 lg:grid-cols-[1fr_1.05fr] lg:gap-4 iphone:gap-3">
@@ -386,7 +386,7 @@ export default function Finance() {
 
                 {/* ── FAQs ── */}
                 <section className="motion-rise grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-10 iphone:gap-4">
-                    <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[20px] iphone:leading-snug">Finance FAQs</h2>
+                    <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:leading-snug">Finance FAQs</h2>
                     <div>
                         {faq.map((item, idx) => {
                             const open = openFaq === idx

@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useMemo, useRef, useState, useEffect } from 'react'
 import { useCars } from '../hooks/useCars'
 import { urlFor } from '../lib/sanity'
@@ -274,7 +274,7 @@ export default function Home() {
               <span className="hidden md:block">in Ireland</span>
             </h1>
 
-            <p className="mt-5 max-w-[600px] text-[15px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] sm:text-[16px] md:text-[18px]">
+            <p className="mt-5 max-w-[600px] text-[16px] leading-relaxed text-zinc-100 [text-shadow:0_2px_12px_rgba(0,0,0,0.58)] md:text-[18px] iphone:text-[13px]">
               Transparent pricing. Nationwide delivery.
             </p>
 
@@ -340,10 +340,10 @@ export default function Home() {
                     )}
                     <div className="space-y-3 p-3 md:space-y-3 md:p-3">
                       <div className="flex items-start justify-between gap-1 md:gap-3">
-                        <h3 className="truncate text-[13px] font-normal text-white md:text-[16px]">{car.make} {car.model}</h3>
+                        <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
                         <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details {'>'}</span>
                       </div>
-                      <p className="text-[13px] font-normal text-[#BABABA] md:text-[16px]">
+                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
                         {car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
                       </p>
                       <div className="flex flex-wrap gap-2 md:gap-2">
@@ -363,8 +363,8 @@ export default function Home() {
                           </span>
                         )}
                       </div>
-                      <p className="text-[15px] font-normal leading-none text-white md:text-[24px]">€{car.price?.toLocaleString() || 0}</p>
-                      <p className="text-[13px] font-normal text-[#BABABA] md:text-[16px]">Finance Available</p>
+                      <p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
+                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
                     </div>
                   </article>
                 </Link>
@@ -524,7 +524,7 @@ export default function Home() {
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%] md:h-[45%] bg-gradient-to-t from-black/95 via-black/80 to-transparent"></div>
                   <div className="relative z-20 px-4 pb-4 md:px-5 md:pb-5">
                     <h3 className="text-[14px] font-normal leading-tight text-white md:text-[18px]">{card.title}</h3>
-                    <p className="mt-1.5 max-w-none text-[13px] leading-6 text-zinc-200 md:max-w-[300px] md:text-[16px]">{card.body}</p>
+                    <p className="mt-1.5 max-w-none text-[16px] leading-6 text-zinc-200 md:max-w-[300px] md:text-[18px] iphone:text-[13px]">{card.body}</p>
                   </div>
                 </div>
               </article>
@@ -554,7 +554,7 @@ export default function Home() {
                 <div key={item.name} className="w-full shrink-0 snap-center px-1">
                   <article className="rounded-2xl bg-[#101010] p-4 text-left transition-transform duration-500 ease-out">
                     <p className="text-[13px] tracking-[0.16em] text-white">★★★★★</p>
-                    <p className="mt-3 min-h-[92px] text-[13px] leading-7 text-zinc-300">{item.quote}</p>
+                    <p className="mt-3 min-h-[92px] text-[16px] leading-6 text-zinc-300 md:text-[18px] iphone:text-[13px]">{item.quote}</p>
                     <div className="mt-4 flex items-center gap-2.5">
                       <img
                         src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
@@ -593,7 +593,7 @@ export default function Home() {
             {testimonials.map((item) => (
               <article key={item.name} className="group rounded-2xl bg-[#101010] p-5 text-left transition-transform duration-500 ease-out hover:-translate-y-1 md:p-6">
                 <p className="text-[14px] tracking-[0.16em] text-white md:text-[16px]">★★★★★</p>
-                <p className="mt-3 min-h-[92px] text-[15px] leading-6 text-zinc-300 md:text-[16px]">{item.quote}</p>
+                <p className="mt-3 min-h-[92px] text-[16px] leading-6 text-zinc-300 md:text-[18px] iphone:text-[13px]">{item.quote}</p>
                 <div className="mt-4 flex items-center gap-2.5">
                   <img
                     src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"

@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { Navbar } from './Home'
 import { useCars } from '../hooks/useCars'
@@ -172,7 +172,7 @@ export default function Cars() {
             {/* MAIN CONTENT - REFACTORED FOR PERFECT 99PX / 150PX GAPS */}
             <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
                 <section className="motion-rise relative z-40 space-y-8 md:space-y-10">
-                    <h1 className="text-left text-[34px] font-normal leading-tight text-white px-6 min-[390px]:text-[36px] sm:text-[38px] md:text-center md:text-[42px] md:px-0 iphone:text-[52px] iphone:leading-tight iphone:text-center iphone:px-0">
+                    <h1 className="text-left text-[44px] font-normal leading-tight text-white px-6 md:text-center md:text-[60px] lg:text-[72px] md:px-0 iphone:leading-tight iphone:text-center iphone:px-0">
                         Quality Used Cars for Sale
                     </h1>
 
@@ -361,7 +361,7 @@ export default function Cars() {
                 <section className="motion-rise motion-rise-delay-1 relative z-10">
                     <div className="mb-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between iphone:mb-3 iphone:gap-2">
                         <div className="max-w-[760px]">
-                            <h2 className="text-[22px] font-normal leading-[1.08] text-white md:text-[30px] iphone:text-[22px]">Explore Our Collection</h2>
+                            <h2 className="text-[22px] font-normal leading-[1.08] text-white md:text-[30px]">Explore Our Collection</h2>
                             <p className="mt-2 mb-8 text-[16px] leading-6 text-zinc-400 md:mb-12 md:text-[18px] iphone:text-[13px] iphone:mb-4">
                                 Carefully selected used cars chosen for quality, reliability, and value.
                             </p>

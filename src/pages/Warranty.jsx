@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Navbar } from './Home'
 import warrantyHeroImg from '../images/warrantypage-images/QO39bC2hbcBpcVKCuwubY36DU.webp'
 import vehicleWarrantyImg from '../images/warrantypage-images/image 25.png'
@@ -131,10 +131,10 @@ export default function Warranty() {
                         <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
                             Vehicle Warranty for Added Peace of Mind
                         </h2>
-                        <p className="max-w-[500px] text-[15px] leading-7 text-zinc-300 md:text-[18px]">
+                        <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
                             All vehicles at Indus Motor Group can be supplied with warranty options for added peace of mind. We work with trusted third party providers to offer warranty protection at the point of sale.
                         </p>
-                        <p className="max-w-[500px] text-[15px] leading-7 text-zinc-300 md:text-[18px]">
+                        <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
                             Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months, depending on the vehicle and selected plan.
                         </p>
                         <button className="rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-black transition-colors hover:bg-zinc-200">
@@ -157,7 +157,7 @@ export default function Warranty() {
                             <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px]">
                                 Key Features
                             </h2>
-                            <p className="max-w-[310px] text-[15px] leading-7 text-zinc-400 md:text-[18px]">
+                            <p className="max-w-[310px] text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                 Warranty options are available across all vehicles, providing added protection and peace of mind long after you drive away.
                             </p>
                         </div>
@@ -170,7 +170,7 @@ export default function Warranty() {
                                     <h3 className="motion-link-slide text-[15px] font-normal text-zinc-100 md:text-[18px]">
                                         {item.title}
                                     </h3>
-                                    <p className="mt-2 text-[14px] leading-6 text-zinc-400 md:text-[18px]">
+                                    <p className="mt-2 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                         {item.body}
                                     </p>
                                 </article>
@@ -200,7 +200,7 @@ export default function Warranty() {
                                 <h3 className="motion-link-slide text-[16px] font-normal leading-tight text-white md:text-[18px]">
                                     {item.title}
                                 </h3>
-                                <p className="text-[14px] leading-6 text-zinc-400 md:text-[18px]">
+                                <p className="text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                     {item.body}
                                 </p>
                             </article>
@@ -233,7 +233,7 @@ export default function Warranty() {
                                         <span className="text-lg text-zinc-300">{open ? '-' : '+'}</span>
                                     </button>
                                     {open && (
-                                        <p id={`faq-answer-${idx}`} className="mt-4 text-[14px] leading-6 text-zinc-400 md:text-[18px]">
+                                        <p id={`faq-answer-${idx}`} className="mt-4 text-[16px] leading-6 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                                             {answer}
                                         </p>
                                     )}
@@ -248,7 +248,7 @@ export default function Warranty() {
                     <h2 className="text-[22px] font-normal text-white md:text-[30px]">
                         Drive Away With Confidence
                     </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-[15px] leading-7 text-zinc-400 md:text-[18px]">
+                    <p className="mx-auto mt-4 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
                         Warranty options are available on all vehicles to help protect your purchase.
                     </p>
                     <button className="mt-8 rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black">
