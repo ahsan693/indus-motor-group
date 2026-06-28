@@ -534,8 +534,8 @@ export default function Details() {
 
             <main className="layout-shell flex flex-col pt-4 md:pt-[50px] gap-[70px] md:gap-[150px]">
 
-                {/* ── Hero Section ── */}
-                <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
+                {/* ── Hero Section (FIXED: lg:items-center for perfect vertical alignment) ── */}
+                <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-10">
 
                     {/* Left: title, price, tags, description, CTA */}
                     <div className="space-y-8 md:space-y-6">
@@ -628,7 +628,7 @@ export default function Details() {
                                     ›
                                 </button>
                                 
-                                {/* Dot Indicators - explicitly visible on all screens now */}
+                                {/* Dot Indicators */}
                                 <div className="absolute inset-x-0 bottom-5 flex items-center justify-center gap-2 md:gap-1.5">
                                     {imageUrls.map((_, index) => (
                                         <div
@@ -683,7 +683,7 @@ export default function Details() {
                         <p className="mt-6 text-sm text-zinc-500">No optional features selected for this vehicle.</p>
                     ) : (
                         <>
-                            {/* --- Mobile View for Features (Accordion Check-list style) --- */}
+                            {/* --- Mobile View for Features --- */}
                             <div className="md:hidden mt-6">
                                 {selectedFeatureGroups.map((group) => (
                                     <div key={group.title} className="border-b border-zinc-800/80 py-2">
@@ -705,7 +705,7 @@ export default function Details() {
                                 ))}
                             </div>
 
-                            {/* --- Desktop View for Features (Original Layout) --- */}
+                            {/* --- Desktop View for Features --- */}
                             <div className="hidden md:block mt-6 border-t border-zinc-800">
                                 {selectedFeatureGroups.map((group) => (
                                     <div key={group.title} className="border-b border-zinc-800 py-6">
