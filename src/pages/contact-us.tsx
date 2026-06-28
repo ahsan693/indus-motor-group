@@ -129,7 +129,7 @@ export default function ContactUs() {
 
         {/* ── Reach Out to Us ── */}
         <section className="motion-rise">
-          <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[18px] text-center mb-10 iphone:mb-8">
+          <h2 className="text-[22px] font-normal leading-tight text-white md:text-[30px] iphone:text-[22px] text-center mb-10 iphone:mb-8">
             Reach Out to Us
           </h2>
 
@@ -219,15 +219,15 @@ export default function ContactUs() {
 
         {/* ── Contact Information ── */}
         <section className="motion-rise motion-rise-delay-1">
-          <h2 className="text-[28px] md:text-[30px] font-normal leading-tight text-white mb-8 md:mb-10 iphone:mb-7">
+          <h2 className="text-[22px] md:text-[30px] font-normal leading-tight text-white mb-8 md:mb-10 iphone:mb-7">
             Contact Information
           </h2>
 
           <div className="space-y-0">
             {/* Get in Touch */}
             <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b iphone:py-6">
-              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Get in Touch</div>
-              <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[15px]">
+              <div className="text-[16px] text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-[13px]">Get in Touch</div>
+              <div className="text-[16px] md:text-[18px] text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[13px]">
                 <div>+353 89 967 5410</div>
                 <div>hello@indusmotorgroup.com</div>
               </div>
@@ -235,8 +235,8 @@ export default function ContactUs() {
 
             {/* Address & Working Hours */}
             <div className="py-5 border-t border-zinc-800 md:grid md:grid-cols-2 md:py-4 md:border-b iphone:py-6">
-              <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Address & Working Hours</div>
-              <div className="text-sm md:text-xs text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[15px]">
+              <div className="text-[16px] text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-[13px]">Address & Working Hours</div>
+              <div className="text-[16px] md:text-[18px] text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[13px]">
                 <div>Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland</div>
                 <div>Mon - Fri: 9:00am - 6:00pm</div>
               </div>
@@ -244,13 +244,13 @@ export default function ContactUs() {
 
            {/* Socials */}
 <div className="py-5 border-t border-b border-zinc-800 md:grid md:grid-cols-2 md:py-4 iphone:py-6">
-  <div className="text-xs text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-sm">Socials</div>
-  <div className="text-sm md:text-xs space-y-2 iphone:space-y-3">
+  <div className="text-[16px] text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-[13px]">Socials</div>
+  <div className="text-[16px] md:text-[18px] space-y-2 iphone:space-y-3">
     <a
       href="https://www.instagram.com/indusmotorgroup"
       target="_blank"
       rel="noopener noreferrer"
-      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[13px]"
     >
       Instagram
     </a>
@@ -258,7 +258,7 @@ export default function ContactUs() {
       href="https://www.facebook.com/indusmotorgroup"
       target="_blank"
       rel="noopener noreferrer"
-      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[13px]"
     >
       Facebook
     </a>
@@ -266,7 +266,7 @@ export default function ContactUs() {
       href="https://www.tiktok.com/@indusmotorgroup"
       target="_blank"
       rel="noopener noreferrer"
-      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[15px]"
+      className="block text-white md:text-zinc-300 hover:text-white transition underline underline-offset-2 md:no-underline iphone:text-[13px]"
     >
       TikTok
     </a>
@@ -278,7 +278,7 @@ export default function ContactUs() {
         {/* ── Warranty FAQs ── */}
         <section className="motion-rise">
           <div className="md:grid md:grid-cols-2">
-            <h2 className="text-[28px] md:text-[30px] font-normal text-white mb-8 md:mb-10 iphone:mb-7">
+            <h2 className="text-[22px] md:text-[30px] font-normal text-white mb-8 md:mb-10 iphone:mb-7">
               Warranty FAQS
             </h2>
 
@@ -295,11 +295,11 @@ export default function ContactUs() {
                       onClick={() => setOpenFaq(open ? null : idx)}
                       aria-expanded={open ? "true" : "false"}
                     >
-                      <span className="text-sm md:text-xs font-normal text-white md:text-zinc-300 iphone:text-[15px]">{question}</span>
-                      <span className="text-xl md:text-sm text-zinc-400 md:text-zinc-300 font-light flex-shrink-0">+</span>
+                      <span className="text-[16px] md:text-[18px] font-normal text-white md:text-zinc-300 iphone:text-[13px]">{question}</span>
+                      <span className="text-xl md:text-[18px] text-zinc-400 md:text-zinc-300 font-light flex-shrink-0">+</span>
                     </button>
                     {open && (
-                      <p className="mt-3 md:mt-2 iphone:mt-4 text-sm md:text-xs iphone:text-[14px] leading-relaxed text-zinc-400">{answer}</p>
+                      <p className="mt-3 md:mt-2 iphone:mt-4 text-[16px] md:text-[18px] iphone:text-[13px] leading-relaxed text-zinc-400">{answer}</p>
                     )}
                   </div>
                 )

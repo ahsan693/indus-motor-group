@@ -644,32 +644,32 @@ export default function Home() {
               <p className="site-footer-copy text-[13px] sm:text-[14px] leading-6 font-normal md:text-[14px] md:leading-tight">
                 Quality used cars with transparent pricing, trusted warranty options, and a straightforward buying experience.
               </p>
-             <div className="mt-4 flex items-center gap-3 text-white">
-  <a href="https://www.instagram.com/indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-white">
-    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  </a>
-  <a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
-    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2.5" y="6" width="19" height="12" rx="3" />
-      <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
-    </svg>
-  </a>
-  <a href="https://www.facebook.com/indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-white">
-    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
-    </svg>
-  </a>
-  <a href="https://www.tiktok.com/@indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-white">
-    <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 4v8.5a3.5 3.5 0 1 1-2.6-3.4" />
-      <path d="M14 4c1.1 1.6 2.5 2.4 4.5 2.4" />
-    </svg>
-  </a>
-</div>
+              <div className="mt-4 flex items-center gap-3 text-white">
+                <a href="https://www.instagram.com/indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a href="#" aria-label="YouTube" className="transition-colors hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2.5" y="6" width="19" height="12" rx="3" />
+                    <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a href="https://www.facebook.com/indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 8h2V4h-2a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h2.5l.5-4H14V8a1 1 0 0 1 1-1Z" />
+                  </svg>
+                </a>
+                <a href="https://www.tiktok.com/@indusmotorgroup" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="transition-colors hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 4v8.5a3.5 3.5 0 1 1-2.6-3.4" />
+                    <path d="M14 4c1.1 1.6 2.5 2.4 4.5 2.4" />
+                  </svg>
+                </a>
+              </div>
             </div>
             <div>
               <p className="site-footer-label">Company</p>
@@ -710,9 +710,9 @@ export default function Home() {
             <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
           </p>
           <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
-         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-  Website by <a href="https://www.droplinemedia.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
-</p>
+          <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
+            Website by <a href="https://www.droplinemedia.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+          </p>
         </div>
       </footer>
     </div>
