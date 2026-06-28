@@ -515,9 +515,9 @@ export default function Details() {
                     {/* Mobile Back Link */}
                     <Link
                         to="/cars"
-                        className="md:hidden inline-flex items-center text-[14px] font-medium text-zinc-300 transition-colors hover:text-white"
+                        className="md:hidden inline-flex items-center text-[15px] font-medium text-zinc-300 transition-colors hover:text-white"
                     >
-                        <span className="mr-2 text-lg" aria-hidden="true">‹</span> Back to Cars
+                        <span className="mr-2 text-xl" aria-hidden="true">‹</span> Back to Cars
                     </Link>
                     
                     {/* Desktop Back Button */}
@@ -538,16 +538,16 @@ export default function Details() {
                 <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
 
                     {/* Left: title, price, tags, description, CTA */}
-                    <div className="space-y-6 md:space-y-6">
+                    <div className="space-y-8 md:space-y-6">
 
-                       <div className="space-y-2 md:space-y-2">
-    <h1 className="text-[44px] leading-[1.1] font-medium text-white tracking-tight sm:text-[48px] md:text-[38px] md:font-normal md:leading-tight break-words">
-        {car.make} {car.model}
-    </h1>
-    <p className="text-[34px] font-medium text-white tracking-tight mt-2 md:mt-0 md:text-4xl md:font-normal">
-        {formatPrice(car.price)}
-    </p>
-</div>
+                        <div className="space-y-2 md:space-y-2">
+                            <h1 className="text-[44px] leading-[1.1] font-medium text-white tracking-tight sm:text-[48px] md:text-[38px] md:font-normal md:leading-tight break-words">
+                                {car.make} {car.model}
+                            </h1>
+                            <p className="text-[34px] font-medium text-white tracking-tight mt-2 md:mt-0 md:text-4xl md:font-normal">
+                                {formatPrice(car.price)}
+                            </p>
+                        </div>
 
                         <div className="flex flex-wrap gap-2 pt-2 md:pt-0">
                             {HERO_TAGS.map((tag) => (
@@ -561,13 +561,13 @@ export default function Details() {
                         </div>
 
                         {car.description && (
-                            <p className="max-w-xl text-[14px] leading-relaxed text-zinc-400 md:text-sm md:leading-7">
+                            <p className="max-w-xl text-[15px] leading-7 text-zinc-400 md:text-sm md:leading-7">
                                 {car.description}
                             </p>
                         )}
 
                         {heroSummary.length > 0 && (
-                            <p className="text-[13px] text-zinc-400 md:text-sm">
+                            <p className="text-[15px] text-zinc-400 md:text-sm">
                                 {heroSummary.join(' • ')}
                             </p>
                         )}
@@ -575,9 +575,9 @@ export default function Details() {
                         {/* Mobile Enquire Now Link */}
                         <a
                             href={enquiryMail}
-                            className="md:hidden inline-flex items-center text-[15px] font-medium text-white pt-2"
+                            className="md:hidden inline-flex items-center text-[16px] font-medium text-white pt-2"
                         >
-                            Enquire Now <span className="ml-2 font-light text-lg">→</span>
+                            Enquire Now <span className="ml-2 font-light text-xl">→</span>
                         </a>
 
                         {/* Desktop Enquire Now Button */}
@@ -653,20 +653,20 @@ export default function Details() {
                     <h2 className="text-[26px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                         Vehicle Specifications
                     </h2>
-                    <div className="mt-6 md:mt-8 grid gap-x-14 md:grid-cols-2 gap-y-0 md:gap-y-2">
+                    <div className="mt-8 md:mt-8 grid gap-x-14 md:grid-cols-2 gap-y-0 md:gap-y-2">
                         <div>
                             {leftSpecifications.map((spec) => (
                                 <div key={spec.label} className="flex items-center justify-between border-b border-zinc-800/80 py-4 md:py-3.5 md:grid md:grid-cols-[1fr_auto]">
-                                    <span className="text-[14px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
-                                    <span className="text-[14px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
+                                    <span className="text-[15px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
+                                    <span className="text-[15px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
                                 </div>
                             ))}
                         </div>
                         <div>
                             {rightSpecifications.map((spec) => (
                                 <div key={spec.label} className="flex items-center justify-between border-b border-zinc-800/80 py-4 md:py-3.5 md:grid md:grid-cols-[1fr_auto]">
-                                    <span className="text-[14px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
-                                    <span className="text-[14px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
+                                    <span className="text-[15px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
+                                    <span className="text-[15px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
                                 </div>
                             ))}
                         </div>
@@ -684,16 +684,16 @@ export default function Details() {
                     ) : (
                         <>
                             {/* --- Mobile View for Features (Accordion Check-list style) --- */}
-                            <div className="md:hidden mt-4">
+                            <div className="md:hidden mt-6">
                                 {selectedFeatureGroups.map((group) => (
                                     <div key={group.title} className="border-b border-zinc-800/80 py-2">
                                         <div className="flex items-center justify-between py-4">
-                                            <h3 className="text-[15px] font-medium text-white">{group.title}</h3>
+                                            <h3 className="text-[16px] font-medium text-white">{group.title}</h3>
                                             <span className="text-zinc-400 font-light text-xl">+</span>
                                         </div>
-                                        <ul className="space-y-4 pb-6 pt-2">
+                                        <ul className="space-y-5 pb-6 pt-3">
                                             {group.selectedItems.map((item) => (
-                                                <li key={`${group.title}-${item}`} className="flex items-center text-[14px] text-zinc-300">
+                                                <li key={`${group.title}-${item}`} className="flex items-center text-[15px] text-zinc-300">
                                                     <svg className="mr-3 h-[18px] w-[18px] text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                                                     </svg>
@@ -729,16 +729,16 @@ export default function Details() {
                 {/* ── Enquire Section ── */}
                 <section className="motion-rise rounded-[24px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:px-10 md:py-10 md:rounded-2xl">
                     <div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
-                        <div className="space-y-4 md:space-y-4">
+                        <div className="space-y-5 md:space-y-4">
                             <h2 className="text-[22px] font-medium leading-tight text-white md:text-[28px] md:font-normal">
                                 Enquire About This Vehicle
                             </h2>
-                            <p className="max-w-md text-[14px] leading-6 text-zinc-400 md:text-sm">
+                            <p className="max-w-md text-[15px] leading-7 text-zinc-400 md:text-sm md:leading-6">
                                 Contact our team to arrange a viewing, ask questions, or check availability.
                             </p>
                             <a
                                 href={enquiryMail}
-                                className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black md:text-[16px]"
+                                className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-3 md:py-2.5 text-[15px] font-medium text-black md:text-[16px]"
                             >
                                 Enquire Now
                             </a>
@@ -746,12 +746,12 @@ export default function Details() {
 
                         <div className="grid gap-3 sm:grid-cols-2 md:gap-4">
                             {ENQUIRY_HIGHLIGHTS.map((item) => (
-                                <article key={item.title} className="group motion-card rounded-[14px] border border-zinc-800/80 bg-black/35 p-4 md:rounded-xl">
-                                    <span className="mb-3 inline-flex h-8 w-8 md:h-7 md:w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
+                                <article key={item.title} className="group motion-card rounded-[14px] border border-zinc-800/80 bg-black/35 p-5 md:p-4 md:rounded-xl">
+                                    <span className="mb-4 md:mb-3 inline-flex h-9 w-9 md:h-7 md:w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
                                         <HighlightIcon type={item.icon} />
                                     </span>
-                                    <h3 className="motion-link-slide text-[14px] font-medium md:font-normal text-zinc-100">{item.title}</h3>
-                                    <p className="mt-1.5 text-[12px] leading-5 text-zinc-400 md:mt-2 md:text-xs">{item.description}</p>
+                                    <h3 className="motion-link-slide text-[15px] font-medium md:text-[14px] md:font-normal text-zinc-100">{item.title}</h3>
+                                    <p className="mt-2 text-[14px] leading-relaxed text-zinc-400 md:mt-2 md:text-xs md:leading-5">{item.description}</p>
                                 </article>
                             ))}
                         </div>
@@ -760,18 +760,18 @@ export default function Details() {
 
                 {/* ── You May Also Like ── */}
                 <section className="motion-rise motion-rise-delay-2">
-                    <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-7 md:gap-4">
+                    <div className="mb-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-7 md:gap-4">
                         <div>
                             <h2 className="text-[22px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                                 You May Also Like
                             </h2>
-                            <p className="mt-1 text-[13px] text-zinc-500 md:mt-2 md:text-[11px]">
+                            <p className="mt-2 text-[15px] text-zinc-400 md:mt-2 md:text-[11px] md:text-zinc-500">
                                 Discover more quality used cars available at Indus Motor Group.
                             </p>
                         </div>
                         <Link
                             to="/cars"
-                            className="inline-flex items-center rounded-full bg-white px-4 py-2 text-[13px] font-medium text-black transition-colors hover:bg-zinc-200 md:px-5 md:text-[11px]"
+                            className="inline-flex items-center rounded-full bg-white px-5 py-2.5 md:py-2 text-[14px] font-medium text-black transition-colors hover:bg-zinc-200 md:px-5 md:text-[11px]"
                         >
                             View All Cars
                         </Link>
@@ -789,7 +789,7 @@ export default function Details() {
                             More vehicles are coming soon.
                         </div>
                     ) : (
-                        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                        <div className="grid gap-5 md:gap-4 md:grid-cols-2 xl:grid-cols-3">
                             {relatedCars.map((relatedCar) => {
                                 const relatedImageUrl = getImageUrl(relatedCar.images?.[0], 900)
                                 const relatedSummary = [
@@ -810,33 +810,33 @@ export default function Details() {
                                                     alt={`${relatedCar.make} ${relatedCar.model}`}
                                                     loading="lazy"
                                                     decoding="async"
-                                                    className="motion-media h-48 md:h-44 w-full object-cover"
+                                                    className="motion-media h-52 md:h-44 w-full object-cover"
                                                 />
                                             ) : (
-                                                <div className="flex h-48 md:h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">
+                                                <div className="flex h-52 md:h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">
                                                     No image available
                                                 </div>
                                             )}
 
-                                            <div className="space-y-3 p-5 md:p-4">
+                                            <div className="space-y-4 md:space-y-3 p-5 md:p-4">
                                                 <div className="flex items-start justify-between gap-3">
                                                     <h3 className="text-[18px] md:text-[16px] font-medium leading-tight text-white">
                                                         {relatedCar.make} {relatedCar.model}
                                                     </h3>
-                                                    <span className="motion-link-slide pt-1 text-[12px] md:text-[11px] text-zinc-300 shrink-0">View Details {'>'}</span>
+                                                    <span className="motion-link-slide pt-1 text-[13px] md:text-[11px] text-zinc-300 shrink-0">View Details {'>'}</span>
                                                 </div>
 
-                                                <p className="text-[13px] md:text-[11px] text-zinc-500">{relatedSummary.join(' • ')}</p>
+                                                <p className="text-[14px] md:text-[11px] text-zinc-400 md:text-zinc-500">{relatedSummary.join(' • ')}</p>
 
                                                 <div className="flex flex-wrap gap-2 md:gap-1.5">
                                                     {getRelatedTags(relatedCar).map((tag) => (
-                                                        <span key={`${relatedCar._id}-${tag}`} className="rounded-full border border-zinc-700/80 bg-zinc-900/60 px-3 md:px-2 py-1 md:py-1 text-[12px] md:text-[11px] text-zinc-300">
+                                                        <span key={`${relatedCar._id}-${tag}`} className="rounded-full border border-zinc-700/80 bg-zinc-900/60 px-3 md:px-2 py-1.5 md:py-1 text-[13px] md:text-[11px] text-zinc-300">
                                                             {tag}
                                                         </span>
                                                     ))}
                                                 </div>
 
-                                                <p className="pt-2 md:pt-1 text-[28px] md:text-3xl font-medium md:font-normal text-white">
+                                                <p className="pt-2 md:pt-1 text-[30px] md:text-3xl font-medium md:font-normal text-white">
                                                     {relatedCar.price === undefined || relatedCar.price === null || relatedCar.price === ''
                                                         ? 'Price on request'
                                                         : formatEuroNoDecimals(relatedCar.price)}
@@ -854,7 +854,7 @@ export default function Details() {
                 <section className="motion-rise border-t border-zinc-800 pt-10 md:pt-12">
                     <div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
                         <div>
-                            <h2 className="text-[26px] md:text-4xl lg:max-w-[240px] font-medium md:font-normal leading-tight text-white sm:text-5xl">
+                            <h2 className="text-[28px] md:text-4xl lg:max-w-[240px] font-medium md:font-normal leading-tight text-white sm:text-5xl">
                                 Frequently Asked Questions
                             </h2>
                         </div>
@@ -868,20 +868,20 @@ export default function Details() {
                                         <button
                                             type="button"
                                             onClick={() => toggleFaqItem(index)}
-                                            className="flex w-full items-start justify-between gap-3 py-5 md:py-4 text-left"
+                                            className="flex w-full items-start justify-between gap-3 py-6 md:py-4 text-left"
                                             aria-expanded={isExpanded}
                                         >
-                                            <span className="text-[16px] md:text-[18px] font-medium md:font-normal leading-snug text-zinc-100">{item.question}</span>
-                                            <span className="mt-0.5 text-xl leading-none text-zinc-300 shrink-0">{isExpanded ? '-' : '+'}</span>
+                                            <span className="text-[17px] md:text-[18px] font-medium md:font-normal leading-snug text-zinc-100">{item.question}</span>
+                                            <span className="mt-0.5 text-2xl md:text-xl leading-none text-zinc-300 shrink-0">{isExpanded ? '-' : '+'}</span>
                                         </button>
 
                                         {isExpanded && (
                                             <>
-                                                <p className="pb-2 pr-4 md:pr-8 text-[14px] md:text-[16px] leading-relaxed md:leading-6 text-zinc-400">
+                                                <p className="pb-4 pr-4 md:pb-2 md:pr-8 text-[15px] md:text-[16px] leading-7 md:leading-6 text-zinc-400">
                                                     {item.answer}
                                                 </p>
                                                 {item.moreDetails && (
-                                                    <p className="pb-5 md:pb-4 pr-4 md:pr-8 text-[14px] md:text-[16px] leading-relaxed md:leading-6 text-zinc-400">
+                                                    <p className="pb-6 md:pb-4 pr-4 md:pr-8 text-[15px] md:text-[16px] leading-7 md:leading-6 text-zinc-400">
                                                         {item.moreDetails}
                                                     </p>
                                                 )}
@@ -897,25 +897,25 @@ export default function Details() {
 
             {/* ── CTA Banner ── */}
             <section className="motion-rise hero-shell mt-[99px] md:mt-[150px]">
-                <div className="rounded-[24px] md:rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-12 md:py-16 text-center sm:px-10">
-                    <h2 className="mx-auto max-w-[300px] md:max-w-[520px] text-[26px] md:text-4xl font-medium md:font-normal leading-tight text-white sm:text-5xl">
+                <div className="rounded-[24px] md:rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 md:py-16 text-center sm:px-10">
+                    <h2 className="mx-auto max-w-[300px] md:max-w-[520px] text-[28px] md:text-4xl font-medium md:font-normal leading-tight text-white sm:text-5xl">
                         Choose Your Next Car and Have It Delivered Anywhere in Ireland
                     </h2>
 
-                    <div className="mx-auto mt-8 flex w-fit items-center justify-center rounded">
+                    <div className="mx-auto mt-8 md:mt-8 flex w-fit items-center justify-center rounded">
                         <img
                             src={Logo}
                             alt="Indus Motor Group"
-                            className="h-14 w-auto object-contain"
+                            className="h-16 md:h-14 w-auto object-contain"
                         />
                     </div>
 
-                    <p className="mt-4 text-[14px] md:text-sm text-zinc-200">Indus Motor Group</p>
-                    <p className="mt-1 text-[13px] md:text-xs text-zinc-500">Nationwide vehicle delivery available.</p>
+                    <p className="mt-5 text-[16px] md:mt-4 md:text-sm text-zinc-200">Indus Motor Group</p>
+                    <p className="mt-2 text-[14px] md:mt-1 md:text-xs text-zinc-400 md:text-zinc-500">Nationwide vehicle delivery available.</p>
 
                     <a
                         href={enquiryMail}
-                        className="ui-btn mt-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[15px] md:text-[16px] font-medium text-black"
+                        className="ui-btn mt-8 md:mt-6 inline-flex items-center rounded-full bg-white px-8 py-3 md:px-6 md:py-2.5 text-[16px] md:text-[16px] font-medium text-black"
                     >
                         Enquire Now
                     </a>
