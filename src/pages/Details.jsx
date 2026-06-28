@@ -485,9 +485,9 @@ export default function Details() {
                         </button>
                     )}
 
-                    {/* Dot indicators */}
+                    {/* Dot indicators - Hidden on Mobile, visible on Desktop */}
                     {hasMultipleImages && (
-                        <div className="absolute bottom-5 flex items-center justify-center gap-1.5">
+                        <div className="absolute bottom-5 hidden md:flex items-center justify-center gap-1.5">
                             {imageUrls.map((_, index) => (
                                 <button
                                     type="button"
@@ -526,7 +526,7 @@ export default function Details() {
 
             <main className="layout-shell flex flex-col pt-4 md:pt-[50px] gap-[70px] md:gap-[150px]">
 
-                {/* ── Hero Section (FIXED: lg:items-center for perfect vertical alignment) ── */}
+                {/* ── Hero Section ── */}
                 <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-10">
 
                     {/* Left: title, price, tags, description, CTA */}
@@ -614,15 +614,15 @@ export default function Details() {
                                     ›
                                 </button>
                                 
-                                {/* Dot Indicators */}
-                                <div className="absolute inset-x-0 bottom-5 flex items-center justify-center gap-2 md:gap-1.5">
+                                {/* Dot Indicators - Hidden on Mobile, visible on Desktop */}
+                                <div className="absolute inset-x-0 bottom-5 hidden md:flex items-center justify-center gap-1.5">
                                     {imageUrls.map((_, index) => (
                                         <div
                                             key={`image-dot-${index}`}
                                             onClick={() => setCurrentImageIndex(index)}
                                             role="button"
                                             tabIndex={0}
-                                            className={`h-2 w-2 md:h-1.5 md:w-1.5 flex-none cursor-pointer rounded-full transition-colors ${
+                                            className={`h-1.5 w-1.5 flex-none cursor-pointer rounded-full transition-colors ${
                                                 currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'
                                             }`}
                                             aria-label={`View image ${index + 1}`}
