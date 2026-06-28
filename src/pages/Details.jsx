@@ -215,7 +215,7 @@ export default function Details() {
         setCurrentImageIndex(0)
     }, [carId, car?._id])
 
-    // --- FIX: Scroll to top when carId changes ---
+    // Scroll to top when carId changes
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -431,7 +431,7 @@ export default function Details() {
     }
 
     return (
-        <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
+        <div className="min-h-screen bg-black text-zinc-300 md:iphone:text-[15px]">
             <Navbar />
 
             {/* ── Lightbox ── */}
@@ -485,9 +485,9 @@ export default function Details() {
                         </button>
                     )}
 
-                    {/* Dot indicators - Hidden on mobile, visible on sm and up */}
+                    {/* Dot indicators */}
                     {hasMultipleImages && (
-                        <div className="absolute bottom-5 hidden sm:flex items-center justify-center gap-1.5">
+                        <div className="absolute bottom-5 flex items-center justify-center gap-1.5">
                             {imageUrls.map((_, index) => (
                                 <button
                                     type="button"
@@ -511,40 +511,49 @@ export default function Details() {
 
             {/* Back button */}
             <div className="layout-shell">
-                <div className="mt-[99px] md:mt-[150px] mb-2 md:mb-4 iphone:mb-3">
+                <div className="mt-[99px] md:mt-[150px] mb-4 md:mb-4">
+                    {/* Mobile Back Link */}
                     <Link
                         to="/cars"
-                        className="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg iphone:px-4 iphone:py-2 iphone:text-[14px]"
+                        className="md:hidden inline-flex items-center text-[14px] font-medium text-zinc-300 transition-colors hover:text-white"
+                    >
+                        <span className="mr-2 text-lg" aria-hidden="true">‹</span> Back to Cars
+                    </Link>
+                    
+                    {/* Desktop Back Button */}
+                    <Link
+                        to="/cars"
+                        className="hidden md:inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg"
                         style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)' }}
                     >
-                        <span className="mr-2 text-xl md:text-xl iphone:text-base" aria-hidden="true">&#8592;</span>
+                        <span className="mr-2 text-xl md:text-xl" aria-hidden="true">&#8592;</span>
                         Back
                     </Link>
                 </div>
             </div>
 
-            <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
+            <main className="layout-shell flex flex-col pt-4 md:pt-[50px] gap-[70px] md:gap-[150px]">
 
                 {/* ── Hero Section ── */}
-                <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10 iphone:gap-5">
+                <section className="motion-rise grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-10">
 
                     {/* Left: title, price, tags, description, CTA */}
-                    <div className="space-y-6 iphone:space-y-4">
+                    <div className="space-y-6 md:space-y-6">
 
-                        <div className="space-y-2 iphone:space-y-1">
-                            <h1 className="text-[22px] font-normal leading-tight text-white sm:text-[28px] md:text-[38px] iphone:text-[20px] iphone:leading-snug">
-                                {car.make} {car.model}
-                            </h1>
-                            <p className="text-4xl font-normal text-white iphone:text-[22px]">
-                                {formatPrice(car.price)}
-                            </p>
-                        </div>
+                       <div className="space-y-2 md:space-y-2">
+    <h1 className="text-[44px] leading-[1.1] font-medium text-white tracking-tight sm:text-[48px] md:text-[38px] md:font-normal md:leading-tight break-words">
+        {car.make} {car.model}
+    </h1>
+    <p className="text-[34px] font-medium text-white tracking-tight mt-2 md:mt-0 md:text-4xl md:font-normal">
+        {formatPrice(car.price)}
+    </p>
+</div>
 
-                        <div className="flex flex-wrap gap-2 iphone:gap-1.5">
+                        <div className="flex flex-wrap gap-2 pt-2 md:pt-0">
                             {HERO_TAGS.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-[11px] text-zinc-300 iphone:text-[11px] iphone:px-2.5 iphone:py-1"
+                                    className="rounded-full border border-zinc-800/80 bg-[#111111] px-3.5 py-1.5 text-[12px] text-zinc-300 md:bg-zinc-950 md:px-3 md:py-1 md:text-[11px]"
                                 >
                                     {tag}
                                 </span>
@@ -552,20 +561,29 @@ export default function Details() {
                         </div>
 
                         {car.description && (
-                            <p className="max-w-xl text-sm leading-7 text-zinc-400 iphone:text-[12px] iphone:leading-5">
+                            <p className="max-w-xl text-[14px] leading-relaxed text-zinc-400 md:text-sm md:leading-7">
                                 {car.description}
                             </p>
                         )}
 
                         {heroSummary.length > 0 && (
-                            <p className="text-sm text-zinc-400 iphone:text-[12px]">
-                                {heroSummary.join(' · ')}
+                            <p className="text-[13px] text-zinc-400 md:text-sm">
+                                {heroSummary.join(' • ')}
                             </p>
                         )}
 
+                        {/* Mobile Enquire Now Link */}
                         <a
                             href={enquiryMail}
-                            className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[13px] iphone:px-4 iphone:py-2"
+                            className="md:hidden inline-flex items-center text-[15px] font-medium text-white pt-2"
+                        >
+                            Enquire Now <span className="ml-2 font-light text-lg">→</span>
+                        </a>
+
+                        {/* Desktop Enquire Now Button */}
+                        <a
+                            href={enquiryMail}
+                            className="hidden md:inline-flex ui-btn items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black"
                         >
                             Enquire Now <span className="ml-2">→</span>
                         </a>
@@ -573,7 +591,7 @@ export default function Details() {
 
                     {/* Right: image carousel */}
                     <div 
-                        className="group motion-card relative overflow-hidden rounded-[22px] border border-zinc-800 bg-zinc-950 iphone:rounded-xl touch-pan-y"
+                        className="group motion-card relative overflow-hidden rounded-[24px] md:rounded-[22px] border border-zinc-800 bg-zinc-950 touch-pan-y"
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEnd}
@@ -584,10 +602,10 @@ export default function Details() {
                                 alt={`${car.make} ${car.model}`}
                                 decoding="async"
                                 onClick={() => setLightboxOpen(true)}
-                                className="motion-media h-[300px] w-full object-cover sm:h-[360px] md:h-[430px] iphone:h-[190px] cursor-pointer"
+                                className="motion-media h-[280px] w-full object-cover sm:h-[360px] md:h-[430px] cursor-pointer"
                             />
                         ) : (
-                            <div className="flex h-[300px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px] iphone:h-[190px]">
+                            <div className="flex h-[280px] items-center justify-center text-zinc-400 sm:h-[360px] md:h-[430px]">
                                 No image available
                             </div>
                         )}
@@ -610,15 +628,15 @@ export default function Details() {
                                     ›
                                 </button>
                                 
-                                {/* Dot Indicators - hidden on mobile, visible on sm and up */}
-                                <div className="absolute inset-x-0 bottom-4 hidden sm:flex items-center justify-center gap-2 sm:gap-1.5">
+                                {/* Dot Indicators - explicitly visible on all screens now */}
+                                <div className="absolute inset-x-0 bottom-5 flex items-center justify-center gap-2 md:gap-1.5">
                                     {imageUrls.map((_, index) => (
                                         <div
                                             key={`image-dot-${index}`}
                                             onClick={() => setCurrentImageIndex(index)}
                                             role="button"
                                             tabIndex={0}
-                                            className={`h-1.5 w-1.5 flex-none cursor-pointer rounded-full sm:h-2 sm:w-2 transition-colors ${
+                                            className={`h-2 w-2 md:h-1.5 md:w-1.5 flex-none cursor-pointer rounded-full transition-colors ${
                                                 currentImageIndex === index ? 'bg-white' : 'bg-zinc-500/60 hover:bg-zinc-300'
                                             }`}
                                             aria-label={`View image ${index + 1}`}
@@ -631,24 +649,24 @@ export default function Details() {
                 </section>
 
                 {/* ── Vehicle Specifications ── */}
-                <section className="motion-rise motion-rise-delay-1 pb-4 iphone:pb-2">
-                    <h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[17px]">
+                <section className="motion-rise motion-rise-delay-1 pb-2">
+                    <h2 className="text-[26px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                         Vehicle Specifications
                     </h2>
-                    <div className="mt-8 grid gap-x-14 gap-y-2 md:grid-cols-2 iphone:mt-5 iphone:gap-x-3 iphone:gap-y-0">
+                    <div className="mt-6 md:mt-8 grid gap-x-14 md:grid-cols-2 gap-y-0 md:gap-y-2">
                         <div>
                             {leftSpecifications.map((spec) => (
-                                <div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-3.5">
-                                    <span className="text-sm text-zinc-500 iphone:text-[12px]">{spec.label}</span>
-                                    <span className="text-sm text-white iphone:text-[12px]">{spec.value}</span>
+                                <div key={spec.label} className="flex items-center justify-between border-b border-zinc-800/80 py-4 md:py-3.5 md:grid md:grid-cols-[1fr_auto]">
+                                    <span className="text-[14px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
+                                    <span className="text-[14px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
                                 </div>
                             ))}
                         </div>
                         <div>
                             {rightSpecifications.map((spec) => (
-                                <div key={spec.label} className="grid grid-cols-[1fr_auto] items-center border-b border-zinc-800 py-4 iphone:py-3.5">
-                                    <span className="text-sm text-zinc-500 iphone:text-[12px]">{spec.label}</span>
-                                    <span className="text-sm text-white iphone:text-[12px]">{spec.value}</span>
+                                <div key={spec.label} className="flex items-center justify-between border-b border-zinc-800/80 py-4 md:py-3.5 md:grid md:grid-cols-[1fr_auto]">
+                                    <span className="text-[14px] text-zinc-400 md:text-sm md:text-zinc-500">{spec.label}</span>
+                                    <span className="text-[14px] font-medium text-white text-right md:text-sm md:font-normal">{spec.value}</span>
                                 </div>
                             ))}
                         </div>
@@ -656,59 +674,84 @@ export default function Details() {
                 </section>
 
                 {/* ── Features ── */}
-                <section className="motion-rise border-t border-zinc-800 pt-8 md:pt-10 iphone:pt-8">
-                    <h2 className="text-[18px] font-normal leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[20px]">
+                <section className="motion-rise border-t border-zinc-800/80 pt-8 md:pt-10">
+                    <h2 className="text-[26px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                         Features
                     </h2>
 
                     {selectedFeatureGroups.length === 0 ? (
                         <p className="mt-6 text-sm text-zinc-500">No optional features selected for this vehicle.</p>
                     ) : (
-                        <div className="mt-6 border-t border-zinc-800">
-                            {selectedFeatureGroups.map((group) => (
-                                <div key={group.title} className="border-b border-zinc-800 py-6 iphone:py-5">
-                                    <div className="mb-4 flex items-center iphone:mb-3">
-                                        <h3 className="text-[14px] font-normal text-zinc-200">{group.title}</h3>
+                        <>
+                            {/* --- Mobile View for Features (Accordion Check-list style) --- */}
+                            <div className="md:hidden mt-4">
+                                {selectedFeatureGroups.map((group) => (
+                                    <div key={group.title} className="border-b border-zinc-800/80 py-2">
+                                        <div className="flex items-center justify-between py-4">
+                                            <h3 className="text-[15px] font-medium text-white">{group.title}</h3>
+                                            <span className="text-zinc-400 font-light text-xl">+</span>
+                                        </div>
+                                        <ul className="space-y-4 pb-6 pt-2">
+                                            {group.selectedItems.map((item) => (
+                                                <li key={`${group.title}-${item}`} className="flex items-center text-[14px] text-zinc-300">
+                                                    <svg className="mr-3 h-[18px] w-[18px] text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                    <div className="flex flex-wrap gap-x-8 gap-y-3 iphone:gap-x-5 iphone:gap-y-2">
-                                        {group.selectedItems.map((item) => (
-                                            <span key={`${group.title}-${item}`} className="inline-flex items-center text-xs text-zinc-300 sm:text-sm">
-                                                {item}
-                                            </span>
-                                        ))}
+                                ))}
+                            </div>
+
+                            {/* --- Desktop View for Features (Original Layout) --- */}
+                            <div className="hidden md:block mt-6 border-t border-zinc-800">
+                                {selectedFeatureGroups.map((group) => (
+                                    <div key={group.title} className="border-b border-zinc-800 py-6">
+                                        <div className="mb-4 flex items-center">
+                                            <h3 className="text-[14px] font-normal text-zinc-200">{group.title}</h3>
+                                        </div>
+                                        <div className="flex flex-wrap gap-x-8 gap-y-3">
+                                            {group.selectedItems.map((item) => (
+                                                <span key={`${group.title}-${item}`} className="inline-flex items-center text-xs text-zinc-300 sm:text-sm">
+                                                    {item}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        </>
                     )}
                 </section>
 
                 {/* ── Enquire Section ── */}
-                <section className="motion-rise rounded-[20px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:px-10 md:py-10 iphone:rounded-2xl iphone:px-5 iphone:py-7">
-                    <div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10 iphone:gap-7">
-                        <div className="space-y-4 iphone:space-y-4">
-                            <h2 className="text-[16px] font-normal leading-tight text-white sm:text-[22px] md:text-[28px] iphone:text-[20px]">
+                <section className="motion-rise rounded-[24px] border border-zinc-800 bg-gradient-to-br from-zinc-950 to-black px-6 py-8 sm:px-8 md:px-10 md:py-10 md:rounded-2xl">
+                    <div className="grid gap-8 md:grid-cols-[1fr_1.3fr] md:items-center md:gap-10">
+                        <div className="space-y-4 md:space-y-4">
+                            <h2 className="text-[22px] font-medium leading-tight text-white md:text-[28px] md:font-normal">
                                 Enquire About This Vehicle
                             </h2>
-                            <p className="max-w-md text-sm leading-6 text-zinc-400 iphone:text-[13px]">
+                            <p className="max-w-md text-[14px] leading-6 text-zinc-400 md:text-sm">
                                 Contact our team to arrange a viewing, ask questions, or check availability.
                             </p>
                             <a
                                 href={enquiryMail}
-                                className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[15px] iphone:px-5 iphone:py-2"
+                                className="ui-btn inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black md:text-[16px]"
                             >
                                 Enquire Now
                             </a>
                         </div>
 
-                        <div className="grid gap-4 sm:grid-cols-2 iphone:gap-3">
+                        <div className="grid gap-3 sm:grid-cols-2 md:gap-4">
                             {ENQUIRY_HIGHLIGHTS.map((item) => (
-                                <article key={item.title} className="group motion-card rounded-xl border border-zinc-800 bg-black/35 p-4 iphone:p-3">
-                                    <span className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300 iphone:mb-2">
+                                <article key={item.title} className="group motion-card rounded-[14px] border border-zinc-800/80 bg-black/35 p-4 md:rounded-xl">
+                                    <span className="mb-3 inline-flex h-8 w-8 md:h-7 md:w-7 items-center justify-center rounded-md border border-zinc-700 bg-zinc-900 text-zinc-300">
                                         <HighlightIcon type={item.icon} />
                                     </span>
-                                    <h3 className="motion-link-slide text-[14px] font-normal text-zinc-100 iphone:text-[13px]">{item.title}</h3>
-                                    <p className="mt-2 text-xs leading-5 text-zinc-400 iphone:mt-1 iphone:text-[11px]">{item.description}</p>
+                                    <h3 className="motion-link-slide text-[14px] font-medium md:font-normal text-zinc-100">{item.title}</h3>
+                                    <p className="mt-1.5 text-[12px] leading-5 text-zinc-400 md:mt-2 md:text-xs">{item.description}</p>
                                 </article>
                             ))}
                         </div>
@@ -717,18 +760,18 @@ export default function Details() {
 
                 {/* ── You May Also Like ── */}
                 <section className="motion-rise motion-rise-delay-2">
-                    <div className="mb-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between iphone:mb-6 iphone:flex-row iphone:items-center iphone:gap-3">
+                    <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-7 md:gap-4">
                         <div>
-                            <h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px] md:text-[30px] iphone:text-[20px] iphone:font-normal">
+                            <h2 className="text-[22px] font-medium leading-tight text-white md:text-[30px] md:font-normal">
                                 You May Also Like
                             </h2>
-                            <p className="mt-2 text-[11px] text-zinc-500 iphone:mt-1 iphone:text-[11px]">
+                            <p className="mt-1 text-[13px] text-zinc-500 md:mt-2 md:text-[11px]">
                                 Discover more quality used cars available at Indus Motor Group.
                             </p>
                         </div>
                         <Link
                             to="/cars"
-                            className="inline-flex items-center rounded-full bg-white px-5 py-2 text-[11px] font-medium text-black transition-colors hover:bg-zinc-200 iphone:px-3 iphone:py-1.5 iphone:text-[11px] iphone:shrink-0"
+                            className="inline-flex items-center rounded-full bg-white px-4 py-2 text-[13px] font-medium text-black transition-colors hover:bg-zinc-200 md:px-5 md:text-[11px]"
                         >
                             View All Cars
                         </Link>
@@ -746,7 +789,7 @@ export default function Details() {
                             More vehicles are coming soon.
                         </div>
                     ) : (
-                        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 iphone:gap-3">
+                        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                             {relatedCars.map((relatedCar) => {
                                 const relatedImageUrl = getImageUrl(relatedCar.images?.[0], 900)
                                 const relatedSummary = [
@@ -760,40 +803,40 @@ export default function Details() {
 
                                 return (
                                     <Link key={relatedCar._id} to={`/details?id=${relatedCar._id}`} className="group block">
-                                        <article className="motion-card h-full overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
+                                        <article className="motion-card h-full overflow-hidden rounded-[20px] md:rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700">
                                             {relatedImageUrl ? (
                                                 <img
                                                     src={relatedImageUrl}
                                                     alt={`${relatedCar.make} ${relatedCar.model}`}
                                                     loading="lazy"
                                                     decoding="async"
-                                                    className="motion-media h-44 w-full object-cover iphone:h-36"
+                                                    className="motion-media h-48 md:h-44 w-full object-cover"
                                                 />
                                             ) : (
-                                                <div className="flex h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500 iphone:h-36">
+                                                <div className="flex h-48 md:h-44 items-center justify-center bg-zinc-900 text-xs text-zinc-500">
                                                     No image available
                                                 </div>
                                             )}
 
-                                            <div className="space-y-3 p-4 iphone:space-y-3 iphone:p-4">
+                                            <div className="space-y-3 p-5 md:p-4">
                                                 <div className="flex items-start justify-between gap-3">
-                                                    <h3 className="text-[16px] font-medium leading-tight text-white iphone:text-[14px]">
+                                                    <h3 className="text-[18px] md:text-[16px] font-medium leading-tight text-white">
                                                         {relatedCar.make} {relatedCar.model}
                                                     </h3>
-                                                    <span className="motion-link-slide pt-1 text-[11px] text-zinc-300 iphone:shrink-0">View Details {'>'}</span>
+                                                    <span className="motion-link-slide pt-1 text-[12px] md:text-[11px] text-zinc-300 shrink-0">View Details {'>'}</span>
                                                 </div>
 
-                                                <p className="text-[11px] text-zinc-500">{relatedSummary.join(' · ')}</p>
+                                                <p className="text-[13px] md:text-[11px] text-zinc-500">{relatedSummary.join(' • ')}</p>
 
-                                                <div className="flex flex-wrap gap-1.5">
+                                                <div className="flex flex-wrap gap-2 md:gap-1.5">
                                                     {getRelatedTags(relatedCar).map((tag) => (
-                                                        <span key={`${relatedCar._id}-${tag}`} className="rounded-full border border-zinc-700 bg-zinc-950 px-2 py-1 text-[11px] text-zinc-300">
+                                                        <span key={`${relatedCar._id}-${tag}`} className="rounded-full border border-zinc-700/80 bg-zinc-900/60 px-3 md:px-2 py-1 md:py-1 text-[12px] md:text-[11px] text-zinc-300">
                                                             {tag}
                                                         </span>
                                                     ))}
                                                 </div>
 
-                                                <p className="pt-1 text-3xl font-normal text-white iphone:text-[22px] iphone:pt-0.5">
+                                                <p className="pt-2 md:pt-1 text-[28px] md:text-3xl font-medium md:font-normal text-white">
                                                     {relatedCar.price === undefined || relatedCar.price === null || relatedCar.price === ''
                                                         ? 'Price on request'
                                                         : formatEuroNoDecimals(relatedCar.price)}
@@ -808,10 +851,10 @@ export default function Details() {
                 </section>
 
                 {/* ── FAQ ── */}
-                <section className="motion-rise border-t border-zinc-800 pt-10 md:pt-12 iphone:pt-9">
-                    <div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12 iphone:gap-6">
+                <section className="motion-rise border-t border-zinc-800 pt-10 md:pt-12">
+                    <div className="grid gap-8 lg:grid-cols-[290px_1fr] lg:gap-12">
                         <div>
-                            <h2 className="max-w-[240px] text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[26px] iphone:max-w-full">
+                            <h2 className="text-[26px] md:text-4xl lg:max-w-[240px] font-medium md:font-normal leading-tight text-white sm:text-5xl">
                                 Frequently Asked Questions
                             </h2>
                         </div>
@@ -825,20 +868,20 @@ export default function Details() {
                                         <button
                                             type="button"
                                             onClick={() => toggleFaqItem(index)}
-                                            className="flex w-full items-start justify-between gap-3 py-4 text-left iphone:py-4 iphone:gap-2"
+                                            className="flex w-full items-start justify-between gap-3 py-5 md:py-4 text-left"
                                             aria-expanded={isExpanded}
                                         >
-                                            <span className="text-[18px] font-normal leading-6 text-zinc-100 iphone:text-[15px] iphone:leading-snug">{item.question}</span>
-                                            <span className="mt-0.5 text-xl leading-none text-zinc-300 iphone:shrink-0">{isExpanded ? '-' : '+'}</span>
+                                            <span className="text-[16px] md:text-[18px] font-medium md:font-normal leading-snug text-zinc-100">{item.question}</span>
+                                            <span className="mt-0.5 text-xl leading-none text-zinc-300 shrink-0">{isExpanded ? '-' : '+'}</span>
                                         </button>
 
                                         {isExpanded && (
                                             <>
-                                                <p className="pb-1 pr-8 text-[16px] leading-6 text-zinc-400 iphone:text-[14px] iphone:pr-4 iphone:leading-relaxed">
+                                                <p className="pb-2 pr-4 md:pr-8 text-[14px] md:text-[16px] leading-relaxed md:leading-6 text-zinc-400">
                                                     {item.answer}
                                                 </p>
                                                 {item.moreDetails && (
-                                                    <p className="pb-4 pr-8 text-[16px] leading-6 text-zinc-400 iphone:text-[14px] iphone:pr-4 iphone:pb-3 iphone:leading-relaxed">
+                                                    <p className="pb-5 md:pb-4 pr-4 md:pr-8 text-[14px] md:text-[16px] leading-relaxed md:leading-6 text-zinc-400">
                                                         {item.moreDetails}
                                                     </p>
                                                 )}
@@ -854,8 +897,8 @@ export default function Details() {
 
             {/* ── CTA Banner ── */}
             <section className="motion-rise hero-shell mt-[99px] md:mt-[150px]">
-                <div className="rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-14 text-center sm:px-10 md:py-16 iphone:px-5 iphone:py-12 iphone:rounded-xl">
-                    <h2 className="mx-auto max-w-[520px] text-4xl font-normal leading-tight text-white sm:text-5xl iphone:text-[22px] iphone:max-w-[280px]">
+                <div className="rounded-[24px] md:rounded-2xl bg-gradient-to-r from-zinc-950 to-[#070a0d] px-6 py-12 md:py-16 text-center sm:px-10">
+                    <h2 className="mx-auto max-w-[300px] md:max-w-[520px] text-[26px] md:text-4xl font-medium md:font-normal leading-tight text-white sm:text-5xl">
                         Choose Your Next Car and Have It Delivered Anywhere in Ireland
                     </h2>
 
@@ -867,12 +910,12 @@ export default function Details() {
                         />
                     </div>
 
-                    <p className="mt-4 text-sm text-zinc-200 iphone:mt-3">Indus Motor Group</p>
-                    <p className="mt-1 text-xs text-zinc-500">Nationwide vehicle delivery available.</p>
+                    <p className="mt-4 text-[14px] md:text-sm text-zinc-200">Indus Motor Group</p>
+                    <p className="mt-1 text-[13px] md:text-xs text-zinc-500">Nationwide vehicle delivery available.</p>
 
                     <a
                         href={enquiryMail}
-                        className="ui-btn mt-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:mt-5 iphone:text-[15px] iphone:px-5 iphone:py-2"
+                        className="ui-btn mt-6 inline-flex items-center rounded-full bg-white px-6 py-2.5 text-[15px] md:text-[16px] font-medium text-black"
                     >
                         Enquire Now
                     </a>
