@@ -512,21 +512,13 @@ export default function Details() {
             {/* Back button */}
             <div className="layout-shell">
                 <div className="mt-[99px] md:mt-[150px] mb-4 md:mb-4">
-                    {/* Mobile Back Link */}
+                    {/* Unified Back Button for Desktop and Mobile */}
                     <Link
                         to="/cars"
-                        className="md:hidden inline-flex items-center text-[15px] font-medium text-zinc-300 transition-colors hover:text-white"
-                    >
-                        <span className="mr-2 text-xl" aria-hidden="true">‹</span> Back to Cars
-                    </Link>
-                    
-                    {/* Desktop Back Button */}
-                    <Link
-                        to="/cars"
-                        className="hidden md:inline-flex items-center rounded-full bg-white px-6 py-2.5 text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30 md:text-lg"
+                        className="inline-flex items-center rounded-full bg-white px-5 py-2 md:px-6 md:py-2.5 text-[15px] md:text-base font-medium text-black shadow-sm transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-black/30"
                         style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)' }}
                     >
-                        <span className="mr-2 text-xl md:text-xl" aria-hidden="true">&#8592;</span>
+                        <span className="mr-2 text-lg md:text-xl" aria-hidden="true">&#8592;</span>
                         Back
                     </Link>
                 </div>
@@ -572,21 +564,15 @@ export default function Details() {
                             </p>
                         )}
 
-                        {/* Mobile Enquire Now Link */}
-                        <a
-                            href={enquiryMail}
-                            className="md:hidden inline-flex items-center text-[16px] font-medium text-white pt-2"
-                        >
-                            Enquire Now <span className="ml-2 font-light text-xl">→</span>
-                        </a>
-
-                        {/* Desktop Enquire Now Button */}
-                        <a
-                            href={enquiryMail}
-                            className="hidden md:inline-flex ui-btn items-center rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black"
-                        >
-                            Enquire Now <span className="ml-2">→</span>
-                        </a>
+                        {/* Unified Enquire Now Button for Desktop and Mobile */}
+                        <div className="pt-2 md:pt-0">
+                            <a
+                                href={enquiryMail}
+                                className="inline-flex ui-btn items-center rounded-full bg-white px-6 py-2.5 text-[16px] md:text-[16px] font-medium text-black"
+                            >
+                                Enquire Now <span className="ml-2">→</span>
+                            </a>
+                        </div>
                     </div>
 
                     {/* Right: image carousel */}
