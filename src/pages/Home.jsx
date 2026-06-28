@@ -102,26 +102,26 @@ export function Navbar() {
       <div className="layout-shell py-4 md:py-5">
         <div className="flex w-full items-center gap-3">
           <Link to="/" className="-ml-1 inline-flex shrink-0 items-center gap-2 text-white sm:-ml-2 md:-ml-[17px]" aria-label="Indus Motor Group home">
-            <img 
-              src={LogoImg} 
-              alt="Indus Motor Group Logo" 
+            <img
+              src={LogoImg}
+              alt="Indus Motor Group Logo"
               className="h-8 w-auto sm:h-10 md:h-12"
             />
           </Link>
 
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
-            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0, 0)}>
               Home
             </Link>
             {navItems.map((item) => (
-              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0,0)}>
+              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0, 0)}>
                 {item.label}
               </Link>
             ))}
           </nav>
 
           <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0,0)}>
+            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0, 0)}>
               Contact Us
             </Link>
           </div>
@@ -175,7 +175,7 @@ export function Navbar() {
               </button>
             )}
             <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
-              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}>
                 Home
               </Link>
               {navItems.map((item) => (
@@ -183,12 +183,12 @@ export function Navbar() {
                   key={item.label}
                   to={item.to}
                   className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}
+                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0,0); }}>
+              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}>
                 Contact Us
               </Link>
             </nav>
@@ -313,7 +313,7 @@ export default function Home() {
                   const img = car.images[0]
                   if (img._type === 'image' || img.asset) {
                     imageUrl = urlFor(img).width(600).url()
-                  } 
+                  }
                   else if (typeof img === 'string') {
                     imageUrl = img
                   }
@@ -323,51 +323,51 @@ export default function Home() {
                 }
 
                 return (
-                <Link key={car._id} to={`/details?id=${car._id}`} className="group block">
-                  <article className="motion-card h-full cursor-pointer overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700 md:rounded-lg">
-                    {imageUrl ? (
-                      <img
-                        src={imageUrl}
-                        alt={`${car.make} ${car.model}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="motion-media h-[180px] w-full object-cover md:h-[210px]"
-                      />
-                    ) : (
-                      <div className="flex h-[180px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:h-[210px] md:text-[16px]">
-                        No image
+                  <Link key={car._id} to={`/details?id=${car._id}`} className="group block">
+                    <article className="motion-card h-full cursor-pointer overflow-hidden rounded-xl border border-zinc-800 bg-black transition-colors hover:border-zinc-700 md:rounded-lg">
+                      {imageUrl ? (
+                        <img
+                          src={imageUrl}
+                          alt={`${car.make} ${car.model}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="motion-media h-[180px] w-full object-cover md:h-[210px]"
+                        />
+                      ) : (
+                        <div className="flex h-[180px] w-full items-center justify-center bg-zinc-800 text-[14px] text-zinc-400 md:h-[210px] md:text-[16px]">
+                          No image
+                        </div>
+                      )}
+                      <div className="space-y-3 p-3 md:space-y-3 md:p-3">
+                        <div className="flex items-start justify-between gap-1 md:gap-3">
+                          <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
+                          <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details {'>'}</span>
+                        </div>
+                        <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
+                          {car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
+                        </p>
+                        <div className="flex flex-wrap gap-2 md:gap-2">
+                          {car.transmission && (
+                            <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
+                              {car.transmission}
+                            </span>
+                          )}
+                          {car.fuelType && (
+                            <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
+                              {car.fuelType}
+                            </span>
+                          )}
+                          {car.seats && (
+                            <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
+                              {car.seats} Seats
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
+                        <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
                       </div>
-                    )}
-                    <div className="space-y-3 p-3 md:space-y-3 md:p-3">
-                      <div className="flex items-start justify-between gap-1 md:gap-3">
-                        <h3 className="truncate text-[16px] font-normal text-white iphone:text-[13px]">{car.make} {car.model}</h3>
-                        <span className="motion-link-slide pt-1 text-[13px] font-normal text-[#BABABA]">View Details {'>'}</span>
-                      </div>
-                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">
-                        {car.year}  -  {car.mileage?.toLocaleString() || 0} km  -  {car.transmission}  -  {car.fuelType}
-                      </p>
-                      <div className="flex flex-wrap gap-2 md:gap-2">
-                        {car.transmission && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
-                            {car.transmission}
-                          </span>
-                        )}
-                        {car.fuelType && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
-                            {car.fuelType}
-                          </span>
-                        )}
-                        {car.seats && (
-                          <span className="rounded-full bg-black border border-zinc-700 px-3 py-1 text-[12px] font-normal text-white md:text-[12px]">
-                            {car.seats} Seats
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[24px] font-normal leading-none text-white iphone:text-[15px]">€{car.price?.toLocaleString() || 0}</p>
-                      <p className="text-[16px] font-normal text-[#BABABA] iphone:text-[13px]">Finance Available</p>
-                    </div>
-                  </article>
-                </Link>
+                    </article>
+                  </Link>
                 )
               })}
             </div>
@@ -392,10 +392,10 @@ export default function Home() {
               <p className="mt-2 max-w-[300px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Trade in your current vehicle as part of your purchase.
               </p>
-             <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
-  <span>Enquire Now</span>
-  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-</button>
+              <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
+                <span>Enquire Now</span>
+                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </button>
             </article>
 
             <article className="group px-4 sm:px-5 py-6 sm:py-8 md:min-h-[160px] md:px-6 md:py-8 border-b md:border-b-0">
@@ -406,10 +406,10 @@ export default function Home() {
               <p className="mt-2 max-w-[320px] text-[14px] leading-6 text-zinc-500 md:text-[16px]">
                 Finance options available through trusted third party lenders.
               </p>
-             <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
-  <span>Learn More</span>
-  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-</button>
+              <button className="ui-btn group mt-4 inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[14px] font-medium text-black transition-all hover:bg-zinc-200 md:px-6 md:text-[16px]">
+                <span>Learn More</span>
+                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </button>
             </article>
           </div>
 
@@ -467,19 +467,19 @@ export default function Home() {
                     <ul className="space-y-3 md:space-y-4 inline-block text-left">
                       <li className="flex items-center gap-3">
                         <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                         <span className="text-[14px] md:text-[16px]">Up to 2 Years Coverage</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                         <span className="text-[14px] md:text-[16px]">Wide range of protection plans</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <svg className="h-5 w-5 text-zinc-300 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                         <span className="text-[14px] md:text-[16px]">Added peace of mind</span>
                       </li>
@@ -610,17 +610,20 @@ export default function Home() {
           </div>
         </section>
       </main>
-
       {/* CTA Section with Image */}
-      <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
-            <img
+      {/* CTA Section with Image */}
+      <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] iphone:h-[200px]">
+        <img
           src={findYourCarImg}
           alt="Find your next car"
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover object-center iphone:h-[200px]"
+          className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+
+        {/* Gradient only behind the text, fades out quickly, never reaches bottom */}
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent"></div>
+
         <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
           <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Find Your Next Car Today</h2>
           <Link
@@ -632,7 +635,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="mt-[99px] md:mt-[150px] bg-black">
         <div className="site-footer-shell text-white text-[14px]">
