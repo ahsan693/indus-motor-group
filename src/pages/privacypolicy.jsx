@@ -228,21 +228,20 @@ export default function PrivacyPolicy() {
             </main>
 
             {/* ── Find Your Car CTA ── */}
-             <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
-            <img
-                    src={privacyHeroImg}
-                    alt="Find your next car"
-                    loading="lazy"
-                    decoding="async"
-                   className="h-full w-full object-cover object-center iphone:h-[200px]"
-      
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-                <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-6">
-                    <h2 className="text-[30px] font-medium text-white md:text-[44px] iphone:text-[22px]">Find Your Next Car Today</h2>
-                    <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-4 iphone:py-2">Browse Cars</Link>
-                </div>
-            </section>
+          <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] iphone:h-[200px]">
+    <img
+        src={privacyHeroImg}
+        alt="Find your next car"
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover object-center iphone:h-[200px]"
+    />
+    <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent"></div>
+    <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-6">
+        <h2 className="text-[30px] font-medium text-white md:text-[44px] iphone:text-[22px]">Find Your Next Car Today</h2>
+        <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-4 iphone:py-2">Browse Cars</Link>
+    </div>
+</section>
 
             {/* ── Footer ── */}
             <footer className="mt-[99px] md:mt-[150px] bg-black">
