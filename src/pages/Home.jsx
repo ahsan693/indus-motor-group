@@ -108,7 +108,7 @@ export function Navbar() {
               className="h-8 w-auto sm:h-10 md:h-12"
             />
           </Link>
-
+ 
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
             <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0, 0)}>
               Home
@@ -119,22 +119,21 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-
+ 
           <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
             <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0, 0)}>
               Contact Us
             </Link>
           </div>
-
+ 
           {!isMobileMenuOpen && (
             <button
               type="button"
-              className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
+              className="fixed top-4 right-4 z-[100] inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition-transform duration-300 hover:scale-105 focus:outline-none lg:hidden"
               aria-label="Open menu"
               aria-controls="mobile-nav"
               aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(true)}
-              style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
             >
               <span className="flex w-6 flex-col gap-1.5" aria-hidden="true">
                 <span className="h-0.5 w-full rounded-full bg-white transition-transform duration-200"></span>
@@ -143,7 +142,7 @@ export function Navbar() {
             </button>
           )}
         </div>
-
+ 
         <div
           id="mobile-nav"
           className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
@@ -154,7 +153,7 @@ export function Navbar() {
             className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => setIsMobileMenuOpen(false)}
           />
-
+ 
           <div
             className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             ref={mobileNavRef}
@@ -163,10 +162,9 @@ export function Navbar() {
             {isMobileMenuOpen && (
               <button
                 type="button"
-                className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-black/80 text-white shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none"
+                className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-md text-white transition-transform duration-300 hover:scale-105 focus:outline-none"
                 aria-label="Close menu"
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{ boxShadow: '0 4px 24px -8px rgba(0,0,0,0.45)' }}
               >
                 <span className="relative block h-5 w-5">
                   <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded bg-white"></span>
