@@ -171,8 +171,8 @@ export default function Cars() {
 
             {/* MAIN CONTENT - REFACTORED FOR PERFECT 99PX / 150PX GAPS */}
             <main className="layout-shell flex flex-col pt-[99px] md:pt-[150px] gap-[99px] md:gap-[150px]">
-      <section className="motion-rise relative z-40 space-y-8 md:space-y-10">
-  <h1 className="text-left text-[44px] font-normal leading-tight text-white px-6 md:text-center md:text-[60px] lg:text-[72px] md:px-0 iphone:leading-tight iphone:text-center iphone:px-0">
+  <section className="motion-rise relative z-40 space-y-8 md:space-y-10">
+  <h1 className="text-center md:text-center text-[44px] font-normal leading-tight text-white px-6 md:text-[60px] lg:text-[72px] md:px-0 iphone:leading-tight iphone:text-center iphone:px-0">
     <span className="block md:inline">Quality Used</span>
     <span className="block md:inline">Cars for Sale</span>
   </h1>
