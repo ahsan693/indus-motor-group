@@ -137,70 +137,70 @@ export default function ContactUs() {
 
             {/* ── Form card — first in DOM = top on mobile ── */}
             <div className="bg-zinc-900/50 rounded-lg px-4 py-6 iphone:px-5 iphone:py-7 border border-zinc-800 md:col-start-2">
-              <form className="space-y-5 iphone:space-y-6">
+             <form className="space-y-5 iphone:space-y-6">
 
-                {/* Full Name & Phone — 2 col on desktop, 1 col on mobile */}
-                <div className="grid grid-cols-2 gap-4 iphone:grid-cols-1 iphone:gap-6">
-                  <div>
-                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Full Name</label>
-                    <input
-                      type="text"
-                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Phone</label>
-                    <input
-                      type="tel"
-                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
-                      placeholder="Phone Number"
-                    />
-                  </div>
-                </div>
+  {/* Full Name & Phone — 2 col on desktop, 1 col on mobile */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4">
+    <div>
+      <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Full Name</label>
+      <input
+        type="text"
+        className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+        placeholder="Your full name"
+      />
+    </div>
+    <div>
+      <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Phone</label>
+      <input
+        type="tel"
+        className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition rounded"
+        placeholder="Phone Number"
+      />
+    </div>
+  </div>
 
-                {/* Service Type */}
-                <div>
-                  <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Service Type</label>
-                  <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
-                    <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
-                    <option value="sales" className="bg-zinc-900">Car Sales</option>
-                    <option value="service" className="bg-zinc-900">Service & Maintenance</option>
-                  </select>
-                </div>
+  {/* Service Type */}
+  <div>
+    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Service Type</label>
+    <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
+      <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
+      <option value="sales" className="bg-zinc-900">Car Sales</option>
+      <option value="service" className="bg-zinc-900">Service & Maintenance</option>
+    </select>
+  </div>
 
-                {/* Message */}
-                <div className="flex flex-col h-full">
-                  <div>
-                    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Message (Optional)</label>
-                    <textarea
-                      rows={10}
-                      className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
-                      placeholder="Tell us how we can help"
-                    />
-                  </div>
+  {/* Message */}
+  <div className="flex flex-col h-full">
+    <div>
+      <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Message (Optional)</label>
+      <textarea
+        rows={10}
+        className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-white transition resize-none rounded"
+        placeholder="Tell us how we can help"
+      />
+    </div>
 
-                  <div className="mt-auto pt-6 iphone:pt-7">
-                    <button
-                      type="submit"
-                      className="w-full bg-white text-black py-2.5 iphone:py-3 rounded text-sm font-medium hover:bg-zinc-200 transition"
-                    >
-                      Submit
-                    </button>
+    <div className="mt-auto pt-6 iphone:pt-7">
+      <button
+        type="submit"
+        className="w-full bg-white text-black py-2.5 iphone:py-3 rounded text-sm font-medium hover:bg-zinc-200 transition"
+      >
+        Submit
+      </button>
 
-                    <div className="flex items-start gap-2 mt-3 iphone:mt-4">
-                      <input type="checkbox" defaultChecked className="mt-1" />
-                      <label className="text-xs iphone:text-sm text-zinc-500">
-                        By submitting, you agree to our{' '}
-                        <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
-                          Privacy Policy
-                        </Link>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+      <div className="flex items-start gap-2 mt-3 iphone:mt-4">
+        <input type="checkbox" defaultChecked className="mt-1" />
+        <label className="text-xs iphone:text-sm text-zinc-500">
+          By submitting, you agree to our{' '}
+          <Link to="/privacy-policy" className="text-zinc-400 underline hover:text-white">
+            Privacy Policy
+          </Link>
+        </label>
+      </div>
+    </div>
+  </div>
 
-              </form>
+</form>
             </div>
 
             {/* Image — second in DOM = below form on mobile, left on desktop */}
