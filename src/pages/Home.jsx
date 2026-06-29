@@ -155,7 +155,7 @@ export function Navbar() {
           />
  
           <div
-            className={`absolute right-0 top-0 h-auto mt-6 w-[92vw] max-w-[320px] rounded-xl shadow-2xl transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            className={`absolute right-0 top-0 mt-6 h-auto w-[92vw] max-w-[320px] rounded-xl border border-white/20 transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             ref={mobileNavRef}
             aria-hidden={!isMobileMenuOpen}
           >
@@ -172,7 +172,7 @@ export function Navbar() {
                 </span>
               </button>
             )}
-            <nav className="rounded-xl border border-white/10 bg-black p-2 text-[16px] text-zinc-200 mt-2">
+            <nav className="bg-black p-2 text-[16px] text-zinc-200 mt-2">
               <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}>
                 Home
               </Link>
