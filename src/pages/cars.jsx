@@ -421,16 +421,35 @@ export default function Cars() {
                 </section>
             </main>
 
-          {/* CTA Section */}
-            <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px]">
-                <img src={ourCarsHeroImg} alt="Find your next car" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-                <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent"></div>
-                <div className="hero-content-rise absolute inset-x-0 top-0 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10">
-                    <h2 className="text-[22px] font-normal text-white md:text-[30px]">Find Your Next Car Today</h2>
-                    <Link to="/cars" className="mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-normal text-black">Browse Available Cars</Link>
-                </div>
-            </section>
+         {/* CTA Section */}
+<section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] overflow-hidden">
+  <img 
+    src={ourCarsHeroImg} 
+    alt="Find your next car" 
+    loading="lazy" 
+    decoding="async" 
+    className="h-full w-full object-cover object-center" 
+  />
+  {/* Top overlay shadow */}
+  <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/50 to-transparent z-10"></div>
+  
+  {/* Bottom overlay shadow */}
+  <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent z-10"></div>
+  
+  {/* Content Layer - Added relative z-20 layout stack to prevent clicks from getting blocked */}
+  <div className="hero-content-rise absolute inset-x-0 top-0 z-20 mx-auto max-w-[1240px] px-4 pt-6 sm:px-5 sm:pt-8 md:px-8 md:pt-10 flex flex-col items-start">
+    <h2 className="text-[22px] font-normal text-white md:text-[30px]">
+      Find Your Next Car Today
+    </h2>
+    <Link 
+      to="/cars" 
+      onClick={() => window.scrollTo(0, 0)}
+      className="ui-btn mt-5 inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[14px] font-medium text-black transition-transform hover:scale-[1.02]"
+    >
+      Browse Available Cars
+    </Link>
+  </div>
+</section>
 
             {/* HOMEPAGE FOOTER INTEGRATION */}
             <Footer />
