@@ -248,7 +248,7 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 5 — CTA */}
-<section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center md:py-20">
+<section className="motion-rise rounded-2xl bg-[#0D0D0D] py-14 text-center md:py-20">
     <h2 className="text-[22px] font-normal text-white md:text-[30px]">
         Drive Away With Confidence
     </h2>
