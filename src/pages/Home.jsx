@@ -199,6 +199,10 @@ export function Navbar() {
 
 // EXPORT FOOTER SO IT CAN BE USED IN CARS.JSX TOO
 export function Footer() {
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="mt-[99px] md:mt-[150px] bg-black">
       <div className="site-footer-shell text-white text-[14px]">
@@ -238,10 +242,10 @@ export function Footer() {
           <div>
             <p className="site-footer-label">Company</p>
             <div className="site-footer-links space-y-2 text-[14px]">
-              <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
-              <Link to="#" className="block transition-colors hover:text-zinc-300">About</Link>
-              <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
-              <Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
+              <Link to="/" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Home</Link>
+              <Link to="/about" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>About</Link>
+              <Link to="/cars" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Our Cars</Link>
+              <Link to="/finance" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Finance</Link>
             </div>
           </div>
           <div>
@@ -255,7 +259,7 @@ export function Footer() {
           <div>
             <p className="site-footer-label">Get in Touch</p>
             <div className="site-footer-links space-y-2 text-[14px]">
-              <p>info@indusmotorgroup.ie</p>
+              <p>hello@indusmotorgroup.com</p>
               <p>+353 89 967 5410</p>
               <p className="text-white">Serving customers across Ireland</p>
             </div>
@@ -267,15 +271,15 @@ export function Footer() {
           Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
         </p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-          <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
+          <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Privacy Policy</Link>
           {' '}|{' '}
-          <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
+          <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Cookie Policy</Link>
           {' '}|{' '}
-          <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
+          <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Terms & Conditions</Link>
         </p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-          Website by <a href="http://droplinemedia.ie" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+          Website by <a href="https://www.droplinemedia.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
         </p>
       </div>
     </footer>
