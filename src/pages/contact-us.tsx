@@ -320,6 +320,7 @@ export default function ContactUs() {
     className="h-full w-full object-cover object-center iphone:h-[200px]"
   />
   <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent"></div>
+  <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent"></div>
   <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
     <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[22px]">Ready To Get Started With Finance</h2>
     <Link

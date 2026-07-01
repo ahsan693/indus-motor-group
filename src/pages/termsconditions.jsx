@@ -192,20 +192,21 @@ export default function TermsConditions() {
                 </section>
             </main>
 
-           <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
-           <img
-                    src={termsCtaImg}
-                    alt="Find your next car"
-                    loading="lazy"
-                    decoding="async"
-                   className="h-full w-full object-cover object-center iphone:h-[200px]"
-                />
-                <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
-                <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-6">
-                    <h2 className="text-[30px] font-medium text-white md:text-[44px] iphone:text-[22px]">Find Your Next Car Today</h2>
-                    <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-4 iphone:py-2">Browse Cars</Link>
-                </div>
-            </section>
+          <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] overflow-hidden sm:h-[420px] md:h-[600px] iphone:h-[200px]">
+    <img
+        src={termsCtaImg}
+        alt="Find your next car"
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover object-center iphone:h-[200px]"
+    />
+    <div className="absolute inset-x-0 top-0 h-28 md:h-36 pointer-events-none bg-gradient-to-b from-black/40 to-transparent"></div>
+    <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent"></div>
+    <div className="absolute inset-x-0 top-0 hero-shell pt-8 md:pt-10 iphone:pt-6">
+        <h2 className="text-[30px] font-medium text-white md:text-[44px] iphone:text-[22px]">Find Your Next Car Today</h2>
+        <Link to="/cars" className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black md:text-[16px] iphone:text-[14px] iphone:px-4 iphone:py-2">Browse Cars</Link>
+    </div>
+</section>
 
             <footer className="mt-[99px] md:mt-[150px] bg-black">
                 <div className="site-footer-shell text-zinc-300">

@@ -420,7 +420,7 @@ export default function Finance() {
             </main>
 
             {/* ── CTA Banner ── */}
-           <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] iphone:h-[200px]">
+         <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] iphone:h-[200px]">
     <img
         src={financeCtaImg}
         alt="Finance CTA"
@@ -429,6 +429,7 @@ export default function Finance() {
         className="h-full w-full object-cover object-center iphone:h-[200px]"
     />
     <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent"></div>
+    <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent"></div>
     <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-4">
         <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[18px] iphone:leading-snug">Ready to Get Started With Finance?</h2>
         <a
