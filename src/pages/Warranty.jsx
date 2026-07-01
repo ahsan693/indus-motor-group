@@ -137,9 +137,13 @@ export default function Warranty() {
                         <p className="max-w-[500px] text-[16px] leading-7 text-zinc-300 md:text-[18px] iphone:text-[13px]">
                             Coverage is designed to help protect against unexpected repair costs and may be available for up to 24 months, depending on the vehicle and selected plan.
                         </p>
-                        <button className="rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-black transition-colors hover:bg-zinc-200">
-                            Ask About Warranty
-                        </button>
+                       <Link 
+  to="/contact-us" 
+  onClick={() => window.scrollTo(0, 0)}
+  className="ui-btn inline-flex rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-black transition-colors hover:bg-zinc-200"
+>
+  Ask About Warranty
+</Link>
                     </div>
                     <img
                         src={vehicleWarrantyImg}

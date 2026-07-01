@@ -229,7 +229,7 @@ export default function ContactUs() {
               <div className="text-[16px] text-zinc-500 md:text-white font-medium mb-2 md:mb-0 iphone:mb-3 iphone:text-[13px]">Get in Touch</div>
               <div className="text-[16px] md:text-[18px] text-white md:text-zinc-300 space-y-1 iphone:space-y-2 iphone:text-[13px]">
                 <div>+353 89 967 5410</div>
-                <div>hello@indusmotorgroup.com</div>
+                <div>info@indusmotorgroup.ie</div>
               </div>
             </div>
 
