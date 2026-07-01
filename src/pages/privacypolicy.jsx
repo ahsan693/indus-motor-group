@@ -1,12 +1,9 @@
-﻿import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Navbar, Footer } from './Home' 
 import privacyHeroImg from '../images/privacypolicyimages/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 
 export default function PrivacyPolicy() {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+
 
     return (
         <div className="min-h-screen bg-black text-zinc-300">

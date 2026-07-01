@@ -139,7 +139,6 @@ export default function Warranty() {
                         </p>
                        <Link 
   to="/contact-us" 
-  onClick={() => window.scrollTo(0, 0)}
   className="ui-btn inline-flex rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-black transition-colors hover:bg-zinc-200"
 >
   Ask About Warranty
@@ -257,7 +256,6 @@ export default function Warranty() {
     </p>
     <Link 
         to="/contact-us" 
-        onClick={() => window.scrollTo(0, 0)}
         className="ui-btn mt-8 inline-flex rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]"
     >
         Ask About Warranty

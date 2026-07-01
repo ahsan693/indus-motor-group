@@ -108,24 +108,24 @@ export function Navbar() {
               className="h-8 w-auto sm:h-10 md:h-12"
             />
           </Link>
- 
+
           <nav className="ml-6 hidden flex-1 items-center justify-center gap-7 text-[14px] text-zinc-300 md:text-[16px] lg:flex">
-            <Link to="/" className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/" className="ui-nav-link transition-colors hover:text-white">
               Home
             </Link>
             {navItems.map((item) => (
-              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white" onClick={() => window.scrollTo(0, 0)}>
+              <Link key={item.label} to={item.to} className="ui-nav-link transition-colors hover:text-white">
                 {item.label}
               </Link>
             ))}
           </nav>
- 
+
           <div className="ml-auto hidden shrink-0 items-center gap-2 lg:flex">
-            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/contact-us" className="ui-btn rounded-full bg-white px-4 py-1.5 text-[14px] font-medium text-black sm:px-5 sm:py-2 md:text-[16px]">
               Contact Us
             </Link>
           </div>
- 
+
           {!isMobileMenuOpen && (
             <button
               type="button"
@@ -142,7 +142,7 @@ export function Navbar() {
             </button>
           )}
         </div>
- 
+
         <div
           id="mobile-nav"
           className={`fixed inset-0 z-50 lg:hidden ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
@@ -153,7 +153,7 @@ export function Navbar() {
             className={`absolute inset-0 bg-black/60 transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
             onClick={() => setIsMobileMenuOpen(false)}
           />
- 
+
           <div
             className={`absolute right-0 top-0 mt-6 h-auto w-[92vw] max-w-[320px] rounded-xl border border-white/20 transform bg-black p-4 transition-transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
             ref={mobileNavRef}
@@ -173,7 +173,7 @@ export function Navbar() {
               </button>
             )}
             <nav className="bg-black p-2 text-[16px] text-zinc-200 mt-2">
-              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}>
+              <Link to="/" className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
               {navItems.map((item) => (
@@ -181,12 +181,12 @@ export function Navbar() {
                   key={item.label}
                   to={item.to}
                   className="ui-menu-link block rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
-                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
-              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}>
+              <Link to="/contact-us" className="ui-btn mt-3 w-full rounded-full bg-white px-4 py-2 text-[16px] font-medium text-black" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact Us
               </Link>
             </nav>
@@ -199,10 +199,6 @@ export function Navbar() {
 
 // EXPORT FOOTER SO IT CAN BE USED IN CARS.JSX TOO
 export function Footer() {
-  const handleLinkClick = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <footer className="mt-[99px] md:mt-[150px] bg-black">
       <div className="site-footer-shell text-white text-[14px]">
@@ -242,10 +238,10 @@ export function Footer() {
           <div>
             <p className="site-footer-label">Company</p>
             <div className="site-footer-links space-y-2 text-[14px]">
-              <Link to="/" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Home</Link>
-              <Link to="/about" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>About</Link>
-              <Link to="/cars" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Our Cars</Link>
-              <Link to="/finance" className="block transition-colors hover:text-zinc-300" onClick={handleLinkClick}>Finance</Link>
+              <Link to="/" className="block transition-colors hover:text-zinc-300">Home</Link>
+              <Link to="/about" className="block transition-colors hover:text-zinc-300">About</Link>
+              <Link to="/cars" className="block transition-colors hover:text-zinc-300">Our Cars</Link>
+              <Link to="/finance" className="block transition-colors hover:text-zinc-300">Finance</Link>
             </div>
           </div>
           <div>
@@ -271,11 +267,11 @@ export function Footer() {
           Indus Motor Group is a trading name of Indus Motors Limited, a company registered in Ireland. Company No. 790570. Registered office: Office 2, 12A Lower Main Street, Lucan, Dublin - Ireland
         </p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-          <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Privacy Policy</Link>
+          <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-zinc-300">Privacy Policy</Link>
           {' '}|{' '}
-          <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Cookie Policy</Link>
+          <Link to="/cookie-policy" className="underline underline-offset-2 hover:text-zinc-300">Cookie Policy</Link>
           {' '}|{' '}
-          <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300" onClick={handleLinkClick}>Terms & Conditions</Link>
+          <Link to="/terms-conditions" className="underline underline-offset-2 hover:text-zinc-300">Terms & Conditions</Link>
         </p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
@@ -285,13 +281,10 @@ export function Footer() {
     </footer>
   )
 }
-
 export default function Home() {
   const { cars: featuredCars, loading: carsLoading } = useCars({ featured: true })
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+
 
   const recentCars = useMemo(
     () =>
@@ -584,7 +577,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      
+
       {/* CTA Section */}
       <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px]">
         <img src={findYourCarImg} alt="Find your next car" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />

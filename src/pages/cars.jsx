@@ -9,9 +9,7 @@ import ourCarsHeroImg from '../images/ourcarspage-images/7fshAqoL1O3dFQK0x0MXpNn
 export default function Cars() {
     const { cars, loading, error } = useCars({ status: 'available' })
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+
     const [activeFilters, setActiveFilters] = useState({})
     const [sortBy, setSortBy] = useState('newest')
     const [showFilters, setShowFilters] = useState({})
@@ -443,7 +441,6 @@ export default function Cars() {
     </h2>
     <Link 
       to="/cars" 
-      onClick={() => window.scrollTo(0, 0)}
       className="ui-btn mt-5 inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[14px] font-medium text-black transition-transform hover:scale-[1.02]"
     >
       Browse Available Cars

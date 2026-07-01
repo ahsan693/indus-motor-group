@@ -12,11 +12,12 @@ function setVh() {
 setVh()
 window.addEventListener('resize', setVh)
 
+// Jump to the top of the page (no animation) on every route change.
 function ScrollToTop() {
-  const location = useLocation()
+  const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-  }, [location.pathname, location.hash])
+    window.scrollTo(0, 0)
+  }, [pathname])
   return null
 }
 

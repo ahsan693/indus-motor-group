@@ -1,4 +1,4 @@
-﻿import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import { Navbar, Footer } from './Home' 
 import { useCar } from '../hooks/useCar'
@@ -215,14 +215,7 @@ export default function Details() {
         setCurrentImageIndex(0)
     }, [carId, car?._id])
 
-    // Scroll to top when carId changes
-    useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        })
-    }, [carId])
+
 
     // Lock body scroll when lightbox is open
     useEffect(() => {

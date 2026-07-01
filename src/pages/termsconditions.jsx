@@ -1,12 +1,10 @@
-﻿import { useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
 import { Navbar, Footer } from './Home' 
 import termsCtaImg from '../images/privacypolicyimages/7fshAqoL1O3dFQK0x0MXpNnO8RU (2).webp'
 
 export default function TermsConditions() {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+
 
     return (
         <div className="min-h-screen bg-black text-zinc-300 iphone:text-[15px]">
