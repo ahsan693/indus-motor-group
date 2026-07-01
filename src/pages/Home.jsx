@@ -279,7 +279,7 @@ export function Footer() {
         </p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">© 2026 Indus Motors Limited. All rights reserved.</p>
         <p className="mt-2 text-[12px] sm:text-[13px] text-white md:text-[14px]">
-          Website by <a href="https://www.droplinemedia.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
+          Website by <a href="http://droplinemedia.ie" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-300">Dropline Media</a>
         </p>
       </div>
     </footer>
