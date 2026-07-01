@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Navbar } from './Home'
+import { Navbar, Footer } from './Home' 
 import warrantyHeroImg from '../images/warrantypage-images/QO39bC2hbcBpcVKCuwubY36DU.webp'
 import vehicleWarrantyImg from '../images/warrantypage-images/image 25.png'
 import stepOneImg from '../images/warrantypage-images/IL8Bx4obJa2x3WwpottYhJS6K8.webp'
