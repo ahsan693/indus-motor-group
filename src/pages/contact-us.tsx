@@ -312,6 +312,7 @@ export default function ContactUs() {
       </main>
 
     {/* ── Find Your Car CTA ── */}
+
 <section className="relative mx-auto mt-[99px] md:mt-[150px] h-[320px] w-full max-w-[1440px] sm:h-[420px] md:h-[600px] iphone:h-[200px]">
   <img
     src={findYourCarImg}
@@ -323,14 +324,17 @@ export default function ContactUs() {
   <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent"></div>
   <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 md:h-48 pointer-events-none bg-gradient-to-t from-black to-transparent"></div>
   <div className="hero-content-rise absolute inset-x-0 top-0 hero-shell pt-6 sm:pt-8 md:pt-10 iphone:pt-2">
-    <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[22px]">Ready To Get Started With Finance</h2>
-    <Link
-      to="/cars"
+    <h2 className="max-w-[420px] text-[22px] font-normal text-white md:text-[30px] iphone:text-[22px]">Ready To Find Your Next Vehicle?</h2>
+    
+    {/* Use an standard anchor tag to force the browser to jump to the form */}
+    <a
+      href="/finance#finance-application-form"
       className="ui-btn mt-5 inline-flex rounded-full bg-white px-6 py-2.5 text-[16px] font-medium text-black iphone:text-[14px] iphone:px-3 iphone:py-2 iphone:w-auto iphone:min-w-0 iphone:ml-0"
       style={{ justifyContent: 'flex-start' }}
     >
-      Start Application
-    </Link>
+      View Vehicles
+    </a>
+    
   </div>
 </section>
 
