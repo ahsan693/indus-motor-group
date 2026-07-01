@@ -259,7 +259,7 @@ export function Footer() {
           <div>
             <p className="site-footer-label">Get in Touch</p>
             <div className="site-footer-links space-y-2 text-[14px]">
-              <p>hello@indusmotorgroup.com</p>
+              <p>info@indusmotorgroup.ie</p>
               <p>+353 89 967 5410</p>
               <p className="text-white">Serving customers across Ireland</p>
             </div>
