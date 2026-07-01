@@ -160,14 +160,15 @@ export default function ContactUs() {
   </div>
 
   {/* Service Type */}
-  <div>
-    <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Service Type</label>
-    <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
-      <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
-      <option value="sales" className="bg-zinc-900">Car Sales</option>
-      <option value="service" className="bg-zinc-900">Service & Maintenance</option>
-    </select>
-  </div>
+ <div>
+  <label className="block text-xs text-zinc-400 mb-2 iphone:mb-2.5 font-medium iphone:text-sm">Service Type</label>
+  <select className="w-full bg-transparent border border-zinc-700 px-3 py-2 iphone:py-3 text-sm text-white focus:outline-none focus:border-white transition rounded appearance-none">
+    <option value="" className="bg-zinc-900 text-zinc-600">Select a service type</option>
+    <option value="warranty" className="bg-zinc-900">Warranty</option>
+    <option value="finance" className="bg-zinc-900">Finance</option>
+    <option value="sourcing" className="bg-zinc-900">Car Sourcing</option>
+  </select>
+</div>
 
   {/* Message */}
   <div className="flex flex-col h-full">
