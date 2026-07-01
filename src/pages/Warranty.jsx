@@ -244,17 +244,21 @@ export default function Warranty() {
                 </section>
 
                 {/* Section 5 — CTA */}
-                <section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center md:py-20">
-                    <h2 className="text-[22px] font-normal text-white md:text-[30px]">
-                        Drive Away With Confidence
-                    </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
-                        Warranty options are available on all vehicles to help protect your purchase.
-                    </p>
-                    <button className="mt-8 rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black">
-                        Ask About Warranty
-                    </button>
-                </section>
+<section className="motion-rise rounded-2xl bg-zinc-950 py-14 text-center md:py-20">
+    <h2 className="text-[22px] font-normal text-white md:text-[30px]">
+        Drive Away With Confidence
+    </h2>
+    <p className="mx-auto mt-4 max-w-xl text-[16px] leading-7 text-zinc-400 md:text-[18px] iphone:text-[13px]">
+        Warranty options are available on all vehicles to help protect your purchase.
+    </p>
+    <Link 
+        to="/contact-us" 
+        onClick={() => window.scrollTo(0, 0)}
+        className="ui-btn mt-8 inline-flex rounded-full bg-white px-6 py-2.5 text-[15px] font-medium text-black transition-transform hover:scale-[1.02]"
+    >
+        Ask About Warranty
+    </Link>
+</section>
 
             </main>
 
